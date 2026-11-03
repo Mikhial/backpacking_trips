@@ -169,3 +169,37 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .sw { display: inline-block; border-radius: 2px; }
   #pngOut { display: flex; flex-direction: column; gap: 8px; }
   #pngOut img { width: 100%; max-width: 100%; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+
+/* ---------- Trail map (trip pages) ---------- */
+.trailmap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+.tm-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.tm-head h2 { margin: 0; font-size: 19px; }
+.tm-map { height: 520px; border-radius: 6px; border: 1px solid var(--line); background: #eef0ea; z-index: 0; }
+@media (max-width: 860px) { .tm-map { height: 380px; } }
+.tm-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+.tm-legend span { display: flex; align-items: center; gap: 6px; }
+.tm-legend .ln { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid #c2412d; }
+.tm-legend .ln.road { border-top: 2.5px dashed #8a5a2b; }
+.tm-legend .ln.closed { border-top: 2.5px dotted #c2412d; opacity: .6; }
+.tm-legend .ln.bnd { border-top: 2px dashed #2d6a1f; opacity: .7; }
+.tm-poi { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); display: inline-block; }
+.tm-poi.trailhead { background: #1c211a; border-radius: 2px; }
+.tm-poi.camp { background: #5a9a2a; }
+.tm-poi.peak { background: #8a5a2b; border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); box-shadow: none; border: 0; }
+.tm-poi.water { background: #3d8fd6; }
+.tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
+.tm-info b { color: var(--fg); font-weight: 600; }
+.tm-info span { font-variant-numeric: tabular-nums; }
+.tm-info .tm-x { color: var(--warn-fg); background: var(--warn-bg); padding: 0 8px; border-radius: 999px; font-size: 12px; }
+.tm-prof svg { display: block; width: 100%; height: auto; overflow: visible; font-size: 11px; touch-action: none; }
+.tm-prof .g { stroke: var(--grid); }
+.tm-prof .yl { fill: var(--faint); text-anchor: end; font-variant-numeric: tabular-nums; }
+.tm-prof .xl { fill: var(--faint); text-anchor: middle; font-variant-numeric: tabular-nums; }
+.tm-prof .area { fill: var(--fix); fill-opacity: .12; }
+.tm-prof .ln { fill: none; stroke: var(--fix); stroke-width: 1.8; stroke-linejoin: round; }
+.tm-prof .cur { stroke: var(--fg); stroke-opacity: .4; }
+.tm-prof .cd { fill: var(--fix); stroke: var(--surface); stroke-width: 1.5; }
+.tm-prof .ct { fill: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.leaflet-tooltip.tm-tip { font: 12px/1.35 var(--sans); padding: 4px 8px; border-radius: 5px; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+.leaflet-tooltip.tm-tip span { color: #8b9286; margin-left: 4px; }
+.leaflet-container { font-family: var(--sans); }

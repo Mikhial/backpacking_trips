@@ -7,6 +7,7 @@ const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy({ 'node_modules/leaflet/dist': 'assets/vendor/leaflet' });
   eleventyConfig.ignores.add('README.md');
   eleventyConfig.ignores.add('trips/_template.md');
   eleventyConfig.ignores.add('node_modules/**');
@@ -36,6 +37,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('peakStart', item => { const ss = chartFor(item).seasons; return ((ss.find(x => x.type === 'peak') || ss[0]) || {}).start || '99'; });
   // Rough sort key for "Getting there": hours, with flights sorted after drives
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
+  eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   eleventyConfig.addFilter('onlyPage', (items, inputPath) => items.filter(i => i.inputPath === inputPath));
   eleventyConfig.addFilter('reasonLabel', k => REASONS[k] || k);
   eleventyConfig.addFilter('dots', n => [1, 2, 3].map(i => `<i class="${i > (n || 0) ? 'o' : ''}"></i>`).join(''));
