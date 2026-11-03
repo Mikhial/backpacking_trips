@@ -69,14 +69,17 @@
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
     });
 
-    // Your routes: always shown, on top, in blue with a white edge
+    // Your routes: hidden until turned on (from the buttons above the map or the notes), then on top in blue with a white edge
     const routeLines = extras.routes.map(r => {
       const t = { ...r, k: 'route' };
       const ll = r.p.map(p => [p[0], p[1]]);
-      L.polyline(ll, { renderer, color: '#fff', weight: 6, opacity: .9, interactive: false }).addTo(map);
+      const halo = L.polyline(ll, { renderer, color: '#fff', weight: 6, opacity: .9, interactive: false });
       const style = { renderer, color: '#1f5fa8', weight: 3, opacity: .95, dashArray: null };
-      const line = L.polyline(ll, style).addTo(map);
-      line.trail = t; line.base = style;
+      const line = L.polyline(ll, style);
+      line.trail = t; line.base = style; line.halo = halo;
+      // light-blue preview while hovering the route's button above the map
+      // same width as the route line, in magenta (light blue looked like water), no white edge
+      line.preview = L.polyline(ll, { renderer, color: '#c0399e', weight: style.weight, opacity: 1, interactive: false });
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: 5 }); });
       line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: 3 }); else if (hoverAt) hoverAt(null); });
@@ -84,16 +87,49 @@
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
       return line;
     });
+    // Turn a route on (draw it, zoom to it, open its profile) or off
+    const isOn = line => map.hasLayer(line);
+    const setOn = (line, on) => {
+      if (on === isOn(line)) return;
+      if (on) { line.preview.remove(); line.halo.addTo(map); line.addTo(map); }
+      else { if (line === selected) select(null); line.remove(); line.halo.remove(); }
+    };
+    // from the buttons above the map: turn one route on or off, keeping the current view
+    // from the notes (solo): show only this route and zoom to it
+    const toggle = (line, solo) => {
+      const on = !isOn(line);
+      if (on && solo) routeLines.forEach(l => { if (l !== line) setOn(l, false); });
+      setOn(line, on);
+      if (on) { select(line); if (solo) map.fitBounds(line.getBounds(), { padding: [24, 24] }); }
+      document.querySelectorAll('.notes .rt-show, .tm-routes button').forEach(b => {
+        const l = routeLines[+(b.dataset.route ?? b.dataset.i)], pressed = !!l && isOn(l);
+        b.setAttribute('aria-pressed', String(pressed));
+        b.title = pressed ? 'Hide from map' : 'Show on map';
+      });
+      box.querySelector('.tm-has-routes').hidden = !routeLines.some(isOn);
+      return on;
+    };
+    // Links in the notes that match a route get a "Map" toggle
+    const noteLink = i => document.querySelector(`.notes a[data-route="${i}"]`);
+    routeLines.forEach((l, i) => { const a = noteLink(i); if (a) l.trail.url = a.href; });
+    document.querySelectorAll('.notes .rt-show').forEach(b => {
+      const line = routeLines[+b.dataset.route]; if (!line) { b.remove(); return; }
+      b.addEventListener('click', () => { if (toggle(line, true)) box.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    });
     const list = box.querySelector('.tm-routes');
     if (routeLines.length) {
       list.hidden = false;
-      box.querySelector('.tm-has-routes').hidden = false;
       list.innerHTML = '<span class="tm-rl">Your routes</span>' + routeLines.map((l, i) =>
-        `<button type="button" data-i="${i}">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
+        `<button type="button" data-i="${i}" aria-pressed="false" title="Show on map">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
       list.addEventListener('click', e => {
         const b = e.target.closest('button'); if (!b) return;
+        const line = routeLines[+b.dataset.i]; line.preview.remove(); toggle(line);
+      });
+      // hover a button: the route in fainter blue until the pointer leaves
+      list.querySelectorAll('button').forEach(b => {
         const line = routeLines[+b.dataset.i];
-        select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] });
+        b.addEventListener('mouseenter', () => { if (!isOn(line)) line.preview.addTo(map); });
+        b.addEventListener('mouseleave', () => line.preview.remove());
       });
     }
 
@@ -123,7 +159,7 @@
       const on = map.getZoom() >= detailZoom;
       on ? detail.addTo(map) : detail.remove();
       box.classList.toggle('tm-zoomed', on);
-      routeLines.forEach(l => l.bringToFront());
+      routeLines.forEach(l => { if (isOn(l)) { l.halo.bringToFront(); l.bringToFront(); } });
       if (selected) selected.bringToFront();
     };
     map.on('zoomend', toggleDetail); toggleDetail();
@@ -141,6 +177,14 @@
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     map.on('click', () => select(null));
+    info.addEventListener('click', e => {
+      const a = e.target.closest('.tm-tonote'); if (!a) return;
+      const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
+      e.preventDefault();
+      const li = n.closest('li, p') || n;
+      li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      li.classList.remove('rt-flash'); void li.offsetWidth; li.classList.add('rt-flash');
+    });
 
     function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }
     function label(t) {
@@ -150,15 +194,17 @@
 
     function select(line) {
       if (selected) { selected.setStyle(selected.base); }
-      if (!line) list.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'false'));
       selected = line;
       if (hoverDot) { hoverDot.remove(); hoverDot = null; }
       hoverAt = null;
       if (!line) { info.innerHTML = box.dataset.hint; prof.innerHTML = ''; prof.hidden = true; return; }
       line.setStyle({ color: '#1f5fa8', weight: 5, opacity: 1, dashArray: null });
       line.bringToFront();
-      list.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(routeLines[+b.dataset.i] === line)));
-      const t = line.trail, gpx = t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '';
+      const t = line.trail, i = routeLines.indexOf(line);
+      const site = t.url ? (/alltrails\.com/.test(t.url) ? 'AllTrails' : new URL(t.url).hostname.replace(/^www\./, '')) : '';
+      const gpx = (t.url ? ` <a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(site)} ↗</a>` : '') +
+        (t.url ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
+        (t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '');
       if (!hasEle(t)) {
         info.innerHTML = `<b>${name(t)}</b><span>${mi(t.len)} mi</span><span class="hint">No elevation in this GPX file</span>${gpx}`;
         prof.innerHTML = ''; prof.hidden = true; return;

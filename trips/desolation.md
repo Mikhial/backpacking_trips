@@ -12,6 +12,11 @@ trailheads:
   Eagle Falls Trailhead: 38.9520, -120.1133
   Twin Lakes Trailhead: 38.8504, -120.2263
   Meeks Bay Trailhead: 39.0374, -120.1265
+routes:
+  Genevieve and Stony Ridge Lakes, Phipps Peak, PCT loop: tracks/desolation-genevieve-phipps-loop.gpx
+  Rockbound Pass, Lake Schmidell, Horseshoe Lake loop: tracks/desolation-rockbound-schmidell-loop.gpx
+  Lake Aloha, Rubicon Trail, PCT, Dicks Pass central loop: tracks/desolation-aloha-dicks-pass-loop.gpx
+  Big double loop: tracks/desolation-double-loop.gpx
 links:
   Exploring Wild guide: https://exploringwild.com/backpacking-desolation-wilderness
 

@@ -221,3 +221,11 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-plan { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; font-size: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
 .tm-plan .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .tm-plan.solo { border-top: 0; padding-top: 0; }
+
+/* "Map" toggle after a route link in the notes: shows or hides that route on the trail map */
+.notes .rt-show { display: inline-flex; align-items: center; gap: 5px; vertical-align: 1px; margin-left: 6px; padding: 0 8px; height: 20px; font: 500 12px/1 var(--sans); color: var(--fix); background: none; border: 1px solid color-mix(in srgb, var(--fix) 45%, transparent); border-radius: 999px; cursor: pointer; }
+.notes .rt-show i { display: block; width: 12px; height: 0; border-top: 2.5px solid currentColor; border-radius: 2px; }
+.notes .rt-show:hover { background: color-mix(in srgb, var(--fix) 10%, transparent); }
+.notes .rt-show[aria-pressed="true"] { background: var(--fix); border-color: var(--fix); color: var(--surface); }
+.notes .rt-flash { animation: rt-flash 1.6s ease-out; border-radius: 4px; }
+@keyframes rt-flash { from { background: color-mix(in srgb, var(--fix) 18%, transparent); } to { background: transparent; } }
