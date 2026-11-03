@@ -6,6 +6,14 @@ order: 1
 summary: Granite basins and 100+ alpine lakes west of Lake Tahoe
 updated: 2026-10-16
 map: Desolation Wilderness
+trailheads:
+  Ralston Peak Trailhead: 38.8040, -120.1174
+  Bayview Trailhead: 38.9436, -120.1001
+  Eagle Falls Trailhead: 38.9520, -120.1133
+  Twin Lakes Trailhead: 38.8504, -120.2263
+  Meeks Bay Trailhead: 39.0374, -120.1265
+links:
+  Exploring Wild guide: https://exploringwild.com/backpacking-desolation-wilderness
 
 facts:
   Getting there: 3–4 hr drive to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake
