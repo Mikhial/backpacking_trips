@@ -105,6 +105,8 @@ June–September is the best time to visit; July to early September is peak.
 - **August**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
 - **September**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
 
+Source: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
+
 ## Other
 
 - **Fires**: campfires prohibited; stoves only (the wilderness permit covers stove use).
