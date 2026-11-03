@@ -62,6 +62,12 @@ export default function (eleventyConfig) {
     const date = d instanceof Date ? d : new Date(d);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   });
+  // Links to other sites open in a new tab (trip notes, planning links, Edit on GitHub)
+  eleventyConfig.addTransform('externalLinks', function (content) {
+    if (!(this.page.outputPath || '').endsWith('.html')) return content;
+    return content.replace(/<a\s(?![^>]*\btarget=)([^>]*\bhref="https?:\/\/[^"]*"[^>]*)>/g,
+      (m, attrs) => `<a ${attrs} target="_blank" rel="noopener">`);
+  });
   eleventyConfig.addFilter('editUrl', inputPath =>
     site.repo ? `https://github.com/${site.repo}/edit/${site.branch}/${inputPath.replace(/^\.\//, '')}` : '');
 }

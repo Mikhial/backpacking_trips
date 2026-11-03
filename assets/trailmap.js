@@ -21,10 +21,15 @@
   function draw(data) {
     const map = L.map(mapEl, { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.5 });
     map.on('focus', () => map.scrollWheelZoom.enable());
+    // Credit links Leaflet adds itself (e.g. "Leaflet") also open in a new tab
+    mapEl.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="http"]');
+      if (a) { a.target = '_blank'; a.rel = 'noopener'; }
+    }, true);
     mapEl.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
     L.tileLayer(box.dataset.tiles || 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 16, maxNativeZoom: +(box.dataset.tileZoom || 16),
-      attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map">USGS</a> · Trails: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS</a> · Trails: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
 
