@@ -52,10 +52,12 @@
     const overview = L.layerGroup().addTo(map), detail = L.layerGroup();
     const color = { trail: '#b5462f', road: '#8a6a4b' };
     let selected = null, hoverDot = null, hoverAt = null;
-    trails.forEach(t => {
-      const main = !!t.n && t.k === 'trail';
+    // Long-distance trails (PCT, Tahoe Rim Trail…) are drawn last, thicker and darker
+    const isBig = t => !!t.b && t.k === 'trail' && !t.x;
+    trails.slice().sort((a, b) => isBig(a) - isBig(b)).forEach(t => {
+      const big = isBig(t), main = big || (!!t.n && t.k === 'trail');
       const style = {
-        renderer, color: color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : main ? .85 : .55,
+        renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
       };
       const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(main ? overview : detail);
@@ -142,7 +144,7 @@
 
     function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }
     function label(t) {
-      return `<b>${name(t)}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}${t.k === 'route' ? ' <span>Your route</span>' : ''}`;
+      return `<b>${name(t)}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}${t.k === 'route' ? ' <span>Your route</span>' : ''}${isBig(t) ? ` <span>${t.b.map(esc).join(' · ')}</span>` : ''}`;
     }
     function hasEle(t) { return t.p.every(p => Number.isFinite(p[2])); }
 

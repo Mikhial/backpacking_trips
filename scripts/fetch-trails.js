@@ -138,6 +138,21 @@ async function fetchArea(name) {
       node["amenity"="drinking_water"]; node["natural"="spring"]; );
     out geom tags;`);
 
+  // Long-distance trails: ways in an international, national or regional hiking route (PCT, Tahoe Rim Trail…)
+  const routes = await overpass(`[out:json][timeout:90][bbox:${box}];
+    rel["route"~"^(hiking|foot)$"]["network"~"^(iwn|nwn|rwn)$"];
+    out body;`);
+  const bigOf = new Map(); // way id -> route names
+  for (const r of routes.elements) {
+    const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim(); // "PCT - California Section K" -> "PCT"
+    if (!rn) continue;
+    for (const m of r.members || []) if (m.type === 'way') {
+      const list = bigOf.get(m.ref) || [];
+      if (!list.includes(rn)) list.push(rn);
+      bigOf.set(m.ref, list);
+    }
+  }
+
   // Boundary outline (outer rings only)
   const outer = [];
   for (const el of boundary.elements) {
@@ -161,8 +176,9 @@ async function fetchArea(name) {
     const closed = /^(yes|true)$/.test(t.abandoned || '') || /^(yes|true)$/.test(t.disused || '') || !!t['abandoned:highway'] || t.access === 'no';
     const nm = t.name || t.ref || '';
     const kind = t.highway === 'track' ? 'road' : 'trail';
-    const k = nm ? `${nm}|${kind}|${closed}` : `#${el.id}`;
-    if (!groups.has(k)) groups.set(k, { n: nm, k: kind, x: closed, lines: [] });
+    const big = (bigOf.get(el.id) || []).sort();
+    const k = nm ? `${nm}|${kind}|${closed}|${big.join(',')}` : `#${el.id}`;
+    if (!groups.has(k)) groups.set(k, { n: nm, k: kind, x: closed, b: big, lines: [] });
     groups.get(k).lines.push(el.geometry.map(p => [p.lat, p.lon]));
   }
 
@@ -172,7 +188,7 @@ async function fetchArea(name) {
       if (line.length < 2) continue;
       const pr = await profile(line);
       if (!g.n && pr.len < 150) continue; // drop tiny unnamed spurs
-      trails.push({ n: g.n, k: g.k, ...(g.x ? { x: 1 } : {}), ...pr });
+      trails.push({ n: g.n, k: g.k, ...(g.x ? { x: 1 } : {}), ...(g.b.length ? { b: g.b } : {}), ...pr });
     }
   }
   // Unnamed tracks are usually roads; keep unnamed paths and all named lines
