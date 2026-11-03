@@ -1,0 +1,51 @@
+# Downloads trail map data for trips with a `map:` line, commits it, and republishes the site.
+# Runs whenever a trip file changes. Can also be run by hand from the Actions tab
+# (tick "Refetch every map" to refresh all of them).
+name: Fetch trail maps
+
+on:
+  push:
+    paths: ['trips/*.md', 'scripts/fetch-trails.js']
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Refetch every map
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: trail-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Fetch trail data
+        run: node scripts/fetch-trails.js ${{ inputs.force && '--force' || '' }}
+      - name: Commit changes
+        id: commit
+        run: |
+          git add -A assets/trails
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update trail map data"
+          git pull --rebase
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Republish the site
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

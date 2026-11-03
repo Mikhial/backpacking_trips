@@ -5,6 +5,7 @@ region: Sierra Nevada
 order: 1
 summary: Granite basins and 100+ alpine lakes west of Lake Tahoe
 updated: 2026-10-16
+map: Desolation Wilderness
 
 facts:
   Getting there: 3–4 hr drive to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake

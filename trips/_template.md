@@ -9,6 +9,7 @@ order: 5                  # optional: position within the region
 summary: One line about what makes this trip special
 status: ""                # optional, e.g. "Closed through Jan 31, 2027"
 updated: 2026-11-03       # when you last updated your research
+map: Example Wilderness   # optional: park or wilderness name as on openstreetmap.org; adds a trail map
 
 # Quick facts box. Labels are up to you; "Getting there" and "Distance" also appear on the trips list.
 facts:
