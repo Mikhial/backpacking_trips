@@ -4,6 +4,22 @@ region: Bay Area
 order: 1
 summary: Grassy ridges and oak canyons on a 28-mile point-to-point
 updated: 2026-10-16
+map: Ohlone Regional Wilderness Preserve
+map_trails: route only
+trailheads:
+  Mission Peak: 37.50433, -121.90814
+  Del Valle: 37.57614, -121.69351
+camps:
+  Maggie's: 37.51333, -121.72633
+  Sky Camp: 37.51043, -121.79434
+  Cathedral: 37.51093, -121.79678
+  Oak View: 37.50925, -121.79688
+  Star's Rest: 37.51313, -121.79256
+  Eagle's Aerie: 37.51104, -121.79237
+  Sycamore: 37.51283, -121.79393
+  Hawk's Nest: 37.51169, -121.79295
+routes:
+  Mission Peak to Del Valle: tracks/ohlone-mission-peak-to-del-valle.gpx
 
 facts:
   Getting there: 45 min–1.5 hr drive, plus 45 min Uber to the other end
@@ -44,7 +60,7 @@ permit:
 
 ## Route
 
-[Mission Peak to Del Valle](https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak), 28 miles point to point.
+[Mission Peak to Del Valle](https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak): Point to point.
 
 - Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)

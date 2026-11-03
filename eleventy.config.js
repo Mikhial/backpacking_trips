@@ -42,9 +42,10 @@ export default function (eleventyConfig) {
   // Rough sort key for "Getting there": hours, with flights sorted after drives
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
-  // Your own trailheads and GPX routes from the trip header, ready for the trail map
+  // Your own trailheads, camps and GPX routes from the trip header, ready for the trail map
   eleventyConfig.addFilter('mapExtras', data => {
-    const trailheads = Object.entries(data.trailheads || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
+    const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
+    const trailheads = places(data.trailheads), camps = places(data.camps);
     const routes = Object.entries(data.routes || {}).map(([n, file]) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
@@ -52,7 +53,7 @@ export default function (eleventyConfig) {
       const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
       return { n, file, p, ...stats };
     });
-    return (trailheads.length || routes.length) ? JSON.stringify({ trailheads, routes }).replace(/</g, '\\u003c') : '';
+    return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
   });
   // A link in the notes whose text matches a route name becomes a route line: the link, then
   // distance, gain and elevation range measured from the GPX file, then a "show on map" toggle.
