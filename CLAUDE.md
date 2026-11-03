@@ -2,6 +2,14 @@
 
 Mike's backpacking research site. Eleventy, published to GitHub Pages at https://mikhial.github.io/backpacking_trips/ by `.github/workflows/deploy.yml` on every push to `main`. The README explains the trip-file format; read it before editing trips.
 
+## How to make changes (always follow this)
+
+1. Make changes on a new branch. Never push to `main` (merging to main publishes the site).
+2. Run `npm run build` to check the trip files and build the site.
+3. Publish the built site as a private preview artifact Mike can click through. It's a multi-page site, so make sure links between pages and the CSS/JS work in the preview. The normal build uses root-relative paths with a `/backpacking_trips/` prefix, which won't work in a preview hosted elsewhere.
+4. Tell Mike which pages changed, then wait for his OK. Apply follow-up changes to the same branch and update the same preview.
+5. When he approves, open a pull request with a short summary. Mike merges it himself.
+
 ## How Mike works
 
 - He edits trip files himself on github.com, so the header format must stay simple and readable. Don't add fields that need code to understand.
