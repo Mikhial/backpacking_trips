@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 import { normalizeTrip } from '../lib/normalize.js';
+import { parseGpx } from '../lib/geo.js';
 
 const site = JSON.parse(fs.readFileSync('_data/site.json', 'utf8'));
 const dir = 'trips';
@@ -23,6 +24,12 @@ for (const f of files) {
     continue;
   }
   problems.push(...normalizeTrip(data, file, site.regions).errors);
+  for (const [name, gpx] of Object.entries(data.routes && typeof data.routes === 'object' ? data.routes : {})) {
+    const p = String(gpx).trim();
+    if (!/^tracks\//.test(p)) continue;
+    if (!fs.existsSync(p)) problems.push(`${file} routes "${name}": can't find ${p}. Upload the GPX file to the tracks folder.`);
+    else if (parseGpx(fs.readFileSync(p, 'utf8')).length < 2) problems.push(`${file} routes "${name}": ${p} has no track points. Export it as a GPX track.`);
+  }
 }
 
 if (problems.length) {

@@ -1,17 +1,22 @@
 import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import { normalizeTrip, bestSeason, REASONS } from './lib/normalize.js';
+import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy({ 'node_modules/leaflet/dist': 'assets/vendor/leaflet' });
+  eleventyConfig.addPassthroughCopy('tracks');
   eleventyConfig.ignores.add('README.md');
+  eleventyConfig.ignores.add('CLAUDE.md');
   eleventyConfig.ignores.add('trips/_template.md');
   eleventyConfig.ignores.add('node_modules/**');
   eleventyConfig.ignores.add('scripts/**');
   eleventyConfig.ignores.add('lib/**');
+  eleventyConfig.ignores.add('tracks/**');
 
   // All trips, in region order, then by "order", then by name
   eleventyConfig.addCollection('trips', api => {
@@ -36,6 +41,19 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('peakStart', item => { const ss = chartFor(item).seasons; return ((ss.find(x => x.type === 'peak') || ss[0]) || {}).start || '99'; });
   // Rough sort key for "Getting there": hours, with flights sorted after drives
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
+  eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
+  // Your own trailheads and GPX routes from the trip header, ready for the trail map
+  eleventyConfig.addFilter('mapExtras', data => {
+    const trailheads = Object.entries(data.trailheads || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
+    const routes = Object.entries(data.routes || {}).map(([n, file]) => {
+      file = String(file).trim();
+      const pts = parseGpx(fs.readFileSync(file, 'utf8'));
+      const stats = measure(pts);
+      const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
+      return { n, file, p, ...stats };
+    });
+    return (trailheads.length || routes.length) ? JSON.stringify({ trailheads, routes }).replace(/</g, '\\u003c') : '';
+  });
   eleventyConfig.addFilter('onlyPage', (items, inputPath) => items.filter(i => i.inputPath === inputPath));
   eleventyConfig.addFilter('reasonLabel', k => REASONS[k] || k);
   eleventyConfig.addFilter('dots', n => [1, 2, 3].map(i => `<i class="${i > (n || 0) ? 'o' : ''}"></i>`).join(''));
