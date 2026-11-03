@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy({ 'node_modules/leaflet/dist': 'assets/vendor/leaflet' });
   eleventyConfig.ignores.add('README.md');
+  eleventyConfig.ignores.add('CLAUDE.md');
   eleventyConfig.ignores.add('trips/_template.md');
   eleventyConfig.ignores.add('node_modules/**');
   eleventyConfig.ignores.add('scripts/**');
