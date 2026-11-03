@@ -181,7 +181,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .ln { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid #c2412d; }
 .tm-legend .ln.road { border-top: 2.5px dashed #8a5a2b; }
 .tm-legend .ln.closed { border-top: 2.5px dotted #c2412d; opacity: .6; }
-.tm-legend .ln.bnd { border-top: 2px dashed #2d6a1f; opacity: .7; }
+.tm-legend .ln.bnd { border-top: 2.5px dashed #3b2f5c; opacity: .75; }
 .tm-poi { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); display: inline-block; }
 .tm-poi.trailhead { background: #1c211a; border-radius: 2px; }
 .tm-poi.camp { background: #5a9a2a; }

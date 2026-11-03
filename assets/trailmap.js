@@ -22,7 +22,7 @@
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
 
-    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#2d6a1f', weight: 2, opacity: .55, dashArray: '6 5', interactive: false }).addTo(map));
+    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2.5, opacity: .7, dashArray: '8 6', interactive: false }).addTo(map));
 
     const color = { trail: '#c2412d', road: '#8a5a2b' };
     let selected = null, hoverDot = null, hoverAt = null;
@@ -44,13 +44,20 @@
 
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
+    const peaks = L.layerGroup();
     data.pois.forEach(p => {
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(map);
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'peak' ? peaks : map);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
     });
 
     map.fitBounds(data.bounds, { padding: [8, 8] });
+    // peaks only once zoomed in, to keep the overview uncluttered
+    const peakZoom = Math.ceil(map.getZoom()) + 1;
+    const togglePeaks = () => map.getZoom() >= peakZoom ? peaks.addTo(map) : peaks.remove();
+    map.on('zoomend', togglePeaks); togglePeaks();
+    let lastW = prof.clientWidth;
+    window.addEventListener('resize', () => { if (selected && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     map.on('click', () => select(null));
 
     function label(t) {
@@ -79,19 +86,19 @@
       const d = [0];
       for (let k = 1; k < t.p.length; k++) d.push(d[k - 1] + map.distance(t.p[k - 1], t.p[k]));
       const total = d[d.length - 1] || 1;
-      const W = prof.clientWidth || 600, H = 120, padL = 44, padR = 8, padT = 8, padB = 20;
+      const W = prof.clientWidth || 600, H = W < 500 ? 100 : 120, padL = 44, padR = 8, padT = 12, padB = 20;
       const loF = lo * M_TO_FT, hiF = hi * M_TO_FT;
       const span = Math.max(200, hiF - loF), y0 = Math.floor((loF - span * .1) / 100) * 100, y1 = Math.ceil((hiF + span * .1) / 100) * 100;
       const X = m => padL + m / total * (W - padL - padR), Y = ft => padT + (1 - (ft - y0) / (y1 - y0)) * (H - padT - padB);
       const pts = t.p.map((p, k) => `${X(d[k]).toFixed(1)},${Y(p[2] * M_TO_FT).toFixed(1)}`);
       const step = niceStep((y1 - y0) / 3), ticks = [];
       for (let v = Math.ceil(y0 / step) * step; v <= y1; v += step) ticks.push(v);
-      const xStep = niceStep(total * M_TO_MI / 5), xt = [];
+      const xStep = niceStep(total * M_TO_MI / (W < 500 ? 3 : 5)), xt = [];
       for (let v = 0; v <= total * M_TO_MI + 1e-9; v += xStep) xt.push(v);
       prof.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Elevation profile">
         ${ticks.map(v => `<line class="g" x1="${padL}" x2="${W - padR}" y1="${Y(v)}" y2="${Y(v)}"/><text class="yl" x="${padL - 6}" y="${Y(v) + 4}">${fmt(v)}</text>`).join('')}
-        ${xt.map(v => `<text class="xl" x="${X(v / M_TO_MI)}" y="${H - 5}">${+v.toFixed(1)}</text>`).join('')}
-        <text class="xl" x="${W - padR}" y="${H - 5}" text-anchor="end">mi</text>
+        ${xt.map(v => `<text class="xl" x="${X(v / M_TO_MI)}" y="${H - 5}">${+v.toFixed(1)}${v === xt[xt.length - 1] ? ' mi' : ''}</text>`).join('')}
+        <text class="yl" x="${padL - 6}" y="${padT - 1}">ft</text>
         <polygon class="area" points="${X(0)},${Y(y0)} ${pts.join(' ')} ${X(total)},${Y(y0)}"/>
         <polyline class="ln" points="${pts.join(' ')}"/>
         <line class="cur" x1="0" x2="0" y1="${padT}" y2="${H - padB}" visibility="hidden"/>
