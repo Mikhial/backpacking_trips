@@ -186,7 +186,7 @@
         ct.textContent = `${(d[k] * M_TO_MI).toFixed(1)} mi · ${fmt(t.p[k][2] * M_TO_FT)} ft`;
         const right = x > W - 130;
         ct.setAttribute('x', right ? x - 6 : x + 6); ct.setAttribute('text-anchor', right ? 'end' : 'start');
-        if (!hoverDot) hoverDot = L.circleMarker(t.p[k], { radius: 6, color: '#fff', weight: 2, fillColor: css('--fix') || '#1f5fa8', fillOpacity: 1, interactive: false }).addTo(map);
+        if (!hoverDot) hoverDot = L.circleMarker(t.p[k], { renderer, radius: 6, color: '#fff', weight: 2, fillColor: css('--fix') || '#1f5fa8', fillOpacity: 1, interactive: false }).addTo(map);
         else hoverDot.setLatLng(t.p[k]);
       };
       const hide = () => { [cur, cd, ct].forEach(el => el.setAttribute('visibility', 'hidden')); if (hoverDot) { hoverDot.remove(); hoverDot = null; } };
