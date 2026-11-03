@@ -19,10 +19,13 @@ function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;'
 const laneY = i => LANE0 + i * LANE;
 
 /* Labels for shoulder-season reasons */
+// label: full wording (bar tooltip). short: the side text, which has little room
 const ICONS = {
-  hot: { label: 'Hot' }, dry: { label: 'Dry, little water' }, rain: { label: 'Rain' }, cold: { label: 'Cold' },
-  wind: { label: 'Windy' }, fog: { label: 'Fog' }, wet: { label: 'Wet trails' }, bugs: { label: 'Bugs' },
-  snow: { label: 'Snow' }, water: { label: 'High water, flooding' }, crowds: { label: 'Crowds' }
+  hot: { label: 'Hot', short: 'hot' }, dry: { label: 'Dry, little water', short: 'dry' }, rain: { label: 'Rain', short: 'rain' },
+  cold: { label: 'Cold', short: 'cold' }, wind: { label: 'Windy', short: 'windy' }, fog: { label: 'Fog', short: 'fog' },
+  wet: { label: 'Wet trails', short: 'wet' }, bugs: { label: 'Bugs', short: 'bugs' }, snow: { label: 'Snow', short: 'snow' },
+  water: { label: 'High water, flooding', short: 'high water' }, crowds: { label: 'Crowds', short: 'crowds' },
+  smoke: { label: 'Wildfire smoke', short: 'smoke' }
 };
 
 function relOf(r) {
@@ -151,8 +154,9 @@ function show(ri, x) {
     document.querySelectorAll(`#ln${ri}_${i} .bd`).forEach(b => b.classList.remove('dim'));
   });
   const se = t.seasons.find(q => x >= q.a && x <= q.b), sw = document.getElementById('sw' + ri);
-  sw.innerHTML = !se ? '' : se.type === 'peak' ? '<b class="pk">Peak season</b>'
-    : '<b class="sh">Shoulder</b>' + (se.tags.length ? ' · ' + se.tags.map(k => (ICONS[k]?.label || k).toLowerCase()).join(', ') : '');
+  const why = se ? se.tags.map(k => ICONS[k]?.short || k).join(', ') : '';
+  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + (why ? ' · ' + esc(why) : '');
+  sw.title = se ? se.tags.map(k => ICONS[k]?.label || k).join(', ') : '';
   if (!active) { cn.innerHTML = ''; dy.innerHTML = ''; return; }
   let s = '', h = `<div class="trip" style="left:${P(x)}%"></div><div class="tl" style="top:28px;left:${P(x)}%;${x > 10 ? 'transform:translateX(-100%);margin-left:-5px' : 'margin-left:5px'}">${fmt(x)} trip</div>`;
   const link = (bx, y) => {

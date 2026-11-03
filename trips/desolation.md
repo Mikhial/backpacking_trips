@@ -28,10 +28,11 @@ facts:
 
 seasons:
   - shoulder: Jun 1 – Jun 30
-    why: [wet, bugs]
+    why: [wet, bugs, snow, water]
   - peak: Jul 1 – Sep 10
+    why: [bugs, smoke]
   - shoulder: Sep 11 – Sep 30
-    why: [cold]
+    why: [cold, snow]
 
 permit:
   note: 6 months before, walk-up
@@ -97,7 +98,7 @@ Wrights Lake area construction in 2026 may temporarily close the Rockbound and T
 
 ## When to go
 
-Mid-July to early October; snowed in roughly Nov–Jun.
+June–September is the best time to visit; July to early September is peak.
 
 - **June**: feasible in low-snow years. Keep an eye on snow levels and be prepared to turn back. Expect wet trails, more mosquitoes, harder water crossings and snowfields. The east side is safer since it's more popular and well trodden.
 - **July**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.

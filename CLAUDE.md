@@ -29,7 +29,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - The previous year is shown left of the trip year: Oct–Dec at full scale, Jan–Sep squeezed into a narrow hatched strip.
 - "Today" lines are subtle dashed lines; the previous-year one only shows when today falls in Oct–Dec.
 - Permit difficulty dots (0–3) are right-aligned after the trip name, with the reason in a tooltip.
-- Shoulder reasons (`why`) appear only as text on hover, never as icons on the bars.
+- Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
 - Create PNG renders the compact view for pasting into Google Docs.
 
 ## Open questions in the research

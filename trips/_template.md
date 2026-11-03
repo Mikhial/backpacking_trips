@@ -29,7 +29,7 @@ facts:
   Food storage: Bear canister required
 
 # Seasons on the chart. Each line starts with peak: or shoulder:, then a date range.
-# "why" (optional) explains a shoulder season: hot, dry, rain, cold, wind, fog, wet, bugs, snow, water, crowds
+# "why" (optional) explains a season, peak or shoulder: hot, dry, rain, cold, wind, fog, wet, bugs, snow, water, crowds, smoke
 seasons:
   - shoulder: Jun 1 – Jun 30
     why: [wet, bugs]

@@ -72,7 +72,7 @@ permit:
 
 **Dates** are written like `Sep 1`. Ranges use a dash: `Sep 1 – Oct 31`.
 
-**Shoulder reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`.
+**Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`. Peak seasons can have them too.
 
 ### Permit channels
 
