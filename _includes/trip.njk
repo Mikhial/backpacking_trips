@@ -28,9 +28,12 @@ nav: trips
     <div class="tm-legend"><span class="tm-has-routes" hidden><i class="ln route"></i>Your routes</span>{% if areaData %}<span><i class="ln trail"></i>Trail</span><span><i class="ln closed"></i>Closed or abandoned</span><span><i class="ln bnd"></i>Boundary</span>{% endif %}<span><i class="tm-poi trailhead"></i>Trailhead</span>{% if areaData %}<span class="tm-more">Zoom in for camps, water, peaks, dirt roads and unnamed paths</span><span class="tm-zin"><i class="tm-poi camp"></i>Camp</span><span class="tm-zin"><i class="tm-poi water"></i>Water</span><span class="tm-zin"><i class="tm-poi peak"></i>Peak</span><span class="tm-zin"><i class="ln road"></i>Dirt road</span>{% endif %}</div>
     <div class="tm-info"></div>
     <div class="tm-prof" hidden></div>
+    <nav class="tm-plan" aria-label="Plan this trip"><span class="tm-rl">Plan this trip</span><a class="tm-ext" data-app="caltopo" href="https://caltopo.com/map.html" hidden>CalTopo</a><a class="tm-ext" data-app="gaia" href="https://www.gaiagps.com/map/" hidden>Gaia GPS</a>{% for label, url in links %}<a href="{{ url }}">{{ label }}</a>{% endfor %}</nav>
   </section>
   <script src="/assets/vendor/leaflet/leaflet.js" defer></script>
   <script src="/assets/trailmap.js" defer></script>
+  {% elif links %}
+  <nav class="tm-plan solo" aria-label="Plan this trip"><span class="tm-rl">Plan this trip</span>{% for label, url in links %}<a href="{{ url }}">{{ label }}</a>{% endfor %}</nav>
   {% endif %}
   <div class="cols">
     <article class="notes">

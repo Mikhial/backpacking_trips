@@ -216,3 +216,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .leaflet-tooltip.tm-tip { font: 12px/1.35 var(--sans); padding: 4px 8px; border-radius: 5px; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
 .leaflet-tooltip.tm-tip span { color: #8b9286; margin-left: 4px; }
 .leaflet-container { font-family: var(--sans); }
+
+.tm-plan { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; font-size: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+.tm-plan .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.tm-plan.solo { border-top: 0; padding-top: 0; }

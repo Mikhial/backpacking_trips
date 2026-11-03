@@ -120,6 +120,17 @@
       if (selected) selected.bringToFront();
     };
     map.on('zoomend', toggleDetail); toggleDetail();
+
+    // "Plan this trip" links open CalTopo and Gaia GPS on the current map view
+    const ext = box.querySelectorAll('.tm-ext');
+    const syncLinks = () => {
+      const c = map.getCenter(), z = Math.round(map.getZoom()), lat = c.lat.toFixed(5), lon = c.lng.toFixed(5);
+      ext.forEach(a => {
+        a.href = a.dataset.app === 'caltopo' ? `https://caltopo.com/map.html#ll=${lat},${lon}&z=${z}&b=mbt` : `https://www.gaiagps.com/map/?loc=${z}/${lon}/${lat}`;
+        a.hidden = false;
+      });
+    };
+    map.on('moveend', syncLinks); syncLinks();
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     map.on('click', () => select(null));

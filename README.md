@@ -47,6 +47,8 @@ trailheads:                    # optional: trailheads missing from the map
   Bear Valley: 38.0405, -122.7998
 routes:                        # optional: your own routes, as GPX files
   Coast Trail loop: tracks/point-reyes-coast.gpx
+links:                         # optional: planning links shown under the map
+  Park page: https://www.nps.gov/pore/
 
 facts:                         # the facts box; labels are free-form
   Getting there: 1–1.5 hr drive   # also shown on the trips list
@@ -91,6 +93,7 @@ Add `map:` with the park or wilderness name, spelled the way it is on [openstree
 
 - **Missing trailhead**: add it under `trailheads:` as `Name: latitude, longitude`. Right-click the spot in Google Maps to copy the coordinates.
 - **Your own route**: export it as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are drawn in blue on top of the trails and listed above the map. The elevation profile uses the elevations in the GPX file.
+- **Planning links**: the row under the map opens CalTopo and Gaia GPS on whatever area the map is showing. Add your own under `links:` as `Label: https://…` (ranger station, conditions page, FarOut, permits).
 - **Missing or wrong trail**: fix it on openstreetmap.org (**Edit**), then run **Actions → Fetch trail maps → Run workflow** with **Refetch every map** ticked. The map data isn't refreshed otherwise.
 
 ## Adding a region
