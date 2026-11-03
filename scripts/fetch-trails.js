@@ -34,8 +34,10 @@ async function overpass(query) {
   for (let attempt = 0; attempt < 4; attempt++) {
     const url = OVERPASS[attempt % OVERPASS.length];
     try {
+      console.log(`  asking ${url}`);
       const res = await fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(query),
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'backpacking-trips-site/1.0 (GitHub Action)' } });
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'backpacking-trips-site/1.0 (GitHub Action)' },
+        signal: AbortSignal.timeout(240000) });
       if (res.ok) return await res.json();
       last = new Error(`${url} answered ${res.status}`);
     } catch (e) { last = e; }
@@ -49,7 +51,7 @@ const tiles = new Map();
 async function tile(x, y) {
   const key = `${x}/${y}`;
   if (!tiles.has(key)) tiles.set(key, (async () => {
-    const res = await fetch(`https://s3.amazonaws.com/elevation-tiles-prod/terrarium/${DEM_ZOOM}/${x}/${y}.png`);
+    const res = await fetch(`https://s3.amazonaws.com/elevation-tiles-prod/terrarium/${DEM_ZOOM}/${x}/${y}.png`, { signal: AbortSignal.timeout(60000) });
     if (!res.ok) throw new Error(`elevation tile ${key}: ${res.status}`);
     return PNG.sync.read(Buffer.from(await res.arrayBuffer()));
   })());
