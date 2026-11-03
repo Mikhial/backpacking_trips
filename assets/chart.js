@@ -145,6 +145,7 @@ function relRange(r) {
 }
 
 function show(ri, x) {
+  LAST[ri] = x;
   const t = TRIPS[ri], row = document.querySelector(`.r[data-r="${ri}"]`), W = row.querySelector('.tr').clientWidth;
   const cn = document.getElementById('cn' + ri), dy = document.getElementById('dy' + ri);
   const active = inSeason(t, x);
@@ -199,12 +200,15 @@ function show(ri, x) {
   cn.innerHTML = s; dy.innerHTML = h;
 }
 
+// Last date shown per row, so a row that stays open (trip pages, window resize) keeps it
+const LAST = {};
 function setOpen(row, on) {
-  const ri = +row.dataset.r, t = TRIPS[ri];
+  const ri = +row.dataset.r, t = TRIPS[ri], wasOpen = row.classList.contains('open');
   if (OPTS.alwaysOpen) on = true;
   row.classList.toggle('open', on);
   row.style.height = on ? row.dataset.h + 'px' : ROW + 'px';
   if (on) {
+    if (wasOpen && LAST[ri] != null) return show(ri, LAST[ri]);
     const first = t.seasons.find(s => s.type === 'peak') || t.seasons[0];
     if (first) show(ri, first.a + Math.min(0.25, (first.b - first.a) / 2));
   }
