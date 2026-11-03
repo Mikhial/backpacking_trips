@@ -1,4 +1,4 @@
-// Trail map on trip pages: every trail in the area from OpenStreetMap on a USGS topo base.
+// Trail map on trip pages: the trails in the area from OpenStreetMap on a USGS topo base.
 // Click a trail to see its length, gain and elevation profile; hover the profile to follow it on the map.
 (function () {
   const box = document.getElementById('trailmap');
@@ -22,40 +22,60 @@
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
 
-    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2.5, opacity: .7, dashArray: '8 6', interactive: false }).addTo(map));
+    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
 
-    const color = { trail: '#c2412d', road: '#8a5a2b' };
+    // Keep only what belongs to the area: lines that enter the boundary, points inside it,
+    // and trailheads near a kept trail
+    const rings = data.boundary.filter(r => r.length > 2);
+    const inside = ([lat, lon]) => {
+      let c = false;
+      for (const r of rings) for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+        const [yi, xi] = r[i], [yj, xj] = r[j];
+        if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) c = !c;
+      }
+      return c;
+    };
+    const trails = rings.length ? data.trails.filter(t => t.p.some(inside)) : data.trails;
+
+    // Overview: named trails and trailheads. Zoomed in: everything else.
+    const overview = L.layerGroup().addTo(map), detail = L.layerGroup();
+    const color = { trail: '#b5462f', road: '#8a6a4b' };
     let selected = null, hoverDot = null, hoverAt = null;
-    const lines = data.trails.map(t => {
-      const named = !!t.n;
+    trails.forEach(t => {
+      const main = !!t.n && t.k === 'trail';
       const style = {
-        renderer, color: color[t.k], weight: named ? 2.6 : 1.6, opacity: t.x ? .5 : named ? .9 : .6,
-        dashArray: t.x ? '2 5' : t.k === 'road' ? '7 4' : null
+        renderer, color: color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : main ? .85 : .55,
+        dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
       };
-      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(map);
+      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(main ? overview : detail);
       line.trail = t; line.base = style;
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
-      line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2 }); });
-      line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: style.weight }); else if (hoverAt) hoverAt(null); });
+      line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2.5, opacity: 1 }); });
+      line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: style.weight, opacity: style.opacity }); else if (hoverAt) hoverAt(null); });
       line.on('mousemove', e => { if (line === selected && hoverAt) hoverAt(e.latlng); });
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
-      return line;
     });
 
+    const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
-    const peaks = L.layerGroup();
     data.pois.forEach(p => {
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'peak' ? peaks : map);
+      const keep = !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
+      if (!keep) return;
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
     });
 
     map.fitBounds(data.bounds, { padding: [8, 8] });
-    // peaks only once zoomed in, to keep the overview uncluttered
-    const peakZoom = Math.ceil(map.getZoom()) + 1;
-    const togglePeaks = () => map.getZoom() >= peakZoom ? peaks.addTo(map) : peaks.remove();
-    map.on('zoomend', togglePeaks); togglePeaks();
+    const detailZoom = Math.ceil(map.getZoom()) + 1;
+    const toggleDetail = () => {
+      const on = map.getZoom() >= detailZoom;
+      on ? detail.addTo(map) : detail.remove();
+      box.classList.toggle('tm-zoomed', on);
+      if (selected) selected.bringToFront();
+    };
+    map.on('zoomend', toggleDetail); toggleDetail();
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     map.on('click', () => select(null));
@@ -136,6 +156,6 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    box.querySelector('.tm-count').textContent = `${data.trails.filter(t => t.n).length} named trails and roads · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`;
+    box.querySelector('.tm-count').textContent = `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`;
   }
 })();
