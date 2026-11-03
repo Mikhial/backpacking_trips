@@ -12,6 +12,11 @@ trailheads:
   Eagle Falls Trailhead: 38.9520, -120.1133
   Twin Lakes Trailhead: 38.8504, -120.2263
   Meeks Bay Trailhead: 39.0374, -120.1265
+routes:
+  Genevieve and Stony Ridge Lakes, Phipps Peak, PCT loop: tracks/desolation-genevieve-phipps-loop.gpx
+  Rockbound Pass, Lake Schmidell, Horseshoe Lake loop: tracks/desolation-rockbound-schmidell-loop.gpx
+  Lake Aloha, Rubicon Trail, PCT, Dicks Pass central loop: tracks/desolation-aloha-dicks-pass-loop.gpx
+  Big double loop: tracks/desolation-double-loop.gpx
 links:
   Exploring Wild guide: https://exploringwild.com/backpacking-desolation-wilderness
 
@@ -104,6 +109,8 @@ June–September is the best time to visit; July to early September is peak.
 - **July**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
 - **August**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
 - **September**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
+
+Source: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
 ## Other
 

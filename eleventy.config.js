@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
-import { normalizeTrip, bestSeason, REASONS } from './lib/normalize.js';
+import { normalizeTrip, bestSeason, REASONS, routeKey } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
@@ -53,6 +53,18 @@ export default function (eleventyConfig) {
       return { n, file, p, ...stats };
     });
     return (trailheads.length || routes.length) ? JSON.stringify({ trailheads, routes }).replace(/</g, '\\u003c') : '';
+  });
+  // A link in the notes whose text matches a route name gets a "show on map" marker
+  eleventyConfig.addFilter('routeLinks', (content, routes) => {
+    const keys = Object.keys(routes || {}).map(routeKey);
+    if (!keys.length) return content;
+    const done = new Set();
+    return content.replace(/<a\s([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs, text) => {
+      const i = keys.indexOf(routeKey(text));
+      if (i < 0 || done.has(i)) return m;
+      done.add(i);
+      return `<a ${attrs} id="route-${i}" data-route="${i}">${text}</a><button type="button" class="rt-show" data-route="${i}" aria-pressed="false" title="Show on map"><i></i>Map</button>`;
+    });
   });
   eleventyConfig.addFilter('onlyPage', (items, inputPath) => items.filter(i => i.inputPath === inputPath));
   eleventyConfig.addFilter('reasonLabel', k => REASONS[k] || k);
