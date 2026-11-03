@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <nav class="nav gutter" aria-label="Main">
+    <div class="nav-in">
+      <a class="brand" href="/">{{ site.title }}</a>
+      <a class="tab" href="/" {% if nav == 'trips' %}aria-current="page"{% endif %}>Trips</a>
+      <a class="tab" href="/seasons/" {% if nav == 'seasons' %}aria-current="page"{% endif %}>Seasons and permits</a>
+    </div>
+  </nav>
+  {{ content | safe }}
+</body>
+</html>

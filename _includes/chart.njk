@@ -1,0 +1,23 @@
+{# Seasons and permits chart. Pass chartTrips (a list of trip pages) and chartOptions (JSON string). #}
+<div class="chart-card">
+  <div class="chart">
+    <div class="hdr"><div></div><div class="yrs"><span id="hdPrev">Previous year</span><span id="hdTrip">Trip year</span></div><div></div></div>
+    <div id="rows"></div>
+    <div class="ax"><div></div><div class="tk" id="tk"></div><div></div></div>
+    <div class="lg">
+      <span><span class="sw" style="width:12px;height:8px;background:var(--peak)"></span>Peak</span>
+      <span><span class="sw" style="width:12px;height:8px;background:var(--shoulder)"></span>Shoulder</span>
+      <span><span class="sw" style="width:16px;height:4px;background:var(--roll)"></span>Book for peak</span>
+      <span><span class="sw" style="width:16px;height:4px;background:var(--roll-sh)"></span>Book for shoulder</span>
+      <span><span class="sw bd lot" style="position:static;width:18px;height:4px;background-color:var(--roll)"></span>Lottery: apply during window</span>
+      {% if chartLegendDots !== false %}
+      <span><span class="lgd"><i></i><i></i><i></i></span>Very hard</span>
+      <span><span class="lgd"><i></i><i></i><i class="o"></i></span>Competitive</span>
+      <span><span class="lgd"><i></i><i class="o"></i><i class="o"></i></span>Book ahead</span>
+      {% endif %}
+      <span style="color:var(--faint)">Hover a season bar for details</span>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="chart-data" data-options='{{ chartOptions }}'>{{ chartTrips | chartData | safe }}</script>
+<script src="/assets/chart.js" defer></script>

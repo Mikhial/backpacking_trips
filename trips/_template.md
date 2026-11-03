@@ -1,0 +1,57 @@
+---
+# Copy this file to trips/<trip-name>.md (lowercase, dashes) and fill it in.
+# Lines starting with # are comments. Delete anything you don't need.
+
+name: Example Wilderness
+short: Example            # optional: shorter name for the chart
+region: Sierra Nevada     # one of the regions in _data/site.json
+order: 5                  # optional: position within the region
+summary: One line about what makes this trip special
+status: ""                # optional, e.g. "Closed through Jan 31, 2027"
+updated: 2026-11-03       # when you last updated your research
+
+# Quick facts box. Labels are up to you; "Getting there" and "Distance" also appear on the trips list.
+facts:
+  Getting there: 3 hr drive
+  Distance: 25 mi loop
+  Elevation: 6,000–9,000 ft
+  Nights: 2–3
+  Water: Lakes and streams
+  Food storage: Bear canister required
+
+# Seasons on the chart. Each line starts with peak: or shoulder:, then a date range.
+# "why" (optional) explains a shoulder season: hot, dry, rain, cold, wind, fog, wet, bugs, snow, water, crowds
+seasons:
+  - shoulder: Jun 1 – Jun 30
+    why: [wet, bugs]
+  - peak: Jul 1 – Sep 15
+
+permit:
+  note: 90 days before      # short note shown on the chart
+  difficulty: 1             # dots: 0 none, 1 book ahead, 2 competitive, 3 very hard
+  why: Weekends sell out    # shown when hovering the dots
+  channels:
+    # Rolling: opens a set time before your trip. "before" is like 90 days, 24 weeks, 6 months, or day of
+    - label: Reservations
+      before: 90 days
+      share: 70%            # optional
+    # Lottery that runs per calendar week or month:
+    #   - label: Lottery
+    #     lottery: true
+    #     before: 24 weeks
+    #     every: week
+    # Fixed calendar date (or range), optionally saying which trip dates it covers:
+    #   - label: Lottery
+    #     lottery: true
+    #     opens: Feb 1 – Feb 28
+    #   - label: Reservations
+    #     releases:
+    #       - opens: Dec 5
+    #         for: Jan 1 – Mar 31    # opening after the trip dates means the previous year
+    #       - opens: Mar 5
+    #         for: Apr 1 – Jun 30
+---
+
+## Overview
+
+Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics.

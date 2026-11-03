@@ -1,0 +1,55 @@
+---
+layout: base.njk
+nav: trips
+permalink: /
+---
+<main class="gutter narrow">
+  <div class="pagehead">
+    <div>
+      <h1>Trips</h1>
+      <p class="lede">{{ collections.trips.length }} trips, grouped by region. Click a column to sort.</p>
+    </div>
+  </div>
+  <div class="filters" role="group" aria-label="Filter trips">
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    {% for r in site.regions %}<button type="button" data-filter="region:{{ r }}" aria-pressed="false">{{ r }}</button>{% endfor %}
+    <button type="button" data-filter="now" aria-pressed="false">In season this month</button>
+  </div>
+  <div class="table-wrap">
+    <table class="trips" id="trips">
+      <thead>
+        <tr>
+          <th style="width:30%"><button type="button" data-key="name">Trip</button></th>
+          <th><button type="button" data-key="drive">Getting there</button></th>
+          <th><button type="button" data-key="distance">Distance</button></th>
+          <th><button type="button" data-key="season">Best season</button></th>
+          <th><button type="button" data-key="permit">Permit</button></th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set lastRegion = '' %}
+        {% for t in collections.trips %}
+          {% if t.data.region != lastRegion %}
+            <tr class="grp" data-region="{{ t.data.region }}"><td colspan="6">{{ t.data.region }}</td></tr>
+            {% set lastRegion = t.data.region %}
+          {% endif %}
+          <tr class="row" data-region="{{ t.data.region }}" data-seasons="{{ t | seasonSpans }}"
+              data-name="{{ t.data.name }}" data-drive="{{ t.data.facts['Getting there'] | travelHours }}"
+              data-distance="{{ t.data.facts.Distance | firstNumber }}" data-season="{{ t | peakStart }}"
+              data-permit="{{ t.data.permit.difficulty or 0 }}" data-order="{{ loop.index }}">
+            <td class="tname"><a href="{{ t.url }}">{{ t.data.name }}</a><span class="sum">{{ t.data.summary }}</span></td>
+            <td>{{ t.data.facts['Getting there'] }}</td>
+            <td>{{ t.data.facts.Distance }}</td>
+            <td>{{ t | bestSeason }}</td>
+            <td>{% if t.data.permit.difficulty %}<span class="meter" title="{{ t.data.permit.difficulty | levelName }}{% if t.data.permit.why %} · {{ t.data.permit.why }}{% endif %}">{{ t.data.permit.difficulty | dots | safe }}</span> {% endif %}{{ t.data.permit.note }}</td>
+            <td>{% if t.data.status %}<span class="chip warn">{{ t.data.status }}</span>{% else %}<span class="hint">Open</span>{% endif %}</td>
+          </tr>
+        {% endfor %}
+        <tr class="none" hidden><td colspan="6" class="empty">No trips match this filter.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="hint"><span class="meter"><i></i><i></i><i></i></span> very hard to get a permit · <span class="meter"><i></i><i></i><i class="o"></i></span> competitive · <span class="meter"><i></i><i class="o"></i><i class="o"></i></span> book ahead</p>
+</main>
+<script src="/assets/index.js" defer></script>

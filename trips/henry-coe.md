@@ -1,0 +1,70 @@
+---
+name: Henry W. Coe State Park
+short: Henry W. Coe
+region: Bay Area
+order: 3
+summary: Big, empty Diablo Range country of oak savanna, canyons and ponds
+updated: 2026-10-16
+
+facts:
+  Getting there: 1.5–2 hr drive; last miles narrow and winding
+  Distance: ~25 mi (or more)
+  Elevation: ~600–3,800 ft (~5,000 ft gain)
+  Nights: 1–2+
+  Terrain: Strenuous; steep roller-coaster fire roads
+  Water: Seasonal creeks, springs and ponds; many dry by late summer
+  Food storage: No bears; rodents and pigs
+  Dogs: No
+  Crowds: Solitude past the first few miles
+
+seasons:
+  - peak: Feb 20 – Apr 10
+
+permit:
+  note: ""
+  difficulty: 0
+  channels:
+    - label: Walk-up
+      before: day of
+      note: same day at the visitor center
+---
+
+## Overview
+
+- 1.5 hours with no traffic
+- Permits offered same day
+- ~25 miles, ~5k ft of elevation (or more if you want)
+- Trails may be single track or fire roads; pick carefully
+- 1–2+ nights
+
+## Routes
+
+A large network to build your own; 1 night to a week. Popular loops go to China Hole, Mississippi Lake and Coit Lake.
+
+- From HQ to Mississippi Lake: [option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
+- From Hunting Hollow to Pacheco Falls: [option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
+
+## Getting there
+
+1.5–2 hours to Coe HQ or Hunting Hollow (Morgan Hill/Gilroy). Dowdy Ranch (east side) is a dirt road, open seasonally, and adds an hour.
+
+## Permits
+
+Required, first-come only, same day at the HQ or Dowdy visitor centers; self-register at Hunting Hollow. $5/person/night + $8/vehicle/night ($6 at Hunting Hollow; cash or check there). Easy, but parking fills on spring weekends.
+
+## Camping
+
+Designated sites in the western area; dispersed camping in the eastern zones (party limits per zone). Some sites have tables or outhouses; many have nothing. Check the park's water-resources page before going.
+
+## When to go
+
+- Feb–May (green, wildflowers) and November. Jun–Sep is often 90–100°F+.
+- Peak: late Feb to early April. The last week of March and first week of April are typically the wildflower peak.
+- Winter is an option, but it's going to be winter.
+- Each spring (around late April), Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in.
+
+## Other
+
+- **Fires**: wood and charcoal fires never allowed in the backcountry; gas stoves OK.
+- **Cell service**: spotty; none in canyons.
+- **Hazards**: heat, ticks, poison oak, rattlesnakes, steep grades.

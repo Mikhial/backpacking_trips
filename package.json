@@ -1,0 +1,14 @@
+{
+  "name": "backpacking-research",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-trips.js",
+    "build": "node scripts/check-trips.js && eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "js-yaml": "4.1.1"
+  }
+}

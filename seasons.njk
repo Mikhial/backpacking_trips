@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Seasons and permits
+nav: seasons
+permalink: /seasons/
+---
+{% set chartTrips = collections.trips %}
+{% set chartOptions = '{"groups": true, "link": true}' %}
+<main class="gutter">
+  <div class="pagehead">
+    <div>
+      <h1>{{ site.chartTitle }}</h1>
+      <p class="lede">When each trip is in season, and when to book it. Built from the trip files.</p>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span id="msg" class="hint"></span>
+      <button id="png">Create PNG</button>
+    </div>
+  </div>
+  {% include "chart.njk" %}
+  <div id="pngOut" hidden>
+    <p class="hint">Right-click the image and choose Save image as, or copy it and paste into your Google Doc. On a phone, press and hold.</p>
+    <img id="pngImg" alt="Backpacking seasons chart">
+  </div>
+</main>
