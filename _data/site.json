@@ -2,6 +2,6 @@
   "title": "Backpacking research",
   "chartTitle": "Backpacking seasons and permits",
   "regions": ["Bay Area", "Sierra Nevada", "California Coast", "Southwest"],
-  "repo": "",
+  "repo": "Mikhial/backpacking_trips",
   "branch": "main"
 }
