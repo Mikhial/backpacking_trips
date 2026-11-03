@@ -78,18 +78,18 @@ Echo Lakes, Ralston Peak or Glen Alpine trailheads (3 hr drive). Lake Aloha is t
 
 Bayview, Eagle Falls and Meeks trailheads (3 hr drive). The popular Velma and Fontanillis Lake area. Bayview is the smoother, more gradual of the two. Middle and lower Velma zones are beautiful but crowded.
 
-- [Genevieve and Stony Ridge Lakes, Phipps Peak, PCT loop](https://www.alltrails.com/explore/custom-routes/lake-genevieve-stony-ridge-phipps-pct-loop-from-meeks-bay-f18a6d1): 22 mi, 3,500 ft gain, 6,200–8,800 ft
+- [Genevieve and Stony Ridge Lakes, Phipps Peak, PCT loop](https://www.alltrails.com/explore/custom-routes/lake-genevieve-stony-ridge-phipps-pct-loop-from-meeks-bay-f18a6d1)
 
 ### West
 
 Wrights Lake / Twin Lakes trailhead. A dirt road, but accessible (when seasonally open) to standard 2WD cars. Much less crowded than the east, with some pretty rough trails in places.
 
-- [Rockbound Pass, Lake Schmidell, Horseshoe Lake loop](https://www.alltrails.com/explore/custom-routes/rockbound-pass-lake-schmidell-horseshoe-lake-loop-4b86ca4): 24 mi, 4,800 ft gain, 6,900–8,500 ft. Could base camp at Lake Schmidell and day hike the loop around Horseshoe Lake, or carry gear and add an out-and-back to secluded Highland Lake at the north end.
+- [Rockbound Pass, Lake Schmidell, Horseshoe Lake loop](https://www.alltrails.com/explore/custom-routes/rockbound-pass-lake-schmidell-horseshoe-lake-loop-4b86ca4): Could base camp at Lake Schmidell and day hike the loop around Horseshoe Lake, or carry gear and add an out-and-back to secluded Highland Lake at the north end.
 
 ### From any trailhead
 
-- [Lake Aloha, Rubicon Trail, PCT, Dicks Pass central loop](https://www.alltrails.com/explore/trail/us/california/bayview-dicks-peak-jacks-peak-loop): 27 mi, 5,200 ft gain, 6,900–9,300 ft
-- [Big double loop](https://www.alltrails.com/explore/custom-routes/desolation-wilderness-double-loop-852c296): 48 mi, 9k ft gain, 6,500–9,300 ft. Glen Alpine is the most direct start. From a different trailhead, consider skipping the southernmost section and taking the PCT from Lake Aloha to Gilmore Lake.
+- [Lake Aloha, Rubicon Trail, PCT, Dicks Pass central loop](https://www.alltrails.com/explore/trail/us/california/bayview-dicks-peak-jacks-peak-loop)
+- [Big double loop](https://www.alltrails.com/explore/custom-routes/desolation-wilderness-double-loop-852c296): Glen Alpine is the most direct start. From a different trailhead, consider skipping the southernmost section and taking the PCT from Lake Aloha to Gilmore Lake.
 
 Wrights Lake area construction in 2026 may temporarily close the Rockbound and Twin Lakes trailheads.
 

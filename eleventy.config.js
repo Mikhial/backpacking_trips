@@ -54,16 +54,29 @@ export default function (eleventyConfig) {
     });
     return (trailheads.length || routes.length) ? JSON.stringify({ trailheads, routes }).replace(/</g, '\\u003c') : '';
   });
-  // A link in the notes whose text matches a route name gets a "show on map" marker
+  // A link in the notes whose text matches a route name becomes a route line: the link, then
+  // distance, gain and elevation range measured from the GPX file, then a "show on map" toggle.
+  // Any ":" or "." right after the link is dropped; the rest of the text continues on the next line.
+  const ft = m => Math.round(m * 3.28084 / 100) * 100;
+  const routeStats = file => {
+    const pts = parseGpx(fs.readFileSync(String(file).trim(), 'utf8'));
+    const { len, up } = measure(pts), mi = len / 1609.344;
+    const out = [`${mi < 10 ? mi.toFixed(1) : Math.round(mi)} mi`];
+    if (up != null) {
+      const e = pts.map(p => p[2]);
+      out.push(`${ft(up).toLocaleString('en-US')} ft gain`, `${ft(Math.min(...e)).toLocaleString('en-US')}–${ft(Math.max(...e)).toLocaleString('en-US')} ft`);
+    }
+    return out.join(' · ');
+  };
   eleventyConfig.addFilter('routeLinks', (content, routes) => {
-    const keys = Object.keys(routes || {}).map(routeKey);
+    const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
     if (!keys.length) return content;
     const done = new Set();
-    return content.replace(/<a\s([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs, text) => {
+    return content.replace(/<a\s([^>]*)>([\s\S]*?)<\/a>([:.]\s*)?/g, (m, attrs, text) => {
       const i = keys.indexOf(routeKey(text));
       if (i < 0 || done.has(i)) return m;
       done.add(i);
-      return `<a ${attrs} id="route-${i}" data-route="${i}">${text}</a><button type="button" class="rt-show" data-route="${i}" aria-pressed="false" title="Show on map"><i></i>Map</button>`;
+      return `<span class="rt"><a ${attrs} id="route-${i}" data-route="${i}">${text}</a><span class="rt-stats">${routeStats(entries[i][1])}</span><button type="button" class="rt-show" data-route="${i}" aria-pressed="false" title="Show on map"><i></i>Map</button></span>`;
     });
   });
   eleventyConfig.addFilter('onlyPage', (items, inputPath) => items.filter(i => i.inputPath === inputPath));
