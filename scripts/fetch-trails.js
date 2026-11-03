@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 import { PNG } from 'pngjs';
+import { dist, simplify } from '../lib/geo.js';
 
 const OVERPASS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 const DEM_ZOOM = 12;
@@ -23,11 +24,7 @@ const only = args.filter(a => !a.startsWith('--'));
 
 // ---------- helpers ----------
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const R = 6371008.8, rad = Math.PI / 180;
-function dist(a, b) {
-  const x = (b[1] - a[1]) * rad * Math.cos((a[0] + b[0]) / 2 * rad), y = (b[0] - a[0]) * rad;
-  return Math.sqrt(x * x + y * y) * R;
-}
+const rad = Math.PI / 180;
 
 async function overpass(query) {
   let last;
@@ -70,27 +67,6 @@ async function elevation(lat, lon) {
   };
   const i = Math.floor(px), j = Math.floor(py), u = px - i, v = py - j;
   return (at(i, j) * (1 - u) + at(i + 1, j) * u) * (1 - v) + (at(i, j + 1) * (1 - u) + at(i + 1, j + 1) * u) * v;
-}
-
-// Douglas-Peucker in meters; keeps first/last
-function simplify(pts, tol) {
-  if (pts.length < 3) return pts;
-  const keep = new Uint8Array(pts.length); keep[0] = keep[pts.length - 1] = 1;
-  const stack = [[0, pts.length - 1]];
-  const xy = pts.map(p => [p[1] * rad * Math.cos(pts[0][0] * rad) * R, p[0] * rad * R]);
-  while (stack.length) {
-    const [a, b] = stack.pop();
-    const [ax, ay] = xy[a], [bx, by] = xy[b], dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
-    let best = 0, bi = -1;
-    for (let k = a + 1; k < b; k++) {
-      const [px, py] = xy[k];
-      const t = L ? Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / L)) : 0;
-      const d = Math.hypot(px - ax - t * dx, py - ay - t * dy);
-      if (d > best) { best = d; bi = k; }
-    }
-    if (best > tol) { keep[bi] = 1; stack.push([a, bi], [bi, b]); }
-  }
-  return pts.filter((_, k) => keep[k]);
 }
 
 // Join ways that share endpoints into longer lines (per trail name)

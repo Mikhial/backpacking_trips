@@ -183,6 +183,14 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .ln.closed { border-top: 2px dotted #b5462f; opacity: .6; }
 .tm-legend .ln.bnd { border-top: 2px dashed #3b2f5c; opacity: .7; }
 .tm-legend .tm-more { color: var(--faint); }
+.tm-legend .ln.route { border-top: 3px solid #1f5fa8; box-shadow: 0 0 0 1.5px #fff; }
+.tm-routes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tm-routes .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
+.tm-routes button { font-size: 13px; padding: 3px 11px; border-radius: 999px; }
+.tm-routes button span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.tm-routes button[aria-pressed="true"] { background: var(--fix); border-color: var(--fix); color: #fff; }
+.tm-routes button[aria-pressed="true"] span { color: rgba(255,255,255,.8); }
+.tm-info a { font-size: 13px; }
 .trailmap .tm-zin, .trailmap.tm-zoomed .tm-more { display: none; }
 .trailmap.tm-zoomed .tm-zin { display: flex; }
 /* quiet base map so the trails carry the color */

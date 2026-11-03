@@ -11,6 +11,12 @@ status: ""                # optional, e.g. "Closed through Jan 31, 2027"
 updated: 2026-11-03       # when you last updated your research
 map: Example Wilderness   # optional: park or wilderness name as on openstreetmap.org; adds a trail map
 
+# Optional, for the trail map:
+# trailheads:               # trailheads OpenStreetMap is missing. Name: latitude, longitude
+#   Wrights Lake: 38.8466, -120.2353
+# routes:                   # your own routes. Name: a GPX file you uploaded to the tracks folder
+#   Rockbound Pass loop: tracks/rockbound-pass.gpx
+
 # Quick facts box. Labels are up to you; "Getting there" and "Distance" also appear on the trips list.
 facts:
   Getting there: 3 hr drive

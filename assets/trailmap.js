@@ -6,11 +6,17 @@
   const M_TO_FT = 3.28084, M_TO_MI = 1 / 1609.344;
   const fmt = n => Math.round(n).toLocaleString('en-US');
   const mi = m => (m * M_TO_MI).toFixed(m * M_TO_MI < 10 ? 1 : 0);
+  const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
   const mapEl = box.querySelector('.tm-map'), info = box.querySelector('.tm-info'), prof = box.querySelector('.tm-prof');
 
-  fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => { box.hidden = true; });
+  // Your own routes and trailheads from the trip header
+  const extrasEl = box.querySelector('.tm-extras');
+  const extras = extrasEl ? JSON.parse(extrasEl.textContent) : { trailheads: [], routes: [] };
+  const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
+  if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
+  else draw(empty);
 
   function draw(data) {
     const map = L.map(mapEl, { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.5 });
@@ -56,6 +62,34 @@
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
     });
 
+    // Your routes: always shown, on top, in blue with a white edge
+    const routeLines = extras.routes.map(r => {
+      const t = { ...r, k: 'route' };
+      const ll = r.p.map(p => [p[0], p[1]]);
+      L.polyline(ll, { renderer, color: '#fff', weight: 6, opacity: .9, interactive: false }).addTo(map);
+      const style = { renderer, color: '#1f5fa8', weight: 3, opacity: .95, dashArray: null };
+      const line = L.polyline(ll, style).addTo(map);
+      line.trail = t; line.base = style;
+      line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
+      line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: 5 }); });
+      line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: 3 }); else if (hoverAt) hoverAt(null); });
+      line.on('mousemove', e => { if (line === selected && hoverAt) hoverAt(e.latlng); });
+      line.on('click', e => { L.DomEvent.stop(e); select(line); });
+      return line;
+    });
+    const list = box.querySelector('.tm-routes');
+    if (routeLines.length) {
+      list.hidden = false;
+      box.querySelector('.tm-has-routes').hidden = false;
+      list.innerHTML = '<span class="tm-rl">Your routes</span>' + routeLines.map((l, i) =>
+        `<button type="button" data-i="${i}">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
+      list.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        const line = routeLines[+b.dataset.i];
+        select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] });
+      });
+    }
+
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
@@ -66,37 +100,55 @@
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
     });
+    extras.trailheads.forEach(p => {
+      L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
+        .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+    });
 
-    map.fitBounds(data.bounds, { padding: [8, 8] });
+    let bounds = data.bounds ? L.latLngBounds(data.bounds) : null;
+    const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
+    extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
+    extras.trailheads.forEach(p => grow(p.at));
+    if (!bounds) { box.hidden = true; return; }
+    map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     const detailZoom = Math.ceil(map.getZoom()) + 1;
     const toggleDetail = () => {
       const on = map.getZoom() >= detailZoom;
       on ? detail.addTo(map) : detail.remove();
       box.classList.toggle('tm-zoomed', on);
+      routeLines.forEach(l => l.bringToFront());
       if (selected) selected.bringToFront();
     };
     map.on('zoomend', toggleDetail); toggleDetail();
     let lastW = prof.clientWidth;
-    window.addEventListener('resize', () => { if (selected && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
+    window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     map.on('click', () => select(null));
 
+    function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }
     function label(t) {
-      return `<b>${t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}`;
+      return `<b>${name(t)}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}${t.k === 'route' ? ' <span>Your route</span>' : ''}`;
     }
+    function hasEle(t) { return t.p.every(p => Number.isFinite(p[2])); }
 
     function select(line) {
       if (selected) { selected.setStyle(selected.base); }
+      if (!line) list.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'false'));
       selected = line;
       if (hoverDot) { hoverDot.remove(); hoverDot = null; }
       hoverAt = null;
       if (!line) { info.innerHTML = box.dataset.hint; prof.innerHTML = ''; prof.hidden = true; return; }
-      line.setStyle({ color: css('--fix') || '#1f5fa8', weight: 5, opacity: 1, dashArray: null });
+      line.setStyle({ color: '#1f5fa8', weight: 5, opacity: 1, dashArray: null });
       line.bringToFront();
-      const t = line.trail, eles = t.p.map(p => p[2]);
-      const lo = Math.min(...eles), hi = Math.max(...eles);
-      info.innerHTML = `<b>${t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')}</b>` +
+      list.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(routeLines[+b.dataset.i] === line)));
+      const t = line.trail, gpx = t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '';
+      if (!hasEle(t)) {
+        info.innerHTML = `<b>${name(t)}</b><span>${mi(t.len)} mi</span><span class="hint">No elevation in this GPX file</span>${gpx}`;
+        prof.innerHTML = ''; prof.hidden = true; return;
+      }
+      const eles = t.p.map(p => p[2]), lo = Math.min(...eles), hi = Math.max(...eles);
+      info.innerHTML = `<b>${name(t)}</b>` +
         `<span>${mi(t.len)} mi</span><span>↑ ${fmt(t.up * M_TO_FT)} ft</span><span>↓ ${fmt(t.down * M_TO_FT)} ft</span>` +
-        `<span>${fmt(lo * M_TO_FT)}–${fmt(hi * M_TO_FT)} ft</span>` + (t.x ? '<span class="tm-x">Closed or abandoned</span>' : '');
+        `<span>${fmt(lo * M_TO_FT)}–${fmt(hi * M_TO_FT)} ft</span>` + (t.x ? '<span class="tm-x">Closed or abandoned</span>' : '') + gpx;
       profile(t, lo, hi);
     }
 
@@ -106,7 +158,7 @@
       const d = [0];
       for (let k = 1; k < t.p.length; k++) d.push(d[k - 1] + map.distance(t.p[k - 1], t.p[k]));
       const total = d[d.length - 1] || 1;
-      const W = prof.clientWidth || 600, H = W < 500 ? 100 : 120, padL = 44, padR = 8, padT = 12, padB = 20;
+      const W = prof.clientWidth || 600, H = W < 500 ? 100 : 120, padL = 44, padR = 8, padT = 18, padB = 20;
       const loF = lo * M_TO_FT, hiF = hi * M_TO_FT;
       const span = Math.max(200, hiF - loF), y0 = Math.floor((loF - span * .1) / 100) * 100, y1 = Math.ceil((hiF + span * .1) / 100) * 100;
       const X = m => padL + m / total * (W - padL - padR), Y = ft => padT + (1 - (ft - y0) / (y1 - y0)) * (H - padT - padB);
@@ -118,7 +170,7 @@
       prof.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Elevation profile">
         ${ticks.map(v => `<line class="g" x1="${padL}" x2="${W - padR}" y1="${Y(v)}" y2="${Y(v)}"/><text class="yl" x="${padL - 6}" y="${Y(v) + 4}">${fmt(v)}</text>`).join('')}
         ${xt.map(v => `<text class="xl" x="${X(v / M_TO_MI)}" y="${H - 5}">${+v.toFixed(1)}${v === xt[xt.length - 1] ? ' mi' : ''}</text>`).join('')}
-        <text class="yl" x="${padL - 6}" y="${padT - 1}">ft</text>
+        <text class="yl" x="${padL - 6}" y="9">ft</text>
         <polygon class="area" points="${X(0)},${Y(y0)} ${pts.join(' ')} ${X(total)},${Y(y0)}"/>
         <polyline class="ln" points="${pts.join(' ')}"/>
         <line class="cur" x1="0" x2="0" y1="${padT}" y2="${H - padB}" visibility="hidden"/>
@@ -156,6 +208,8 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    box.querySelector('.tm-count').textContent = `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`;
+    box.querySelector('.tm-count').textContent = data.fetched
+      ? `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`
+      : `${extras.routes.length} route${extras.routes.length === 1 ? '' : 's'}`;
   }
 })();

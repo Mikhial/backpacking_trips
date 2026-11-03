@@ -8,6 +8,8 @@ My research on backpacking trips: one file per trip, published as a small websit
 | --- | --- |
 | `trips/*.md` | One file per trip. **This is the only folder you normally edit.** |
 | `trips/_template.md` | Copy this to start a new trip. |
+| `tracks/*.gpx` | GPX files for your own routes on the trail map. |
+| `assets/trails/` | Trail map data, downloaded automatically. Don't edit by hand. |
 | `_data/site.json` | Site title, the list of regions (in display order), and the GitHub repo name for "Edit" links. |
 | `index.njk`, `seasons.njk`, `_includes/` | Page layouts. |
 | `assets/` | Styles and the chart script. |
@@ -40,6 +42,11 @@ order: 2                       # optional: position within the region
 summary: One line for the trips list
 status: Closed through Jan 31  # optional: shows a warning on the list and trip page
 updated: 2026-10-16            # optional: when you last updated the research
+map: Point Reyes National Seashore   # optional: adds a trail map (see below)
+trailheads:                    # optional: trailheads missing from the map
+  Bear Valley: 38.0405, -122.7998
+routes:                        # optional: your own routes, as GPX files
+  Coast Trail loop: tracks/point-reyes-coast.gpx
 
 facts:                         # the facts box; labels are free-form
   Getting there: 1–1.5 hr drive   # also shown on the trips list
@@ -77,6 +84,14 @@ Each channel is one way permits are released. It becomes a lane on the chart.
 Optional on any channel: `share` (e.g. `60%`), `note` (lane text), `lottery: true` (dashed band), `idle` (text shown when you're not hovering a season).
 
 `trips/_template.md` has examples of each.
+
+## Trail maps
+
+Add `map:` with the park or wilderness name, spelled the way it is on [openstreetmap.org](https://www.openstreetmap.org) (search for it there to check). After you commit, the **Fetch trail maps** action downloads the area's trails, trailheads, camps, peaks and water from OpenStreetMap, adds elevations, and republishes the site in a few minutes. If the name isn't found, the action fails and says so.
+
+- **Missing trailhead**: add it under `trailheads:` as `Name: latitude, longitude`. Right-click the spot in Google Maps to copy the coordinates.
+- **Your own route**: export it as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are drawn in blue on top of the trails and listed above the map. The elevation profile uses the elevations in the GPX file.
+- **Missing or wrong trail**: fix it on openstreetmap.org (**Edit**), then run **Actions → Fetch trail maps → Run workflow** with **Refetch every map** ticked. The map data isn't refreshed otherwise.
 
 ## Adding a region
 
