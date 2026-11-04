@@ -1,6 +1,6 @@
 // Trail map on trip pages: the trails in the area from OpenStreetMap on a USGS topo base.
 // Click a trail to see its length, gain and elevation profile; hover the profile to follow it on the map.
-// Click anywhere else (or a trailhead, camp or peak) for a link to the NWS forecast for that spot.
+// Right-click (or long-press) anywhere, or on a trailhead, camp or peak, for its NWS forecast.
 (function () {
   const box = document.getElementById('trailmap');
   if (!box || !window.L) return;
@@ -34,11 +34,26 @@
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
 
-    // NWS forecast for any spot: click empty map, a marker, or a trail (link in the info line)
-    const nws = ll => { ll = L.latLng(ll); return `https://forecast.weather.gov/MapClick.php?lat=${ll.lat.toFixed(4)}&lon=${ll.lng.toFixed(4)}`; };
-    const nwsLink = (ll, text) => `<a href="${nws(ll)}" target="_blank" rel="noopener">${text || 'NWS forecast here'} ↗</a>`;
-    const forecastPopup = (ll, html) => L.popup({ className: 'tm-pop', offset: [0, -2] }).setLatLng(ll).setContent(html + nwsLink(ll)).openOn(map);
-    let clickAt = null;
+    // Right-click (or long-press) anywhere for a menu: NWS forecast, hourly graph, copy coordinates.
+    // On a trailhead, camp or peak the menu is for that place.
+    const spotMenu = (ll, title) => {
+      ll = L.latLng(ll);
+      const lat = ll.lat.toFixed(4), lon = ll.lng.toFixed(4), nws = `https://forecast.weather.gov/MapClick.php?lat=${lat}&lon=${lon}`;
+      const el = L.DomUtil.create('div');
+      el.innerHTML = `<div class="tm-menu-h">${title ? `<b>${title}</b>` : ''}<span class="tm-ll">${lat}, ${lon}</span></div>` +
+        `<a href="${nws}" target="_blank" rel="noopener">NWS forecast ↗</a>` +
+        `<a href="${nws}&unit=0&lg=english&FcstType=graphical" target="_blank" rel="noopener">Hourly weather graph ↗</a>` +
+        `<button type="button">Copy coordinates</button>`;
+      const btn = el.querySelector('button');
+      btn.addEventListener('click', () => {
+        const done = () => { btn.textContent = 'Copied'; };
+        const fallback = () => { const r = document.createRange(); r.selectNodeContents(el.querySelector('.tm-ll')); getSelection().removeAllRanges(); getSelection().addRange(r); btn.textContent = 'Selected, press ⌘C'; };
+        try { navigator.clipboard.writeText(`${lat}, ${lon}`).then(done, fallback); } catch (e) { fallback(); }
+      });
+      el.addEventListener('click', e => { if (e.target.closest('a')) map.closePopup(); });
+      L.popup({ className: 'tm-menu', offset: [0, -2], closeButton: false, autoPanPadding: [16, 16] }).setLatLng(ll).setContent(el).openOn(map);
+    };
+    map.on('contextmenu', e => spotMenu(e.latlng));
 
     // "map_trails: route only" in the header: no park boundary or other trails, just your routes
     // (shown from the start) and the trailheads, camps, water and peaks along them
@@ -77,7 +92,7 @@
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2.5, opacity: 1 }); });
       line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: style.weight, opacity: style.opacity }); else if (hoverAt) hoverAt(null); });
       line.on('mousemove', e => { if (line === selected && hoverAt) hoverAt(e.latlng); });
-      line.on('click', e => { L.DomEvent.stop(e); clickAt = e.latlng; select(line); clickAt = null; });
+      line.on('click', e => { L.DomEvent.stop(e); select(line); });
     });
 
     // Your routes: hidden until turned on (from the buttons above the map or the notes), then on top in blue with a white edge
@@ -95,7 +110,7 @@
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: 5 }); });
       line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: 3 }); else if (hoverAt) hoverAt(null); });
       line.on('mousemove', e => { if (line === selected && hoverAt) hoverAt(e.latlng); });
-      line.on('click', e => { L.DomEvent.stop(e); clickAt = e.latlng; select(line); clickAt = null; });
+      line.on('click', e => { L.DomEvent.stop(e); select(line); });
       return line;
     });
     // Turn a route on (draw it, zoom to it, open its profile) or off
@@ -155,12 +170,12 @@
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
-      m.on('click', e => { L.DomEvent.stop(e); m.closeTooltip(); forecastPopup(p.at, `<b>${esc(p.n || names[p.t])}</b><span>${names[p.t]}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}</span>`); });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
     });
     extras.trailheads.forEach(p => {
       const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
-      m.on('click', e => { L.DomEvent.stop(e); m.closeTooltip(); forecastPopup(p.at, `<b>${esc(p.n)}</b><span>Trailhead</span>`); });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
     // Your camps: ones that would overlap at this zoom are drawn as one dot with a count;
@@ -181,7 +196,7 @@
           const p = list[0];
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
             .bindTooltip(`${esc(p.n)} <span>Camp</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
-          m.on('click', e => { L.DomEvent.stop(e); m.closeTooltip(); forecastPopup(p.at, `<b>${esc(p.n)}</b><span>Camp</span>`); });
+          m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
@@ -223,7 +238,7 @@
     map.on('moveend', syncLinks); syncLinks();
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
-    map.on('click', e => { if (selected) select(null); else forecastPopup(e.latlng, `<span>${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}</span>`); });
+    map.on('click', () => select(null));
     info.addEventListener('click', e => {
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
@@ -251,8 +266,7 @@
       const site = t.url ? (/alltrails\.com/.test(t.url) ? 'AllTrails' : new URL(t.url).hostname.replace(/^www\./, '')) : '';
       const gpx = (t.url ? ` <a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(site)} ↗</a>` : '') +
         (t.url ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
-        (t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '') +
-        (clickAt ? ` ${nwsLink(clickAt, 'Forecast here')}` : '');
+        (t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '');
       if (!hasEle(t)) {
         info.innerHTML = `<b>${name(t)}</b><span>${mi(t.len)} mi</span><span class="hint">No elevation in this GPX file</span>${gpx}`;
         prof.innerHTML = ''; prof.hidden = true; return;
