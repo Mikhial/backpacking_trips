@@ -11,6 +11,7 @@
 //   node scripts/download-parks.js --all         download every park again
 //   node scripts/download-parks.js zion          download this trip's park again (trip or park name)
 //   node scripts/download-parks.js --cache DIR   keep the state files in DIR and reuse them if they're from today
+//   node scripts/download-parks.js --check       only say whether any park needs downloading
 //
 // Needs osmium-tool. The GitHub Action in .github/workflows/trail-data.yml runs this automatically.
 import fs from 'node:fs';
@@ -23,6 +24,7 @@ import { PARK_DIR, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tile
 const UA = 'backpacking-trips-site/1.0 (https://github.com/Mikhial/backpacking_trips)';
 const args = process.argv.slice(2);
 const all = args.includes('--all');
+const check = args.includes('--check');
 const cacheAt = args.indexOf('--cache');
 const cache = cacheAt >= 0 ? args[cacheAt + 1] : null;
 const only = args.filter((a, i) => a && !a.startsWith('--') && (cacheAt < 0 || i !== cacheAt + 1)).map(parkSlug);
@@ -220,6 +222,7 @@ const saved = name => { try { return JSON.parse(fs.readFileSync(parkPath(name, '
 
 // Which parks to download, grouped by state
 const byRegion = new Map(); // region id -> { region, parks: Map }
+const todo = [];
 let failed = 0;
 try {
   for (const [name, p] of parks) {
@@ -227,9 +230,17 @@ try {
     const asked = only.includes(parkSlug(name)) || p.trips.some(s => only.includes(s));
     const current = old && old.name === name && p.extra.every(q => inside(old.box, q));
     if (only.length ? !asked : (!all && current)) { if (!only.length) console.log(`${parkSlug(name)}: up to date`); continue; }
+    todo.push(name);
+    if (check) continue;
     const region = old?.region ? await regionById(old.region) : await stateFile(name);
     if (!byRegion.has(region.id)) byRegion.set(region.id, { region, parks: new Map() });
     byRegion.get(region.id).parks.set(name, p);
+  }
+  // --check: only say whether anything needs downloading (the workflow skips installing osmium if not)
+  if (check) {
+    console.log(todo.length ? `to download: ${todo.join(', ')}` : 'nothing to download');
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `needed=${todo.length ? 'true' : 'false'}\n`);
+    process.exit(0);
   }
   for (const { region, parks: list } of byRegion.values()) {
     console.log(`${region.id}: ${[...list.keys()].join(', ')}`);

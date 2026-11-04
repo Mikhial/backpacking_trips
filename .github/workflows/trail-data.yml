@@ -1,7 +1,8 @@
 # Trail maps, in two steps:
 #   1. download-parks.js saves each park's map data and elevation in parkdata/ (not published),
 #      cut out of its state's map file from Geofabrik. Only parks that don't have saved data yet are downloaded.
-#   2. build-maps.js builds each trip's map in assets/trails/ from that saved data.
+#   2. build-maps.js builds each trip's map in assets/trails/ (and each park's all-map-data page data in assets/parks/)
+#      from that saved data. Editing a trip's notes changes neither, so nothing is committed.
 # Then it commits both and republishes the site.
 # Runs whenever a trip, a GPX route or the map scripts change. Can also be run by hand from the Actions tab.
 name: Fetch trail maps
@@ -39,9 +40,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Most runs (like editing a trip's notes) need no downloading: skip osmium and the download
+      - name: Check which parks need downloading
+        id: need
+        run: node scripts/download-parks.js --check ${{ inputs.all && '--all' || '' }} "$PARK"
+        env:
+          PARK: ${{ inputs.park }}
       - name: Install osmium
+        if: steps.need.outputs.needed == 'true'
         run: sudo apt-get update && sudo apt-get install -y osmium-tool
       - name: Download park data
+        if: steps.need.outputs.needed == 'true'
         run: node scripts/download-parks.js ${{ inputs.all && '--all' || '' }} "$PARK"
         env:
           PARK: ${{ inputs.park }}
@@ -53,7 +62,7 @@ jobs:
         id: commit
         if: ${{ !cancelled() }}
         run: |
-          git add -A parkdata assets/trails
+          git add -A parkdata assets/trails assets/parks
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
