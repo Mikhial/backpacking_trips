@@ -114,6 +114,28 @@ async function profile(line) {
   return { p: pts, len: Math.round(len), up: Math.round(up), down: Math.round(down) };
 }
 
+// Big parks are downloaded in squares of at most 0.3° (about the size of Desolation), one request each,
+// so no single request is too big for the server. Lines that cross squares come back once per square
+// and are kept once.
+const SQUARE = 0.3;
+function squares(s, w, n, e) {
+  const rows = Math.ceil((n - s) / SQUARE), cols = Math.ceil((e - w) / SQUARE), out = [];
+  for (let i = 0; i < rows; i++) for (let j = 0; j < cols; j++)
+    out.push([s + (n - s) * i / rows, w + (e - w) * j / cols, s + (n - s) * (i + 1) / rows, w + (e - w) * (j + 1) / cols].map(v => v.toFixed(4)).join(','));
+  return out;
+}
+async function overpassBySquare(boxes, body, timeout) {
+  const seen = new Set(), elements = [];
+  for (const [k, b] of boxes.entries()) {
+    if (boxes.length > 1) console.log(`  square ${k + 1} of ${boxes.length}`);
+    for (const el of (await overpass(`[out:json][timeout:${timeout}][bbox:${b}];${body}`)).elements) {
+      const id = el.type + el.id;
+      if (!seen.has(id)) { seen.add(id); elements.push(el); }
+    }
+  }
+  return { elements };
+}
+
 // ---------- one area ----------
 // extra: [lat, lon] points (your routes and trailheads) that the downloaded area must also cover
 // single: a one-route trip. The map shows only that route, so just the trailheads, camps, peaks and water
@@ -134,23 +156,23 @@ async function fetchArea(name, extra = [], single = false) {
     bb.minlon = Math.min(bb.minlon, lon); bb.maxlon = Math.max(bb.maxlon, lon);
   }
   const pad = 0.03; // ~3 km so trailheads just outside the boundary are included
-  const box = [bb.minlat - pad, bb.minlon - pad, bb.maxlat + pad, bb.maxlon + pad].map(v => v.toFixed(4)).join(',');
+  const boxes = squares(bb.minlat - pad, bb.minlon - pad, bb.maxlat + pad, bb.maxlon + pad);
 
   const none = { elements: [] };
   const boundary = single ? none : await overpass(`[out:json][timeout:90];${area.type}(${area.id});out geom;`);
-  const data = await overpass(`[out:json][timeout:180][bbox:${box}];
+  const data = await overpassBySquare(boxes, `
     ( ${single ? '' : `way["highway"~"^(path|footway|bridleway|track)$"]["footway"!~"sidewalk|crossing"]["access"!~"^(private|no)$"];
       way["highway"="steps"]["name"];`}
       node["highway"="trailhead"]; way["highway"="trailhead"];
       node["tourism"~"^(camp_site|wilderness_hut|alpine_hut)$"]; way["tourism"="camp_site"];
       node["natural"="peak"]["name"];
       node["amenity"="drinking_water"]; node["natural"="spring"]; );
-    out geom tags;`);
+    out geom tags;`, 180);
 
   // Long-distance trails: ways in an international, national or regional hiking route (PCT, Tahoe Rim Trail…)
-  const routes = single ? none : await overpass(`[out:json][timeout:90][bbox:${box}];
+  const routes = single ? none : await overpassBySquare(boxes, `
     rel["route"~"^(hiking|foot)$"]["network"~"^(iwn|nwn|rwn)$"];
-    out body;`);
+    out body;`, 90);
   const bigOf = new Map(); // way id -> route names
   for (const r of routes.elements) {
     const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim(); // "PCT - California Section K" -> "PCT"
