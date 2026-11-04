@@ -208,12 +208,21 @@
     };
     map.on('zoomend', drawCamps);
 
-    // a one-route trip zooms to the route (and your trailheads and camps), not the whole park
-    let bounds = data.bounds && !single ? L.latLngBounds(data.bounds) : null;
+    // The map starts on your own routes, trailheads and camps with ~11 km around them (a one-route trip:
+    // just the route), so a trip in a big park like Hetch Hetchy in Yosemite doesn't open on the whole park.
+    // A trip with none of those starts on the whole park.
+    let bounds = null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
     extras.camps.forEach(p => grow(p.at));
+    if (bounds && !single && data.bounds) {
+      const park = L.latLngBounds(data.bounds), m = 0.1;
+      const near = L.latLngBounds([bounds.getSouth() - m, bounds.getWest() - m], [bounds.getNorth() + m, bounds.getEast() + m]);
+      bounds = park.intersects(near) ? L.latLngBounds(
+        [Math.max(near.getSouth(), park.getSouth()), Math.max(near.getWest(), park.getWest())],
+        [Math.min(near.getNorth(), park.getNorth()), Math.min(near.getEast(), park.getEast())]).extend(bounds) : bounds.extend(park);
+    } else if (!bounds && data.bounds && !single) bounds = L.latLngBounds(data.bounds);
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();
