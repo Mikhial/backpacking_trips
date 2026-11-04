@@ -1,5 +1,5 @@
 ---
-name: Ohlone Wilderness
+name: Ohlone Wilderness Trail
 region: Bay Area
 order: 1
 summary: Grassy ridges and oak canyons on a 28-mile point-to-point
