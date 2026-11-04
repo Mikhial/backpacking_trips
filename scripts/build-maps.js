@@ -7,9 +7,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PNG } from 'pngjs';
 import { dist, simplify } from '../lib/geo.js';
-import { parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
+import { parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 
 const OUT_DIR = 'assets/trails';
+const PARK_OUT = 'assets/parks'; // data for each park's "all map data" debug page
 const ROUTE_PAD = 0.05; // ~5 km (3 mi) around a one-route trip's route
 const only = process.argv.slice(2).filter(a => !a.startsWith('--'));
 
@@ -145,20 +146,112 @@ function buildMap(trip, park) {
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
 
   return {
-    area: trip.park,
-    ...(single ? { single: true } : {}),
-    source: park.source,
-    fetched: park.fetched,
-    bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
-    boundary: ring,
-    trails: kept.sort((a, b) => b.len - a.len),
-    pois
+    shownIds: shownIds(features, ring, single, kept),
+    map: {
+      area: trip.park,
+      ...(single ? { single: true } : {}),
+      source: park.source,
+      fetched: park.fetched,
+      bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
+      boundary: ring,
+      trails: kept.sort((a, b) => b.len - a.len),
+      pois
+    }
+  };
+}
+
+// Which saved features end up on the trip map, for the debug page's grey-out switch. This repeats the
+// rules above and the ones the page applies (assets/trailmap.js): unnamed dirt roads and unnamed paths
+// under 150 m are dropped; lines that never enter the boundary and points outside it are dropped,
+// except trailheads within 1 km of a named trail; a one-route trip keeps everything near its route.
+function shownIds(features, ring, single, kept) {
+  const rings = ring.filter(r => r.length > 2);
+  const inRing = ([lat, lon]) => {
+    let c = false;
+    for (const r of rings) for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+      const [yi, xi] = r[i], [yj, xj] = r[j];
+      if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
+  const inArea = pts => single || !rings.length || pts.some(inRing);
+  const named = kept.filter(t => t.n && inArea(t.p));
+  const nearNamed = pt => named.some(t => t.p.some(q => dist(pt, q) < 1000));
+  const ids = new Set();
+  for (const el of features) {
+    const t = el.tags || {}, id = el.type + el.id;
+    if (t.highway === 'trailhead' || t.tourism || t.natural || t.amenity) {
+      const at = el.type === 'node' ? [el.lat, el.lon] : el.geometry[0];
+      if (inArea([at]) || (t.highway === 'trailhead' && nearNamed(at))) ids.add(id);
+      continue;
+    }
+    if (!el.geometry || el.geometry.length < 2) continue;
+    const nm = t.name || t.ref;
+    if (!nm && t.highway === 'track') continue;
+    let len = 0;
+    for (let k = 1; k < el.geometry.length; k++) len += dist(el.geometry[k - 1], el.geometry[k]);
+    if (!nm && len < 150) continue;
+    if (inArea(el.geometry)) ids.add(id);
+  }
+  return ids;
+}
+
+// ---------- debug page data: everything saved for a park, lines trimmed, no elevation ----------
+const KINDS = {
+  'highway=path': ['Path', 'line'], 'highway=footway': ['Footway', 'line'], 'highway=bridleway': ['Bridleway', 'line'],
+  'highway=track': ['Dirt road (track)', 'line'], 'highway=steps': ['Steps', 'line'],
+  'highway=trailhead': ['Trailhead', 'point'], 'tourism=camp_site': ['Camp', 'point'],
+  'tourism=wilderness_hut': ['Wilderness hut', 'point'], 'tourism=alpine_hut': ['Alpine hut', 'point'],
+  'natural=peak': ['Peak', 'point'], 'natural=spring': ['Spring', 'point'], 'amenity=drinking_water': ['Drinking water', 'point']
+};
+const kindOf = t => {
+  const all = ['highway', 'tourism', 'natural', 'amenity'].filter(k => t[k]).map(k => `${k}=${t[k]}`);
+  return all.find(k => KINDS[k]) || all[0] || 'other';
+};
+const round5 = p => [+p[0].toFixed(5), +p[1].toFixed(5)];
+
+function debugData(name, park, shown, trips) {
+  const bigOf = new Map(); // way id -> long-distance trail names
+  for (const r of park.routes) {
+    const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim();
+    if (rn) for (const m of r.members || []) if (m.type === 'way') bigOf.set(m.ref, [...new Set([...(bigOf.get(m.ref) || []), rn])]);
+  }
+  const kinds = {};
+  const features = park.features.map(el => {
+    const t = el.tags || {}, k = kindOf(t);
+    const [label, geom] = KINDS[k] || [k, el.type === 'node' ? 'point' : 'line'];
+    kinds[k] ||= { label, geom, n: 0 };
+    kinds[k].n++;
+    const f = { id: el.type[0] + el.id, k, tags:Object.fromEntries(Object.entries(t).filter(([key]) => !/^(tiger|source|gnis|nhd)(:|$)/.test(key))) };
+    if (geom === 'point' || el.type === 'node') f.at = round5(el.type === 'node' ? [el.lat, el.lon] : el.geometry[0]);
+    else f.g = simplify(el.geometry, 6).map(round5);
+    if (el.type === 'way' && bigOf.has(el.id)) f.b = bigOf.get(el.id);
+    if (!shown.has(el.type + el.id)) f.d = 1;
+    return f;
+  });
+  const lines = [];
+  for (const el of park.boundary) {
+    if (el.type === 'way' && el.geometry) lines.push(el.geometry);
+    for (const m of el.members || []) if (m.type === 'way' && m.geometry) lines.push(m.geometry);
+  }
+  return {
+    name, region: park.region, source: park.source, fetched: park.fetched, trips,
+    bounds: [[park.box.minlat, park.box.minlon], [park.box.maxlat, park.box.maxlon]],
+    boundary: lines.map(l => simplify(l, 10).map(round5)),
+    kinds, features
   };
 }
 
 // ---------- main ----------
 fs.mkdirSync(OUT_DIR, { recursive: true });
+fs.mkdirSync(PARK_OUT, { recursive: true });
 let failed = 0;
+const parks = new Map(); // park name -> { park, shown, trips }
+const writeIfChanged = (out, json) => {
+  const same = fs.existsSync(out) && fs.readFileSync(out, 'utf8') === json;
+  if (!same) fs.writeFileSync(out, json);
+  return same;
+};
 for (const trip of tripMaps()) {
   if (only.length && !only.includes(trip.slug)) continue;
   const out = path.join(OUT_DIR, trip.slug + '.json');
@@ -166,14 +259,25 @@ for (const trip of tripMaps()) {
   const file = parkPath(trip.park, 'osm.json');
   if (!fs.existsSync(file)) { failed++; console.error(`${trip.slug}: no saved data for "${trip.park}" yet; run scripts/download-parks.js`); continue; }
   try {
-    const result = buildMap(trip, JSON.parse(fs.readFileSync(file, 'utf8')));
+    const p = parks.get(trip.park) || { park: JSON.parse(fs.readFileSync(file, 'utf8')), shown: new Set(), trips: [] };
+    const { map: result, shownIds: ids } = buildMap(trip, p.park);
+    ids.forEach(id => p.shown.add(id));
+    p.trips.push(trip.slug);
+    parks.set(trip.park, p);
     const json = JSON.stringify(result);
-    const same = fs.existsSync(out) && fs.readFileSync(out, 'utf8') === json;
-    if (!same) fs.writeFileSync(out, json);
+    const same = writeIfChanged(out, json);
     console.log(`${trip.slug}: ${result.trails.length} trails, ${result.pois.length} points, ${(json.length / 1024).toFixed(0)} KB${same ? ' (unchanged)' : ''}`);
   } catch (e) {
     failed++;
     console.error(`${trip.slug}: ${e.message}`);
   }
 }
+// One data file per park for its "all map data" debug page, from the same saved data
+for (const [name, { park, shown, trips }] of parks) {
+  const json = JSON.stringify(debugData(name, park, shown, trips));
+  const same = writeIfChanged(path.join(PARK_OUT, parkSlug(name) + '.json'), json);
+  console.log(`${parkSlug(name)}: all-data page ${(json.length / 1048576).toFixed(1)} MB${same ? ' (unchanged)' : ''}`);
+}
+if (!only.length) for (const f of fs.readdirSync(PARK_OUT))
+  if (![...parks.keys()].some(n => parkSlug(n) + '.json' === f)) fs.unlinkSync(path.join(PARK_OUT, f));
 if (failed) process.exit(1);

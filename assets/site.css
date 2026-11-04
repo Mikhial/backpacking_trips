@@ -244,3 +244,20 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes .rt-show[aria-pressed="true"] { background: var(--fix); border-color: var(--fix); color: var(--surface); }
 .notes .rt-flash { animation: rt-flash 1.6s ease-out; border-radius: 4px; }
 @keyframes rt-flash { from { background: color-mix(in srgb, var(--fix) 18%, transparent); } to { background: transparent; } }
+
+/* "All map data" debug page (parks.njk, assets/parkmap.js) */
+.pm .pm-map { height: min(72vh, 760px); }
+.pm-switches { display: flex; flex-wrap: wrap; gap: 6px; }
+.pm-sw { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; user-select: none; }
+.pm-sw:has(input:not(:checked)) { color: var(--faint); }
+.pm-sw input { margin: 0; }
+.pm-sw span { color: var(--faint); font-variant-numeric: tabular-nums; }
+.pm-sw.pm-grey { border-style: dashed; }
+.pm-ln { width: 16px; border-top: 2px solid var(--c); }
+.pm-pt { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.pm .tm-info { flex-wrap: wrap; }
+.pm-tags { flex-basis: 100%; border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+.pm-tags td { padding: 1px 12px 1px 0; vertical-align: top; }
+.pm-tags td:first-child { color: var(--muted); white-space: nowrap; }
+.tm-all { font-size: 12px; color: var(--faint); }
+.tm-all:hover { color: var(--link); }
