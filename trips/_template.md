@@ -10,6 +10,7 @@ summary: One line about what makes this trip special
 status: ""                # optional, e.g. "Closed through Jan 31, 2027"
 updated: 2026-11-03       # when you last updated your research
 park: Example Wilderness  # optional: park or wilderness name as on openstreetmap.org; adds a trail map
+within: Example National Forest  # optional: the forest or park it's in, shown above the title
 
 # If this trip is one route (not a park with several options), name it and add its GPX.
 # The map then shows just that route, always on. Leave these out otherwise.

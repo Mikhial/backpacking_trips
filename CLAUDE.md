@@ -32,6 +32,28 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
 - Create PNG renders the compact view for pasting into Google Docs.
 
+## Trail map data
+
+Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan"). Two steps, both run by `.github/workflows/trail-data.yml`:
+
+1. `scripts/download-parks.js` saves each park's full data and elevation tiles in `parkdata/<park>/` (committed, not published). Saved per `park:` line (the wilderness, not the forest in `within:`), covering the boundary + 3 km + any routes/trailheads outside it.
+   - Every park is cut out of its state's Geofabrik file with osmium; parks in one state share one download. A new park's state is looked up once on Nominatim and saved as `region` in its `osm.json`.
+   - Overpass is not used: its public servers were overloaded for a whole day (Nov 4, 2026) and say automated use should run its own server.
+   - Failures stop the run with a clear message and no long retry loops (Mike: "if it fails, exit early"). Parks already saved are still built and committed.
+   - `--all` redoes every park; a trip or park name redoes just that one; `--cache DIR` keeps state files in DIR and reuses them the same day.
+2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
+   - It also writes `assets/parks/<park>.json` for the park's "All map data" debug page (`parks.njk`, `assets/parkmap.js`, `/parks/<park>/`): every saved feature, lines simplified, each marked if the trip map drops it. `shownIds()` repeats the trip map's keep/drop rules (including the ones in `assets/trailmap.js`); keep them in sync.
+   - One-route trips cover ~5 km (3 mi) around the route (`ROUTE_PAD`), with other trails shown; the route is always on.
+   - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
+
+Working on it locally:
+- osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.
+- State files are large (California ~1.3 GB): use `--cache` with a scratchpad folder, never the repo.
+- After changing either script, copy `assets/trails/` aside, rebuild, and compare trail/point counts, total length and gain per trip. Explain every difference (so far they've all been OpenStreetMap edits).
+- Preview artifacts don't show the topo map background (the preview blocks the USGS tiles); trails and points still draw. To check backgrounds, run `npx @11ty/eleventy --serve` and give Mike the localhost link.
+- Budget: about 1 GB for `parkdata/` in all; no file over 100 MB (GitHub's limit). Report park sizes when they change. As of Nov 4, 2026: 209 MB for 11 parks; Grand Canyon 84 MB (630 elevation tiles) and John Muir 51 MB (300) are the largest, the rest 2.5–22 MB.
+- Workflow: `download-parks.js --check` decides whether osmium is installed and anything downloaded, so notes edits only rebuild (and commit nothing).
+
 ## Open questions in the research
 
 - Hetch Hetchy: chart peak is Jul 11–Sep 30 (Mike's instruction), but his detailed notes say Apr–Jun and Oct–Nov are best and Jul–Sep is hot.

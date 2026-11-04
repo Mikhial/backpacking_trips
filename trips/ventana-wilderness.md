@@ -6,6 +6,8 @@ order: 1
 summary: Redwood canyons, river pools and coastal ridges
 status: Closed through Jan 31, 2027 (fire order)
 updated: 2026-10-16
+park: Ventana Wilderness
+within: Los Padres National Forest
 
 facts:
   Getting there: 2.5–3.5 hr drive to Big Sur Station or Arroyo Seco

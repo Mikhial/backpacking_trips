@@ -6,12 +6,12 @@ order: 1
 summary: Granite basins and 100+ alpine lakes west of Lake Tahoe
 updated: 2026-10-16
 park: Desolation Wilderness
+within: Eldorado National Forest
 trailheads:
   Ralston Peak Trailhead: 38.8040, -120.1174
   Bayview Trailhead: 38.9436, -120.1001
   Eagle Falls Trailhead: 38.9520, -120.1133
   Twin Lakes Trailhead: 38.8504, -120.2263
-  Meeks Bay Trailhead: 39.0374, -120.1265
 routes:
   Genevieve and Stony Ridge Lakes, Phipps Peak, PCT loop: tracks/desolation-genevieve-phipps-loop.gpx
   Rockbound Pass, Lake Schmidell, Horseshoe Lake loop: tracks/desolation-rockbound-schmidell-loop.gpx

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import { normalizeTrip, bestSeason, REASONS, routeKey } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
+import { parkSlug } from './lib/parkdata.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
 
@@ -17,6 +18,7 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add('scripts/**');
   eleventyConfig.ignores.add('lib/**');
   eleventyConfig.ignores.add('tracks/**');
+  eleventyConfig.ignores.add('parkdata/**');
 
   // All trips, in region order, then by "order", then by name
   eleventyConfig.addCollection('trips', api => {
@@ -42,6 +44,8 @@ export default function (eleventyConfig) {
   // Rough sort key for "Getting there": hours, with flights sorted after drives
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
+  // the park's "all map data" page (parks.njk), if it has one
+  eleventyConfig.addFilter('parkPage', name => fs.existsSync(`./assets/parks/${parkSlug(name)}.json`) ? `/parks/${parkSlug(name)}/` : '');
   // Your own trailheads, camps and GPX routes from the trip header, ready for the trail map
   eleventyConfig.addFilter('mapExtras', data => {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);

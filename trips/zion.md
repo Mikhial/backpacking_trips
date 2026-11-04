@@ -5,6 +5,7 @@ region: Southwest
 order: 2
 summary: The Narrows, Angels Landing and the Subway; up to a 50-mile traverse
 updated: 2026-10-16
+park: Zion National Park
 
 facts:
   Getting there: 1.5 hr flight to Las Vegas + 2.5–3 hr drive

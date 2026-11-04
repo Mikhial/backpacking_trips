@@ -1,0 +1,26 @@
+---
+layout: base.njk
+pagination:
+  data: parkPages
+  size: 1
+  alias: park
+permalink: "/parks/{{ park.slug }}/"
+eleventyComputed:
+  title: "{{ park.name }}: all map data"
+---
+{# Behind-the-scenes page: everything saved for one park, reached from the small "All map data" link on a trip map #}
+<main class="gutter">
+  <header class="trip-head">
+    <span class="eyebrow">All map data{% for t in collections.trips %}{% if t.fileSlug in park.trips %} · <a href="{{ t.url }}">{{ t.data.name }}</a>{% endif %}{% endfor %}</span>
+    <h1>{{ park.name }}</h1>
+  </header>
+  <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+  <section class="trailmap pm" id="parkmap" data-src="{{ ('/assets/parks/' + park.slug + '.json') | htmlBaseUrl }}">
+    <p class="hint pm-about">Loading…</p>
+    <div class="pm-switches"></div>
+    <div class="tm-map pm-map" tabindex="0" aria-label="All map data"></div>
+    <div class="tm-info hint">Hover or click anything to see its OpenStreetMap tags.</div>
+  </section>
+  <script src="/assets/vendor/leaflet/leaflet.js" defer></script>
+  <script src="/assets/parkmap.js" defer></script>
+</main>
