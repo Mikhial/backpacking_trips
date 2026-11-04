@@ -151,8 +151,7 @@ function buildMap(trip, park) {
     bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
     boundary: ring,
     trails: kept.sort((a, b) => b.len - a.len),
-    pois,
-    routes: trip.routeFiles
+    pois
   };
 }
 
