@@ -44,10 +44,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y osmium-tool
       - name: Download park data
         run: node scripts/download-parks.js ${{ inputs.california && '--california' || '' }} ${{ inputs.park && format('--force {0}', inputs.park) || '' }}
+      # build and commit whatever parks were saved, even if a later one failed to download
       - name: Build trip maps
+        if: ${{ !cancelled() }}
         run: node scripts/build-maps.js
       - name: Commit changes
         id: commit
+        if: ${{ !cancelled() }}
         run: |
           git add -A parkdata assets/trails
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
@@ -58,7 +61,7 @@ jobs:
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
       - name: Republish the site
-        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        if: ${{ !cancelled() && steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main' }}
         run: gh workflow run deploy.yml --ref main
         env:
           GH_TOKEN: ${{ github.token }}

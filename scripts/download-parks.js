@@ -28,23 +28,20 @@ const pbfArg = args.find(a => a.endsWith('.pbf'));
 const only = args.filter(a => !a.startsWith('--') && !a.endsWith('.pbf'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// The public Overpass servers are often busy, so keep retrying with growing waits (~10 minutes in all)
+// Try each public Overpass server once. If both are busy, stop rather than wait: run it again later.
 async function overpass(query) {
-  let last;
-  for (let attempt = 0; attempt < 8; attempt++) {
-    const url = OVERPASS[attempt % OVERPASS.length];
+  const errors = [];
+  for (const url of OVERPASS) {
     try {
       console.log(`  asking ${url}`);
       const res = await fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(query),
         headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'backpacking-trips-site/1.0 (GitHub Action)' },
         signal: AbortSignal.timeout(240000) });
       if (res.ok) return await res.json();
-      last = new Error(`${url} answered ${res.status}`);
-    } catch (e) { last = e; }
-    console.log(`  ${last.message}; trying again`);
-    await sleep(Math.min(120000, 5000 * 2 ** attempt));
+      errors.push(`${new URL(url).host} answered ${res.status}`);
+    } catch (e) { errors.push(`${new URL(url).host}: ${e.message}`); }
   }
-  throw last;
+  throw new Error(`OpenStreetMap's Overpass servers are busy (${errors.join('; ')}). Run it again later.`);
 }
 
 // Big parks are downloaded in squares of at most 0.3°, one request each, so no single request is
@@ -113,8 +110,8 @@ async function savePark({ name, area, box, boundary, features, routes }) {
     name, source: `OpenStreetMap ${area.type}/${area.id}`, fetched: new Date().toISOString().slice(0, 10),
     bounds: area.bounds, box, boundary, features, routes
   };
+  await downloadElevation(saved); // first, so a park with osm.json always has its elevation
   fs.writeFileSync(parkPath(name, 'osm.json'), JSON.stringify(saved));
-  await downloadElevation(saved);
   return saved;
 }
 
@@ -299,14 +296,16 @@ for (const [name, p] of parks) {
     const saved = await downloadPark(name, p.extra);
     console.log(`${parkSlug(name)}: ${saved.features.length} features, ${(fs.statSync(file).size / 1048576).toFixed(1)} MB`);
   } catch (e) {
+    // stop at the first failure; parks already saved are kept
     failed++;
     console.error(`${parkSlug(name)}: ${e.message}`);
+    break;
   }
   await sleep(2000);
 }
 // parks no trip names any more
 const keep = new Set([...parks.keys()].map(parkSlug));
-for (const d of fs.readdirSync(PARK_DIR)) if (!keep.has(d) && !only.length) {
+for (const d of fs.readdirSync(PARK_DIR)) if (!keep.has(d) && !only.length && !failed) {
   fs.rmSync(`${PARK_DIR}/${d}`, { recursive: true }); console.log(`${d}: no trip uses this park, removed its data`);
 }
 if (failed) process.exit(1);
