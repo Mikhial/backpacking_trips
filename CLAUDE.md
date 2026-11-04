@@ -32,6 +32,21 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
 - Create PNG renders the compact view for pasting into Google Docs.
 
+## Trail map data
+
+Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan"). Two steps, both run by `.github/workflows/trail-data.yml`:
+
+1. `scripts/download-parks.js` saves each park's full data and elevation tiles in `parkdata/<park>/` (committed, not published). Saved per `park:` line (the wilderness, not the forest in `within:`), covering the boundary + 3 km + any routes/trailheads outside it.
+   - `--california <file.pbf>` cuts every California park out of Geofabrik's California file with osmium. Use this for California parks.
+   - Without it, parks are downloaded one at a time from Overpass (Zion, Grand Canyon, new non-California parks). Overpass is often overloaded; the script tries each server once and stops, by design (Mike: "if it fails, exit early"). Don't add long retry loops.
+2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
+
+Working on it locally:
+- osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.
+- The California file is ~1.3 GB; keep it in the scratchpad, never in the repo.
+- After changing either script, copy `assets/trails/` aside, rebuild, and compare trail/point counts, total length and gain per trip. Explain every difference (so far they've all been OpenStreetMap edits).
+- Budget: about 1 GB for `parkdata/` in all; no file over 100 MB (GitHub's limit). Report park sizes when they change. John Muir is the largest at ~51 MB, mostly its 300 elevation tiles.
+
 ## Open questions in the research
 
 - Hetch Hetchy: chart peak is Jul 11–Sep 30 (Mike's instruction), but his detailed notes say Apr–Jun and Oct–Nov are best and Jul–Sep is hot.
