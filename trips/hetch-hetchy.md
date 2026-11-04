@@ -4,6 +4,7 @@ region: Sierra Nevada
 order: 3
 summary: Granite reservoir canyon and big waterfalls in low-elevation Yosemite
 updated: 2026-10-16
+park: Yosemite National Park
 
 facts:
   Getting there: 3.5–4 hr drive; Hetch Hetchy Road open sunrise to sunset
