@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import { normalizeTrip, bestSeason, REASONS, routeKey } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
-import { forecastPoints } from './lib/forecast.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
 
@@ -55,16 +54,6 @@ export default function (eleventyConfig) {
       return { n, file, p, ...stats };
     });
     return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
-  });
-  // Places along each route for the weather forecast table (start, end, high point, camps)
-  eleventyConfig.addFilter('forecastData', (data, slug) => {
-    const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
-    const file = `./assets/trails/${slug}.json`;
-    const osm = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).pois : [];
-    const pl = { trailheads: places(data.trailheads), camps: places(data.camps) };
-    const routes = Object.entries(data.routes || {}).map(([n, f]) =>
-      ({ n, pts: forecastPoints(parseGpx(fs.readFileSync(String(f).trim(), 'utf8')), pl, osm) })).filter(r => r.pts.length);
-    return routes.length ? JSON.stringify(routes).replace(/</g, '\\u003c') : '';
   });
   // A link in the notes whose text matches a route name becomes a route line: the link, then
   // distance, gain and elevation range measured from the GPX file, then a "show on map" toggle.

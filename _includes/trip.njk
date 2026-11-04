@@ -35,17 +35,6 @@ nav: trips
   {% elif links %}
   <nav class="tm-plan solo" aria-label="Plan this trip"><span class="tm-rl">Plan this trip</span>{% for label, url in links %}<a href="{{ url }}">{{ label }}</a>{% endfor %}</nav>
   {% endif %}
-  {% set fc = { trailheads: trailheads, camps: camps, routes: routes } | forecastData(page.fileSlug) %}
-  {% if fc %}
-  <section class="forecast" id="forecast" aria-labelledby="fc-h">
-    <div class="tm-head"><h2 id="fc-h">Weather forecast</h2><span class="fc-when hint"></span></div>
-    <script type="application/json" class="fc-data">{{ fc | safe }}</script>
-    <div class="fc-tabs tm-routes" hidden></div>
-    <div class="fc-wrap"><table class="fc"></table></div>
-    <p class="hint fc-foot">Click a place for its full National Weather Service forecast{% if areaData or extras %}, or right-click anywhere on the map for that spot{% endif %}. Hover a day for details.</p>
-  </section>
-  <script src="/assets/forecast.js" defer></script>
-  {% endif %}
   <div class="cols">
     <article class="notes">
       {{ content | routeLinks(routes) | safe }}
