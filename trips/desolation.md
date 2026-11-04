@@ -6,6 +6,7 @@ order: 1
 summary: Granite basins and 100+ alpine lakes west of Lake Tahoe
 updated: 2026-10-16
 park: Desolation Wilderness
+within: Eldorado National Forest
 trailheads:
   Ralston Peak Trailhead: 38.8040, -120.1174
   Bayview Trailhead: 38.9436, -120.1001

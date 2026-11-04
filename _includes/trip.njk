@@ -4,7 +4,7 @@ nav: trips
 ---
 <main class="gutter">
   <header class="trip-head">
-    <span class="eyebrow">{{ region }}{% if route and park %} · {{ park }}{% endif %}</span>
+    <span class="eyebrow">{{ region }}{% if route and park %} · {{ park }}{% endif %}{% if within %} · {{ within }}{% endif %}</span>
     <h1>{{ name }}</h1>
     <div class="meta">
       {% if summary %}<span>{{ summary }}</span>{% endif %}

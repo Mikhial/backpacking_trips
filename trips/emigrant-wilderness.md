@@ -6,6 +6,7 @@ order: 2
 summary: Granite lakes and volcanic peaks, quieter than Yosemite next door
 updated: 2026-10-16
 park: Emigrant Wilderness
+within: Stanislaus National Forest
 
 facts:
   Getting there: 3–4 hr drive via Hwy 108; last miles gravel or rough dirt

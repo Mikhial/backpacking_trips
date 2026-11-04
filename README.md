@@ -43,6 +43,7 @@ summary: One line for the trips list
 status: Closed through Jan 31  # optional: shows a warning on the list and trip page
 updated: 2026-10-16            # optional: when you last updated the research
 park: Point Reyes National Seashore  # optional: adds a trail map (see below)
+# within: Stanislaus National Forest  # optional: the forest or park a wilderness is in, shown above the title
 trailheads:                    # optional: trailheads missing from the map
   Bear Valley: 38.0405, -122.7998
 camps:                         # optional: camps to always show on the map
