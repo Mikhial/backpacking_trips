@@ -17,6 +17,7 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add('scripts/**');
   eleventyConfig.ignores.add('lib/**');
   eleventyConfig.ignores.add('tracks/**');
+  eleventyConfig.ignores.add('parkdata/**');
 
   // All trips, in region order, then by "order", then by name
   eleventyConfig.addCollection('trips', api => {

@@ -1,17 +1,24 @@
-# Downloads trail map data for trips with a `park:` line, commits it, and republishes the site.
-# Runs whenever a trip file changes. Can also be run by hand from the Actions tab
-# (tick "Refetch every map" to refresh all of them).
+# Trail maps, in two steps:
+#   1. download-parks.js saves each park's map data and elevation in parkdata/ (not published).
+#      Only parks that don't have saved data yet are downloaded.
+#   2. build-maps.js builds each trip's map in assets/trails/ from that saved data.
+# Then it commits both and republishes the site.
+# Runs whenever a trip, a GPX route or the map scripts change. Can also be run by hand from the Actions tab.
 name: Fetch trail maps
 
 on:
   push:
-    paths: ['trips/*.md', 'scripts/fetch-trails.js']
+    paths: ['trips/*.md', 'tracks/**', 'scripts/download-parks.js', 'scripts/build-maps.js', 'lib/parkdata.js', 'lib/geo.js']
   workflow_dispatch:
     inputs:
-      force:
-        description: Refetch every map
+      california:
+        description: Redo all California parks (from the California map file)
         type: boolean
         default: false
+      park:
+        description: Or refresh one park (trip or park name, e.g. zion)
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -24,7 +31,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,12 +39,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Fetch trail data
-        run: node scripts/fetch-trails.js ${{ inputs.force && '--force' || '' }}
+      - name: Install osmium
+        if: inputs.california
+        run: sudo apt-get update && sudo apt-get install -y osmium-tool
+      - name: Download park data
+        run: node scripts/download-parks.js ${{ inputs.california && '--california' || '' }} ${{ inputs.park && format('--force {0}', inputs.park) || '' }}
+      - name: Build trip maps
+        run: node scripts/build-maps.js
       - name: Commit changes
         id: commit
         run: |
-          git add -A assets/trails
+          git add -A parkdata assets/trails
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
