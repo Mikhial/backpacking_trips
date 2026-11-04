@@ -45,6 +45,7 @@ Working on it locally:
 - osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.
 - The California file is ~1.3 GB; keep it in the scratchpad, never in the repo.
 - After changing either script, copy `assets/trails/` aside, rebuild, and compare trail/point counts, total length and gain per trip. Explain every difference (so far they've all been OpenStreetMap edits).
+- Preview artifacts don't show the topo map background (the preview blocks the USGS tiles); trails and points still draw. To check backgrounds, run `npx @11ty/eleventy --serve` and give Mike the localhost link.
 - Budget: about 1 GB for `parkdata/` in all; no file over 100 MB (GitHub's limit). Report park sizes when they change. John Muir is the largest at ~51 MB, mostly its 300 elevation tiles.
 
 ## Open questions in the research
