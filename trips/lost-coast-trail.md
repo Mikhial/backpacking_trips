@@ -4,6 +4,9 @@ region: California Coast
 order: 2
 summary: Wild beach walking under steep mountains, planned around the tides
 updated: 2026-10-16
+park: King Range National Conservation Area
+route: Mattole to Black Sands Beach
+gpx: tracks/lost-coast-trail.gpx
 
 facts:
   Getting there: 5 hr drive, plus 2 hr shuttle (or a key swap)
