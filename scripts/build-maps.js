@@ -10,6 +10,7 @@ import { dist, simplify } from '../lib/geo.js';
 import { parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 
 const OUT_DIR = 'assets/trails';
+const ROUTE_PAD = 0.05; // ~5 km (3 mi) around a one-route trip's route
 const only = process.argv.slice(2).filter(a => !a.startsWith('--'));
 
 // Elevation from the park's saved Terrarium tiles, bilinear sampled
@@ -80,19 +81,19 @@ function profile(line, elevation) {
   return { p: pts, len: Math.round(len), up: Math.round(up), down: Math.round(down) };
 }
 
-// One trip's map. A one-route trip shows only that route, so it gets just the trailheads, camps,
-// peaks and water around the route (no boundary or trails), which keeps big parks like the Grand Canyon small.
+// One trip's map: the park plus your routes and trailheads, with ~3 km around them.
+// A one-route trip covers just ~5 km (3 mi) around its route, even in a big park like the Grand Canyon,
+// so its page stays small; the whole park is still saved in parkdata/.
 function buildMap(trip, park) {
   const elevation = elevationFrom(parkPath(trip.park, 'elevation'));
   const single = trip.single;
   const bb = grow(single ? null : park.bounds, trip.extra);
-  const box = pad(bb);
+  const box = pad(bb, single ? ROUTE_PAD : undefined);
   const near = el => el.type === 'node' ? inside(box, [el.lat, el.lon]) : (el.geometry || []).some(p => inside(box, p));
-  const isLine = t => /^(path|footway|bridleway|track|steps)$/.test(t.highway || '');
-  const features = park.features.filter(el => near(el) && !(single && el.type === 'way' && isLine(el.tags || {})));
+  const features = park.features.filter(near);
 
   const bigOf = new Map(); // way id -> route names
-  for (const r of single ? [] : park.routes) {
+  for (const r of park.routes) {
     const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim(); // "PCT - California Section K" -> "PCT"
     if (!rn) continue;
     for (const m of r.members || []) if (m.type === 'way') {
@@ -104,7 +105,7 @@ function buildMap(trip, park) {
 
   // Boundary outline (outer rings only)
   const outer = [];
-  for (const el of single ? [] : park.boundary) {
+  for (const el of park.boundary) {
     if (el.type === 'way' && el.geometry) outer.push(el.geometry);
     for (const m of el.members || []) if (m.type === 'way' && m.role !== 'inner' && m.geometry) outer.push(m.geometry);
   }

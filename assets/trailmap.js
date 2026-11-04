@@ -55,14 +55,13 @@
     };
     map.on('contextmenu', e => spotMenu(e.latlng));
 
-    // A one-route trip ("route:" + "gpx:" in the header): no park boundary or other trails, just the route
-    // (always shown, with its profile open) and the trailheads, camps, water and peaks along it
+    // A one-route trip ("route:" + "gpx:" in the header): the route is always shown, with its profile open,
+    // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area)
     const single = box.hasAttribute('data-single') && extras.routes.length === 1;
-    if (single) data = { ...data, boundary: [], trails: [] };
     data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
 
     // Keep only what belongs to the area: lines that enter the boundary, points inside it,
-    // and trailheads near a kept trail
+    // and trailheads near a kept trail. A one-route trip keeps everything near its route, inside the park or not.
     const rings = data.boundary.filter(r => r.length > 2);
     const inside = ([lat, lon]) => {
       let c = false;
@@ -72,7 +71,7 @@
       }
       return c;
     };
-    const trails = rings.length ? data.trails.filter(t => t.p.some(inside)) : data.trails;
+    const trails = rings.length && !single ? data.trails.filter(t => t.p.some(inside)) : data.trails;
 
     // Overview: named trails and trailheads. Zoomed in: everything else.
     const overview = L.layerGroup().addTo(map), detail = L.layerGroup();
@@ -123,6 +122,8 @@
     // from the buttons above the map: turn one route on or off, keeping the current view
     // from the notes (solo): show only this route and zoom to it
     const toggle = (line, solo) => {
+      // a one-route trip's route can't be hidden: just select it and zoom to it
+      if (single) { select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] }); return true; }
       const on = !isOn(line);
       if (on && solo) routeLines.forEach(l => { if (l !== line) setOn(l, false); });
       setOn(line, on);
@@ -159,14 +160,13 @@
       });
     }
 
-    const nearRoute = pt => extras.routes.some(r => r.p.some(p => map.distance(pt, [p[0], p[1]]) < 500));
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
     data.pois.forEach(p => {
-      const keep = single ? nearRoute(p.at) : !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
-      // camps listed in the header replace the map's own camps
-      if (!keep || (p.t === 'camp' && extras.camps.length)) return;
+      const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
+      // OpenStreetMap's camps are shown alongside the ones in the header, even at the same place
+      if (!keep) return;
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
@@ -248,7 +248,8 @@
     map.on('moveend', syncLinks); syncLinks();
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
-    map.on('click', () => { if (!single) select(null); });
+    // clicking the map clears the selection; on a one-route trip it goes back to the route
+    map.on('click', () => select(single ? routeLines[0] : null));
     info.addEventListener('click', e => {
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
