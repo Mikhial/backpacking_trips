@@ -1,7 +1,7 @@
-// Downloads the trail network for every trip that has a `map:` line in its header,
+// Downloads the trail network for every trip that has a `park:` line in its header,
 // and saves it to assets/trails/<trip>.json for the map on the trip page.
 //
-//   node scripts/fetch-trails.js            fetch trips that don't have data yet (or whose map name or routes changed)
+//   node scripts/fetch-trails.js            fetch trips that don't have data yet (or whose park name or routes changed)
 //   node scripts/fetch-trails.js --force    refetch everything
 //   node scripts/fetch-trails.js zion       only this trip
 //
@@ -13,6 +13,7 @@ import path from 'node:path';
 import yaml from 'js-yaml';
 import { PNG } from 'pngjs';
 import { dist, simplify, parseGpx, parseLatLon } from '../lib/geo.js';
+import { tripRoutes } from '../lib/normalize.js';
 
 const OVERPASS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 const DEM_ZOOM = 12;
@@ -115,7 +116,9 @@ async function profile(line) {
 
 // ---------- one area ----------
 // extra: [lat, lon] points (your routes and trailheads) that the downloaded area must also cover
-async function fetchArea(name, extra = []) {
+// single: a one-route trip. The map shows only that route, so just the trailheads, camps, peaks and water
+// around it are downloaded (no boundary or trails), which keeps big parks like the Grand Canyon small.
+async function fetchArea(name, extra = [], single = false) {
   const esc = name.replace(/"/g, '\\"');
   const found = await overpass(`[out:json][timeout:60];
     ( rel["name"="${esc}"]["boundary"~"^(protected_area|national_park)$"];
@@ -125,7 +128,7 @@ async function fetchArea(name, extra = []) {
     out bb tags;`);
   const area = found.elements.sort((a, b) => (a.type === 'relation' ? -1 : 1) - (b.type === 'relation' ? -1 : 1))[0];
   if (!area) throw new Error(`OpenStreetMap has no park or wilderness boundary named "${name}". Check the spelling on openstreetmap.org.`);
-  const bb = { ...area.bounds };
+  const bb = single ? { minlat: 90, maxlat: -90, minlon: 180, maxlon: -180 } : { ...area.bounds };
   for (const [lat, lon] of extra) {
     bb.minlat = Math.min(bb.minlat, lat); bb.maxlat = Math.max(bb.maxlat, lat);
     bb.minlon = Math.min(bb.minlon, lon); bb.maxlon = Math.max(bb.maxlon, lon);
@@ -133,10 +136,11 @@ async function fetchArea(name, extra = []) {
   const pad = 0.03; // ~3 km so trailheads just outside the boundary are included
   const box = [bb.minlat - pad, bb.minlon - pad, bb.maxlat + pad, bb.maxlon + pad].map(v => v.toFixed(4)).join(',');
 
-  const boundary = await overpass(`[out:json][timeout:90];${area.type}(${area.id});out geom;`);
+  const none = { elements: [] };
+  const boundary = single ? none : await overpass(`[out:json][timeout:90];${area.type}(${area.id});out geom;`);
   const data = await overpass(`[out:json][timeout:180][bbox:${box}];
-    ( way["highway"~"^(path|footway|bridleway|track)$"]["footway"!~"sidewalk|crossing"]["access"!~"^(private|no)$"];
-      way["highway"="steps"]["name"];
+    ( ${single ? '' : `way["highway"~"^(path|footway|bridleway|track)$"]["footway"!~"sidewalk|crossing"]["access"!~"^(private|no)$"];
+      way["highway"="steps"]["name"];`}
       node["highway"="trailhead"]; way["highway"="trailhead"];
       node["tourism"~"^(camp_site|wilderness_hut|alpine_hut)$"]; way["tourism"="camp_site"];
       node["natural"="peak"]["name"];
@@ -144,7 +148,7 @@ async function fetchArea(name, extra = []) {
     out geom tags;`);
 
   // Long-distance trails: ways in an international, national or regional hiking route (PCT, Tahoe Rim Trail…)
-  const routes = await overpass(`[out:json][timeout:90][bbox:${box}];
+  const routes = single ? none : await overpass(`[out:json][timeout:90][bbox:${box}];
     rel["route"~"^(hiking|foot)$"]["network"~"^(iwn|nwn|rwn)$"];
     out body;`);
   const bigOf = new Map(); // way id -> route names
@@ -202,6 +206,7 @@ async function fetchArea(name, extra = []) {
 
   return {
     area: name,
+    ...(single ? { single: true } : {}),
     source: `OpenStreetMap ${area.type}/${area.id}`,
     fetched: new Date().toISOString().slice(0, 10),
     bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
@@ -219,20 +224,21 @@ for (const f of files) {
   const slug = f.replace(/\.md$/, '');
   if (only.length && !only.includes(slug)) continue;
   const head = fs.readFileSync(path.join('trips', f), 'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  const data = head ? yaml.load(head[1]) || {} : {}, map = data.map;
+  const data = head ? yaml.load(head[1]) || {} : {}, map = data.park;
   // your routes and trailheads can reach past the park boundary (e.g. a trail between two parks)
-  const routeFiles = Object.values(data.routes || {}).map(v => String(v).trim()).filter(p => /^tracks\//.test(p) && fs.existsSync(p)).sort();
+  const routeFiles = Object.values(tripRoutes(data)).map(v => String(v).trim()).filter(p => /^tracks\//.test(p) && fs.existsSync(p)).sort();
   const extra = [...routeFiles.flatMap(p => parseGpx(fs.readFileSync(p, 'utf8'))),
     ...Object.values(data.trailheads || {}).map(parseLatLon).filter(Boolean)];
+  const single = data.route != null && routeFiles.length === 1;
   const out = path.join(OUT_DIR, slug + '.json');
-  if (!map) { if (fs.existsSync(out)) { fs.unlinkSync(out); console.log(`${slug}: no map line, removed old data`); } continue; }
+  if (!map) { if (fs.existsSync(out)) { fs.unlinkSync(out); console.log(`${slug}: no park line, removed old data`); } continue; }
   if (!force && fs.existsSync(out)) {
     try { const old = JSON.parse(fs.readFileSync(out, 'utf8'));
-      if (old.area === map && String(old.routes || '') === String(routeFiles)) { console.log(`${slug}: up to date`); continue; } } catch {}
+      if (old.area === map && String(old.routes || '') === String(routeFiles) && !!old.single === single) { console.log(`${slug}: up to date`); continue; } } catch {}
   }
   try {
     console.log(`${slug}: fetching "${map}"…`);
-    const result = { ...await fetchArea(map, extra), routes: routeFiles };
+    const result = { ...await fetchArea(map, extra, single), routes: routeFiles };
     fs.writeFileSync(out, JSON.stringify(result));
     console.log(`${slug}: ${result.trails.length} trails, ${result.pois.length} points, ${(fs.statSync(out).size / 1024).toFixed(0)} KB`);
   } catch (e) {

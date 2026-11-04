@@ -6,6 +6,14 @@ order: 1
 summary: A mile down to the Colorado River and back out the other side
 status: North Kaibab Trail under repair after the 2025 Dragon Bravo Fire
 updated: 2026-10-16
+park: Grand Canyon National Park
+route: Rim to Rim
+gpx: tracks/grand-canyon-rim-to-rim.gpx
+camps:
+  Cottonwood: 36.17033, -112.04065
+  Phantom Ranch: 36.10607, -112.09469
+  Bright Angel: 36.10112, -112.09567
+  Havasupai Gardens: 36.07692, -112.12913
 
 facts:
   Getting there: Fly to Las Vegas (1:45) + 4–5 hr shuttle or drive

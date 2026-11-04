@@ -4,6 +4,9 @@ region: Sierra Nevada
 order: 4
 summary: 22 miles to the highest summit in the lower 48, at 14,505 ft
 updated: 2026-10-16
+park: John Muir Wilderness
+route: Mt Whitney Trail
+gpx: tracks/mt-whitney.gpx
 
 facts:
   Getting there: 6.5 hr drive, or 1.5 hr flight to Bishop + 1 hr drive
