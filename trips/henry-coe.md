@@ -5,6 +5,7 @@ region: Bay Area
 order: 3
 summary: Big, empty Diablo Range country of oak savanna, canyons and ponds
 updated: 2026-10-16
+park: Henry W. Coe State Park
 
 facts:
   Getting there: 1.5–2 hr drive; last miles narrow and winding
