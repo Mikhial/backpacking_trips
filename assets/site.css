@@ -223,6 +223,33 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-plan .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .tm-plan.solo { border-top: 0; padding-top: 0; }
 
+/* ---------- Weather forecast (trip pages): NWS 7-day forecast for places along a route ---------- */
+.forecast { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+.fc-tabs button[aria-pressed="true"] { background: var(--fix); border-color: var(--fix); color: #fff; }
+.fc-wrap { overflow-x: auto; }
+table.fc { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.fc th, table.fc td { padding: 7px 8px; text-align: left; vertical-align: top; border-top: 1px solid var(--grid); }
+table.fc thead th { border-top: 0; font-size: 12px; font-weight: 600; color: var(--muted); padding-bottom: 4px; }
+table.fc thead th span { display: block; font-weight: 400; color: var(--faint); }
+table.fc thead th.we { color: var(--fg); }
+table.fc tbody th { font-weight: 400; width: 190px; padding-left: 0; }
+table.fc tbody th a { font-weight: 600; color: var(--fg); text-decoration: none; }
+table.fc tbody th a:hover { color: var(--link); text-decoration: underline; }
+table.fc .sub { display: block; font-size: 12px; color: var(--muted); }
+table.fc .also { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0 5px; cursor: help; }
+table.fc .el[title] { cursor: help; }
+table.fc td .t { display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+table.fc .hi { font-size: 14px; font-weight: 600; }
+table.fc .lo { color: var(--muted); }
+table.fc .frz { color: var(--ink-blue); }
+table.fc .hot { color: var(--today); }
+table.fc .none { color: var(--faint); font-weight: 400; }
+table.fc .wx { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; }
+table.fc td.loading, table.fc td.err { color: var(--faint); }
+.fc-foot { margin: 0; }
+.leaflet-popup.tm-pop .leaflet-popup-content { margin: 8px 12px; font: 13px/1.4 var(--sans); }
+.leaflet-popup.tm-pop .leaflet-popup-content span { color: #62695e; display: block; font-size: 12px; }
+
 /* Route line in the notes: link, stats measured from the GPX, then the "Map" toggle. Any notes after it start on the next line. */
 .notes .rt { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; }
 .notes .rt a { font-weight: 600; }
