@@ -4,8 +4,9 @@ region: Bay Area
 order: 1
 summary: Grassy ridges and oak canyons on a 28-mile point-to-point
 updated: 2026-10-16
-map: Ohlone Regional Wilderness Preserve
-map_trails: route only
+park: Ohlone Regional Wilderness Preserve
+route: Mission Peak to Del Valle
+gpx: tracks/ohlone-mission-peak-to-del-valle.gpx
 trailheads:
   Mission Peak: 37.50433, -121.90814
   Del Valle: 37.57614, -121.69351
@@ -18,8 +19,6 @@ camps:
   Eagle's Aerie: 37.51104, -121.79237
   Sycamore: 37.51283, -121.79393
   Hawk's Nest: 37.51169, -121.79295
-routes:
-  Mission Peak to Del Valle: tracks/ohlone-mission-peak-to-del-valle.gpx
 
 facts:
   Getting there: 45 min–1.5 hr drive, plus 45 min Uber to the other end

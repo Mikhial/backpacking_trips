@@ -1,4 +1,4 @@
-# Downloads trail map data for trips with a `map:` line, commits it, and republishes the site.
+# Downloads trail map data for trips with a `park:` line, commits it, and republishes the site.
 # Runs whenever a trip file changes. Can also be run by hand from the Actions tab
 # (tick "Refetch every map" to refresh all of them).
 name: Fetch trail maps

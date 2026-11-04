@@ -9,12 +9,17 @@ order: 5                  # optional: position within the region
 summary: One line about what makes this trip special
 status: ""                # optional, e.g. "Closed through Jan 31, 2027"
 updated: 2026-11-03       # when you last updated your research
-map: Example Wilderness   # optional: park or wilderness name as on openstreetmap.org; adds a trail map
+park: Example Wilderness  # optional: park or wilderness name as on openstreetmap.org; adds a trail map
+
+# If this trip is one route (not a park with several options), name it and add its GPX.
+# The map then shows just that route, always on. Leave these out otherwise.
+# route: Rockbound Pass loop
+# gpx: tracks/rockbound-pass.gpx
 
 # Optional, for the trail map:
 # trailheads:               # trailheads OpenStreetMap is missing. Name: latitude, longitude
 #   Wrights Lake: 38.8466, -120.2353
-# routes:                   # your own routes. Name: a GPX file you uploaded to the tracks folder
+# routes:                   # several routes to compare (instead of route + gpx). Name: a GPX file in the tracks folder
 #   Rockbound Pass loop: tracks/rockbound-pass.gpx
 # links:                    # official pages for planning, shown under the map. Label: web address
 #   Conditions: https://www.fs.usda.gov/...

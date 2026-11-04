@@ -46,7 +46,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('mapExtras', data => {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
     const trailheads = places(data.trailheads), camps = places(data.camps);
-    const routes = Object.entries(data.routes || {}).map(([n, file]) => {
+    const routes = Object.entries(data.trackFiles || {}).map(([n, file]) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
       const stats = measure(pts);
@@ -69,7 +69,8 @@ export default function (eleventyConfig) {
     }
     return out.join(' · ');
   };
-  eleventyConfig.addFilter('routeLinks', (content, routes) => {
+  // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
+  eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
     if (!keys.length) return content;
     const done = new Set();
@@ -77,7 +78,7 @@ export default function (eleventyConfig) {
       const i = keys.indexOf(routeKey(text));
       if (i < 0 || done.has(i)) return m;
       done.add(i);
-      return `<span class="rt"><a ${attrs} id="route-${i}" data-route="${i}">${text}</a><span class="rt-stats">${routeStats(entries[i][1])}</span><button type="button" class="rt-show" data-route="${i}" aria-pressed="false" title="Show on map"><i></i>Map</button></span>`;
+      return `<span class="rt"><a ${attrs} id="route-${i}" data-route="${i}">${text}</a><span class="rt-stats">${routeStats(entries[i][1])}</span>${single ? '' : `<button type="button" class="rt-show" data-route="${i}" aria-pressed="false" title="Show on map"><i></i>Map</button>`}</span>`;
     });
   });
   eleventyConfig.addFilter('onlyPage', (items, inputPath) => items.filter(i => i.inputPath === inputPath));

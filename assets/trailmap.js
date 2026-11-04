@@ -55,10 +55,10 @@
     };
     map.on('contextmenu', e => spotMenu(e.latlng));
 
-    // "map_trails: route only" in the header: no park boundary or other trails, just your routes
-    // (shown from the start) and the trailheads, camps, water and peaks along them
-    const routeOnly = box.hasAttribute('data-route-only') && extras.routes.length > 0;
-    if (routeOnly) data = { ...data, boundary: [], trails: [] };
+    // A one-route trip ("route:" + "gpx:" in the header): no park boundary or other trails, just the route
+    // (always shown, with its profile open) and the trailheads, camps, water and peaks along it
+    const single = box.hasAttribute('data-single') && extras.routes.length === 1;
+    if (single) data = { ...data, boundary: [], trails: [] };
     data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
 
     // Keep only what belongs to the area: lines that enter the boundary, points inside it,
@@ -143,7 +143,7 @@
       b.addEventListener('click', () => { if (toggle(line, true)) box.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     });
     const list = box.querySelector('.tm-routes');
-    if (routeLines.length) {
+    if (routeLines.length && !single) {
       list.hidden = false;
       list.innerHTML = '<span class="tm-rl">Your routes</span>' + routeLines.map((l, i) =>
         `<button type="button" data-i="${i}" aria-pressed="false" title="Show on map">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
@@ -164,7 +164,7 @@
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
     data.pois.forEach(p => {
-      const keep = routeOnly ? nearRoute(p.at) : !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
+      const keep = single ? nearRoute(p.at) : !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
       // camps listed in the header replace the map's own camps
       if (!keep || (p.t === 'camp' && extras.camps.length)) return;
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
@@ -208,7 +208,8 @@
     };
     map.on('zoomend', drawCamps);
 
-    let bounds = data.bounds ? L.latLngBounds(data.bounds) : null;
+    // a one-route trip zooms to the route (and your trailheads and camps), not the whole park
+    let bounds = data.bounds && !single ? L.latLngBounds(data.bounds) : null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
@@ -238,7 +239,7 @@
     map.on('moveend', syncLinks); syncLinks();
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
-    map.on('click', () => select(null));
+    map.on('click', () => { if (!single) select(null); });
     info.addEventListener('click', e => {
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
@@ -334,8 +335,10 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    if (routeOnly) { routeLines.forEach(l => toggle(l)); if (routeLines.length > 1) select(null); }
-    box.querySelector('.tm-count').textContent = data.fetched && !routeOnly
+    if (single) { setOn(routeLines[0], true); select(routeLines[0]); }
+    // (a one-route trip's distance and gain are already in the line under the map)
+    box.querySelector('.tm-count').textContent = single ? ''
+      : data.fetched
       ? `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`
       : `${extras.routes.length} route${extras.routes.length === 1 ? '' : 's'}`;
   }
