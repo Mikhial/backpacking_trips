@@ -245,13 +245,16 @@ async function downloadElevation(saved) {
     const file = `${dir}/${tileFile(x, y)}`;
     if (fs.existsSync(file)) continue;
     const url = `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/12/${x}/${y}.png`;
-    let res;
-    for (let attempt = 0; attempt < 4 && !res?.ok; attempt++) {
+    let body, last = 'no answer';
+    for (let attempt = 0; attempt < 4 && !body; attempt++) {
       if (attempt) await sleep(3000 * attempt);
-      try { res = await fetch(url, { signal: AbortSignal.timeout(60000) }); } catch {}
+      try {
+        const res = await fetch(url, { signal: AbortSignal.timeout(60000) });
+        if (res.ok) body = Buffer.from(await res.arrayBuffer()); else last = res.status;
+      } catch (e) { last = e.message; }
     }
-    if (!res?.ok) throw new Error(`elevation tile ${x}/${y}: ${res ? res.status : 'no answer'}`);
-    fs.writeFileSync(file, Buffer.from(await res.arrayBuffer()));
+    if (!body) throw new Error(`elevation tile ${x}/${y}: ${last}`);
+    fs.writeFileSync(file, body);
     got++;
   }
   console.log(`  ${want.size} elevation tiles (${got} downloaded)`);
@@ -271,12 +274,21 @@ const done = new Set();
 if (california) {
   const want = new Map([...parks].filter(([name, p]) => !only.length || only.includes(parkSlug(name)) || p.trips.some(s => only.includes(s))));
   for (const [name, f] of await californiaParks(want)) {
-    const saved = await savePark({ name, ...f });
-    console.log(`${parkSlug(name)}: ${saved.features.length} features, ${(fs.statSync(parkPath(name, 'osm.json')).size / 1048576).toFixed(1)} MB`);
-    done.add(name);
+    try {
+      console.log(`${parkSlug(name)}: saving`);
+      const saved = await savePark({ name, ...f });
+      console.log(`${parkSlug(name)}: ${saved.features.length} features, ${(fs.statSync(parkPath(name, 'osm.json')).size / 1048576).toFixed(1)} MB`);
+      done.add(name);
+    } catch (e) {
+      // stop at the first failure; parks already saved are kept
+      failed++;
+      console.error(`${parkSlug(name)}: ${e.message}`);
+      break;
+    }
   }
 }
 for (const [name, p] of parks) {
+  if (failed) break;
   if (done.has(name)) continue;
   // --california only redoes California parks; the others keep their saved data unless it's missing or out of date
   if (california && fs.existsSync(parkPath(name, 'osm.json')) && !force) {
