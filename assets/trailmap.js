@@ -13,7 +13,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = extrasEl ? JSON.parse(extrasEl.textContent) : { trailheads: [], routes: [] };
+  const extras = { trailheads: [], camps: [], routes: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -33,6 +33,10 @@
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
 
+    // "map_trails: route only" in the header: no park boundary or other trails, just your routes
+    // (shown from the start) and the trailheads, camps, water and peaks along them
+    const routeOnly = box.hasAttribute('data-route-only') && extras.routes.length > 0;
+    if (routeOnly) data = { ...data, boundary: [], trails: [] };
     data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
 
     // Keep only what belongs to the area: lines that enter the boundary, points inside it,
@@ -133,12 +137,14 @@
       });
     }
 
+    const nearRoute = pt => extras.routes.some(r => r.p.some(p => map.distance(pt, [p[0], p[1]]) < 500));
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
     data.pois.forEach(p => {
-      const keep = !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
-      if (!keep) return;
+      const keep = routeOnly ? nearRoute(p.at) : !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
+      // camps listed in the header replace the map's own camps
+      if (!keep || (p.t === 'camp' && extras.camps.length)) return;
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
@@ -148,12 +154,43 @@
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
     });
 
+    // Your camps: ones that would overlap at this zoom are drawn as one dot with a count;
+    // click it (or zoom in) to see them separately
+    const campLayer = L.layerGroup().addTo(map);
+    const drawCamps = () => {
+      campLayer.clearLayers();
+      const groups = [];
+      extras.camps.forEach(p => {
+        const xy = map.latLngToLayerPoint(p.at);
+        // join every group this camp is close to (close to any camp in it), so a chain of nearby sites stays together
+        const hit = groups.filter(g => g.xys.some(q => q.distanceTo(xy) < 18));
+        const g = { xys: [xy, ...hit.flatMap(g => g.xys)], list: [p, ...hit.flatMap(g => g.list)] };
+        hit.forEach(h => groups.splice(groups.indexOf(h), 1)); groups.push(g);
+      });
+      groups.forEach(({ list }) => {
+        if (list.length === 1) {
+          const p = list[0];
+          L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
+            .bindTooltip(`${esc(p.n)} <span>Camp</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+          return;
+        }
+        const b = L.latLngBounds(list.map(p => p.at));
+        L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
+          .addTo(campLayer)
+          .bindTooltip(`${list.length} camps <span>${list.map(p => esc(p.n)).join(', ')}</span>`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
+          .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
+      });
+    };
+    map.on('zoomend', drawCamps);
+
     let bounds = data.bounds ? L.latLngBounds(data.bounds) : null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
+    extras.camps.forEach(p => grow(p.at));
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
+    drawCamps();
     const detailZoom = Math.ceil(map.getZoom()) + 1;
     const toggleDetail = () => {
       const on = map.getZoom() >= detailZoom;
@@ -272,7 +309,8 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    box.querySelector('.tm-count').textContent = data.fetched
+    if (routeOnly) { routeLines.forEach(l => toggle(l)); if (routeLines.length > 1) select(null); }
+    box.querySelector('.tm-count').textContent = data.fetched && !routeOnly
       ? `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`
       : `${extras.routes.length} route${extras.routes.length === 1 ? '' : 's'}`;
   }

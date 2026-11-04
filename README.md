@@ -45,6 +45,8 @@ updated: 2026-10-16            # optional: when you last updated the research
 map: Point Reyes National Seashore   # optional: adds a trail map (see below)
 trailheads:                    # optional: trailheads missing from the map
   Bear Valley: 38.0405, -122.7998
+camps:                         # optional: camps to always show on the map
+  Sky Camp: 38.0298, -122.8361
 routes:                        # optional: your own routes, as GPX files
   Coast Trail loop: tracks/point-reyes-coast.gpx
 links:                         # optional: planning links shown under the map
@@ -92,7 +94,9 @@ Optional on any channel: `share` (e.g. `60%`), `note` (lane text), `lottery: tru
 Add `map:` with the park or wilderness name, spelled the way it is on [openstreetmap.org](https://www.openstreetmap.org) (search for it there to check). After you commit, the **Fetch trail maps** action downloads the area's trails, trailheads, camps, peaks and water from OpenStreetMap, adds elevations, and republishes the site in a few minutes. If the name isn't found, the action fails and says so.
 
 - **Missing trailhead**: add it under `trailheads:` as `Name: latitude, longitude`. Right-click the spot in Google Maps to copy the coordinates.
-- **Your own route**: export it as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are drawn in blue on top of the trails and listed above the map. The elevation profile uses the elevations in the GPX file.
+- **Camps**: add the camps you mention under `camps:`, in the same `Name: latitude, longitude` format. They're always shown on the map and replace the camps from OpenStreetMap.
+- **Your own route**: export it as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are drawn in blue on top of the trails and listed above the map. The elevation profile uses the elevations in the GPX file. In the notes, a link whose text is exactly the route name (e.g. `- [Coast Trail loop](https://www.alltrails.com/…)`) automatically shows the distance, elevation gain and elevation range measured from the GPX, plus a **Map** button. Don't type those numbers yourself; any notes after a `:` go on the next line.
+- **Only your routes**: add `map_trails: route only` under `map:` to hide the park boundary and the other trails. The map then shows just your routes, plus the trailheads, camps, water and peaks along them.
 - **Planning links**: the row under the map opens CalTopo and Gaia GPS on whatever area the map is showing. Add your own under `links:` as `Label: https://…` (ranger station, conditions page, FarOut, permits).
 - **Missing or wrong trail**: fix it on openstreetmap.org (**Edit**), then run **Actions → Fetch trail maps → Run workflow** with **Refetch every map** ticked. The map data isn't refreshed otherwise.
 

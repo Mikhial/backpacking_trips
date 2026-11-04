@@ -1,7 +1,7 @@
 // Downloads the trail network for every trip that has a `map:` line in its header,
 // and saves it to assets/trails/<trip>.json for the map on the trip page.
 //
-//   node scripts/fetch-trails.js            fetch trips that don't have data yet (or whose map name changed)
+//   node scripts/fetch-trails.js            fetch trips that don't have data yet (or whose map name or routes changed)
 //   node scripts/fetch-trails.js --force    refetch everything
 //   node scripts/fetch-trails.js zion       only this trip
 //
@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 import { PNG } from 'pngjs';
-import { dist, simplify } from '../lib/geo.js';
+import { dist, simplify, parseGpx, parseLatLon } from '../lib/geo.js';
 
 const OVERPASS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 const DEM_ZOOM = 12;
@@ -114,7 +114,8 @@ async function profile(line) {
 }
 
 // ---------- one area ----------
-async function fetchArea(name) {
+// extra: [lat, lon] points (your routes and trailheads) that the downloaded area must also cover
+async function fetchArea(name, extra = []) {
   const esc = name.replace(/"/g, '\\"');
   const found = await overpass(`[out:json][timeout:60];
     ( rel["name"="${esc}"]["boundary"~"^(protected_area|national_park)$"];
@@ -124,7 +125,11 @@ async function fetchArea(name) {
     out bb tags;`);
   const area = found.elements.sort((a, b) => (a.type === 'relation' ? -1 : 1) - (b.type === 'relation' ? -1 : 1))[0];
   if (!area) throw new Error(`OpenStreetMap has no park or wilderness boundary named "${name}". Check the spelling on openstreetmap.org.`);
-  const bb = area.bounds;
+  const bb = { ...area.bounds };
+  for (const [lat, lon] of extra) {
+    bb.minlat = Math.min(bb.minlat, lat); bb.maxlat = Math.max(bb.maxlat, lat);
+    bb.minlon = Math.min(bb.minlon, lon); bb.maxlon = Math.max(bb.maxlon, lon);
+  }
   const pad = 0.03; // ~3 km so trailheads just outside the boundary are included
   const box = [bb.minlat - pad, bb.minlon - pad, bb.maxlat + pad, bb.maxlon + pad].map(v => v.toFixed(4)).join(',');
 
@@ -214,15 +219,20 @@ for (const f of files) {
   const slug = f.replace(/\.md$/, '');
   if (only.length && !only.includes(slug)) continue;
   const head = fs.readFileSync(path.join('trips', f), 'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  const map = head && (yaml.load(head[1]) || {}).map;
+  const data = head ? yaml.load(head[1]) || {} : {}, map = data.map;
+  // your routes and trailheads can reach past the park boundary (e.g. a trail between two parks)
+  const routeFiles = Object.values(data.routes || {}).map(v => String(v).trim()).filter(p => /^tracks\//.test(p) && fs.existsSync(p)).sort();
+  const extra = [...routeFiles.flatMap(p => parseGpx(fs.readFileSync(p, 'utf8'))),
+    ...Object.values(data.trailheads || {}).map(parseLatLon).filter(Boolean)];
   const out = path.join(OUT_DIR, slug + '.json');
   if (!map) { if (fs.existsSync(out)) { fs.unlinkSync(out); console.log(`${slug}: no map line, removed old data`); } continue; }
   if (!force && fs.existsSync(out)) {
-    try { if (JSON.parse(fs.readFileSync(out, 'utf8')).area === map) { console.log(`${slug}: up to date`); continue; } } catch {}
+    try { const old = JSON.parse(fs.readFileSync(out, 'utf8'));
+      if (old.area === map && String(old.routes || '') === String(routeFiles)) { console.log(`${slug}: up to date`); continue; } } catch {}
   }
   try {
     console.log(`${slug}: fetching "${map}"…`);
-    const result = await fetchArea(map);
+    const result = { ...await fetchArea(map, extra), routes: routeFiles };
     fs.writeFileSync(out, JSON.stringify(result));
     console.log(`${slug}: ${result.trails.length} trails, ${result.pois.length} points, ${(fs.statSync(out).size / 1024).toFixed(0)} KB`);
   } catch (e) {

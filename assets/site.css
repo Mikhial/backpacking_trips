@@ -199,6 +199,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-poi { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); display: inline-block; }
 .tm-poi.trailhead { background: #1c211a; border-radius: 2px; }
 .tm-poi.camp { background: #5a9a2a; }
+.tm-poi.tm-group { display: flex; align-items: center; justify-content: center; color: #fff; font: 600 10px/1 var(--sans); cursor: pointer; }
 .tm-poi.peak { background: #8a5a2b; border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); box-shadow: none; border: 0; }
 .tm-poi.water { background: #3d8fd6; }
 .tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
@@ -222,6 +223,11 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-plan .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .tm-plan.solo { border-top: 0; padding-top: 0; }
 
+/* Route line in the notes: link, stats measured from the GPX, then the "Map" toggle. Any notes after it start on the next line. */
+.notes .rt { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; }
+.notes .rt a { font-weight: 600; }
+.notes .rt-stats { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.notes .rt .rt-show { margin-left: 0; align-self: center; }
 /* "Map" toggle after a route link in the notes: shows or hides that route on the trail map */
 .notes .rt-show { display: inline-flex; align-items: center; gap: 5px; vertical-align: 1px; margin-left: 6px; padding: 0 8px; height: 20px; font: 500 12px/1 var(--sans); color: var(--fix); background: none; border: 1px solid color-mix(in srgb, var(--fix) 45%, transparent); border-radius: 999px; cursor: pointer; }
 .notes .rt-show i { display: block; width: 12px; height: 0; border-top: 2.5px solid currentColor; border-radius: 2px; }
