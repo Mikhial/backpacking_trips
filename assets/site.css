@@ -223,6 +223,15 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-plan .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .tm-plan.solo { border-top: 0; padding-top: 0; }
 
+/* Right-click menu on the trail map (Leaflet popups are always light, so fixed colors) */
+.leaflet-popup.tm-menu .leaflet-popup-content-wrapper { border-radius: 8px; padding: 0; }
+.leaflet-popup.tm-menu .leaflet-popup-content { margin: 0; padding: 4px 0; min-width: 180px; font: 13px/1.4 var(--sans); }
+.tm-menu .tm-menu-h { padding: 4px 12px 6px; border-bottom: 1px solid #e9ece4; margin-bottom: 4px; }
+.tm-menu .tm-menu-h b { display: block; color: #1c211a; font-weight: 600; }
+.tm-menu .tm-ll { color: #62695e; font-size: 12px; font-variant-numeric: tabular-nums; user-select: all; }
+.leaflet-popup.tm-menu a, .tm-menu button { all: unset; display: block; box-sizing: border-box; width: 100%; padding: 5px 12px; color: #1c211a; cursor: pointer; }
+.leaflet-popup.tm-menu a:hover, .tm-menu button:hover, .leaflet-popup.tm-menu a:focus-visible, .tm-menu button:focus-visible { background: #eceee8; }
+
 /* Route line in the notes: link, stats measured from the GPX, then the "Map" toggle. Any notes after it start on the next line. */
 .notes .rt { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; }
 .notes .rt a { font-weight: 600; }

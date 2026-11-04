@@ -20,7 +20,7 @@ nav: trips
   {% set extras = { trailheads: trailheads, camps: camps, routes: routes } | mapExtras %}
   {% if areaData or extras %}
   <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
-  <section class="trailmap" id="trailmap"{% if areaData %} data-src="{{ ('/assets/trails/' + page.fileSlug + '.json') | htmlBaseUrl }}"{% endif %} data-base="{{ '/' | htmlBaseUrl }}"{% if map_trails == 'route only' %} data-route-only{% endif %} data-hint="Click a {% if areaData and map_trails != 'route only' %}trail{% else %}route{% endif %} to see its length and elevation profile.">
+  <section class="trailmap" id="trailmap"{% if areaData %} data-src="{{ ('/assets/trails/' + page.fileSlug + '.json') | htmlBaseUrl }}"{% endif %} data-base="{{ '/' | htmlBaseUrl }}"{% if map_trails == 'route only' %} data-route-only{% endif %} data-hint="Click a {% if areaData and map_trails != 'route only' %}trail{% else %}route{% endif %} to see its length and elevation profile, or right-click anywhere for the weather there.">
     <div class="tm-head"><h2>{% if areaData and map_trails != 'route only' %}Trails in {{ map }}{% else %}Routes and trailheads{% endif %}</h2><span class="tm-count hint"></span></div>
     {% if extras %}<script type="application/json" class="tm-extras">{{ extras | safe }}</script>{% endif %}
     <div class="tm-routes" hidden></div>

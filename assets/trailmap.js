@@ -1,5 +1,6 @@
 // Trail map on trip pages: the trails in the area from OpenStreetMap on a USGS topo base.
 // Click a trail to see its length, gain and elevation profile; hover the profile to follow it on the map.
+// Right-click (or long-press) anywhere, or on a trailhead, camp or peak, for its NWS forecast.
 (function () {
   const box = document.getElementById('trailmap');
   if (!box || !window.L) return;
@@ -32,6 +33,27 @@
       attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS</a> · Trails: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 7 });
+
+    // Right-click (or long-press) anywhere for a menu: NWS forecast, hourly graph, copy coordinates.
+    // On a trailhead, camp or peak the menu is for that place.
+    const spotMenu = (ll, title) => {
+      ll = L.latLng(ll);
+      const lat = ll.lat.toFixed(4), lon = ll.lng.toFixed(4), nws = `https://forecast.weather.gov/MapClick.php?lat=${lat}&lon=${lon}`;
+      const el = L.DomUtil.create('div');
+      el.innerHTML = `<div class="tm-menu-h">${title ? `<b>${title}</b>` : ''}<span class="tm-ll">${lat}, ${lon}</span></div>` +
+        `<a href="${nws}" target="_blank" rel="noopener">NWS forecast ↗</a>` +
+        `<a href="${nws}&unit=0&lg=english&FcstType=graphical" target="_blank" rel="noopener">Hourly weather graph ↗</a>` +
+        `<button type="button">Copy coordinates</button>`;
+      const btn = el.querySelector('button');
+      btn.addEventListener('click', () => {
+        const done = () => { btn.textContent = 'Copied'; };
+        const fallback = () => { const r = document.createRange(); r.selectNodeContents(el.querySelector('.tm-ll')); getSelection().removeAllRanges(); getSelection().addRange(r); btn.textContent = 'Selected, press ⌘C'; };
+        try { navigator.clipboard.writeText(`${lat}, ${lon}`).then(done, fallback); } catch (e) { fallback(); }
+      });
+      el.addEventListener('click', e => { if (e.target.closest('a')) map.closePopup(); });
+      L.popup({ className: 'tm-menu', offset: [0, -2], closeButton: false, autoPanPadding: [16, 16] }).setLatLng(ll).setContent(el).openOn(map);
+    };
+    map.on('contextmenu', e => spotMenu(e.latlng));
 
     // "map_trails: route only" in the header: no park boundary or other trails, just your routes
     // (shown from the start) and the trailheads, camps, water and peaks along them
@@ -148,10 +170,12 @@
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
     });
     extras.trailheads.forEach(p => {
-      L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
     // Your camps: ones that would overlap at this zoom are drawn as one dot with a count;
@@ -170,8 +194,9 @@
       groups.forEach(({ list }) => {
         if (list.length === 1) {
           const p = list[0];
-          L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
+          const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
             .bindTooltip(`${esc(p.n)} <span>Camp</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+          m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
