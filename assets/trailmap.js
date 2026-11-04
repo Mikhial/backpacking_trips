@@ -163,10 +163,12 @@
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
+    const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
     data.pois.forEach(p => {
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
-      // OpenStreetMap's camps are shown alongside the ones in the header, even at the same place
       if (!keep) return;
+      // camps are drawn at every zoom with your own camps, below
+      if (p.t === 'camp') { camps.push({ n: p.n, at: p.at }); return; }
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
@@ -178,13 +180,13 @@
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
-    // Your camps: ones that would overlap at this zoom are drawn as one dot with a count;
-    // click it (or zoom in) to see them separately
+    // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
+    // as one dot with a count; click it (or zoom in) to see them separately
     const campLayer = L.layerGroup().addTo(map);
     const drawCamps = () => {
       campLayer.clearLayers();
       const groups = [];
-      extras.camps.forEach(p => {
+      camps.forEach(p => {
         const xy = map.latLngToLayerPoint(p.at);
         // join every group this camp is close to (close to any camp in it), so a chain of nearby sites stays together
         const hit = groups.filter(g => g.xys.some(q => q.distanceTo(xy) < 18));
@@ -195,14 +197,14 @@
         if (list.length === 1) {
           const p = list[0];
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
-            .bindTooltip(`${esc(p.n)} <span>Camp</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
-          m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+            .bindTooltip(`${esc(p.n || 'Camp')}${p.n ? ' <span>Camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+          m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
         L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
           .addTo(campLayer)
-          .bindTooltip(`${list.length} camps <span>${list.map(p => esc(p.n)).join(', ')}</span>`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
+          .bindTooltip(`${list.length} camps <span>${list.map(p => esc(p.n || 'unnamed')).join(', ')}</span>`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
           .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
       });
     };

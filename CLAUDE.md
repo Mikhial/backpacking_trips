@@ -44,7 +44,7 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
 2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
    - It also writes `assets/parks/<park>.json` for the park's "All map data" debug page (`parks.njk`, `assets/parkmap.js`, `/parks/<park>/`): every saved feature, lines simplified, each marked if the trip map drops it. `shownIds()` repeats the trip map's keep/drop rules (including the ones in `assets/trailmap.js`); keep them in sync.
    - One-route trips cover ~5 km (3 mi) around the route (`ROUTE_PAD`), with other trails shown; the route is always on.
-   - Your camps and OpenStreetMap's are both shown, even at the same place.
+   - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
 
 Working on it locally:
 - osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.
