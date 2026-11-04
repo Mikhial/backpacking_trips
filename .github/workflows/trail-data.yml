@@ -1,6 +1,6 @@
 # Trail maps, in two steps:
-#   1. download-parks.js saves each park's map data and elevation in parkdata/ (not published).
-#      Only parks that don't have saved data yet are downloaded.
+#   1. download-parks.js saves each park's map data and elevation in parkdata/ (not published),
+#      cut out of its state's map file from Geofabrik. Only parks that don't have saved data yet are downloaded.
 #   2. build-maps.js builds each trip's map in assets/trails/ from that saved data.
 # Then it commits both and republishes the site.
 # Runs whenever a trip, a GPX route or the map scripts change. Can also be run by hand from the Actions tab.
@@ -11,8 +11,8 @@ on:
     paths: ['trips/*.md', 'tracks/**', 'scripts/download-parks.js', 'scripts/build-maps.js', 'lib/parkdata.js', 'lib/geo.js']
   workflow_dispatch:
     inputs:
-      california:
-        description: Redo all California parks (from the California map file)
+      all:
+        description: Redo every park (downloads each state's map file again)
         type: boolean
         default: false
       park:
@@ -40,10 +40,11 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Install osmium
-        if: inputs.california
         run: sudo apt-get update && sudo apt-get install -y osmium-tool
       - name: Download park data
-        run: node scripts/download-parks.js ${{ inputs.california && '--california' || '' }} ${{ inputs.park && format('--force {0}', inputs.park) || '' }}
+        run: node scripts/download-parks.js ${{ inputs.all && '--all' || '' }} "$PARK"
+        env:
+          PARK: ${{ inputs.park }}
       # build and commit whatever parks were saved, even if a later one failed to download
       - name: Build trip maps
         if: ${{ !cancelled() }}

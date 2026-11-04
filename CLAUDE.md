@@ -37,13 +37,15 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan"). Two steps, both run by `.github/workflows/trail-data.yml`:
 
 1. `scripts/download-parks.js` saves each park's full data and elevation tiles in `parkdata/<park>/` (committed, not published). Saved per `park:` line (the wilderness, not the forest in `within:`), covering the boundary + 3 km + any routes/trailheads outside it.
-   - `--california <file.pbf>` cuts every California park out of Geofabrik's California file with osmium. Use this for California parks.
-   - Without it, parks are downloaded one at a time from Overpass (Zion, Grand Canyon, new non-California parks). Overpass is often overloaded; the script tries each server once and stops, by design (Mike: "if it fails, exit early"). Don't add long retry loops.
+   - Every park is cut out of its state's Geofabrik file with osmium; parks in one state share one download. A new park's state is looked up once on Nominatim and saved as `region` in its `osm.json`.
+   - Overpass is not used: its public servers were overloaded for a whole day (Nov 4, 2026) and say automated use should run its own server.
+   - Failures stop the run with a clear message and no long retry loops (Mike: "if it fails, exit early"). Parks already saved are still built and committed.
+   - `--all` redoes every park; a trip or park name redoes just that one; `--cache DIR` keeps state files in DIR and reuses them the same day.
 2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
 
 Working on it locally:
 - osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.
-- The California file is ~1.3 GB; keep it in the scratchpad, never in the repo.
+- State files are large (California ~1.3 GB): use `--cache` with a scratchpad folder, never the repo.
 - After changing either script, copy `assets/trails/` aside, rebuild, and compare trail/point counts, total length and gain per trip. Explain every difference (so far they've all been OpenStreetMap edits).
 - Preview artifacts don't show the topo map background (the preview blocks the USGS tiles); trails and points still draw. To check backgrounds, run `npx @11ty/eleventy --serve` and give Mike the localhost link.
 - Budget: about 1 GB for `parkdata/` in all; no file over 100 MB (GitHub's limit). Report park sizes when they change. John Muir is the largest at ~51 MB, mostly its 300 elevation tiles.
