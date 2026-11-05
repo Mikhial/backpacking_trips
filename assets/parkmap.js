@@ -131,7 +131,7 @@
     };
 
     // Boundary and long-distance trails, drawn underneath
-    const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: true,
+    const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: d.boundaryOn !== false,
       group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }];
     // drawn like on the trip map: a dark red line on top of everything else, named on hover
     if (d.big.length) {
@@ -146,7 +146,7 @@
       extra.push({ k: '#routes', label: 'Your routes', n: d.routeLines.length, color: '#1f5fa8', on: true, group: L.layerGroup(layers) });
     }
     const bigOnTop = () => ['#big', '#routes'].forEach(k => { const x = extra.find(x => x.k === k); if (x && map.hasLayer(x.group)) x.group.eachLayer(l => l.bringToFront()); });
-    extra.forEach(x => x.group.addTo(map));
+    extra.forEach(x => { if (x.on) x.group.addTo(map); });
 
     // Switches, grouped; each group has an "all" switch
     const chip = (x) => `<label class="pm-sw"><input type="checkbox" data-k="${esc(x.k)}"${x.on ? ' checked' : ''}>` +

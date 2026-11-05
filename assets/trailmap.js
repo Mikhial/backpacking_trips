@@ -80,7 +80,8 @@
     // Long-distance trails (PCT, Tahoe Rim Trail…) are drawn last, thicker and darker
     const isBig = t => !!t.b && t.k === 'trail' && !t.x;
     trails.slice().sort((a, b) => isBig(a) - isBig(b)).forEach(t => {
-      const big = isBig(t), main = big || (!!t.n && t.k === 'trail');
+      // a trip whose "map shows:" lists dirt roads draws them at every zoom, not just zoomed in
+      const big = isBig(t), main = big || (!!t.n && t.k === 'trail') || (t.k === 'road' && !!data.shows?.includes('dirt roads'));
       const style = {
         renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null

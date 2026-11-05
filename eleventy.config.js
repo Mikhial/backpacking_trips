@@ -47,6 +47,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   // whether the trip's map draws this kind ("map shows:" in its header; without it, everything)
   eleventyConfig.addFilter('mapShows', function (word) { const list = mapShows(this.ctx['map shows']); return !list || list.includes(word); });
+  // whether the trip's "map shows:" line names this kind (false when there's no line)
+  eleventyConfig.addFilter('mapListed', function (word) { const list = mapShows(this.ctx['map shows']); return !!list && list.includes(word); });
   eleventyConfig.addFilter('joinAnd', a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);
   // the park's "all map data" page (parks.njk), if it has one
   eleventyConfig.addFilter('parkPage', name => fs.existsSync(`./assets/parks/${parkSlug(name)}/index.json`) ? `/parks/${parkSlug(name)}/` : '');

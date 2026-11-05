@@ -92,7 +92,7 @@ function profile(line, elevation) {
 // the All map data page's kinds for each "map shows:" word
 const WORD_KINDS = {
   paths: ['highway=path'], footways: ['highway=footway'], bridleways: ['highway=bridleway'], cycleways: ['highway=cycleway'],
-  steps: ['highway=steps'], 'dirt roads': ['highway=track'], trailheads: ['highway=trailhead'], peaks: ['natural=peak'],
+  steps: ['highway=steps'], 'dirt roads': ['highway=track'], trailheads: ['highway=trailhead'], boundaries: [], peaks: ['natural=peak'],
   camps: ['tourism=camp_site', 'tourism=wilderness_hut', 'tourism=alpine_hut'], water: ['natural=spring', 'amenity=drinking_water']
 };
 const poiType = t => t.highway === 'trailhead' ? 'trailhead' : t.tourism ? 'camp' : t.natural === 'peak' ? 'peak'
@@ -171,8 +171,10 @@ function buildMap(trip, park) {
       trails.push({ n: g.n, k: g.k, ...(g.x ? { x: 1 } : {}), ...(g.b.length ? { b: g.b } : {}), ...pr });
     }
   }
-  // Unnamed tracks are usually roads; keep unnamed paths and all named lines
-  const kept = trails.filter(t => t.n || t.k === 'trail');
+  // Unnamed tracks are usually roads; keep unnamed paths and all named lines (and every dirt road when the trip's
+  // "map shows:" asks for dirt roads)
+  const allRoads = !!trip.shows?.includes('dirt roads');
+  const kept = trails.filter(t => t.n || t.k === 'trail' || allRoads);
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
 
   return {
@@ -183,7 +185,8 @@ function buildMap(trip, park) {
       source: park.source,
       fetched: park.fetched,
       bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
-      boundary: ring,
+      boundary: trip.shows && !trip.shows.includes('boundaries') ? [] : ring,
+      ...(trip.shows ? { shows: trip.shows } : {}),
       trails: kept.sort((a, b) => b.len - a.len),
       pois
     }
@@ -329,6 +332,7 @@ for (const [name, { park, shown, trips, routeAreas = [], followOnly = new Set(),
   // something on its trip map
   const listedKinds = new Set(lists.filter(Boolean).flat().flatMap(w => WORD_KINDS[w] || []));
   for (const [k, x] of Object.entries(index.kinds)) x.on = listedKinds.has(k) || (lists.some(l => !l) && x.shown > 0);
+  index.boundaryOn = lists.some(l => !l || l.includes('boundaries'));
   const dir = path.join(PARK_OUT, parkSlug(name));
   fs.mkdirSync(dir, { recursive: true });
   let total = 0, start = 0;
