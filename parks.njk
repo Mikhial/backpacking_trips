@@ -16,9 +16,11 @@ eleventyComputed:
   </header>
   <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
   <section class="trailmap pm" id="parkmap" data-src="{{ ('/assets/parks/' + park.slug + '/') | htmlBaseUrl }}">
-    <p class="hint pm-about">Loading…</p>
-    <div class="pm-switches"></div>
-    <div class="tm-map pm-map" tabindex="0" aria-label="All map data"></div>
+    <div class="pm-top"><p class="hint pm-about">Loading…</p><button type="button" class="pm-layout" aria-pressed="false">Side by side</button></div>
+    <div class="pm-body">
+      <div class="pm-switches"></div>
+      <div class="tm-map pm-map" tabindex="0" aria-label="All map data"></div>
+    </div>
     <div class="tm-info hint">Hover or click anything to see its OpenStreetMap tags.</div>
   </section>
   <script src="/assets/vendor/leaflet/leaflet.js" defer></script>

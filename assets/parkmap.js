@@ -21,6 +21,22 @@
 
   // index.json: what's there; <kind>.json: that kind's features, fetched when it's first switched on
   const base = box.dataset.src;
+  // Layout: switches above the map, or side by side with it (remembered in this browser)
+  const layoutBtn = box.querySelector('.pm-layout');
+  const setLayout = side => {
+    box.classList.toggle('pm-side', side);
+    layoutBtn.setAttribute('aria-pressed', String(side));
+    layoutBtn.textContent = side ? 'Stacked' : 'Side by side';
+    window.dispatchEvent(new Event('resize')); // the map re-measures itself
+  };
+  let side = false;
+  try { side = localStorage.getItem('pm-layout') === 'side'; } catch (e) {}
+  setLayout(side);
+  layoutBtn.addEventListener('click', () => {
+    side = !side; setLayout(side);
+    try { localStorage.setItem('pm-layout', side ? 'side' : 'stacked'); } catch (e) {}
+  });
+
   fetch(base + 'index.json').then(r => r.json()).then(draw).catch(() => { about.textContent = 'Couldn’t load the map data.'; });
 
   function draw(d) {
