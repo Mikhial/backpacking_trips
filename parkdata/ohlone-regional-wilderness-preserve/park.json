@@ -1,0 +1,22 @@
+{
+ "name": "Ohlone Regional Wilderness Preserve",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/11520322",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 11520322
+ },
+ "bounds": {
+  "minlat": 37.504442,
+  "minlon": -121.7913353,
+  "maxlat": 37.5497868,
+  "maxlon": -121.7003169
+ },
+ "box": {
+  "minlat": 37.50419,
+  "minlon": -121.90814,
+  "maxlat": 37.5785,
+  "maxlon": -121.69351
+ }
+}

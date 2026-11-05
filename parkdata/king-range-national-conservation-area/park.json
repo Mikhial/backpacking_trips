@@ -1,0 +1,22 @@
+{
+ "name": "King Range National Conservation Area",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/68170",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 68170
+ },
+ "bounds": {
+  "minlat": 39.9684056,
+  "minlon": -124.3641652,
+  "maxlat": 40.2958791,
+  "maxlon": -123.9653007
+ },
+ "box": {
+  "minlat": 39.9684056,
+  "minlon": -124.3641652,
+  "maxlat": 40.2958791,
+  "maxlon": -123.9653007
+ }
+}

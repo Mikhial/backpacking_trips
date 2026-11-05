@@ -1,0 +1,22 @@
+{
+ "name": "Desolation Wilderness",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/6196636",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 6196636
+ },
+ "bounds": {
+  "minlat": 38.8163049,
+  "minlon": -120.2869043,
+  "maxlat": 39.0212814,
+  "maxlon": -120.0695681
+ },
+ "box": {
+  "minlat": 38.804,
+  "minlon": -120.2869043,
+  "maxlat": 39.03748,
+  "maxlon": -120.0695681
+ }
+}

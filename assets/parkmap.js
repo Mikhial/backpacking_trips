@@ -1,101 +1,124 @@
 // "All map data" page: everything saved in parkdata/ for one park, from assets/parks/<park>.json.
-// A switch for each kind of data shows or hides it; "Grey out what the trip map drops" shows what the cleanup removes.
+// A switch for each kind of data (grouped by OpenStreetMap category) shows or hides it; it opens with the kinds the
+// trip map uses. "Grey out what the trip map drops" shows what the cleanup removes.
 (function () {
   const box = document.getElementById('parkmap');
   if (!box || !window.L) return;
   const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const about = box.querySelector('.pm-about'), sw = box.querySelector('.pm-switches'), info = box.querySelector('.tm-info');
   const COLORS = {
-    'highway=path': '#b5462f', 'highway=footway': '#d9822b', 'highway=bridleway': '#8e44ad', 'highway=track': '#8a6a4b', 'highway=steps': '#c0399e',
-    'highway=trailhead': '#1c211a', 'tourism=camp_site': '#5a9a2a', 'tourism=wilderness_hut': '#2e6b1f', 'tourism=alpine_hut': '#2e6b1f',
-    'natural=peak': '#8a5a2b', 'natural=spring': '#3db6d6', 'amenity=drinking_water': '#1f5fa8'
+    'highway=path': '#b5462f', 'highway=footway': '#d9822b', 'highway=bridleway': '#8e44ad', 'highway=cycleway': '#2a9d8f',
+    'highway=track': '#8a6a4b', 'highway=steps': '#c0399e', 'highway=trailhead': '#1c211a', 'tourism=camp_site': '#5a9a2a',
+    'tourism=wilderness_hut': '#2e6b1f', 'tourism=alpine_hut': '#2e6b1f', 'natural=peak': '#8a5a2b', 'natural=spring': '#3db6d6',
+    'amenity=drinking_water': '#1f5fa8'
   };
-  const OTHER = ['#6b6b9a', '#9a6b6b', '#6b9a8a', '#9a8a6b'];
+  const BY_KEY = { highway: '#6b6b6b', waterway: '#3d8fd6', natural: '#7a8a3a', water: '#3d8fd6', tourism: '#4a8a2a', amenity: '#a05a9a',
+    building: '#9a7a5a', landuse: '#8a9a6a', leisure: '#5a8a7a', boundary: '#5a4a8a', power: '#9a9a3a', barrier: '#7a5a3a' };
+  const GROUPS = { highway: 'Trails and roads', natural: 'Natural', water: 'Water', waterway: 'Water', tourism: 'Tourism', amenity: 'Amenities',
+    leisure: 'Leisure', landuse: 'Land use', landcover: 'Land use', building: 'Buildings', boundary: 'Boundaries', protect_class: 'Boundaries' };
   const GREY = '#a3a3a3';
+  const fmt = n => n.toLocaleString('en-US');
 
-  fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => { about.textContent = 'Couldn’t load the map data.'; });
+  // index.json: what's there; <kind>.json: that kind's features, fetched when it's first switched on
+  const base = box.dataset.src;
+  fetch(base + 'index.json').then(r => r.json()).then(draw).catch(() => { about.textContent = 'Couldn’t load the map data.'; });
 
   function draw(d) {
-    const dropped = d.features.filter(f => f.d).length;
     const date = new Date(d.fetched).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
     const [type, id] = d.source.replace('OpenStreetMap ', '').split('/');
-    about.innerHTML = `Everything saved for this park: ${d.features.length.toLocaleString('en-US')} features from the ` +
-      `${esc(d.region.replace(/^us\//, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()))} map file, downloaded ${date}. ` +
-      `Lines are simplified. <a href="https://www.openstreetmap.org/${type}/${id}" target="_blank" rel="noopener">Boundary on OpenStreetMap ↗</a>`;
+    const state = d.region.replace(/^us\//, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    about.innerHTML = `Everything OpenStreetMap has in this area: ${fmt(d.total)} features from the ${esc(state)} map file, ` +
+      `downloaded ${date}. Lines are simplified. <a href="https://www.openstreetmap.org/${type}/${id}" target="_blank" rel="noopener">Boundary on OpenStreetMap ↗</a>`;
 
     const map = L.map(box.querySelector('.pm-map'), { preferCanvas: true, zoomSnap: 0.5 });
     L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 17, maxNativeZoom: 16,
+      maxZoom: 18, maxNativeZoom: 16,
       attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS</a> · Data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
     }).addTo(map);
     const renderer = L.canvas({ tolerance: 6 });
     map.fitBounds(d.bounds, { padding: [8, 8] });
 
-    let grey = false;
-    const layers = {}; // kind -> { group, items: [{ layer, f, color }] }
-    const restyle = it => {
-      const g = grey && it.f.d;
-      if (it.layer.setStyle) it.layer.setStyle(it.layer instanceof L.CircleMarker
-        ? { color: '#fff', fillColor: g ? GREY : it.color, fillOpacity: g ? .6 : 1 }
-        : { color: g ? GREY : it.color, opacity: g ? .55 : .9 });
-    };
+    const nameOf = f => f.tags.name || f.tags.ref || d.kinds[f.k].label;
     const show = (f, color) => {
-      const t = f.tags || {};
-      const rows = Object.entries(t).sort(([a], [b]) => a.localeCompare(b))
-        .map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
+      const rows = Object.entries(f.tags).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
       const osm = `https://www.openstreetmap.org/${{ n: 'node', w: 'way', r: 'relation' }[f.id[0]]}/${f.id.slice(1)}`;
-      info.innerHTML = `<b style="color:${color}">${esc(t.name || t.ref || d.kinds[f.k].label)}</b>` +
-        `<span>${esc(d.kinds[f.k].label)}</span>` + (f.b ? `<span>${f.b.map(esc).join(' · ')}</span>` : '') +
-        `<span class="${f.d ? 'tm-x' : ''}">${f.d ? 'Dropped from the trip map' : 'On the trip map'}</span>` +
-        `<a href="${osm}" target="_blank" rel="noopener">OpenStreetMap ↗</a>` +
-        `<table class="pm-tags">${rows}</table>`;
+      info.innerHTML = `<b style="color:${color}">${esc(nameOf(f))}</b><span>${esc(d.kinds[f.k].label)}</span>` +
+        (f.b ? `<span>${f.b.map(esc).join(' · ')}</span>` : '') +
+        `<span class="${f.d ? 'tm-x' : ''}">${f.d ? 'Not on the trip map' : 'On the trip map'}</span>` +
+        `<a href="${osm}" target="_blank" rel="noopener">OpenStreetMap ↗</a><table class="pm-tags">${rows}</table>`;
     };
 
-    // Boundary and long-distance trails first, so everything else draws on top
-    const extra = {
-      boundary: { label: 'Boundary', geom: 'line', n: d.boundary.length, color: '#3b2f5c',
-        group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }
-    };
-    const big = d.features.filter(f => f.b && f.g);
-    if (big.length) extra.big = { label: 'Long-distance trail', geom: 'line', n: big.length, color: '#7e2413',
-      group: L.layerGroup(big.map(f => L.polyline(f.g, { renderer, color: '#7e2413', weight: 6, opacity: .35, interactive: false }))) };
-
-    const kinds = Object.entries(d.kinds).sort(([, a], [, b]) => (a.geom === 'line' ? 0 : 1) - (b.geom === 'line' ? 0 : 1) || b.n - a.n);
-    kinds.forEach(([k], i) => {
-      const color = COLORS[k] || OTHER[i % OTHER.length];
-      layers[k] = { group: L.layerGroup(), items: [], color };
+    // Each kind: its features, drawn the first time it's switched on
+    let grey = false;
+    const files = {};
+    const load = file => files[file] ||= fetch(base + file + '.json').then(r => r.json());
+    const kinds = Object.entries(d.kinds).map(([k, x], i) => {
+      const key = k.split('=')[0];
+      return { k, ...x, key, color: COLORS[k] || BY_KEY[key] || ['#6b6b9a', '#9a6b6b', '#6b9a8a', '#9a8a6b'][i % 4],
+        // on at first: kinds with something on the trip map
+        on: x.shown > 0 };
     });
-    d.features.forEach(f => {
-      const L_ = layers[f.k], color = L_.color;
-      const layer = f.g
-        ? L.polyline(f.g, { renderer, color, weight: 1.6, opacity: .9, dashArray: f.k === 'highway=track' ? '6 4' : null })
-        : L.circleMarker(f.at, { renderer, radius: 4.5, color: '#fff', weight: 1.2, fillColor: color, fillOpacity: 1 });
-      const t = f.tags || {};
-      layer.bindTooltip(`<b>${esc(t.name || t.ref || d.kinds[f.k].label)}</b> <span>${esc(d.kinds[f.k].label)}${f.d ? ' · dropped' : ''}</span>`,
-        { sticky: !!f.g, direction: 'top', offset: [0, -6], className: 'tm-tip' });
-      layer.on('click', e => { L.DomEvent.stop(e); show(f, color); });
-      if (f.g) {
-        layer.on('mouseover', () => layer.setStyle({ weight: 4 }));
-        layer.on('mouseout', () => layer.setStyle({ weight: 1.6 }));
+    const restyle = (layer, f, color) => {
+      const g = grey && f.d;
+      if (layer instanceof L.CircleMarker) layer.setStyle({ fillColor: g ? GREY : color, fillOpacity: g ? .6 : 1 });
+      else layer.setStyle({ color: g ? GREY : color, opacity: g ? .5 : .9 });
+    };
+    const groupOf = {};
+    const layerFor = async x => {
+      if (groupOf[x.k]) return groupOf[x.k];
+      const group = L.layerGroup();
+      for (const f of (await load(x.file)).filter(f => f.k === x.k)) {
+        const layer = f.g
+          ? L.polyline(f.g, { renderer, color: x.color, weight: 1.6, opacity: .9, dashArray: x.k === 'highway=track' ? '6 4' : null })
+          : L.circleMarker(f.at, { renderer, radius: 4.5, color: '#fff', weight: 1.2, fillColor: x.color, fillOpacity: 1 });
+        layer.bindTooltip(`<b>${esc(nameOf(f))}</b> <span>${esc(x.label)}${f.d ? ' · not on trip map' : ''}</span>`,
+          { sticky: !!f.g, direction: 'top', offset: [0, -6], className: 'tm-tip' });
+        layer.on('click', e => { L.DomEvent.stop(e); show(f, x.color); });
+        if (f.g) { layer.on('mouseover', () => layer.setStyle({ weight: 4 })); layer.on('mouseout', () => layer.setStyle({ weight: 1.6 })); }
+        layer.f = f;
+        restyle(layer, f, x.color);
+        group.addLayer(layer);
       }
-      L_.items.push({ layer, f, color });
-      L_.group.addLayer(layer);
-    });
+      return groupOf[x.k] = group;
+    };
 
-    // Switches: boundary, long-distance trails, each kind of line, each kind of point, then grey-out
-    const chip = (id, label, n, color, geom, on) =>
-      `<label class="pm-sw"><input type="checkbox" data-k="${esc(id)}"${on ? ' checked' : ''}>` +
-      `<i class="${geom === 'line' ? 'pm-ln' : 'pm-pt'}" style="--c:${color}"></i>${esc(label)} <span>${n.toLocaleString('en-US')}</span></label>`;
-    sw.innerHTML = Object.entries(extra).map(([k, x]) => chip(k, x.label, x.n, x.color, 'line', true)).join('') +
-      kinds.map(([k, x]) => chip(k, x.label, x.n, layers[k].color, x.geom, true)).join('') +
-      `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${dropped.toLocaleString('en-US')}</span></label>`;
-    Object.values(extra).forEach(x => x.group.addTo(map));
-    kinds.forEach(([k]) => layers[k].group.addTo(map));
+    // Boundary and long-distance trails, drawn underneath
+    const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: true,
+      group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }];
+    if (d.big.length) extra.push({ k: '#big', label: 'Long-distance trail', n: d.big.length, color: '#7e2413', on: true,
+      group: L.layerGroup(d.big.map(g => L.polyline(g, { renderer, color: '#7e2413', weight: 6, opacity: .35, interactive: false }))) });
+    extra.forEach(x => x.group.addTo(map));
+
+    // Switches, grouped; each group has an "all" switch
+    const chip = (x) => `<label class="pm-sw"><input type="checkbox" data-k="${esc(x.k)}"${x.on ? ' checked' : ''}>` +
+      `<i class="${x.geom === 'point' ? 'pm-pt' : 'pm-ln'}" style="--c:${x.color}"></i>${esc(x.label)} <span>${fmt(x.n)}</span></label>`;
+    const groups = {};
+    kinds.forEach(x => (groups[GROUPS[x.key] || 'Other'] ||= []).push(x));
+    const order = ['Trails and roads', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
+    sw.innerHTML = `<div class="pm-group"><b>Map</b>${extra.map(chip).join('')}` +
+      `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label></div>` +
+      Object.keys(groups).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map(g => {
+        const list = groups[g].sort((a, b) => b.n - a.n);
+        return `<div class="pm-group"><b>${esc(g)}</b><label class="pm-sw pm-all"><input type="checkbox" data-group="${esc(g)}"${list.every(x => x.on) ? ' checked' : ''}>all</label>${list.map(chip).join('')}</div>`;
+      }).join('');
+    const set = async (x, on) => {
+      x.on = on;
+      if (!on) return groupOf[x.k]?.remove();
+      const g = await layerFor(x);
+      if (x.on) g.addTo(map); // still on once loaded
+    };
+    kinds.forEach(x => { if (x.on) set(x, true); });
     sw.addEventListener('change', e => {
-      const k = e.target.dataset.k, on = e.target.checked;
-      if (k === '#grey') { grey = on; Object.values(layers).forEach(l => l.items.forEach(restyle)); return; }
-      const g = (extra[k] || layers[k]).group;
-      on ? g.addTo(map) : g.remove();
+      const t = e.target, k = t.dataset.k;
+      if (t.dataset.group) {
+        groups[t.dataset.group].forEach(x => set(x, t.checked));
+        t.closest('.pm-group').querySelectorAll('input[data-k]').forEach(i => { i.checked = t.checked; });
+        return;
+      }
+      if (k === '#grey') { grey = t.checked; kinds.forEach(x => groupOf[x.k]?.eachLayer(l => restyle(l, l.f, x.color))); return; }
+      const x = extra.find(x => x.k === k);
+      if (x) { t.checked ? x.group.addTo(map) : x.group.remove(); return; }
+      set(kinds.find(x => x.k === k), t.checked);
     });
   }
 })();

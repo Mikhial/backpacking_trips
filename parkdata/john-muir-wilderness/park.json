@@ -1,0 +1,22 @@
+{
+ "name": "John Muir Wilderness",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/5372301",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 5372301
+ },
+ "bounds": {
+  "minlat": 36.46332,
+  "minlon": -119.1318348,
+  "maxlat": 37.6134662,
+  "maxlon": -118.0964703
+ },
+ "box": {
+  "minlat": 36.46332,
+  "minlon": -119.1318348,
+  "maxlat": 37.6134662,
+  "maxlon": -118.0964703
+ }
+}

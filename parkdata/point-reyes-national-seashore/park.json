@@ -1,0 +1,22 @@
+{
+ "name": "Point Reyes National Seashore",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/1250137",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 1250137
+ },
+ "bounds": {
+  "minlat": 37.8964147,
+  "minlon": -123.0286319,
+  "maxlat": 38.2446644,
+  "maxlon": -122.7012137
+ },
+ "box": {
+  "minlat": 37.8964147,
+  "minlon": -123.0286319,
+  "maxlat": 38.2446644,
+  "maxlon": -122.7012137
+ }
+}

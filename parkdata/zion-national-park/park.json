@@ -1,0 +1,22 @@
+{
+ "name": "Zion National Park",
+ "region": "us/utah",
+ "source": "OpenStreetMap relation/5758583",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 5758583
+ },
+ "bounds": {
+  "minlat": 37.1413497,
+  "minlon": -113.2282863,
+  "maxlat": 37.5042917,
+  "maxlon": -112.8631483
+ },
+ "box": {
+  "minlat": 37.1413497,
+  "minlon": -113.2282863,
+  "maxlat": 37.5042917,
+  "maxlon": -112.8631483
+ }
+}

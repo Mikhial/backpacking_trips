@@ -1,0 +1,22 @@
+{
+ "name": "Ventana Wilderness",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/2778839",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 2778839
+ },
+ "bounds": {
+  "minlat": 35.9607641,
+  "minlon": -121.8260408,
+  "maxlat": 36.4205895,
+  "maxlon": -121.277828
+ },
+ "box": {
+  "minlat": 35.9607641,
+  "minlon": -121.8260408,
+  "maxlat": 36.4205895,
+  "maxlon": -121.277828
+ }
+}

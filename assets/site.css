@@ -261,3 +261,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .pm-tags td:first-child { color: var(--muted); white-space: nowrap; }
 .tm-all { font-size: 12px; color: var(--faint); }
 .tm-all:hover { color: var(--link); }
+.pm-switches { flex-direction: column; gap: 6px; }
+.pm-group { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.pm-group > b { font-size: 12px; font-weight: 600; color: var(--muted); min-width: 120px; }
+.pm-sw.pm-all { border-style: dotted; color: var(--muted); }

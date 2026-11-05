@@ -15,7 +15,7 @@ eleventyComputed:
     <h1>{{ park.name }}</h1>
   </header>
   <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
-  <section class="trailmap pm" id="parkmap" data-src="{{ ('/assets/parks/' + park.slug + '.json') | htmlBaseUrl }}">
+  <section class="trailmap pm" id="parkmap" data-src="{{ ('/assets/parks/' + park.slug + '/') | htmlBaseUrl }}">
     <p class="hint pm-about">Loading…</p>
     <div class="pm-switches"></div>
     <div class="tm-map pm-map" tabindex="0" aria-label="All map data"></div>

@@ -19,6 +19,7 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add('lib/**');
   eleventyConfig.ignores.add('tracks/**');
   eleventyConfig.ignores.add('parkdata/**');
+  eleventyConfig.watchIgnores.add('parkdata/**'); // the download and pick steps rewrite it; nothing there is published
 
   // All trips, in region order, then by "order", then by name
   eleventyConfig.addCollection('trips', api => {
@@ -45,7 +46,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   // the park's "all map data" page (parks.njk), if it has one
-  eleventyConfig.addFilter('parkPage', name => fs.existsSync(`./assets/parks/${parkSlug(name)}.json`) ? `/parks/${parkSlug(name)}/` : '');
+  eleventyConfig.addFilter('parkPage', name => fs.existsSync(`./assets/parks/${parkSlug(name)}/index.json`) ? `/parks/${parkSlug(name)}/` : '');
   // Your own trailheads, camps and GPX routes from the trip header, ready for the trail map
   eleventyConfig.addFilter('mapExtras', data => {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);

@@ -6,7 +6,7 @@ export default function () {
   const parks = new Map();
   for (const t of tripMaps()) if (t.park) {
     const slug = parkSlug(t.park);
-    if (!fs.existsSync(`assets/parks/${slug}.json`)) continue;
+    if (!fs.existsSync(`assets/parks/${slug}/index.json`)) continue;
     const p = parks.get(slug) || { name: t.park, slug, trips: [] };
     p.trips.push(t.slug);
     parks.set(slug, p);
