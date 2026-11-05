@@ -273,7 +273,9 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 /* side by side: switches in a scrolling column left of the map (stacked again on narrow screens) */
 @media (min-width: 800px) {
   .pm.pm-side .pm-body { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; align-items: start; }
-  .pm.pm-side .pm-switches { max-height: min(72vh, 760px); overflow-y: auto; padding-right: 4px; }
+  .pm.pm-side .pm-switches { flex-wrap: nowrap; max-height: min(72vh, 760px); overflow-y: auto; overflow-x: hidden; min-width: 0; padding-right: 4px; }
+  .pm.pm-side .pm-sw { max-width: 100%; min-width: 0; }
+  .pm.pm-side .pm-sw { overflow-wrap: anywhere; } /* a long label wraps inside its switch */
   .pm.pm-side .pm-group { gap: 4px; }
   .pm.pm-side .pm-group > b { flex-basis: 100%; min-width: 0; margin-top: 4px; }
 }
