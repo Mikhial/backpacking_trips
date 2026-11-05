@@ -6,6 +6,7 @@ order: 2
 summary: Coastal bluffs, beaches, fir forest and Alamere Falls
 updated: 2026-10-16
 park: Point Reyes National Seashore
+map shows: paths, footways, cycleways, steps, dirt roads, trailheads, camps, boundaries
 
 facts:
   Getting there: 1–1.5 hr drive; paved, winding
