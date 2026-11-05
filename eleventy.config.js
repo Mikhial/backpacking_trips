@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
-import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows } from './lib/normalize.js';
+import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
 import { parkSlug } from './lib/parkdata.js';
 
@@ -46,7 +46,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   // whether the trip's map draws this kind ("map shows:" in its header; without it, everything)
-  eleventyConfig.addFilter('mapShows', function (word) { const list = mapShows(this.ctx['map shows']); return !list || list.includes(word); });
+  eleventyConfig.addFilter('mapShows', function (word) { return showsWord(mapShows(this.ctx['map shows']), word); });
   // whether the trip's "map shows:" line names this kind (false when there's no line)
   eleventyConfig.addFilter('mapListed', function (word) { const list = mapShows(this.ctx['map shows']); return !!list && list.includes(word); });
   eleventyConfig.addFilter('joinAnd', a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);

@@ -96,8 +96,17 @@
     });
 
     // The legend only lists line kinds this map has
-    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x) };
+    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x),
+      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), 'unnamed paths': trails.some(t => !t.n && t.k === 'trail') };
+    legendHas.peaks = legendHas.peak;
     box.querySelectorAll('.tm-legend [data-legend]').forEach(el => { if (!legendHas[el.dataset.legend]) el.remove(); });
+    // "Zoom in for …" names only what this map has
+    const more = box.querySelector('.tm-legend .tm-more[data-words]');
+    if (more) {
+      const words = more.dataset.words.split(',').filter(w => legendHas[w]);
+      if (words.length) more.textContent = 'Zoom in for ' + (words.length < 2 ? words[0] : words.slice(0, -1).join(', ') + ' and ' + words[words.length - 1]);
+      else more.remove();
+    }
 
     // Your routes: hidden until turned on (from the buttons above the map or the notes), then on top in blue with a white edge
     const routeLines = extras.routes.map(r => {

@@ -8,7 +8,7 @@ import path from 'node:path';
 import { PNG } from 'pngjs';
 import { dist, simplify, distToLine } from '../lib/geo.js';
 import { wanted } from '../lib/pick.js';
-import { MAP_WORDS } from '../lib/normalize.js';
+import { MAP_WORDS, showsWord, MIN_PEAK_FT } from '../lib/normalize.js';
 import { ROUTE_M, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 
 const OUT_DIR = 'assets/trails';
@@ -115,8 +115,8 @@ function buildMap(trip, park) {
   const longIds = new Set(park.routes.flatMap(r => (r.members || []).filter(m => m.type === 'way').map(m => m.ref)));
   const listed = el => {
     const t = el.tags || {}, poi = poiType(t);
+    if (poi) return Object.keys(MAP_WORDS).some(w => MAP_WORDS[w].poi === poi && showsWord(trip.shows, w));
     if (!trip.shows) return wanted(el) || longIds.has(el.id);
-    if (poi) return trip.shows.some(w => MAP_WORDS[w].poi === poi);
     return trip.shows.some(w => MAP_WORDS[w].highway === t.highway) && wanted(el);
   };
   const follows = el => (el.follows || []).includes(trip.slug);
@@ -150,7 +150,12 @@ function buildMap(trip, park) {
     const center = el.type === 'node' ? [el.lat, el.lon] : el.geometry && el.geometry[0];
     if (t.highway === 'trailhead') { pois.push({ t: 'trailhead', n: t.name || '', at: center }); continue; }
     if (t.tourism) { pois.push({ t: 'camp', n: t.name || '', at: center }); continue; }
-    if (t.natural === 'peak') { pois.push({ t: 'peak', n: t.name, at: center, e: t.ele ? Math.round(parseFloat(t.ele)) : null }); continue; }
+    if (t.natural === 'peak') {
+      // only peaks of MIN_PEAK_FT or more; one with no elevation in OpenStreetMap is measured on the elevation tiles
+      const e = t.ele ? Math.round(parseFloat(t.ele)) : null;
+      if ((e ?? elevation(center[0], center[1])) * 3.28084 < MIN_PEAK_FT) continue;
+      pois.push({ t: 'peak', n: t.name, at: center, e }); continue;
+    }
     if (t.amenity === 'drinking_water' || t.natural === 'spring') { pois.push({ t: 'water', n: t.name || '', at: center }); continue; }
     if (el.type !== 'way' || !el.geometry) continue;
     const closed = /^(yes|true)$/.test(t.abandoned || '') || /^(yes|true)$/.test(t.disused || '') || !!t['abandoned:highway'] || t.access === 'no';
