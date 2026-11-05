@@ -27,8 +27,8 @@
     const date = new Date(d.fetched).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
     const [type, id] = d.source.replace('OpenStreetMap ', '').split('/');
     const state = d.region.replace(/^us\//, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    about.innerHTML = `Everything OpenStreetMap has in this area: ${fmt(d.total)} features from the ${esc(state)} map file, ` +
-      `downloaded ${date}. Lines are simplified. <a href="https://www.openstreetmap.org/${type}/${id}" target="_blank" rel="noopener">Boundary on OpenStreetMap ↗</a>`;
+    about.innerHTML = `What OpenStreetMap has in this area for hiking: ${fmt(d.total)} features from the ${esc(state)} map file, ` +
+      `downloaded ${date}. Lines are simplified; buildings, town streets and the like are left out. <a href="https://www.openstreetmap.org/${type}/${id}" target="_blank" rel="noopener">Boundary on OpenStreetMap ↗</a>`;
 
     const map = L.map(box.querySelector('.pm-map'), { preferCanvas: true, zoomSnap: 0.5 });
     L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
