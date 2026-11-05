@@ -85,8 +85,11 @@
     // Boundary and long-distance trails, drawn underneath
     const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: true,
       group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }];
+    // drawn like on the trip map: a dark red line on top of everything else, named on hover
     if (d.big.length) extra.push({ k: '#big', label: 'Long-distance trail', n: d.big.length, color: '#7e2413', on: true,
-      group: L.layerGroup(d.big.map(g => L.polyline(g, { renderer, color: '#7e2413', weight: 6, opacity: .35, interactive: false }))) });
+      group: L.layerGroup(d.big.map(({ g, b }) => L.polyline(g, { renderer, color: '#7e2413', weight: 2, opacity: .95 })
+        .bindTooltip(`<b>${b.map(esc).join(' · ')}</b> <span>Long-distance trail</span>`, { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' }))) });
+    const bigOnTop = () => { const x = extra.find(x => x.k === '#big'); if (x && map.hasLayer(x.group)) x.group.eachLayer(l => l.bringToFront()); };
     extra.forEach(x => x.group.addTo(map));
 
     // Switches, grouped; each group has an "all" switch
@@ -107,7 +110,7 @@
       x.on = on;
       if (!on) return groupOf[x.k]?.remove();
       const g = await layerFor(x);
-      if (x.on) g.addTo(map); // still on once loaded
+      if (x.on) { g.addTo(map); bigOnTop(); } // still on once loaded
     };
     kinds.forEach(x => { if (x.on) set(x, true); });
     sw.addEventListener('change', e => {

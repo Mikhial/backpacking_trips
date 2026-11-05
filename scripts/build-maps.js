@@ -234,7 +234,7 @@ function debugData(name, park, shown, trips) {
   }
   if (small.length) files.small = small;
   // long-distance trail lines, drawn underneath from the start
-  const big = all.filter(f => f.b && f.g).map(f => f.g);
+  const big = all.filter(f => f.b && f.g).map(f => ({ g: f.g, b: f.b }));
   const lines = [];
   for (const el of park.boundary) {
     if (el.type === 'way' && el.geometry) lines.push(el.geometry);
