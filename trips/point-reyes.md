@@ -7,6 +7,9 @@ summary: Coastal bluffs, beaches, fir forest and Alamere Falls
 updated: 2026-10-16
 park: Point Reyes National Seashore
 map shows: paths, footways, cycleways, steps, dirt roads, trailheads, camps, boundaries
+routes:
+  Big loop that goes through a lot: tracks/point-reyes-bear-valley-coast-loop.gpx
+  Shorter loop on the south side: tracks/point-reyes-pelican-hill-loop.gpx
 
 facts:
   Getting there: 1–1.5 hr drive; paved, winding
