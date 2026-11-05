@@ -14,7 +14,7 @@
   };
   const BY_KEY = { highway: '#6b6b6b', waterway: '#3d8fd6', natural: '#7a8a3a', water: '#3d8fd6', tourism: '#4a8a2a', amenity: '#a05a9a',
     building: '#9a7a5a', landuse: '#8a9a6a', leisure: '#5a8a7a', boundary: '#5a4a8a', power: '#9a9a3a', barrier: '#7a5a3a' };
-  const GROUPS = { highway: 'Trails and roads', natural: 'Natural', water: 'Water', waterway: 'Water', tourism: 'Tourism', amenity: 'Amenities',
+  const GROUPS = { highway: 'Trails', natural: 'Natural', water: 'Water', waterway: 'Water', tourism: 'Tourism', amenity: 'Amenities',
     leisure: 'Leisure', landuse: 'Land use', landcover: 'Land use', building: 'Buildings', boundary: 'Boundaries', protect_class: 'Boundaries' };
   const GREY = '#a3a3a3';
   const fmt = n => n.toLocaleString('en-US');
@@ -93,10 +93,10 @@
     const chip = (x) => `<label class="pm-sw"><input type="checkbox" data-k="${esc(x.k)}"${x.on ? ' checked' : ''}>` +
       `<i class="${x.geom === 'point' ? 'pm-pt' : 'pm-ln'}" style="--c:${x.color}"></i>${esc(x.label)} <span>${fmt(x.n)}</span></label>`;
     const groups = {};
-    // paved highways get their own group, after trails and roads
-    const groupName = x => /^highway=(trunk|primary|secondary|tertiary)$/.test(x.k) ? 'Highways' : GROUPS[x.key] || 'Other';
+    // roads (service, forest and minor roads, highways) get their own group, after trails
+    const groupName = x => /^highway=(trunk|primary|secondary|tertiary|unclassified|service)$/.test(x.k) ? 'Roads' : GROUPS[x.key] || 'Other';
     kinds.forEach(x => (groups[groupName(x)] ||= []).push(x));
-    const order = ['Trails and roads', 'Highways', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
+    const order = ['Trails', 'Roads', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
     sw.innerHTML = `<div class="pm-group"><b>Map</b>${extra.map(chip).join('')}` +
       `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label></div>` +
       Object.keys(groups).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map(g => {

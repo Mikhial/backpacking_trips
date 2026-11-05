@@ -202,7 +202,11 @@ const LABELS = {
   'highway=path': 'Path', 'highway=footway': 'Footway', 'highway=bridleway': 'Bridleway', 'highway=cycleway': 'Cycleway',
   'highway=track': 'Dirt road (track)', 'highway=steps': 'Steps', 'highway=trailhead': 'Trailhead', 'tourism=camp_site': 'Camp',
   'tourism=wilderness_hut': 'Wilderness hut', 'tourism=alpine_hut': 'Alpine hut', 'natural=peak': 'Peak', 'natural=spring': 'Spring',
-  'amenity=drinking_water': 'Drinking water'
+  'amenity=drinking_water': 'Drinking water',
+  'highway=pedestrian': 'Pedestrian way', 'highway=construction': 'Trail under construction', 'highway=climbing': 'Climbing route',
+  'highway=climbing_access': 'Climbing approach', 'highway=ladder': 'Ladder', 'highway=trail': 'Trail',
+  'highway=service': 'Service road', 'highway=unclassified': 'Forest or minor road', 'highway=tertiary': 'Minor highway',
+  'highway=secondary': 'Secondary highway', 'highway=primary': 'Primary highway', 'highway=trunk': 'Major highway'
 };
 
 function debugData(name, park, shown, trips) {
