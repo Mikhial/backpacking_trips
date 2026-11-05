@@ -6,8 +6,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { PNG } from 'pngjs';
-import { dist, simplify } from '../lib/geo.js';
-import { parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
+import { dist, simplify, distToLine } from '../lib/geo.js';
+import { ROUTE_M, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 
 const OUT_DIR = 'assets/trails';
 const PARK_OUT = 'assets/parks'; // data for each park's "all map data" debug page
@@ -83,14 +83,22 @@ function profile(line, elevation) {
 }
 
 // One trip's map: the park plus your routes and trailheads, with ~3 km around them.
-// A one-route trip covers just ~5 km (3 mi) around its route, even in a big park like the Grand Canyon,
-// so its page stays small; the whole park is still saved in parkdata/.
+// A one-route trip covers just what's within ~5 km (3 mi) of its route line and trailheads, even in a big park
+// like the Grand Canyon, so its page stays small; the whole park is still saved in parkdata/.
+
+// What's near a one-route trip: within ROUTE_M of the route (simplified to ~30 m) or a trailhead
+export function corridor(trip) {
+  const line = simplify(trip.lines[0], 30), heads = trip.trailheads;
+  const bb = pad(grow(null, trip.extra), ROUTE_PAD); // quick first check
+  return pt => inside(bb, pt) && (distToLine(pt, line) < ROUTE_M || heads.some(h => dist(pt, h) < ROUTE_M));
+}
 function buildMap(trip, park) {
   const elevation = elevationFrom(parkPath(trip.park, 'elevation'));
   const single = trip.single;
   const bb = grow(single ? null : park.bounds, trip.extra);
   const box = pad(bb, single ? ROUTE_PAD : undefined);
-  const near = el => el.type === 'node' ? inside(box, [el.lat, el.lon]) : (el.geometry || []).some(p => inside(box, p));
+  const inArea = single ? corridor(trip) : p => inside(box, p);
+  const near = el => el.type === 'node' ? inArea([el.lat, el.lon]) : (el.geometry || []).some(inArea);
   const features = park.features.filter(near);
 
   const bigOf = new Map(); // way id -> route names
@@ -272,7 +280,8 @@ for (const trip of tripMaps()) {
     // a one-route trip's map area, for the page's "Hide what's too far from <route>" switch
     if (trip.single) {
       const a = pad(grow(null, trip.extra), ROUTE_PAD);
-      (p.routeAreas ||= []).push({ trip: trip.slug, route: trip.route, box: [[a.minlat, a.minlon], [a.maxlat, a.maxlon]] });
+      (p.routeAreas ||= []).push({ trip: trip.slug, route: trip.route, meters: ROUTE_M, box: [[a.minlat, a.minlon], [a.maxlat, a.maxlon]],
+        line: simplify(trip.lines[0], 30).map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]), trailheads: trip.trailheads });
     }
     parks.set(trip.park, p);
     const json = JSON.stringify(result);

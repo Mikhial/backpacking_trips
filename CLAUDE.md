@@ -45,7 +45,7 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
    - Two versions of each park's map, by design: the All map data page shows (nearly) everything; the trip map drops things for clarity.
 2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
    - It also writes `assets/parks/<park>/` for the park's "All map data" page (`parks.njk`, `assets/parkmap.js`, `/parks/<park>/`): `index.json` plus one file per large kind (small kinds share `small.json`), each feature marked if the trip map drops it. The page opens with the trip map's kinds on (Mike's call) and loads other kinds when switched on. `shownIds()` repeats the trip map's keep/drop rules (including the ones in `assets/trailmap.js`); keep them in sync.
-   - One-route trips cover ~5 km (3 mi) around the route (`ROUTE_PAD`), with other trails shown; the route is always on.
+   - One-route trips cover what's within ~5 km (3 mi) of the route line and its trailheads (`ROUTE_M`, `corridor()` in build-maps.js), with other trails shown; the route is always on. The All map data page's "Hide what's more than 3 mi from <route>" switch uses the same rule (copied in assets/parkmap.js; keep in sync).
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
 
 Working on it locally:

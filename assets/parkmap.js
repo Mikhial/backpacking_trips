@@ -79,15 +79,34 @@
       if (layer instanceof L.CircleMarker) layer.setStyle({ fillColor: g ? GREY : color, fillOpacity: g ? .6 : 1 });
       else layer.setStyle({ color: g ? GREY : color, opacity: g ? .5 : .9 });
     };
-    // One-route trips: "Hide what's too far from <route>" keeps only what's inside the switched-on routes' map areas
-    // (the same ~3 mi area the trip page uses); with several on, anything near any of them stays
-    const areas = (d.routeAreas || []).map(a => ({ ...a, on: false, bounds: L.latLngBounds(a.box) }));
+    // One-route trips: "Hide what's too far from <route>" keeps only what's within ~3 mi of the switched-on routes
+    // (their line and trailheads, the same rule as the trip page); with several on, anything near any of them stays
+    const RAD = Math.PI / 180, R = 6371008.8;
+    const distToLine = (p, line) => { // meters
+      const k = Math.cos(p[0] * RAD), xy = q => [(q[1] - p[1]) * RAD * k * R, (q[0] - p[0]) * RAD * R];
+      let best = Infinity;
+      for (let i = 0; i < line.length; i++) {
+        const [ax, ay] = xy(line[i]);
+        if (i === line.length - 1) { best = Math.min(best, Math.hypot(ax, ay)); break; }
+        const [bx, by] = xy(line[i + 1]), dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy;
+        const t = L2 ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / L2)) : 0;
+        best = Math.min(best, Math.hypot(ax + t * dx, ay + t * dy));
+      }
+      return best;
+    };
+    const areas = (d.routeAreas || []).map(a => {
+      const bounds = L.latLngBounds(a.box);
+      return { ...a, on: false, near: q => bounds.contains(q) && (distToLine(q, a.line) < a.meters || a.trailheads.some(h => distToLine(q, [h]) < a.meters)) };
+    });
     const pointsOf = f => f.at ? [f.at] : f.g.flat();
-    const visible = pts => !areas.some(a => a.on) || areas.some(a => a.on && pts.some(q => a.bounds.contains(q)));
+    // whether each thing is near each route, worked out once
+    const nearCache = new WeakMap();
+    const isNear = (key, pts, i) => { let c = nearCache.get(key); if (!c) nearCache.set(key, c = []); return c[i] ??= pts.some(areas[i].near); };
+    const visible = (pts, key) => !areas.some(a => a.on) || areas.some((a, i) => a.on && isNear(key, pts, i));
     const refilter = () => {
-      kinds.forEach(x => { if (!groupOf[x.k]) return; groupOf[x.k].clearLayers(); x.layers.forEach(l => { if (visible(pointsOf(l.f))) groupOf[x.k].addLayer(l); }); });
+      kinds.forEach(x => { if (!groupOf[x.k]) return; groupOf[x.k].clearLayers(); x.layers.forEach(l => { if (visible(pointsOf(l.f), l)) groupOf[x.k].addLayer(l); }); });
       const big = extra.find(x => x.k === '#big');
-      if (big) { big.group.clearLayers(); big.layers.forEach(l => { if (visible(l.pts)) big.group.addLayer(l); }); }
+      if (big) { big.group.clearLayers(); big.layers.forEach(l => { if (visible(l.pts, l)) big.group.addLayer(l); }); }
       bigOnTop();
     };
     const groupOf = {};
@@ -106,7 +125,7 @@
         layer.f = f;
         restyle(layer, f, x.color);
         x.layers.push(layer);
-        if (visible(pointsOf(f))) group.addLayer(layer);
+        if (visible(pointsOf(f), layer)) group.addLayer(layer);
       }
       return groupOf[x.k] = group;
     };
@@ -133,7 +152,7 @@
     const order = ['Trails', 'Roads', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
     sw.innerHTML = `<div class="pm-group"><b>Map</b>${extra.map(chip).join('')}` +
       `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label>` +
-      areas.map((a, i) => `<label class="pm-sw pm-grey"><input type="checkbox" data-area="${i}">Hide what's too far from ${esc(a.route)}</label>`).join('') + `</div>` +
+      areas.map((a, i) => `<label class="pm-sw pm-grey"><input type="checkbox" data-area="${i}">Hide what's more than 3 mi from ${esc(a.route)}</label>`).join('') + `</div>` +
       Object.keys(groups).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map(g => {
         const list = groups[g].sort((a, b) => b.n - a.n);
         return `<div class="pm-group"><b>${esc(g)}</b><label class="pm-sw pm-all"><input type="checkbox" data-group="${esc(g)}"${list.every(x => x.on) ? ' checked' : ''}>all</label>${list.map(chip).join('')}</div>`;
