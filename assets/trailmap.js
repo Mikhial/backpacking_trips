@@ -95,6 +95,10 @@
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
     });
 
+    // The legend only lists line kinds this map has
+    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x) };
+    box.querySelectorAll('.tm-legend [data-legend]').forEach(el => { if (!legendHas[el.dataset.legend]) el.remove(); });
+
     // Your routes: hidden until turned on (from the buttons above the map or the notes), then on top in blue with a white edge
     const routeLines = extras.routes.map(r => {
       const t = { ...r, k: 'route' };
