@@ -171,9 +171,8 @@ function buildMap(trip, park) {
       trails.push({ n: g.n, k: g.k, ...(g.x ? { x: 1 } : {}), ...(g.b.length ? { b: g.b } : {}), ...pr });
     }
   }
-  // Unnamed tracks are usually roads; keep unnamed paths and all named lines (and every dirt road when the trip's
-  // "map shows:" asks for dirt roads)
-  const allRoads = !!trip.shows?.includes('dirt roads');
+  // Keep every dirt road, named or not, unless the trip's "map shows:" leaves dirt roads out
+  const allRoads = !trip.shows || trip.shows.includes('dirt roads');
   const kept = trails.filter(t => t.n || t.k === 'trail' || allRoads);
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
 
