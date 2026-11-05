@@ -209,7 +209,7 @@ const LABELS = {
   'highway=secondary': 'Secondary highway', 'highway=primary': 'Primary highway', 'highway=trunk': 'Major highway'
 };
 
-function debugData(name, park, shown, trips) {
+function debugData(name, park, shown, trips, routeAreas) {
   const bigOf = new Map(); // "w123" -> long-distance trail names
   for (const r of park.routes) {
     const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim();
@@ -241,7 +241,7 @@ function debugData(name, park, shown, trips) {
     for (const m of el.members || []) if (m.type === 'way' && m.geometry) lines.push(m.geometry);
   }
   return {
-    name, region: park.region, source: park.source, fetched: park.fetched, trips,
+    name, region: park.region, source: park.source, fetched: park.fetched, trips, routeAreas,
     bounds: [[park.box.minlat, park.box.minlon], [park.box.maxlat, park.box.maxlon]],
     boundary: lines.map(l => simplify(l, 10).map(p => [+p[0].toFixed(5), +p[1].toFixed(5)])),
     dropped: all.filter(f => f.d).length, total: all.length, kinds, big, files
@@ -269,6 +269,11 @@ for (const trip of tripMaps()) {
     const { map: result, shownIds: ids } = buildMap(trip, p.park);
     ids.forEach(id => p.shown.add(id));
     p.trips.push(trip.slug);
+    // a one-route trip's map area, for the page's "Hide what's too far from <route>" switch
+    if (trip.single) {
+      const a = pad(grow(null, trip.extra), ROUTE_PAD);
+      (p.routeAreas ||= []).push({ trip: trip.slug, route: trip.route, box: [[a.minlat, a.minlon], [a.maxlat, a.maxlon]] });
+    }
     parks.set(trip.park, p);
     const json = JSON.stringify(result);
     const same = writeIfChanged(out, json);
@@ -279,9 +284,9 @@ for (const trip of tripMaps()) {
   }
 }
 // Each park's All map data page: assets/parks/<park>/index.json, plus one file per kind of data
-for (const [name, { park, shown, trips }] of parks) {
+for (const [name, { park, shown, trips, routeAreas = [] }] of parks) {
   if (!fs.existsSync(parkPath(name, 'all.json'))) { failed++; console.error(`${parkSlug(name)}: no all.json; run scripts/pick-features.js`); continue; }
-  const { files, ...index } = debugData(name, park, shown, trips);
+  const { files, ...index } = debugData(name, park, shown, trips, routeAreas);
   const dir = path.join(PARK_OUT, parkSlug(name));
   fs.mkdirSync(dir, { recursive: true });
   let total = 0, start = 0;

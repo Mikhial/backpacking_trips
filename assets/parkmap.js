@@ -79,10 +79,22 @@
       if (layer instanceof L.CircleMarker) layer.setStyle({ fillColor: g ? GREY : color, fillOpacity: g ? .6 : 1 });
       else layer.setStyle({ color: g ? GREY : color, opacity: g ? .5 : .9 });
     };
+    // One-route trips: "Hide what's too far from <route>" keeps only what's inside the switched-on routes' map areas
+    // (the same ~3 mi area the trip page uses); with several on, anything near any of them stays
+    const areas = (d.routeAreas || []).map(a => ({ ...a, on: false, bounds: L.latLngBounds(a.box) }));
+    const pointsOf = f => f.at ? [f.at] : f.g.flat();
+    const visible = pts => !areas.some(a => a.on) || areas.some(a => a.on && pts.some(q => a.bounds.contains(q)));
+    const refilter = () => {
+      kinds.forEach(x => { if (!groupOf[x.k]) return; groupOf[x.k].clearLayers(); x.layers.forEach(l => { if (visible(pointsOf(l.f))) groupOf[x.k].addLayer(l); }); });
+      const big = extra.find(x => x.k === '#big');
+      if (big) { big.group.clearLayers(); big.layers.forEach(l => { if (visible(l.pts)) big.group.addLayer(l); }); }
+      bigOnTop();
+    };
     const groupOf = {};
     const layerFor = async x => {
       if (groupOf[x.k]) return groupOf[x.k];
       const group = L.layerGroup();
+      x.layers = [];
       for (const f of (await load(x.file)).filter(f => f.k === x.k)) {
         const layer = f.g
           ? L.polyline(f.g, { renderer, color: x.color, weight: 1.6, opacity: .9, dashArray: x.k === 'highway=track' ? '6 4' : null })
@@ -93,7 +105,8 @@
         if (f.g) { layer.on('mouseover', () => layer.setStyle({ weight: 4 })); layer.on('mouseout', () => layer.setStyle({ weight: 1.6 })); }
         layer.f = f;
         restyle(layer, f, x.color);
-        group.addLayer(layer);
+        x.layers.push(layer);
+        if (visible(pointsOf(f))) group.addLayer(layer);
       }
       return groupOf[x.k] = group;
     };
@@ -102,9 +115,11 @@
     const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: true,
       group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }];
     // drawn like on the trip map: a dark red line on top of everything else, named on hover
-    if (d.big.length) extra.push({ k: '#big', label: 'Long-distance trail', n: d.big.length, color: '#7e2413', on: true,
-      group: L.layerGroup(d.big.map(({ g, b }) => L.polyline(g, { renderer, color: '#7e2413', weight: 2, opacity: .95 })
-        .bindTooltip(`<b>${b.map(esc).join(' · ')}</b> <span>Long-distance trail</span>`, { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' }))) });
+    if (d.big.length) {
+      const layers = d.big.map(({ g, b }) => Object.assign(L.polyline(g, { renderer, color: '#7e2413', weight: 2, opacity: .95 })
+        .bindTooltip(`<b>${b.map(esc).join(' · ')}</b> <span>Long-distance trail</span>`, { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' }), { pts: g.flat() }));
+      extra.push({ k: '#big', label: 'Long-distance trail', n: d.big.length, color: '#7e2413', on: true, layers, group: L.layerGroup(layers) });
+    }
     const bigOnTop = () => { const x = extra.find(x => x.k === '#big'); if (x && map.hasLayer(x.group)) x.group.eachLayer(l => l.bringToFront()); };
     extra.forEach(x => x.group.addTo(map));
 
@@ -117,7 +132,8 @@
     kinds.forEach(x => (groups[groupName(x)] ||= []).push(x));
     const order = ['Trails', 'Roads', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
     sw.innerHTML = `<div class="pm-group"><b>Map</b>${extra.map(chip).join('')}` +
-      `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label></div>` +
+      `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label>` +
+      areas.map((a, i) => `<label class="pm-sw pm-grey"><input type="checkbox" data-area="${i}">Hide what's too far from ${esc(a.route)}</label>`).join('') + `</div>` +
       Object.keys(groups).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map(g => {
         const list = groups[g].sort((a, b) => b.n - a.n);
         return `<div class="pm-group"><b>${esc(g)}</b><label class="pm-sw pm-all"><input type="checkbox" data-group="${esc(g)}"${list.every(x => x.on) ? ' checked' : ''}>all</label>${list.map(chip).join('')}</div>`;
@@ -131,6 +147,7 @@
     kinds.forEach(x => { if (x.on) set(x, true); });
     sw.addEventListener('change', e => {
       const t = e.target, k = t.dataset.k;
+      if (t.dataset.area) { areas[+t.dataset.area].on = t.checked; refilter(); return; }
       if (t.dataset.group) {
         groups[t.dataset.group].forEach(x => set(x, t.checked));
         t.closest('.pm-group').querySelectorAll('input[data-k]').forEach(i => { i.checked = t.checked; });
