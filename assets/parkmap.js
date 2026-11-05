@@ -93,8 +93,10 @@
     const chip = (x) => `<label class="pm-sw"><input type="checkbox" data-k="${esc(x.k)}"${x.on ? ' checked' : ''}>` +
       `<i class="${x.geom === 'point' ? 'pm-pt' : 'pm-ln'}" style="--c:${x.color}"></i>${esc(x.label)} <span>${fmt(x.n)}</span></label>`;
     const groups = {};
-    kinds.forEach(x => (groups[GROUPS[x.key] || 'Other'] ||= []).push(x));
-    const order = ['Trails and roads', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
+    // paved highways get their own group, after trails and roads
+    const groupName = x => /^highway=(trunk|primary|secondary|tertiary)$/.test(x.k) ? 'Highways' : GROUPS[x.key] || 'Other';
+    kinds.forEach(x => (groups[groupName(x)] ||= []).push(x));
+    const order = ['Trails and roads', 'Highways', 'Tourism', 'Natural', 'Water', 'Amenities', 'Leisure', 'Boundaries', 'Land use', 'Buildings', 'Other'];
     sw.innerHTML = `<div class="pm-group"><b>Map</b>${extra.map(chip).join('')}` +
       `<label class="pm-sw pm-grey"><input type="checkbox" data-k="#grey">Grey out what the trip map drops <span>${fmt(d.dropped)}</span></label></div>` +
       Object.keys(groups).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map(g => {
