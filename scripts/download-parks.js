@@ -23,7 +23,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { PARK_DIR, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 import { osmium, readPbf } from '../lib/osm.js';
-import { pickPark } from '../lib/pick.js';
+import { pickPark, pickedWithOldRules } from '../lib/pick.js';
 
 const UA = 'backpacking-trips-site/1.0 (https://github.com/Mikhial/backpacking_trips)';
 const args = process.argv.slice(2);
@@ -163,11 +163,18 @@ try {
     if (!byRegion.has(region.id)) byRegion.set(region.id, { region, parks: new Map() });
     byRegion.get(region.id).parks.set(name, p);
   }
-  // --check: only say whether anything needs downloading
+  // parks that don't need downloading but were picked with older rules (lib/pick.js changed): pick again
+  const repick = [...parks.keys()].filter(n => !todo.includes(n) && fs.existsSync(parkPath(n, 'full.osm.pbf')) && pickedWithOldRules(n));
+  // --check: only say whether anything needs downloading or picking (the workflow skips osmium if not)
   if (check) {
     console.log(todo.length ? `to download: ${todo.join(', ')}` : 'nothing to download');
-    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `needed=${todo.length ? 'true' : 'false'}\n`);
+    if (repick.length) console.log(`to pick again with the new rules: ${repick.join(', ')}`);
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `needed=${todo.length || repick.length ? 'true' : 'false'}\n`);
     process.exit(0);
+  }
+  for (const name of repick) {
+    const r = await pickPark(name);
+    console.log(`${parkSlug(name)}: picked again with the new rules; ${r.features} features for the trip maps`);
   }
   for (const { region, parks: list } of byRegion.values()) {
     console.log(`${region.id}: ${[...list.keys()].join(', ')}`);

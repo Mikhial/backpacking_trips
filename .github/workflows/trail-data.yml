@@ -1,6 +1,7 @@
 # Trail maps, in two steps:
-#   1. download-parks.js saves each park's map data and elevation in parkdata/ (not published),
-#      cut out of its state's map file from Geofabrik. Only parks that don't have saved data yet are downloaded.
+#   1. download-parks.js saves everything OpenStreetMap has in each park's area (full.osm.pbf) and elevation in
+#      parkdata/ (not published), cut out of its state's map file from Geofabrik, then picks what the maps use
+#      (osm.json, all.json; lib/pick.js). Only new parks are downloaded; parks picked with older rules are picked again.
 #   2. build-maps.js builds each trip's map in assets/trails/ (and each park's all-map-data page data in assets/parks/)
 #      from that saved data. Editing a trip's notes changes neither, so nothing is committed.
 # Then it commits both and republishes the site.
@@ -9,7 +10,7 @@ name: Fetch trail maps
 
 on:
   push:
-    paths: ['trips/*.md', 'tracks/**', 'scripts/download-parks.js', 'scripts/build-maps.js', 'lib/parkdata.js', 'lib/geo.js']
+    paths: ['trips/*.md', 'tracks/**', 'scripts/download-parks.js', 'scripts/build-maps.js', 'lib/parkdata.js', 'lib/geo.js', 'lib/pick.js', 'lib/osm.js']
   workflow_dispatch:
     inputs:
       all:
@@ -40,8 +41,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Most runs (like editing a trip's notes) need no downloading: skip osmium and the download
-      - name: Check which parks need downloading
+      # Most runs (like editing a trip's notes) need no downloading or picking: skip osmium and that step
+      - name: Check which parks need downloading or picking
         id: need
         run: node scripts/download-parks.js --check ${{ inputs.all && '--all' || '' }} "$PARK"
         env:
@@ -49,7 +50,7 @@ jobs:
       - name: Install osmium
         if: steps.need.outputs.needed == 'true'
         run: sudo apt-get update && sudo apt-get install -y osmium-tool
-      - name: Download park data
+      - name: Download and pick park data
         if: steps.need.outputs.needed == 'true'
         run: node scripts/download-parks.js ${{ inputs.all && '--all' || '' }} "$PARK"
         env:

@@ -2,6 +2,3 @@ node_modules/
 _site/
 .DS_Store
 
-# made from parkdata/*/full.osm.pbf by scripts/pick-features.js
-parkdata/*/osm.json
-parkdata/*/all.json

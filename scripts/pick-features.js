@@ -1,5 +1,6 @@
 // Picks what the maps use out of each park's saved full.osm.pbf again (osm.json and all.json), with no downloading.
-// Run it after changing the rules in lib/pick.js, then scripts/build-maps.js.
+// Run it after changing the rules in lib/pick.js, then scripts/build-maps.js. (scripts/download-parks.js also
+// picks again any park whose osm.json was made with older rules, so the workflow does this on its own.)
 //
 //   node scripts/pick-features.js         every park
 //   node scripts/pick-features.js zion    only this trip's park (trip or park name)
