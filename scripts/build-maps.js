@@ -7,6 +7,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PNG } from 'pngjs';
 import { dist, simplify, distToLine } from '../lib/geo.js';
+import { wanted } from '../lib/pick.js';
+import { MAP_WORDS } from '../lib/normalize.js';
 import { ROUTE_M, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
 
 const OUT_DIR = 'assets/trails';
@@ -87,6 +89,15 @@ function profile(line, elevation) {
 // like the Grand Canyon, so its page stays small; the whole park is still saved in parkdata/.
 
 // What's near a one-route trip: within ROUTE_M of the route (simplified to ~30 m) or a trailhead
+// the All map data page's kinds for each "map shows:" word
+const WORD_KINDS = {
+  paths: ['highway=path'], footways: ['highway=footway'], bridleways: ['highway=bridleway'], cycleways: ['highway=cycleway'],
+  steps: ['highway=steps'], 'dirt roads': ['highway=track'], trailheads: ['highway=trailhead'], peaks: ['natural=peak'],
+  camps: ['tourism=camp_site', 'tourism=wilderness_hut', 'tourism=alpine_hut'], water: ['natural=spring', 'amenity=drinking_water']
+};
+const poiType = t => t.highway === 'trailhead' ? 'trailhead' : t.tourism ? 'camp' : t.natural === 'peak' ? 'peak'
+  : t.amenity === 'drinking_water' || t.natural === 'spring' ? 'water' : null;
+
 export function corridor(trip) {
   const line = simplify(trip.lines[0], 30), heads = trip.trailheads;
   const bb = pad(grow(null, trip.extra), ROUTE_PAD); // quick first check
@@ -99,7 +110,18 @@ function buildMap(trip, park) {
   const box = pad(bb, single ? ROUTE_PAD : undefined);
   const inArea = single ? corridor(trip) : p => inside(box, p);
   const near = el => el.type === 'node' ? inArea([el.lat, el.lon]) : (el.geometry || []).some(inArea);
-  const features = park.features.filter(near);
+  // What this trip's map draws: the kinds on its "map shows:" line (or the usual ones), and always whatever its GPX
+  // route runs along (f.follows, from lib/pick.js), whatever that is
+  const longIds = new Set(park.routes.flatMap(r => (r.members || []).filter(m => m.type === 'way').map(m => m.ref)));
+  const listed = el => {
+    const t = el.tags || {}, poi = poiType(t);
+    if (!trip.shows) return wanted(el) || longIds.has(el.id);
+    if (poi) return trip.shows.some(w => MAP_WORDS[w].poi === poi);
+    return trip.shows.some(w => MAP_WORDS[w].highway === t.highway) && wanted(el);
+  };
+  const follows = el => (el.follows || []).includes(trip.slug);
+  const features = park.features.filter(el => near(el) && (listed(el) || follows(el)));
+  const followOnly = new Set(features.filter(el => !listed(el)).map(el => el.type[0] + el.id));
 
   const bigOf = new Map(); // way id -> route names
   for (const r of park.routes) {
@@ -154,7 +176,7 @@ function buildMap(trip, park) {
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
 
   return {
-    shownIds: shownIds(features, ring, single, kept),
+    shownIds: shownIds(features, ring, single, kept), followOnly,
     map: {
       area: trip.park,
       ...(single ? { single: true } : {}),
@@ -217,7 +239,7 @@ const LABELS = {
   'highway=secondary': 'Secondary highway', 'highway=primary': 'Primary highway', 'highway=trunk': 'Major highway'
 };
 
-function debugData(name, park, shown, trips, routeAreas) {
+function debugData(name, park, shown, trips, routeAreas, followOnly, routeLines) {
   const bigOf = new Map(); // "w123" -> long-distance trail names
   for (const r of park.routes) {
     const rn = (r.tags.name || r.tags.ref || '').replace(/\s+[-–—:]\s+.*$/, '').trim();
@@ -231,7 +253,7 @@ function debugData(name, park, shown, trips, routeAreas) {
     kinds[f.k] ||= { label: LABELS[f.k] || f.k, geom: f.at ? 'point' : 'line', n: 0, file, shown: 0 };
     kinds[f.k].n++;
     if (bigOf.has(f.id)) f.b = bigOf.get(f.id);
-    if (!shown.has(f.id)) f.d = 1; else kinds[f.k].shown++;
+    if (!shown.has(f.id)) f.d = 1; else if (!followOnly.has(f.id)) kinds[f.k].shown++;
     (files[file] ||= []).push(f);
   }
   // small kinds (under ~20 KB) share one file, so a park has a few dozen files rather than hundreds
@@ -249,7 +271,7 @@ function debugData(name, park, shown, trips, routeAreas) {
     for (const m of el.members || []) if (m.type === 'way' && m.geometry) lines.push(m.geometry);
   }
   return {
-    name, region: park.region, source: park.source, fetched: park.fetched, trips, routeAreas,
+    name, region: park.region, source: park.source, fetched: park.fetched, trips, routeAreas, routeLines,
     bounds: [[park.box.minlat, park.box.minlon], [park.box.maxlat, park.box.maxlon]],
     boundary: lines.map(l => simplify(l, 10).map(p => [+p[0].toFixed(5), +p[1].toFixed(5)])),
     dropped: all.filter(f => f.d).length, total: all.length, kinds, big, files
@@ -274,9 +296,16 @@ for (const trip of tripMaps()) {
   if (!fs.existsSync(file)) { failed++; console.error(`${trip.slug}: no saved data for "${trip.park}" yet; run scripts/download-parks.js (or scripts/pick-features.js if parkdata/ has its full.osm.pbf)`); continue; }
   try {
     const p = parks.get(trip.park) || { park: JSON.parse(fs.readFileSync(file, 'utf8')), shown: new Set(), trips: [] };
-    const { map: result, shownIds: ids } = buildMap(trip, p.park);
+    const { map: result, shownIds: ids, followOnly } = buildMap(trip, p.park);
     ids.forEach(id => p.shown.add(id));
+    // pieces a trip shows only because its route runs along them don't switch their whole kind on at first
+    p.followOnly ||= new Set();
+    followOnly.forEach(id => p.followOnly.add(id));
+    // the trip's GPX routes, drawn on the All map data page
+    for (const l of trip.lines) (p.routeLines ||= []).push({ trip: trip.name, g: simplify(l, 10).map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
     p.trips.push(trip.slug);
+    p.lists ||= [];
+    p.lists.push(trip.shows); // null: the usual kinds
     // a one-route trip's map area, for the page's "Hide what's too far from <route>" switch
     if (trip.single) {
       const a = pad(grow(null, trip.extra), ROUTE_PAD);
@@ -293,9 +322,13 @@ for (const trip of tripMaps()) {
   }
 }
 // Each park's All map data page: assets/parks/<park>/index.json, plus one file per kind of data
-for (const [name, { park, shown, trips, routeAreas = [] }] of parks) {
+for (const [name, { park, shown, trips, routeAreas = [], followOnly = new Set(), routeLines = [], lists = [] }] of parks) {
   if (!fs.existsSync(parkPath(name, 'all.json'))) { failed++; console.error(`${parkSlug(name)}: no all.json; run scripts/pick-features.js`); continue; }
-  const { files, ...index } = debugData(name, park, shown, trips, routeAreas);
+  const { files, ...index } = debugData(name, park, shown, trips, routeAreas, followOnly, routeLines);
+  // Switched on at first: the kinds a trip lists on "map shows:"; for a trip without the line, the kinds with
+  // something on its trip map
+  const listedKinds = new Set(lists.filter(Boolean).flat().flatMap(w => WORD_KINDS[w] || []));
+  for (const [k, x] of Object.entries(index.kinds)) x.on = listedKinds.has(k) || (lists.some(l => !l) && x.shown > 0);
   const dir = path.join(PARK_OUT, parkSlug(name));
   fs.mkdirSync(dir, { recursive: true });
   let total = 0, start = 0;

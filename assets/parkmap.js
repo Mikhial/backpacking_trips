@@ -72,7 +72,7 @@
       const key = k.split('=')[0];
       return { k, ...x, key, color: COLORS[k] || BY_KEY[key] || ['#6b6b9a', '#9a6b6b', '#6b9a8a', '#9a8a6b'][i % 4],
         // on at first: kinds with something on the trip map
-        on: x.shown > 0 };
+        on: !!x.on };
     });
     const restyle = (layer, f, color) => {
       const g = grey && f.d;
@@ -139,7 +139,13 @@
         .bindTooltip(`<b>${b.map(esc).join(' · ')}</b> <span>Long-distance trail</span>`, { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' }), { pts: g.flat() }));
       extra.push({ k: '#big', label: 'Long-distance trail', n: d.big.length, color: '#7e2413', on: true, layers, group: L.layerGroup(layers) });
     }
-    const bigOnTop = () => { const x = extra.find(x => x.k === '#big'); if (x && map.hasLayer(x.group)) x.group.eachLayer(l => l.bringToFront()); };
+    // the trips' own GPX routes, in blue with a white edge like on the trip page
+    if ((d.routeLines || []).length) {
+      const layers = d.routeLines.flatMap(({ trip, g }) => [L.polyline(g, { renderer, color: '#fff', weight: 6, opacity: .9, interactive: false }),
+        L.polyline(g, { renderer, color: '#1f5fa8', weight: 3, opacity: .95 }).bindTooltip(`<b>${esc(trip)}</b> <span>Your route</span>`, { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' })]);
+      extra.push({ k: '#routes', label: 'Your routes', n: d.routeLines.length, color: '#1f5fa8', on: true, group: L.layerGroup(layers) });
+    }
+    const bigOnTop = () => ['#big', '#routes'].forEach(k => { const x = extra.find(x => x.k === k); if (x && map.hasLayer(x.group)) x.group.eachLayer(l => l.bringToFront()); });
     extra.forEach(x => x.group.addTo(map));
 
     // Switches, grouped; each group has an "all" switch

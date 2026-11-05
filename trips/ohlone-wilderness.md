@@ -8,6 +8,7 @@ park: Ohlone Regional Wilderness Preserve
 within: East Bay Regional Parks
 route: Mission Peak to Del Valle
 gpx: tracks/ohlone-mission-peak-to-del-valle.gpx
+map shows: dirt roads, paths, trailheads, camps
 trailheads:
   Mission Peak: 37.50433, -121.90814
   Del Valle: 37.57614, -121.69351
