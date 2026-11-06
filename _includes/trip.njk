@@ -13,7 +13,7 @@ nav: trips
     </div>
   </header>
   {% set chartTrips = collections.trips | onlyPage(page.inputPath) %}
-  {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true}' %}
+  {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true, "dots": false}' %}
   {% set chartLegendDots = false %}
   {% include "chart.njk" %}
   {% set areaData = park and (page.fileSlug | hasTrailData) %}

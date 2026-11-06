@@ -20,7 +20,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 ## Chart design decisions (assets/chart.js)
 
 - Rows are compact at rest: season bars, one thin booking band for the trip's **first** permit channel, and the short note (`permit.note`).
-- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded.
+- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded, without the permit dots. A row with no permit channels still grows a little so the hover date fits.
 - Expanded: one lane per permit channel. Lane text is "**label** · note (share)"; the hover date goes on its own line below it.
 - Hover dates: "opens Jun 9", "apply Feb 1–28" (lotteries), "day of" (walk-up).
 - Booking bands are colored by the season they serve (dark blue = peak, light blue = shoulder). Lotteries are the same bar with small breaks (dashed). No separate "fixed date" color.
