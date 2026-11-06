@@ -2,7 +2,7 @@
  "name": "Emigrant Wilderness",
  "region": "us/california",
  "source": "OpenStreetMap relation/5366680",
- "fetched": "2026-11-05",
+ "fetched": "2026-11-06",
  "area": {
   "type": "relation",
   "id": 5366680
@@ -15,7 +15,7 @@
  },
  "box": {
   "minlat": 38.0263814,
-  "minlon": -119.9185368,
+  "minlon": -119.91948,
   "maxlat": 38.3219151,
   "maxlon": -119.5964029
  }
