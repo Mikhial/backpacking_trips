@@ -50,7 +50,6 @@ permit:
 - 3.5-hour drive with no traffic
 - Very scenic with a big valley, but not as high elevation; tops out at 8k
 - Will be warm or hot, especially near the lake
-- June to October is peak time to go; late June/early July may be a good option
 - Bear can required
 
 ## Routes
@@ -72,13 +71,12 @@ The road opens at different times in different seasons, so check before going.
 
 ## When to go
 
-My detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
-
 - **May**: probably too early; rivers can be dangerous and it may be cold.
-- **June**: still wet, some bugs, may be colder at night.
-- **July/August**: starts to dry out and gets hot.
-- **September**: falls dry out; temperatures start getting cooler (though still warm).
+- **June**: still wet, some bugs, may be colder at night. Late June/early July may be a good option.
+- **July/August (Peak)**: starts to dry out and gets hot.
+- **September (Peak)**: falls dry out; temperatures start getting cooler (though still warm).
 - **October**: drier, quieter, more manageable weather; may start to get cold at night.
+- **Other research**: my detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
 
 ## Other
 

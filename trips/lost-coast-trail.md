@@ -41,7 +41,6 @@ permit:
 - 25 miles along the coast
 - Plan around high and low tides; some areas are impassable at high tide
 - Permits are competitive and open 90 days in advance
-- May–October, prime being late May to early September (best odds of dry, stable weather, but competitive)
 - Bear can required
 
 [Trail guide](https://hikingguy.com/hikes/lost-coast-trail/)
@@ -67,9 +66,9 @@ permit:
 
 ## When to go
 
-- **Prime, late May–early September**: best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits (60/day).
-- **Shoulder, March–mid May and mid September–November**: fewer people, better chance of clear views. More storm, rain and swell risk. Good for experienced parties with flexible plans.
-- **Winter, November–February**: least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
+- **Late May–early September (Peak)**: best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits (60/day).
+- **March–mid May and mid September–November**: fewer people, better chance of clear views. More storm, rain and swell risk. Good for experienced parties with flexible plans.
+- **Winter (November–February)**: least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 ## Other
 

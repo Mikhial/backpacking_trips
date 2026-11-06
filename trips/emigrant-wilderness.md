@@ -40,7 +40,6 @@ permit:
 - The route I did was mostly under 8k ft; others have high points at 9k. Further west is higher and likely not worth it.
 - Permits are self-issue with no limits
 - Bear cans not required but recommended
-- July to early/mid October
 
 ## Trailheads and routes
 
@@ -73,11 +72,11 @@ Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Wat
 
 ## When to go
 
-Jul–mid Oct; Sonora Pass (Hwy 108) closes with snow, usually Nov–May. Weather should be nice July–October.
-
-- **July**: can still have snow depending on snowpack; may be buggy (some areas better than others).
-- **August/September**: mosquitoes die off.
-- **Late September/early October**: quieter, no mosquitoes, have to carry more water.
+- **July–mid October (Peak)**: weather should be nice.
+  - **July**: can still have snow depending on snowpack; may be buggy (some areas better than others).
+  - **August/September**: mosquitoes die off.
+  - **Late September/early October**: quieter, no mosquitoes, have to carry more water.
+- **November–May**: Sonora Pass (Hwy 108) usually closed with snow.
 
 ## Mosquitoes
 

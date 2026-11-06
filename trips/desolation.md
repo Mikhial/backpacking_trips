@@ -59,7 +59,6 @@ permit:
 - West side is lower (lots in the 7–8k ft range), quieter, and trails can be rougher
 - Decent options for different trails; covering most of the park is a 48-mile loop
 - Bear can required
-- June–September is the best time to visit; July to early September is peak
 
 [Overview article](https://exploringwild.com/backpacking-desolation-wilderness/)
 
@@ -103,12 +102,10 @@ Wrights Lake area construction in 2026 may temporarily close the Rockbound and T
 
 ## When to go
 
-June–September is the best time to visit; July to early September is peak.
-
 - **June**: feasible in low-snow years. Keep an eye on snow levels and be prepared to turn back. Expect wet trails, more mosquitoes, harder water crossings and snowfields. The east side is safer since it's more popular and well trodden.
-- **July**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
-- **August**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
-- **September**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
+- **July (Peak)**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
+- **August (Peak)**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
+- **September (Peak early in the month)**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
 
 Source: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 

@@ -66,10 +66,12 @@ Designated sites in the western area; dispersed camping in the eastern zones (pa
 
 ## When to go
 
-- Feb–May (green, wildflowers) and November. Jun–Sep is often 90–100°F+.
-- Peak: late Feb to early April. The last week of March and first week of April are typically the wildflower peak.
-- Winter is an option, but it's going to be winter.
-- Each spring (around late April), Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in.
+- **Late February–early April (Peak)**: green, wildflowers. The last week of March and first week of April are typically the wildflower peak.
+- **Through May**: still green, wildflowers.
+- **June–September**: often 90–100°F+.
+- **November**: also good.
+- **Winter**: an option, but it's going to be winter.
+- **Late April**: each spring, Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in.
 
 ## Other
 

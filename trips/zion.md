@@ -75,7 +75,6 @@ permit:
 
 ## Overview
 
-- Prime is mid-September through October; May is also doable with tradeoffs
 - Iconic hikes: Angels Landing, The Narrows, The Subway
 - Up to a 50-mile backpack covering most of the park, or string together day hikes with an overnight
 - Permits are competitive: hardest in the National Park System. The most popular day hikes and any overnight camping need permits.
@@ -110,7 +109,7 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
 - **Winter**: out of season.
 - **Spring**: May has good weather, but it's crowded and the water may be too high.
 - **Summer**: hot, lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
-- **Fall**: the best time. Water levels at their lowest, warm temperatures, monsoon risk over.
+- **Fall (Peak)**: the best time, mid-September through October. Water levels at their lowest, warm temperatures, monsoon risk over.
 
 ## Getting there
 
