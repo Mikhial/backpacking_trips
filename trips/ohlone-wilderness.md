@@ -51,8 +51,6 @@ permit:
 
 ## Route
 
-[Mission Peak to Del Valle](https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak): Point to point.
-
 - Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
