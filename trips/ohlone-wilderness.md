@@ -5,7 +5,6 @@ order: 1
 summary: Grassy ridges and oak canyons on a 28-mile point-to-point
 updated: 2026-10-16
 park: Ohlone Regional Wilderness Preserve
-within: East Bay Regional Parks
 route: Mission Peak to Del Valle
 gpx: tracks/ohlone-mission-peak-to-del-valle.gpx
 map shows: dirt roads, paths, trailheads, camps
