@@ -5,7 +5,6 @@ order: 4
 summary: 22 miles to the highest summit in the lower 48, at 14,505 ft
 updated: 2026-10-16
 park: John Muir Wilderness
-within: Inyo National Forest and Sequoia National Park
 route: Mt Whitney Trail
 gpx: tracks/mt-whitney.gpx
 
