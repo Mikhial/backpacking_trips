@@ -29,6 +29,7 @@ facts:
   Crowds: Pine Ridge/Sykes busy weekends; most other trails quiet
 
 seasons:
+  - shoulder: Mar 1 – Mar 31
   - peak: Apr 1 – May 31
   - shoulder: Jun 1 – Aug 31
     why: [hot]

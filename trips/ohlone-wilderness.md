@@ -22,9 +22,13 @@ facts:
   Crowds: Solitude midweek; Mission Peak end busy with day hikers
 
 seasons:
+  - shoulder: Jan 1 – Feb 28
+    why: [cold, wet]
   - peak: Mar 1 – May 31
   - shoulder: Oct 1 – Oct 31
     why: [dry]
+  - shoulder: Nov 1 – Dec 31
+    why: [cold, wet]
 
 permit:
   note: Opens twice annually

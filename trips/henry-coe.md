@@ -26,7 +26,10 @@ facts:
   Crowds: Solitude past the first few miles
 
 seasons:
+  - shoulder: Feb 1 – Feb 19
   - peak: Feb 20 – Apr 10
+  - shoulder: Apr 11 – May 31
+  - shoulder: Nov 1 – Nov 30
 
 permit:
   note: ""
