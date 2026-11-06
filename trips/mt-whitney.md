@@ -41,7 +41,6 @@ permit:
 ## Overview
 
 - 6.5-hour drive, or a 1.5-hour flight to Bishop (BIH, ~$300 round trip) and an hour's drive to the trailhead
-- [Trail](https://www.alltrails.com/trail/us/california/mount-whitney-via-mount-whitney-trail): 22 miles, 6.5k ft of gain, topping out at 14.5k
 - Likely a day hike, but can be done with 1–2 nights
 - For a day hike, get there a day or two early to acclimate
 - [Trail guide](https://hikingguy.com/hikes/mt-whitney/)

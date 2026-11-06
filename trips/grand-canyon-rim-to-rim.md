@@ -52,7 +52,6 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 
 ## Overview
 
-- [Rim to Rim](https://www.alltrails.com/trail/us/arizona/rim-to-rim-north-kaibab-to-grand-canyon-village): 24 miles, 5k ft of gain going down into the canyon and back out
 - There are many other backpacking trips, but this is the quintessential Grand Canyon trip
 - [Going south to north](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail) is also an option, but recommended for a second time
 - Possible as a long day hike, but can also be done in 2 or 3 days
