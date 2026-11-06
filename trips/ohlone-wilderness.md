@@ -5,9 +5,10 @@ order: 1
 summary: Grassy ridges and oak canyons on a 28-mile point-to-point
 updated: 2026-10-16
 park: Ohlone Regional Wilderness Preserve
-within: East Bay Regional Parks
 route: Mission Peak to Del Valle
 gpx: tracks/ohlone-mission-peak-to-del-valle.gpx
+route link: https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak
+map shows: dirt roads, paths, trailheads, camps
 trailheads:
   Mission Peak: 37.50433, -121.90814
   Del Valle: 37.57614, -121.69351
@@ -51,23 +52,16 @@ permit:
 
 ## Route
 
-[Mission Peak to Del Valle](https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak): Point to point.
-
 - Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
 ## Permits and reservations
 
-- Trail permit dropped as of Jan 2026. Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
-- $15/site/night + $8 reservation fee. Maximum 3 nights.
-- Reservations are made by calling the EBRPD Reservations Department. Maximum 2 reservations per call.
-- Group and backpack sites are released in two six-month blocks. On opening dates, reservations are taken by phone only.
-  - Arrival dates July–December 2026 are open now.
-  - Arrival dates January–June 2027 open in December 2026.
+- Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
+- $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
+- Sites are released in two six-month blocks: arrival dates July–December 2026 are open now; January–June 2027 open in December 2026.
 
 ## Camps
-
-Details: [EBRPD backpack camping FAQ](https://www.ebparks.org/recreation/camping/backpack-camping-faqs#sunol)
 
 - **Maggie's**, 11 miles out: 3 different camps, in trees
 - **[Sunol Backpack Camp](https://www.redwoodhikes.com/EastBay/SunolCG.html)**, 17 miles out: seven widely separated sites. You can't see the other sites, but you can still hear people. From almost every site it's a long, steep walk to the outhouse.

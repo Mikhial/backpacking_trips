@@ -1,7 +1,10 @@
-// Downloads the map data for every park named on a trip's `park:` line and saves it, unpublished,
-// in parkdata/<park>/: osm.json (OpenStreetMap trails, trailheads, camps, peaks, water, long-distance
-// routes and the park boundary) and elevation/ (the elevation tiles that data covers).
-// Nothing here is shown on the site; scripts/build-maps.js makes the trip maps from it.
+// Downloads the map data for every park named on a trip's `park:` line and saves it, unpublished, in parkdata/<park>/:
+//   full.osm.pbf  everything OpenStreetMap has in the park's area (its boundary plus ~3 km, and your routes
+//                 and trailheads), with nothing dropped
+//   park.json     where it came from and the area it covers
+//   elevation/    elevation tiles under the trip maps' lines (AWS Terrain Tiles, USGS-based, ~30 m)
+// It then runs the pick step (lib/pick.js), which makes osm.json and all.json from full.osm.pbf without downloading.
+// Nothing here is shown on the site; scripts/build-maps.js makes the trip maps and All map data pages.
 //
 // Each park is cut out of its state's map file from Geofabrik (download.geofabrik.de), using osmium.
 // A new park's state is looked up once on OpenStreetMap's place search (Nominatim) and saved with it.
@@ -17,9 +20,10 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import readline from 'node:readline';
 import { execFileSync } from 'node:child_process';
 import { PARK_DIR, parkSlug, parkPath, tripMaps, grow, pad, inside, tileXY, tileFile } from '../lib/parkdata.js';
+import { osmium, readPbf } from '../lib/osm.js';
+import { pickPark, pickedWithOldRules } from '../lib/pick.js';
 
 const UA = 'backpacking-trips-site/1.0 (https://github.com/Mikhial/backpacking_trips)';
 const args = process.argv.slice(2);
@@ -38,120 +42,21 @@ async function getJson(url) {
 
 // ---------- which state file a park is in ----------
 let index;
+const geofabrik = async () => index ||= (await getJson('https://download.geofabrik.de/index-v1-nogeom.json')).features.map(f => f.properties);
 async function stateFile(name) {
   const hits = await getJson(`https://nominatim.openstreetmap.org/search?${new URLSearchParams({ q: name, format: 'jsonv2', addressdetails: 1, limit: 5 })}`);
   await sleep(1100); // Nominatim allows one request a second
   const hit = hits.find(h => h.name === name && h.address?.['ISO3166-2-lvl4']) || hits.find(h => h.address?.['ISO3166-2-lvl4']);
   if (!hit) throw new Error(`OpenStreetMap's place search can't find "${name}". Check the spelling on openstreetmap.org.`);
   const iso = hit.address['ISO3166-2-lvl4']; // "US-UT"
-  index ||= (await getJson('https://download.geofabrik.de/index-v1-nogeom.json')).features.map(f => f.properties);
-  const region = index.filter(r => (r['iso3166-2'] || []).includes(iso) && r.urls?.pbf).sort((a, b) => a.id.length - b.id.length)[0];
+  const region = (await geofabrik()).filter(r => (r['iso3166-2'] || []).includes(iso) && r.urls?.pbf).sort((a, b) => a.id.length - b.id.length)[0];
   if (!region) throw new Error(`Geofabrik has no map file for ${iso} (where "${name}" is)`);
   return { id: region.id, url: region.urls.pbf };
 }
-
-// ---------- cutting parks out of a state file ----------
-// osmium cuts the file down to the kinds of things the maps use and writes them as text (OPL),
-// one object per line, with each line's points filled in. Each park keeps what's in its padded box.
-
-// "Name=Foo%20%Bar" -> "Foo Bar"
-const unesc = s => s.replace(/%([0-9a-fA-F]+)%/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
-function parseOpl(line) {
-  const parts = line.split(' ');
-  const el = { type: { n: 'node', w: 'way', r: 'relation' }[parts[0][0]], id: +parts[0].slice(1) };
-  for (const p of parts.slice(1)) {
-    const v = p.slice(1);
-    if (p[0] === 'T' && v) el.tags = Object.fromEntries(v.split(',').map(kv => kv.split('=').map(unesc)));
-    else if (p[0] === 'x' && v) el.lon = +v;
-    else if (p[0] === 'y' && v) el.lat = +v;
-    else if (p[0] === 'N' && v) el.geometry = v.split(',').map(n => n.match(/x([-\d.]*)y([-\d.]*)$/)).filter(m => m && m[1] && m[2]).map(m => [+m[2], +m[1]]);
-    else if (p[0] === 'M' && v) el.members = v.split(',').map(m => { const [ref, role] = m.split('@');
-      return { type: { n: 'node', w: 'way', r: 'relation' }[ref[0]], ref: +ref.slice(1), role: unesc(role || '') }; });
-  }
-  return el;
-}
-async function eachOpl(file, fn) {
-  const rl = readline.createInterface({ input: fs.createReadStream(file), crlfDelay: Infinity });
-  for await (const line of rl) if (line) fn(parseOpl(line));
-}
-const osmium = (...a) => execFileSync('osmium', a, { stdio: ['ignore', 'inherit', 'inherit'] });
-
-// What the maps use: trails and dirt roads, trailheads, camps, named peaks, water
-function wanted(el) {
-  const t = el.tags || {};
-  if (el.type === 'node') return t.highway === 'trailhead' || /^(camp_site|wilderness_hut|alpine_hut)$/.test(t.tourism || '') ||
-    (t.natural === 'peak' && !!t.name) || t.amenity === 'drinking_water' || t.natural === 'spring';
-  if (el.type === 'way') return (/^(path|footway|bridleway|track)$/.test(t.highway || '') && !/sidewalk|crossing/.test(t.footway || '') && !/^(private|no)$/.test(t.access || '')) ||
-    (t.highway === 'steps' && !!t.name) || t.highway === 'trailhead' || t.tourism === 'camp_site';
-  return false;
-}
-const isArea = t => /^(protected_area|national_park)$/.test(t.boundary || '') || /^(nature_reserve|park)$/.test(t.leisure || '');
-function compactOpl(el) {
-  const out = { type: el.type, id: el.id };
-  if (el.type === 'node') { out.lat = el.lat; out.lon = el.lon; }
-  if (el.tags) out.tags = el.tags;
-  if (el.geometry) out.geometry = el.geometry;
-  return out;
-}
-
-// parks: Map of park name -> { extra }. Returns Map of park name -> what to save.
-async function cutParks(pbf, label, parks, tmp) {
-  const opl = (name, filters, refs = true) => {
-    const cut = path.join(tmp, name + '.pbf'), out = path.join(tmp, name + '.opl');
-    console.log(`  cutting out ${name}…`);
-    osmium('tags-filter', pbf, ...filters, ...(refs ? [] : ['-R']), '-o', cut, '--overwrite');
-    if (refs) osmium('add-locations-to-ways', cut, '-f', 'opl,add_metadata=false', '-o', out, '--overwrite');
-    else osmium('cat', cut, '-f', 'opl,add_metadata=false', '-o', out, '--overwrite');
-    fs.unlinkSync(cut);
-    return out;
-  };
-
-  // 1. Park boundaries, by name
-  const named = opl('boundaries', [...parks.keys()].map(n => `nwr/name=${n}`));
-  const ways = new Map(), areas = [];
-  await eachOpl(named, el => {
-    if (el.type === 'way') ways.set(el.id, el.geometry || []);
-    if (el.type !== 'node' && el.tags && parks.has(el.tags.name) && isArea(el.tags)) areas.push(el);
-  });
-  fs.unlinkSync(named);
-  const found = new Map();
-  for (const [name, p] of parks) {
-    const area = areas.filter(a => a.tags.name === name).sort((a, b) => (a.type === 'relation' ? -1 : 1) - (b.type === 'relation' ? -1 : 1))[0];
-    if (!area) throw new Error(`${label} has no park or wilderness boundary named "${name}". Check the spelling on openstreetmap.org.`);
-    const el = { type: area.type, id: area.id, tags: area.tags };
-    if (area.type === 'way') el.geometry = ways.get(area.id) || area.geometry || [];
-    else el.members = area.members.map(m => ({ ...m, ...(m.type === 'way' && ways.has(m.ref) ? { geometry: ways.get(m.ref) } : {}) }));
-    const missing = el.members ? el.members.filter(m => m.type === 'way' && !m.geometry).length : 0;
-    if (missing) console.log(`  warning: ${missing} pieces of the "${name}" boundary aren't in ${label}; it may cross into another state`);
-    const pts = el.geometry || el.members.flatMap(m => m.geometry || []);
-    const g = grow(null, pts);
-    const bounds = { minlat: g.minlat, minlon: g.minlon, maxlat: g.maxlat, maxlon: g.maxlon };
-    const box = grow(bounds, p.extra);
-    found.set(name, { area: { type: area.type, id: area.id, bounds }, boundary: [el], box, big: pad(box), features: [], wayIds: new Set(), routes: [] });
-  }
-
-  // 2. Trails, trailheads, camps, peaks and water
-  const features = opl('features', ['n/highway=trailhead', 'w/highway=path,footway,bridleway,track,steps,trailhead',
-    'n/tourism=camp_site,wilderness_hut,alpine_hut', 'w/tourism=camp_site', 'n/natural=peak,spring', 'n/amenity=drinking_water']);
-  await eachOpl(features, el => {
-    if (!wanted(el)) return;
-    const pts = el.type === 'node' ? [[el.lat, el.lon]] : el.geometry || [];
-    for (const f of found.values()) if (pts.some(q => inside(f.big, q))) {
-      f.features.push(compactOpl(el));
-      if (el.type === 'way') f.wayIds.add(el.id);
-    }
-  });
-  fs.unlinkSync(features);
-
-  // 3. Long-distance trails (PCT, Tahoe Rim Trail…): international, national or regional hiking routes through each park
-  const routes = opl('routes', ['r/route=hiking,foot'], false);
-  await eachOpl(routes, el => {
-    if (!/^(iwn|nwn|rwn)$/.test(el.tags?.network || '')) return;
-    for (const f of found.values()) if ((el.members || []).some(m => m.type === 'way' && f.wayIds.has(m.ref)))
-      f.routes.push({ type: 'relation', id: el.id, tags: el.tags, members: el.members });
-  });
-  fs.unlinkSync(routes);
-  return found;
+async function regionById(id) {
+  const r = (await geofabrik()).find(x => x.id === id);
+  if (!r) throw new Error(`Geofabrik no longer has a "${id}" map file`);
+  return { id: r.id, url: r.urls.pbf };
 }
 
 // A state's file: from the cache if it's from today, otherwise downloaded
@@ -168,24 +73,44 @@ function statePbf(region, tmp) {
   return file;
 }
 
-async function savePark({ name, region, area, box, boundary, features, routes }) {
-  fs.mkdirSync(parkPath(name), { recursive: true });
-  const saved = {
-    name, region: region.id, source: `OpenStreetMap ${area.type}/${area.id}`, fetched: new Date().toISOString().slice(0, 10),
-    bounds: area.bounds, box, boundary, features, routes
-  };
-  await downloadElevation(saved); // first, so a park with osm.json always has its elevation
-  fs.writeFileSync(parkPath(name, 'osm.json'), JSON.stringify(saved));
-  return saved;
+// ---------- cutting parks out of a state file ----------
+const isArea = t => /^(protected_area|national_park)$/.test(t.boundary || '') || /^(nature_reserve|park)$/.test(t.leisure || '');
+
+// Find each park's boundary by name, then save everything in its padded box
+async function cutParks(pbf, region, list, tmp) {
+  const ways = new Map(), areas = [];
+  await readPbf(pbf, tmp, el => {
+    if (el.type === 'way') ways.set(el.id, el.geometry || []);
+    if (el.type !== 'node' && el.tags && list.has(el.tags.name) && isArea(el.tags)) areas.push(el);
+  }, [...list.keys()].map(n => `nwr/name=${n}`));
+  const extracts = [];
+  for (const [name, p] of list) {
+    const area = areas.filter(a => a.tags.name === name).sort((a, b) => (a.type === 'relation' ? -1 : 1) - (b.type === 'relation' ? -1 : 1))[0];
+    if (!area) throw new Error(`The ${region.id} map file has no park or wilderness boundary named "${name}". Check the spelling on openstreetmap.org.`);
+    const pts = area.type === 'way' ? ways.get(area.id) || [] : area.members.filter(m => m.type === 'way').flatMap(m => ways.get(m.ref) || []);
+    const missing = area.type === 'relation' ? area.members.filter(m => m.type === 'way' && !ways.has(m.ref)).length : 0;
+    if (missing) console.log(`  warning: ${missing} pieces of the "${name}" boundary aren't in the ${region.id} file; it may cross into another state`);
+    const g = grow(null, pts);
+    const bounds = { minlat: g.minlat, minlon: g.minlon, maxlat: g.maxlat, maxlon: g.maxlon };
+    const box = grow(bounds, p.extra), big = pad(box);
+    fs.mkdirSync(parkPath(name), { recursive: true });
+    fs.writeFileSync(parkPath(name, 'park.json'), JSON.stringify({
+      name, region: region.id, source: `OpenStreetMap ${area.type}/${area.id}`, fetched: new Date().toISOString().slice(0, 10),
+      area: { type: area.type, id: area.id }, bounds, box
+    }, null, 1));
+    extracts.push({ output: path.resolve(parkPath(name, 'full.osm.pbf')), output_format: 'pbf', bbox: [big.minlon, big.minlat, big.maxlon, big.maxlat] });
+  }
+  // one pass over the state file for all its parks; whole lines and areas that cross the edge are kept
+  const config = path.join(tmp, 'extracts.json');
+  fs.writeFileSync(config, JSON.stringify({ extracts }));
+  console.log(`  cutting out ${extracts.length} park${extracts.length > 1 ? 's' : ''}…`);
+  osmium('extract', '-c', config, '-s', 'smart', '--overwrite', pbf);
 }
 
-// Every elevation tile under the padded box and under every downloaded line (lines can run past the box).
-// Elevation: AWS Terrain Tiles (USGS-based, ~30 m).
-async function downloadElevation(saved) {
-  let bb = pad(saved.box);
-  for (const el of saved.features) if (el.geometry) bb = grow(bb, el.geometry);
+// Every elevation tile under a box; tiles already saved are kept
+async function downloadElevation(name, bb) {
   const [x0, y0] = tileXY(bb.maxlat, bb.minlon).map(Math.floor), [x1, y1] = tileXY(bb.minlat, bb.maxlon).map(Math.floor);
-  const dir = parkPath(saved.name, 'elevation');
+  const dir = parkPath(name, 'elevation');
   fs.mkdirSync(dir, { recursive: true });
   const want = new Set();
   for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) want.add(tileFile(x, y));
@@ -218,9 +143,8 @@ for (const t of tripMaps()) if (t.park) {
   parks.set(t.park, p);
 }
 fs.mkdirSync(PARK_DIR, { recursive: true });
-const saved = name => { try { return JSON.parse(fs.readFileSync(parkPath(name, 'osm.json'), 'utf8')); } catch { return null; } };
+const saved = name => { try { return JSON.parse(fs.readFileSync(parkPath(name, 'park.json'), 'utf8')); } catch { return null; } };
 
-// Which parks to download, grouped by state
 const byRegion = new Map(); // region id -> { region, parks: Map }
 const todo = [];
 let failed = 0;
@@ -228,45 +152,49 @@ try {
   for (const [name, p] of parks) {
     const old = saved(name);
     const asked = only.includes(parkSlug(name)) || p.trips.some(s => only.includes(s));
-    const current = old && old.name === name && p.extra.every(q => inside(old.box, q));
+    const current = old && old.name === name && fs.existsSync(parkPath(name, 'full.osm.pbf')) && p.extra.every(q => inside(old.box, q));
     if (only.length ? !asked : (!all && current)) { if (!only.length) console.log(`${parkSlug(name)}: up to date`); continue; }
     todo.push(name);
     if (check) continue;
-    const region = old?.region ? await regionById(old.region) : await stateFile(name);
+    // the state: saved with the park (older saves kept it in osm.json), or looked up
+    let regionId = old?.region;
+    if (!regionId) try { regionId = JSON.parse(fs.readFileSync(parkPath(name, 'osm.json'), 'utf8')).region; } catch {}
+    const region = regionId ? await regionById(regionId) : await stateFile(name);
     if (!byRegion.has(region.id)) byRegion.set(region.id, { region, parks: new Map() });
     byRegion.get(region.id).parks.set(name, p);
   }
-  // --check: only say whether anything needs downloading (the workflow skips installing osmium if not)
+  // parks that don't need downloading but were picked with older rules (lib/pick.js changed): pick again
+  const repick = [...parks.keys()].filter(n => !todo.includes(n) && fs.existsSync(parkPath(n, 'full.osm.pbf')) && pickedWithOldRules(n));
+  // --check: only say whether anything needs downloading or picking (the workflow skips osmium if not)
   if (check) {
     console.log(todo.length ? `to download: ${todo.join(', ')}` : 'nothing to download');
-    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `needed=${todo.length ? 'true' : 'false'}\n`);
+    if (repick.length) console.log(`to pick again with the new rules: ${repick.join(', ')}`);
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `needed=${todo.length || repick.length ? 'true' : 'false'}\n`);
     process.exit(0);
+  }
+  for (const name of repick) {
+    const r = await pickPark(name);
+    console.log(`${parkSlug(name)}: picked again with the new rules; ${r.features} features for the trip maps`);
   }
   for (const { region, parks: list } of byRegion.values()) {
     console.log(`${region.id}: ${[...list.keys()].join(', ')}`);
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'parks-'));
     try {
-      const pbf = statePbf(region, tmp);
-      for (const [name, f] of await cutParks(pbf, `The ${region.id} map file`, list, tmp)) {
-        console.log(`${parkSlug(name)}: saving`);
-        const s = await savePark({ name, region, ...f });
-        console.log(`${parkSlug(name)}: ${s.features.length} features, ${(fs.statSync(parkPath(name, 'osm.json')).size / 1048576).toFixed(1)} MB`);
-      }
+      await cutParks(statePbf(region, tmp), region, list, tmp);
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
+    }
+    for (const name of list.keys()) {
+      const r = await pickPark(name);
+      await downloadElevation(name, r.elevationBox);
+      console.log(`${parkSlug(name)}: ${(fs.statSync(parkPath(name, 'full.osm.pbf')).size / 1048576).toFixed(1)} MB saved; ` +
+        `${r.features} features for the trip maps, ${r.all} on the All map data page`);
     }
   }
 } catch (e) {
   // stop at the first failure; parks already saved are kept
   failed++;
   console.error(e.message);
-}
-
-async function regionById(id) {
-  index ||= (await getJson('https://download.geofabrik.de/index-v1-nogeom.json')).features.map(f => f.properties);
-  const r = index.find(x => x.id === id);
-  if (!r) throw new Error(`Geofabrik no longer has a "${id}" map file`);
-  return { id: r.id, url: r.urls.pbf };
 }
 
 // parks no trip names any more

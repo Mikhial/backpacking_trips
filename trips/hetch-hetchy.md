@@ -6,6 +6,9 @@ summary: Granite reservoir canyon and big waterfalls in low-elevation Yosemite
 updated: 2026-10-16
 park: Yosemite National Park
 within: Yosemite National Park
+routes:
+  Hetch Hetchy loop: tracks/hetch-hetchy-loop.gpx
+  Another option: tracks/hetch-hetchy-falls-creek.gpx
 trailheads:
   O'Shaughnessy Dam: 37.9465, -119.7876
 
@@ -17,7 +20,6 @@ facts:
   Terrain: Moderate; hot, exposed climbs out of the canyon
   Water: Creeks and falls strong in spring; many dry by late summer
   Food storage: Bear canister required (bear boxes at Rancheria Falls)
-  Dogs: No
   Crowds: Moderate; much quieter than the Valley or Tuolumne
 
 seasons:

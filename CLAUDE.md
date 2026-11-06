@@ -20,7 +20,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 ## Chart design decisions (assets/chart.js)
 
 - Rows are compact at rest: season bars, one thin booking band for the trip's **first** permit channel, and the short note (`permit.note`).
-- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded.
+- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded, without the permit dots. A row with no permit channels still grows a little so the hover date fits.
 - Expanded: one lane per permit channel. Lane text is "**label** · note (share)"; the hover date goes on its own line below it.
 - Hover dates: "opens Jun 9", "apply Feb 1–28" (lotteries), "day of" (walk-up).
 - Booking bands are colored by the season they serve (dark blue = peak, light blue = shoulder). Lotteries are the same bar with small breaks (dashed). No separate "fixed date" color.
@@ -36,14 +36,19 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 
 Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan"). Two steps, both run by `.github/workflows/trail-data.yml`:
 
-1. `scripts/download-parks.js` saves each park's full data and elevation tiles in `parkdata/<park>/` (committed, not published). Saved per `park:` line (the wilderness, not the forest in `within:`), covering the boundary + 3 km + any routes/trailheads outside it.
+1. `scripts/download-parks.js` saves everything OpenStreetMap has in each park's area, nothing dropped, as `parkdata/<park>/full.osm.pbf` (+ `park.json`, elevation tiles; committed, not published). Saved per `park:` line (the wilderness, not the forest in `within:`), covering the boundary + 3 km + any routes/trailheads outside it.
    - Every park is cut out of its state's Geofabrik file with osmium; parks in one state share one download. A new park's state is looked up once on Nominatim and saved as `region` in its `osm.json`.
    - Overpass is not used: its public servers were overloaded for a whole day (Nov 4, 2026) and say automated use should run its own server.
    - Failures stop the run with a clear message and no long retry loops (Mike: "if it fails, exit early"). Parks already saved are still built and committed.
    - `--all` redoes every park; a trip or park name redoes just that one; `--cache DIR` keeps state files in DIR and reuses them the same day.
+   - Then `lib/pick.js` picks from it, with no downloading: `osm.json` (what trip maps use: trails incl. cycleways, roads, trailheads, camps, peaks, water, and every piece of a long-distance trail even on paved roads, per Mike) and `all.json` (for the All map data page; what it shows is Mike's list, documented at `onPage()` in `lib/pick.js`. Drops from the page are page-only: dropped kinds stay in `full.osm.pbf` so they can come back with a re-pick). Both committed (Mike's call). `scripts/pick-features.js` re-picks by hand; `download-parks.js` re-picks any park whose `osm.json` `rules` fingerprint is older than `lib/pick.js`.
+   - Two versions of each park's map, by design: the All map data page shows (nearly) everything; the trip map drops things for clarity.
 2. `scripts/build-maps.js` builds `assets/trails/<trip>.json` from `parkdata/` with no network. Map display changes go here; never re-download for them.
-   - It also writes `assets/parks/<park>.json` for the park's "All map data" debug page (`parks.njk`, `assets/parkmap.js`, `/parks/<park>/`): every saved feature, lines simplified, each marked if the trip map drops it. `shownIds()` repeats the trip map's keep/drop rules (including the ones in `assets/trailmap.js`); keep them in sync.
-   - One-route trips cover ~5 km (3 mi) around the route (`ROUTE_PAD`), with other trails shown; the route is always on.
+   - It also writes `assets/parks/<park>/` for the park's "All map data" page (`parks.njk`, `assets/parkmap.js`, `/parks/<park>/`): `index.json` plus one file per large kind (small kinds share `small.json`), each feature marked if the trip map drops it. The page opens with the trip map's kinds on (Mike's call) and loads other kinds when switched on. `shownIds()` repeats the trip map's keep/drop rules (including the ones in `assets/trailmap.js`); keep them in sync.
+   - One-route trips cover what's within ~5 km (3 mi) of the route line and its trailheads (`ROUTE_M`, `corridor()` in build-maps.js), with other trails shown; the route is always on. The All map data page's "Hide what's more than 3 mi from <route>" switch uses the same rule (copied in assets/parkmap.js; keep in sync).
+   - `map shows:` in a trip header (words in `MAP_WORDS`, lib/normalize.js) limits that trip map to those kinds (the park boundary only if `boundaries` is listed) and sets the All map data page's starting switches. Whatever a trip's GPX runs along (`follows`, found in lib/pick.js: most of a way's points within 30 m of the route) is always on its map, whatever its kind; changing a GPX re-picks the park (`routesKey`).
+   - Water (springs, taps) is off unless a trip lists it, and peaks under 5,000 ft are never shown (`DEFAULT_OFF`, `MIN_PEAK_FT` in lib/normalize.js; Mike, Nov 5 2026, "for now"). Peaks with no OSM elevation are measured on the elevation tiles.
+   - Dirt roads are all shown, named or not, at every zoom (Mike, Nov 5 2026), unless a trip's `map shows:` leaves them out.
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
 
 Working on it locally:

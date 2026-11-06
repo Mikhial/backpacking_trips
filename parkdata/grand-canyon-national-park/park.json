@@ -1,0 +1,22 @@
+{
+ "name": "Grand Canyon National Park",
+ "region": "us/arizona",
+ "source": "OpenStreetMap relation/183377",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 183377
+ },
+ "bounds": {
+  "minlat": 35.750081,
+  "minlon": -113.9798956,
+  "maxlat": 36.8656855,
+  "maxlon": -111.58704
+ },
+ "box": {
+  "minlat": 35.750081,
+  "minlon": -113.9798956,
+  "maxlat": 36.8656855,
+  "maxlon": -111.58704
+ }
+}

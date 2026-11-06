@@ -1,0 +1,22 @@
+{
+ "name": "Yosemite National Park",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/1643367",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 1643367
+ },
+ "bounds": {
+  "minlat": 37.4921493,
+  "minlon": -119.8861599,
+  "maxlat": 38.1863499,
+  "maxlon": -119.1995075
+ },
+ "box": {
+  "minlat": 37.4921493,
+  "minlon": -119.8861599,
+  "maxlat": 38.1863499,
+  "maxlon": -119.1995075
+ }
+}

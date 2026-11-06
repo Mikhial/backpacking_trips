@@ -6,6 +6,14 @@ order: 3
 summary: Big, empty Diablo Range country of oak savanna, canyons and ponds
 updated: 2026-10-16
 park: Henry W. Coe State Park
+trailheads:
+  Coe HQ: 37.1867, -121.5472
+  Dowdy Ranch: 37.1120, -121.3569
+routes:
+  HQ to Mississippi Lake, option 1: tracks/henry-coe-hq-mississippi-lake-1.gpx
+  HQ to Mississippi Lake, option 2: tracks/henry-coe-hq-mississippi-lake-2.gpx
+  Hunting Hollow to Pacheco Falls, option 1: tracks/henry-coe-hunting-hollow-pacheco-falls-1.gpx
+  Hunting Hollow to Pacheco Falls, option 2: tracks/henry-coe-hunting-hollow-pacheco-falls-2.gpx
 
 facts:
   Getting there: 1.5–2 hr drive; last miles narrow and winding
@@ -15,7 +23,6 @@ facts:
   Terrain: Strenuous; steep roller-coaster fire roads
   Water: Seasonal creeks, springs and ponds; many dry by late summer
   Food storage: No bears; rodents and pigs
-  Dogs: No
   Crowds: Solitude past the first few miles
 
 seasons:
@@ -42,8 +49,8 @@ permit:
 
 A large network to build your own; 1 night to a week. Popular loops go to China Hole, Mississippi Lake and Coit Lake.
 
-- From HQ to Mississippi Lake: [option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
-- From Hunting Hollow to Pacheco Falls: [option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
+- From HQ to Mississippi Lake: [HQ to Mississippi Lake, option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [HQ to Mississippi Lake, option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
+- From Hunting Hollow to Pacheco Falls: [Hunting Hollow to Pacheco Falls, option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [Hunting Hollow to Pacheco Falls, option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
 
 ## Getting there
 

@@ -1,13 +1,21 @@
 ---
-name: Ventana Wilderness (Big Sur)
+name: Ventana Wilderness
 short: Ventana Wilderness
 region: California Coast
 order: 1
 summary: Redwood canyons, river pools and coastal ridges
 status: Closed through Jan 31, 2027 (fire order)
+status short: Closed until 1/31/27
+status link: https://www.ventanawild.org/Plan-a-Trip/
 updated: 2026-10-16
 park: Ventana Wilderness
 within: Los Padres National Forest
+routes:
+  Sykes Hot Springs extended loop: tracks/ventana-sykes-extended-loop.gpx
+  Ventana Double Cone: tracks/ventana-double-cone.gpx
+  Buckeye Trail: tracks/ventana-buckeye-trail.gpx
+  Cone Peak from Highway 1: tracks/ventana-cone-peak-highway-1.gpx
+  Cone Peak via Carrizo Creek: tracks/ventana-cone-peak-carrizo-creek.gpx
 
 facts:
   Getting there: 2.5–3.5 hr drive to Big Sur Station or Arroyo Seco
@@ -55,7 +63,7 @@ Hwy 1 is open Carmel–Cambria, but slides close it often. Tassajara Road (east 
 - **Pine Ridge Trail** (23 mi end to end) is the classic. This is what we did, to Sykes. Can make it longer: [Big Sur loop notes](https://bigsurtrailmap.net/ROUTES/NOTES/BigSurLoop-notes.html), [Sykes Hot Springs extended loop](https://www.alltrails.com/explore/custom-routes/big-sur-sykes-hot-springs-extended-loop-e025b62)
 - **[Ventana Double Cone](https://www.alltrails.com/trail/us/california/ventana-double-cone-via-bottcher-s-gap)**: the classic is camping at Pat Spring Camp with a day hike to the summit
 - **[Buckeye Trail](https://www.alltrails.com/trail/us/california/san-carpoforo-campground-lion-peak-and-cruikshank-loop)**: going out to San Carpoforo isn't heavily trafficked; check it before doing it. A more popular option: Buckeye Trail to Cruickshank campground, Cruickshank Trail to the end, Salmon Creek Trail to Spruce Camp, out and back to Dutra Flat, then back to Salmon Creek Falls.
-- **Cone Peak**: [from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
+- **Cone Peak**: [Cone Peak from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [Cone Peak via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
 
 ## Permits
 

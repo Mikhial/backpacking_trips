@@ -8,14 +8,18 @@ region: Sierra Nevada     # one of the regions in _data/site.json
 order: 5                  # optional: position within the region
 summary: One line about what makes this trip special
 status: ""                # optional, e.g. "Closed through Jan 31, 2027"
+status link: ""           # optional: where to check for updates on the status
+status short: ""          # optional: shorter wording for the Trips table
 updated: 2026-11-03       # when you last updated your research
 park: Example Wilderness  # optional: park or wilderness name as on openstreetmap.org; adds a trail map
 within: Example National Forest  # optional: the forest or park it's in, shown above the title
+# map shows: dirt roads, paths, trailheads, camps  # optional: only these on the trail map (also footways, bridleways, cycleways, steps, peaks, water, boundaries)
 
 # If this trip is one route (not a park with several options), name it and add its GPX.
 # The map then shows just that route, always on. Leave these out otherwise.
 # route: Rockbound Pass loop
 # gpx: tracks/rockbound-pass.gpx
+# route link: https://www.alltrails.com/...  # optional: the route's page, linked next to GPX on the map
 
 # Optional, for the trail map:
 # trailheads:               # trailheads OpenStreetMap is missing. Name: latitude, longitude

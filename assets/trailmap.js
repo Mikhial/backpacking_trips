@@ -28,7 +28,7 @@
       if (a) { a.target = '_blank'; a.rel = 'noopener'; }
     }, true);
     mapEl.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
-    L.tileLayer(box.dataset.tiles || 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
+    const base = L.tileLayer(box.dataset.tiles || 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 16, maxNativeZoom: +(box.dataset.tileZoom || 16),
       attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS</a> · Trails: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
     }).addTo(map);
@@ -80,7 +80,8 @@
     // Long-distance trails (PCT, Tahoe Rim Trail…) are drawn last, thicker and darker
     const isBig = t => !!t.b && t.k === 'trail' && !t.x;
     trails.slice().sort((a, b) => isBig(a) - isBig(b)).forEach(t => {
-      const big = isBig(t), main = big || (!!t.n && t.k === 'trail');
+      // dirt roads are drawn at every zoom, not just zoomed in
+      const big = isBig(t), main = big || (!!t.n && t.k === 'trail') || t.k === 'road';
       const style = {
         renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
@@ -93,6 +94,19 @@
       line.on('mousemove', e => { if (line === selected && hoverAt) hoverAt(e.latlng); });
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
     });
+
+    // The legend only lists line kinds this map has
+    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x),
+      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), 'unnamed paths': trails.some(t => !t.n && t.k === 'trail') };
+    legendHas.peaks = legendHas.peak;
+    box.querySelectorAll('.tm-legend [data-legend]').forEach(el => { if (!legendHas[el.dataset.legend]) el.remove(); });
+    // "Zoom in for …" names only what this map has
+    const more = box.querySelector('.tm-legend .tm-more[data-words]');
+    if (more) {
+      const words = more.dataset.words.split(',').filter(w => legendHas[w]);
+      if (words.length) more.textContent = 'Zoom in for ' + (words.length < 2 ? words[0] : words.slice(0, -1).join(', ') + ' and ' + words[words.length - 1]);
+      else more.remove();
+    }
 
     // Your routes: hidden until turned on (from the buttons above the map or the notes), then on top in blue with a white edge
     const routeLines = extras.routes.map(r => {
@@ -278,7 +292,7 @@
       const t = line.trail, i = routeLines.indexOf(line);
       const site = t.url ? (/alltrails\.com/.test(t.url) ? 'AllTrails' : new URL(t.url).hostname.replace(/^www\./, '')) : '';
       const gpx = (t.url ? ` <a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(site)} ↗</a>` : '') +
-        (t.url ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
+        (t.url && document.getElementById(`route-${i}`) ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
         (t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '');
       if (!hasEle(t)) {
         info.innerHTML = `<b>${name(t)}</b><span>${mi(t.len)} mi</span><span class="hint">No elevation in this GPX file</span>${gpx}`;
@@ -348,10 +362,10 @@
 
     info.innerHTML = box.dataset.hint;
     if (single) { setOn(routeLines[0], true); select(routeLines[0]); }
-    // (a one-route trip's distance and gain are already in the line under the map)
-    box.querySelector('.tm-count').textContent = single ? ''
-      : data.fetched
-      ? `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`
-      : `${extras.routes.length} route${extras.routes.length === 1 ? '' : 's'}`;
+    // when the trail data was fetched, kept out of the way in the map's credits corner
+    if (data.fetched) {
+      const was = base.getAttribution(), when = new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+      map.attributionControl.removeAttribution(was).addAttribution(was.replace('OpenStreetMap</a>', `OpenStreetMap</a>, ${when}`));
+    }
   }
 })();

@@ -7,6 +7,7 @@ updated: 2026-10-16
 park: King Range National Conservation Area
 route: Mattole to Black Sands Beach
 gpx: tracks/lost-coast-trail.gpx
+route link: https://www.alltrails.com/trail/us/california/lost-coast-trail-mattole-to-black-sands-beach
 
 facts:
   Getting there: 5 hr drive, plus 2 hr shuttle (or a key swap)
@@ -43,7 +44,7 @@ permit:
 - May–October, prime being late May to early September (best odds of dry, stable weather, but competitive)
 - Bear can required
 
-[Trail guide](https://hikingguy.com/hikes/lost-coast-trail/) · [AllTrails: Mattole to Black Sands Beach](https://www.alltrails.com/trail/us/california/lost-coast-trail-mattole-to-black-sands-beach)
+[Trail guide](https://hikingguy.com/hikes/lost-coast-trail/)
 
 ## Trip length
 

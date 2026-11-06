@@ -1,0 +1,22 @@
+{
+ "name": "Henry W. Coe State Park",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/11341366",
+ "fetched": "2026-11-05",
+ "area": {
+  "type": "relation",
+  "id": 11341366
+ },
+ "bounds": {
+  "minlat": 37.0324441,
+  "minlon": -121.5629889,
+  "maxlat": 37.3111329,
+  "maxlon": -121.3058921
+ },
+ "box": {
+  "minlat": 37.0324441,
+  "minlon": -121.5629889,
+  "maxlat": 37.3111329,
+  "maxlon": -121.3058921
+ }
+}

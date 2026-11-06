@@ -5,9 +5,9 @@ order: 4
 summary: 22 miles to the highest summit in the lower 48, at 14,505 ft
 updated: 2026-10-16
 park: John Muir Wilderness
-within: Inyo National Forest and Sequoia National Park
 route: Mt Whitney Trail
 gpx: tracks/mt-whitney.gpx
+route link: https://www.alltrails.com/trail/us/california/mount-whitney-via-mount-whitney-trail
 
 facts:
   Getting there: 6.5 hr drive, or 1.5 hr flight to Bishop + 1 hr drive
@@ -41,7 +41,6 @@ permit:
 ## Overview
 
 - 6.5-hour drive, or a 1.5-hour flight to Bishop (BIH, ~$300 round trip) and an hour's drive to the trailhead
-- [Trail](https://www.alltrails.com/trail/us/california/mount-whitney-via-mount-whitney-trail): 22 miles, 6.5k ft of gain, topping out at 14.5k
 - Likely a day hike, but can be done with 1–2 nights
 - For a day hike, get there a day or two early to acclimate
 - [Trail guide](https://hikingguy.com/hikes/mt-whitney/)

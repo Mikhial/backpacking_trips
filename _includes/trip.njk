@@ -4,30 +4,30 @@ nav: trips
 ---
 <main class="gutter">
   <header class="trip-head">
-    <span class="eyebrow">{{ region }}{% if route and park %} · {{ park }}{% endif %}{% if within %} · {{ within }}{% endif %}</span>
+    <span class="eyebrow">{# one region, at most one park: "within" if given, else a one-route trip's park #}{{ region }}{% if within %} · {{ within }}{% elif route and park %} · {{ park }}{% endif %}</span>
     <h1>{{ name }}</h1>
     <div class="meta">
       {% if summary %}<span>{{ summary }}</span>{% endif %}
       {% if permit.difficulty %}<span title="{{ permit.why }}"><span class="meter">{{ permit.difficulty | dots | safe }}</span> {{ permit.difficulty | levelName }} permit{% if permit.why %} · {{ permit.why }}{% endif %}</span>{% endif %}
-      {% if status %}<span class="chip warn">{{ status }}</span>{% endif %}
     </div>
+    {% if status %}<div class="alert">{% set statusUrl = '' | statusLink %}{% if statusUrl %}<a class="chip warn" href="{{ statusUrl }}" title="Check for updates (opens in a new tab)">{{ status }}<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 1.5h3.5V5M10.5 1.5 5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>{% else %}<span class="chip warn">{{ status }}</span>{% endif %}</div>{% endif %}
   </header>
   {% set chartTrips = collections.trips | onlyPage(page.inputPath) %}
-  {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true}' %}
+  {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true, "dots": false}' %}
   {% set chartLegendDots = false %}
   {% include "chart.njk" %}
   {% set areaData = park and (page.fileSlug | hasTrailData) %}
   {# a one-route trip: that route, always shown, over the other trails near it #}
   {% set single = route and (trackFiles | length) %}
-  {% set extras = { trailheads: trailheads, camps: camps, trackFiles: trackFiles } | mapExtras %}
+  {% set extras = { trailheads: trailheads, camps: camps, trackFiles: trackFiles, link: ('' | routeLink) if single else '' } | mapExtras %}
   {% if areaData or extras %}
   <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
   <section class="trailmap" id="trailmap"{% if areaData %} data-src="{{ ('/assets/trails/' + page.fileSlug + '.json') | htmlBaseUrl }}"{% endif %} data-base="{{ '/' | htmlBaseUrl }}"{% if single %} data-single{% endif %} data-hint="{% if single %}Hover the elevation profile to follow the route. Click a trail to see its length and elevation profile{% else %}Click a {% if areaData %}trail{% else %}route{% endif %} to see its length and elevation profile{% endif %}, or right-click anywhere for the weather there.">
-    <div class="tm-head"><h2>{% if single %}{{ route }}{% elif areaData %}Trails in {{ park }}{% else %}Routes and trailheads{% endif %}</h2><span class="tm-count hint"></span>{% set allData = park | parkPage %}{% if areaData and allData %}<a class="tm-all" href="{{ allData | htmlBaseUrl }}">All map data</a>{% endif %}</div>
+    <div class="tm-head"><div><h2>{% if single %}{{ route }}{% elif areaData %}Trails in {{ park }}{% else %}Routes and trailheads{% endif %}</h2>{% if single %}<div class="tm-sum">{{ trackFiles | routeSummary }}</div>{% endif %}</div>{% set allData = park | parkPage %}{% if areaData and allData %}<a class="tm-all" href="{{ allData | htmlBaseUrl }}">All map data</a>{% endif %}</div>
     {% if extras %}<script type="application/json" class="tm-extras">{{ extras | safe }}</script>{% endif %}
     <div class="tm-routes" hidden></div>
     <div class="tm-map" tabindex="0" aria-label="Trail map"></div>
-    <div class="tm-legend"><span class="tm-has-routes"{% if not single %} hidden{% endif %}><i class="ln route"></i>{% if single %}Route{% else %}Your routes{% endif %}</span>{% if areaData %}<span><i class="ln big"></i>Long-distance trail</span><span><i class="ln trail"></i>Trail</span><span><i class="ln closed"></i>Closed or abandoned</span><span><i class="ln bnd"></i>Boundary</span>{% endif %}<span><i class="tm-poi trailhead"></i>Trailhead</span>{% if camps or areaData %}<span><i class="tm-poi camp"></i>Camp</span>{% endif %}{% if areaData %}<span class="tm-more">Zoom in for water, peaks, dirt roads and unnamed paths</span><span class="tm-zin"><i class="tm-poi water"></i>Water</span><span class="tm-zin"><i class="tm-poi peak"></i>Peak</span><span class="tm-zin"><i class="ln road"></i>Dirt road</span>{% endif %}</div>
+    <div class="tm-legend"><span class="tm-has-routes"{% if not single %} hidden{% endif %}><i class="ln route"></i>{% if single %}Route{% else %}Your routes{% endif %}</span>{% if areaData %}<span data-legend="big"><i class="ln big"></i>Long-distance trail</span><span><i class="ln trail"></i>Trail</span>{% if 'dirt roads' | mapShows %}<span data-legend="road"><i class="ln road"></i>Dirt road</span>{% endif %}<span data-legend="closed"><i class="ln closed"></i>Closed or abandoned</span>{% if 'boundaries' | mapShows %}<span><i class="ln bnd"></i>Boundary</span>{% endif %}{% endif %}<span><i class="tm-poi trailhead"></i>Trailhead</span>{% if camps or (areaData and ('camps' | mapShows)) %}<span><i class="tm-poi camp"></i>Camp</span>{% endif %}{% if areaData %}{% set zoomFor = [] %}{% if 'water' | mapShows %}{% set zoomFor = (zoomFor.push('water'), zoomFor) %}{% endif %}{% if 'peaks' | mapShows %}{% set zoomFor = (zoomFor.push('peaks'), zoomFor) %}{% endif %}{% if 'paths' | mapShows %}{% set zoomFor = (zoomFor.push('unnamed paths'), zoomFor) %}{% endif %}{% if zoomFor.length %}<span class="tm-more" data-words="{{ zoomFor | join(',') }}">Zoom in for {{ zoomFor | joinAnd }}</span>{% endif %}{% if 'water' | mapShows %}<span class="tm-zin" data-legend="water"><i class="tm-poi water"></i>Water</span>{% endif %}{% if 'peaks' | mapShows %}<span class="tm-zin" data-legend="peak"><i class="tm-poi peak"></i>Peak</span>{% endif %}{% endif %}</div>
     <div class="tm-info"></div>
     <div class="tm-prof" hidden></div>
     <nav class="tm-plan" aria-label="Plan this trip"><span class="tm-rl">Plan this trip</span><a class="tm-ext" data-app="caltopo" href="https://caltopo.com/map.html" hidden>CalTopo</a><a class="tm-ext" data-app="gaia" href="https://www.gaiagps.com/map/" hidden>Gaia GPS</a>{% for label, url in links %}<a href="{{ url }}">{{ label }}</a>{% endfor %}</nav>

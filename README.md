@@ -42,6 +42,8 @@ region: Bay Area               # must be one of the regions in _data/site.json
 order: 2                       # optional: position within the region
 summary: One line for the trips list
 status: Closed through Jan 31  # optional: shows a warning on the list and trip page
+status link: https://...       # optional: where to check for updates (makes the warning a link)
+status short: Closed until 1/31/27  # optional: shorter wording for the Trips table
 updated: 2026-10-16            # optional: when you last updated the research
 park: Point Reyes National Seashore  # optional: adds a trail map (see below)
 # within: Stanislaus National Forest  # optional: the forest or park a wilderness is in, shown above the title
@@ -55,6 +57,7 @@ routes:                        # optional: your own routes, as GPX files
 # or, if the trip is just one route, these two lines instead of routes: (see below)
 # route: Coast Trail loop
 # gpx: tracks/point-reyes-coast.gpx
+# route link: https://www.alltrails.com/...  # optional: the route's page, linked next to GPX on the map
 links:                         # optional: planning links shown under the map
   Park page: https://www.nps.gov/pore/
 
@@ -104,6 +107,7 @@ Add `park:` with the park or wilderness name, spelled the way it is on [openstre
 - **Your own routes**: export each as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are listed above the map; click one to draw it in blue on top of the trails. The elevation profile uses the elevations in the GPX file. In the notes, a link whose text is exactly the route name (e.g. `- [Coast Trail loop](https://www.alltrails.com/…)`) automatically shows the distance, elevation gain and elevation range measured from the GPX, plus a **Map** button. Don't type those numbers yourself; any notes after a `:` go on the next line.
 - **A trip that is one route** (like Rim to Rim inside Grand Canyon, or Ohlone's one point-to-point): instead of `routes:`, write the route's name on `route:` and its GPX file on `gpx:`. The map then shows that route, always on with its elevation profile open, over the other trails, trailheads, camps, water and peaks within about 3 miles of it. The route can't be hidden, and there are no show/hide buttons. The park name also appears next to the region above the title.
 - **Planning links**: the row under the map opens CalTopo and Gaia GPS on whatever area the map is showing. Add your own under `links:` as `Label: https://…` (ranger station, conditions page, FarOut, permits).
+- **What the map shows**: add `map shows:` with the kinds you want, e.g. `map shows: dirt roads, paths, trailheads, camps`. You can use paths, footways, bridleways, cycleways, steps, dirt roads, trailheads, camps, peaks, water and boundaries (the park boundary). Without the line the map shows all of them except water. Peaks under 5,000 ft are never shown. Whatever your GPX route runs along (a road, a bike path, a street) is always shown, and the All map data page starts with the same kinds switched on.
 - **All map data**: the small link next to the trail count opens a page with everything saved for the park, a switch for each kind of data, and a switch that greys out what the trip map leaves out. Handy for seeing why a trail or camp isn't on the map.
 - **Missing or wrong trail**: fix it on openstreetmap.org (**Edit**), then run **Actions → Fetch trail maps → Run workflow** with the trip's name under **Or refresh one park** (e.g. `zion`). To refresh every park at once, tick **Redo every park** instead. The saved park data isn't refreshed otherwise.
 

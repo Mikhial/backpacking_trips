@@ -7,6 +7,12 @@ summary: Granite lakes and volcanic peaks, quieter than Yosemite next door
 updated: 2026-10-16
 park: Emigrant Wilderness
 within: Stanislaus National Forest
+routes:
+  Route I did: tracks/emigrant-buck-lakes.gpx
+  Loop on the north trail I didn't do: tracks/emigrant-burst-rock.gpx
+  Extending the loop farther: tracks/emigrant-lower-loop.gpx
+  Big loop: tracks/emigrant-granite-dome-loop.gpx
+  Route going east: tracks/emigrant-kennedy-lake.gpx
 
 facts:
   Getting there: 3–4 hr drive via Hwy 108; last miles gravel or rough dirt

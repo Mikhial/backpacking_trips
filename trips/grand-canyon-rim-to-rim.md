@@ -5,10 +5,13 @@ region: Southwest
 order: 1
 summary: A mile down to the Colorado River and back out the other side
 status: North Kaibab Trail under repair after the 2025 Dragon Bravo Fire
+status short: Closed until further notice
+status link: https://www.nps.gov/grca/northrimstatus.htm
 updated: 2026-10-16
 park: Grand Canyon National Park
 route: Rim to Rim
 gpx: tracks/grand-canyon-rim-to-rim.gpx
+route link: https://www.alltrails.com/trail/us/arizona/rim-to-rim-north-kaibab-to-grand-canyon-village
 camps:
   Phantom Ranch: 36.10607, -112.09469
   Bright Angel: 36.10112, -112.09567
@@ -22,7 +25,6 @@ facts:
   Terrain: Strenuous; ~5,000 ft descent and climb out
   Water: Potable water at corridor campgrounds (pipeline breaks happen)
   Food storage: No bears; ammo cans for ravens and rodents
-  Dogs: No (below the rim)
 
 seasons:
   - peak: May 15 – Jun 7
@@ -52,7 +54,6 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 
 ## Overview
 
-- [Rim to Rim](https://www.alltrails.com/trail/us/arizona/rim-to-rim-north-kaibab-to-grand-canyon-village): 24 miles, 5k ft of gain going down into the canyon and back out
 - There are many other backpacking trips, but this is the quintessential Grand Canyon trip
 - [Going south to north](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail) is also an option, but recommended for a second time
 - Possible as a long day hike, but can also be done in 2 or 3 days
