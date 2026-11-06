@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
-import { parseGpx, parseLatLon, simplify, measure } from './lib/geo.js';
+import { parseGpx, parseLatLon, simplify, measure, routeShape } from './lib/geo.js';
 import { parkSlug } from './lib/parkdata.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
@@ -64,6 +64,17 @@ export default function (eleventyConfig) {
       return { n, file, p, ...stats };
     });
     return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
+  });
+  // A one-route trip's stats under the map title: "28 mi · ↑ 7,221 ft · ↓ 7,572 ft · 384–3,812 ft · Point to point"
+  eleventyConfig.addFilter('routeSummary', trackFiles => {
+    const file = Object.values(trackFiles || {})[0];
+    if (!file) return '';
+    const pts = parseGpx(fs.readFileSync(String(file).trim(), 'utf8')), s = measure(pts), n = v => Math.round(v * 3.28084).toLocaleString('en-US');
+    const out = [`${(s.len / 1609.344).toFixed(s.len < 16093 ? 1 : 0)} mi`];
+    if (s.up != null) { const e = simplify(pts, 6).map(p => Math.round(p[2])); out.push(`↑ ${n(s.up)} ft`, `↓ ${n(s.down)} ft`, `${n(Math.min(...e))}–${n(Math.max(...e))} ft`); }
+    const shape = routeShape(pts);
+    if (shape) out.push(shape);
+    return out.join(' · ');
   });
   // A link in the notes whose text matches a route name becomes a route line: the link, then
   // distance, gain and elevation range measured from the GPX file, then a "show on map" toggle.
