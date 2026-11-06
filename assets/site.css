@@ -97,6 +97,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .wt-mark { position: absolute; left: 0; top: .5em; width: 14px; height: 8px; border-radius: 2px; }
 .wt-mark.peak { background: var(--peak); } .wt-mark.shoulder { background: var(--shoulder); }
 .wt-mark.off { background: var(--off); }
+.wt-cite { color: var(--muted); margin-left: 2px; } .wt-sources { font-size: 13px; color: var(--muted); margin: 4px 0 0; } .wt-sources sup { margin-right: 2px; }
 .updated { font-size: 13px; color: var(--faint); }
 @media (max-width: 860px) {
   .cols { grid-template-columns: 1fr; }

@@ -106,8 +106,18 @@ export default function (eleventyConfig) {
     const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
     // a small bar in the chart's season color stands in for the bullet: peak, shoulder, or hollow for off
     const mark = w => `<span class="wt-mark ${w.tag ? w.tag.toLowerCase() : 'off'}" role="img" aria-label="${w.tag || 'Off season'}" title="${w.tag || 'Off season'}"></span>`;
-    const items = whenToGo.map(w => `<li>${mark(w)}<strong>${esc(w.label)}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}</li>`).join('\n');
-    const list = `\n<ul class="when">\n${items}\n</ul>\n`;
+    // Sources: "Exploring Wild https://..." links the name; a bare address shows its site name; no address is plain text.
+    // One source for everything shows once under the list; otherwise each note gets a number, listed under it.
+    const srcHtml = t => { const u = (t.match(/https?:\/\/\S+/) || [])[0]; const name = (u ? t.replace(u, '') : t).trim() || (u ? new URL(u).hostname.replace(/^www\./, '') : '');
+      return u ? `<a href="${esc(u)}">${esc(name)}</a>` : esc(name); };
+    const sources = [...new Set(whenToGo.map(w => w.source).filter(Boolean))];
+    const numbered = sources.length > 1 || (sources.length === 1 && whenToGo.some(w => !w.source));
+    const cite = w => numbered && w.source ? `<sup class="wt-cite">${sources.indexOf(w.source) + 1}</sup>` : '';
+    const items = whenToGo.map(w => `<li>${mark(w)}<strong>${esc(w.label)}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}${cite(w)}</li>`).join('\n');
+    const srcLine = !sources.length ? '' : numbered
+      ? `<p class="wt-sources">Sources: ${sources.map((t, i) => `<sup>${i + 1}</sup>${srcHtml(t)}`).join(' · ')}</p>`
+      : `<p class="wt-sources">Source: ${srcHtml(sources[0])}</p>`;
+    const list = `\n<ul class="when">\n${items}\n</ul>\n${srcLine}\n`;
     // with a "## When to go (notes)" section, the built section goes beside it, side by side for comparing
     const notesSec = /(<h2[^>]*>When to go \(notes\)<\/h2>)([\s\S]*?)(?=<h2|$)/i;
     if (notesSec.test(content)) return content.replace(notesSec, (m, head, body) =>
