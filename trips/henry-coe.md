@@ -73,9 +73,14 @@ Required, first-come only, same day at the HQ or Dowdy visitor centers; self-reg
 
 Designated sites in the western area; dispersed camping in the eastern zones (party limits per zone). Some sites have tables or outhouses; many have nothing. Check the park's water-resources page before going.
 
-## When to go
+## When to go (notes)
 
+- **Late February–early April (Peak)**: green. The last week of March and first week of April are typically the wildflower peak.
 - **Late April**: each spring, Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in.
+- **Through May**: still green, wildflowers.
+- **June–September**: often 90–100°F+.
+- **November**: also good.
+- **Winter**: an option, but it's going to be winter.
 
 ## Other
 

@@ -106,6 +106,9 @@ export default function (eleventyConfig) {
     const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
     const items = whenToGo.map(w => `<li><strong>${esc(w.label)}${w.tag ? ` (${w.tag})` : ''}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}</li>`).join('\n');
     const list = `\n<ul class="when">\n${items}\n</ul>\n`;
+    // with a "## When to go (notes)" heading, the built section goes right above it as its own section
+    const notesHead = /<h2[^>]*>When to go \(notes\)<\/h2>/i;
+    if (notesHead.test(content)) return content.replace(notesHead, m => `<h2>When to go</h2>${list}\n${m}`);
     // your own bullets right under the heading join the same list, after the seasons
     const withList = /(<h2[^>]*>When to go<\/h2>)\s*<ul>/i, h = /<h2[^>]*>When to go<\/h2>/i;
     if (withList.test(content)) return content.replace(withList, (m, head) => `${head}\n<ul class="when">\n${items}\n`);

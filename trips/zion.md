@@ -115,7 +115,12 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
 - **The Subway**: lottery. Unclaimed spots are released the month after the lottery. Apr–Jun hikes: lottery in February. Jul–Sep: lottery in May. Oct–Dec: lottery in August.
 - **Angels Landing**: lottery. Mar–May hikes: lottery in January. Jun–Aug: lottery in April. Sep–Nov: lottery in July.
 
-## When to go
+## When to go (notes)
+
+- **Winter**: out of season.
+- **Spring**: May has good weather, but it's crowded and the water may be too high.
+- **Summer**: lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
+- **Mid-September–October (Peak)**: water levels at their lowest, warm temperatures, monsoon risk over.
 
 ## Nearby parks
 

@@ -99,6 +99,7 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per se
 - Seasons can't overlap.
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
+- If the notes have a `## When to go (notes)` section instead, the built When to go section goes right above it, and both show.
 
 ### Permit channels
 

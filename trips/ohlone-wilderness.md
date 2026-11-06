@@ -84,7 +84,13 @@ permit:
 - Amenities: tables, chemical/pit toilets, non-potable water
 - Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
 
-## When to go
+## When to go (notes)
+
+- **Winter**: doable, but cold, dark and wet. Green from February.
+  - **Jan/Feb**: lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days.
+- **March–May (Peak)**: Green through April.
+- **June–September**: Hot and shadeless.
+- **Fall**: Doable, but dry.
 
 ## Hazards
 

@@ -81,9 +81,13 @@ Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Self-i
 
 Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
 
-## When to go
+## When to go (notes)
 
-Weather should be nice July–October.
+- **July–mid October (Peak)**: weather should be nice.
+  - **July**: can still have snow depending on snowpack; may be buggy (some areas better than others).
+  - **August/September**: mosquitoes die off.
+  - **Late September/early October**: quieter, no mosquitoes, have to carry more water.
+- **November–May**: Sonora Pass (Hwy 108) usually closed with snow.
 
 ## Mosquitoes
 

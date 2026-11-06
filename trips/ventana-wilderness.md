@@ -69,8 +69,11 @@ permit:
 
 No wilderness permit. $10/night parking at Big Sur Station; free CA campfire permit for stoves. Easy (when open). Camping is mostly at established trail camps; dispersed camping allowed.
 
-## When to go
+## When to go (notes)
 
+- **April–May and October–November (Peak)**: March is good too.
+- **Summer**: hot inland. Early summer is doable.
+- **Winter**: possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail.
 - Weather at the coast isn't the weather at the peaks; it can snow up high.
 
 ## Other

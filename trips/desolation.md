@@ -111,7 +111,12 @@ Wrights Lake area construction in 2026 may temporarily close the Rockbound and T
 - Off-season: permit still required, no quota.
 - Camping is dispersed, but your first night must be in your permitted zone (45 zones).
 
-## When to go
+## When to go (notes)
+
+- **June**: feasible in low-snow years. Keep an eye on snow levels and be prepared to turn back. Expect wet trails, more mosquitoes, harder water crossings and snowfields. The east side is safer since it's more popular and well trodden.
+- **July (Peak)**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
+- **August (Peak)**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
+- **September (Peak early in the month)**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
 
 Source: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
