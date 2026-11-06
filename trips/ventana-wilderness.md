@@ -1,5 +1,5 @@
 ---
-name: Ventana Wilderness (Big Sur)
+name: Ventana Wilderness
 short: Ventana Wilderness
 region: California Coast
 order: 1
