@@ -48,6 +48,9 @@ h3 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
 .chip.warn { background: var(--alert-bg); color: var(--alert-fg); }
 .trip-head .alert { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; font-size: 13px; }
 .trip-head .alert .chip { font-size: 13px; }
+.trip-head .alert a.chip { text-decoration: none; transition: filter .15s; }
+.trip-head .alert a.chip:hover { filter: brightness(.95); text-decoration: underline; text-underline-offset: 2px; }
+.trip-head .alert .ext { width: 11px; height: 11px; flex: none; }
 
 /* Index */
 .filters { display: flex; gap: 8px; flex-wrap: wrap; }

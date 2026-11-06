@@ -10,7 +10,7 @@ nav: trips
       {% if summary %}<span>{{ summary }}</span>{% endif %}
       {% if permit.difficulty %}<span title="{{ permit.why }}"><span class="meter">{{ permit.difficulty | dots | safe }}</span> {{ permit.difficulty | levelName }} permit{% if permit.why %} · {{ permit.why }}{% endif %}</span>{% endif %}
     </div>
-    {% if status %}<div class="alert"><span class="chip warn">{{ status }}</span>{% set statusUrl = '' | statusLink %}{% if statusUrl %}<a href="{{ statusUrl }}">Updates</a>{% endif %}</div>{% endif %}
+    {% if status %}<div class="alert">{% set statusUrl = '' | statusLink %}{% if statusUrl %}<a class="chip warn" href="{{ statusUrl }}" title="Check for updates (opens in a new tab)">{{ status }}<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 1.5h3.5V5M10.5 1.5 5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>{% else %}<span class="chip warn">{{ status }}</span>{% endif %}</div>{% endif %}
   </header>
   {% set chartTrips = collections.trips | onlyPage(page.inputPath) %}
   {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true, "dots": false}' %}
