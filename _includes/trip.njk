@@ -9,8 +9,8 @@ nav: trips
     <div class="meta">
       {% if summary %}<span>{{ summary }}</span>{% endif %}
       {% if permit.difficulty %}<span title="{{ permit.why }}"><span class="meter">{{ permit.difficulty | dots | safe }}</span> {{ permit.difficulty | levelName }} permit{% if permit.why %} · {{ permit.why }}{% endif %}</span>{% endif %}
-      {% if status %}<span class="chip warn">{{ status }}</span>{% endif %}
     </div>
+    {% if status %}<div class="alert"><span class="chip warn">{{ status }}</span>{% set statusUrl = '' | statusLink %}{% if statusUrl %}<a href="{{ statusUrl }}">Updates</a>{% endif %}</div>{% endif %}
   </header>
   {% set chartTrips = collections.trips | onlyPage(page.inputPath) %}
   {% set chartOptions = '{"groups": false, "link": false, "alwaysOpen": true, "dots": false}' %}

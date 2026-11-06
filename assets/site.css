@@ -3,7 +3,7 @@
   --bg: #f4f5f1; --surface: #ffffff; --surface-hi: #f7f8f4; --prior: #f3f5f0; --fg: #1c211a; --muted: #62695e; --faint: #8b9286;
   --line: #dde1d7; --grid: #e9ece4; --divider: #b9bfb1; --btn-hover: #eceee8;
   --peak: #5a9a2a; --shoulder: #efa22e; --roll: #6fa6e0; --roll-sh: #c4dbf4; --fix: #1f5fa8; --ink-blue: #1f5fa8;
-  --today: #c2412d; --link: #2b5c8f; --warn-bg: #fbf0dc; --warn-fg: #7a4a06;
+  --today: #c2412d; --link: #2b5c8f; --warn-bg: #fbf0dc; --warn-fg: #7a4a06; --alert-bg: #fbe3df; --alert-fg: #a8261b;
   --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
 }
@@ -11,12 +11,12 @@
   --bg: #151814; --surface: #1d211b; --surface-hi: #252a22; --prior: #191c17; --fg: #e8ebe4; --muted: #a3aa9e; --faint: #7d8478;
   --line: #333a30; --grid: #2a2f27; --divider: #4c5447; --btn-hover: #2c3128;
   --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
-  --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; color-scheme: dark } }
+  --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; --alert-bg: #42201b; --alert-fg: #f4a394; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #151814; --surface: #1d211b; --surface-hi: #252a22; --prior: #191c17; --fg: #e8ebe4; --muted: #a3aa9e; --faint: #7d8478;
   --line: #333a30; --grid: #2a2f27; --divider: #4c5447; --btn-hover: #2c3128;
   --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
-  --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; color-scheme: dark }
+  --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; --alert-bg: #42201b; --alert-fg: #f4a394; color-scheme: dark }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -45,7 +45,9 @@ h3 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
 .pagehead { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
 .hint { font-size: 13px; color: var(--muted); }
 .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 2px 9px; border-radius: 999px; }
-.chip.warn { background: var(--warn-bg); color: var(--warn-fg); }
+.chip.warn { background: var(--alert-bg); color: var(--alert-fg); }
+.trip-head .alert { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; font-size: 13px; }
+.trip-head .alert .chip { font-size: 13px; }
 
 /* Index */
 .filters { display: flex; gap: 8px; flex-wrap: wrap; }

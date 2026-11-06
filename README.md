@@ -42,6 +42,7 @@ region: Bay Area               # must be one of the regions in _data/site.json
 order: 2                       # optional: position within the region
 summary: One line for the trips list
 status: Closed through Jan 31  # optional: shows a warning on the list and trip page
+status link: https://...       # optional: where to check for updates (an "Updates" link next to the warning)
 updated: 2026-10-16            # optional: when you last updated the research
 park: Point Reyes National Seashore  # optional: adds a trail map (see below)
 # within: Stanislaus National Forest  # optional: the forest or park a wilderness is in, shown above the title

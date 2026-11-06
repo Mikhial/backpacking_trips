@@ -48,6 +48,8 @@ export default function (eleventyConfig) {
   // whether the trip's map draws this kind ("map shows:" in its header; without it, everything)
   eleventyConfig.addFilter('mapShows', function (word) { return showsWord(mapShows(this.ctx['map shows']), word); });
   // whether the trip's "map shows:" line names this kind (false when there's no line)
+  // `status link:` in a trip header: where to check for updates on the status
+  eleventyConfig.addFilter('statusLink', function () { const u = this.ctx['status link']; return typeof u === 'string' && /^https?:\/\//.test(u.trim()) ? u.trim() : ''; });
   eleventyConfig.addFilter('mapListed', function (word) { const list = mapShows(this.ctx['map shows']); return !!list && list.includes(word); });
   eleventyConfig.addFilter('joinAnd', a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);
   // the park's "all map data" page (parks.njk), if it has one
