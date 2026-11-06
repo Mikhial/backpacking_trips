@@ -6,6 +6,15 @@ order: 2
 summary: The Narrows, Angels Landing and the Subway; up to a 50-mile traverse
 updated: 2026-10-16
 park: Zion National Park
+routes:
+  The Narrows (bottom up): tracks/zion-narrows-bottom-up.gpx
+  The Subway: tracks/zion-subway.gpx
+  West Rim Trail: tracks/zion-west-rim.gpx
+  Angels Landing day hike: tracks/zion-angels-landing-day.gpx
+  Angels Landing overnight: tracks/zion-angels-landing-overnight.gpx
+  La Verkin Creek Trail: tracks/zion-la-verkin-creek.gpx
+  The Narrows (top down): tracks/zion-narrows-top-down.gpx
+  Zion Traverse: tracks/zion-traverse.gpx
 
 facts:
   Getting there: 1.5 hr flight to Las Vegas + 2.5–3 hr drive
@@ -80,7 +89,7 @@ permit:
 ## Day or overnight
 
 - **[West Rim Trail](https://www.alltrails.com/explore/trail/us/utah/west-rim-trail-top-down)**: 15 miles, 1.3k ft, point to point
-- **Angels Landing** (permit required): [day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail) (5 miles) or [overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop) (16 miles). No-permit alternative: Scout Lookout gets you most of the experience.
+- **Angels Landing** (permit required): [Angels Landing day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail) (5 miles) or [Angels Landing overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop) (16 miles). No-permit alternative: Scout Lookout gets you most of the experience.
 - **[La Verkin Creek Trail](https://www.alltrails.com/explore/trail/us/utah/la-verkin-creek-trail-via-lee-pass-trailhead)**: 18 miles, 2k ft
 
 ## Overnight hikes (permit required)
