@@ -56,16 +56,11 @@ permit:
 
 ## Permits and reservations
 
-- Trail permit dropped as of Jan 2026. Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
-- $15/site/night + $8 reservation fee. Maximum 3 nights.
-- Reservations are made by calling the EBRPD Reservations Department. Maximum 2 reservations per call.
-- Group and backpack sites are released in two six-month blocks. On opening dates, reservations are taken by phone only.
-  - Arrival dates July–December 2026 are open now.
-  - Arrival dates January–June 2027 open in December 2026.
+- Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
+- $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
+- Sites are released in two six-month blocks: arrival dates July–December 2026 are open now; January–June 2027 open in December 2026.
 
 ## Camps
-
-Details: [EBRPD backpack camping FAQ](https://www.ebparks.org/recreation/camping/backpack-camping-faqs#sunol)
 
 - **Maggie's**, 11 miles out: 3 different camps, in trees
 - **[Sunol Backpack Camp](https://www.redwoodhikes.com/EastBay/SunolCG.html)**, 17 miles out: seven widely separated sites. You can't see the other sites, but you can still hear people. From almost every site it's a long, steep walk to the outhouse.
