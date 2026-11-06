@@ -22,7 +22,6 @@ facts:
   Terrain: Strenuous; ~5,000 ft descent and climb out
   Water: Potable water at corridor campgrounds (pipeline breaks happen)
   Food storage: No bears; ammo cans for ravens and rodents
-  Dogs: No (below the rim)
 
 seasons:
   - peak: May 15 – Jun 7

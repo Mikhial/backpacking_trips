@@ -23,7 +23,6 @@ facts:
   Terrain: Strenuous; steep roller-coaster fire roads
   Water: Seasonal creeks, springs and ponds; many dry by late summer
   Food storage: No bears; rodents and pigs
-  Dogs: No
   Crowds: Solitude past the first few miles
 
 seasons:

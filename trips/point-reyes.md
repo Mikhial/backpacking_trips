@@ -19,7 +19,6 @@ facts:
   Terrain: Easy to moderate
   Water: Potable faucet at each camp
   Food storage: Food lockers at every site; no bear can needed
-  Dogs: No
   Crowds: Busy weekends; moderate weekdays
 
 seasons:

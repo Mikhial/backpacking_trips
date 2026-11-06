@@ -20,7 +20,6 @@ facts:
   Terrain: Moderate; hot, exposed climbs out of the canyon
   Water: Creeks and falls strong in spring; many dry by late summer
   Food storage: Bear canister required (bear boxes at Rancheria Falls)
-  Dogs: No
   Crowds: Moderate; much quieter than the Valley or Tuolumne
 
 seasons:
