@@ -28,7 +28,7 @@
       if (a) { a.target = '_blank'; a.rel = 'noopener'; }
     }, true);
     mapEl.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
-    L.tileLayer(box.dataset.tiles || 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
+    const base = L.tileLayer(box.dataset.tiles || 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 16, maxNativeZoom: +(box.dataset.tileZoom || 16),
       attribution: 'Topo: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS</a> · Trails: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
     }).addTo(map);
@@ -362,10 +362,10 @@
 
     info.innerHTML = box.dataset.hint;
     if (single) { setOn(routeLines[0], true); select(routeLines[0]); }
-    // (a one-route trip's distance and gain are already in the line under the map)
-    box.querySelector('.tm-count').textContent = single ? ''
-      : data.fetched
-      ? `${trails.filter(t => t.n && t.k === 'trail').length} named trails · from OpenStreetMap, ${new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`
-      : `${extras.routes.length} route${extras.routes.length === 1 ? '' : 's'}`;
+    // when the trail data was fetched, kept out of the way in the map's credits corner
+    if (data.fetched) {
+      const was = base.getAttribution(), when = new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+      map.attributionControl.removeAttribution(was).addAttribution(was.replace('OpenStreetMap</a>', `OpenStreetMap</a>, ${when}`));
+    }
   }
 })();
