@@ -19,7 +19,7 @@ nav: trips
   {% set areaData = park and (page.fileSlug | hasTrailData) %}
   {# a one-route trip: that route, always shown, over the other trails near it #}
   {% set single = route and (trackFiles | length) %}
-  {% set extras = { trailheads: trailheads, camps: camps, trackFiles: trackFiles } | mapExtras %}
+  {% set extras = { trailheads: trailheads, camps: camps, trackFiles: trackFiles, link: ('' | routeLink) if single else '' } | mapExtras %}
   {% if areaData or extras %}
   <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
   <section class="trailmap" id="trailmap"{% if areaData %} data-src="{{ ('/assets/trails/' + page.fileSlug + '.json') | htmlBaseUrl }}"{% endif %} data-base="{{ '/' | htmlBaseUrl }}"{% if single %} data-single{% endif %} data-hint="{% if single %}Hover the elevation profile to follow the route. Click a trail to see its length and elevation profile{% else %}Click a {% if areaData %}trail{% else %}route{% endif %} to see its length and elevation profile{% endif %}, or right-click anywhere for the weather there.">

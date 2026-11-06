@@ -7,6 +7,7 @@ updated: 2026-10-16
 park: John Muir Wilderness
 route: Mt Whitney Trail
 gpx: tracks/mt-whitney.gpx
+route link: https://www.alltrails.com/trail/us/california/mount-whitney-via-mount-whitney-trail
 
 facts:
   Getting there: 6.5 hr drive, or 1.5 hr flight to Bishop + 1 hr drive

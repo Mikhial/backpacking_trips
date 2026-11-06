@@ -292,7 +292,7 @@
       const t = line.trail, i = routeLines.indexOf(line);
       const site = t.url ? (/alltrails\.com/.test(t.url) ? 'AllTrails' : new URL(t.url).hostname.replace(/^www\./, '')) : '';
       const gpx = (t.url ? ` <a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(site)} ↗</a>` : '') +
-        (t.url ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
+        (t.url && document.getElementById(`route-${i}`) ? ` <a href="#route-${i}" class="tm-tonote">In notes ↓</a>` : '') +
         (t.file ? ` <a href="${box.dataset.base || '/'}${esc(t.file)}" download>GPX</a>` : '');
       if (!hasEle(t)) {
         info.innerHTML = `<b>${name(t)}</b><span>${mi(t.len)} mi</span><span class="hint">No elevation in this GPX file</span>${gpx}`;

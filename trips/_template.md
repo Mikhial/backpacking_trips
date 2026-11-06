@@ -19,6 +19,7 @@ within: Example National Forest  # optional: the forest or park it's in, shown a
 # The map then shows just that route, always on. Leave these out otherwise.
 # route: Rockbound Pass loop
 # gpx: tracks/rockbound-pass.gpx
+# route link: https://www.alltrails.com/...  # optional: the route's page, linked next to GPX on the map
 
 # Optional, for the trail map:
 # trailheads:               # trailheads OpenStreetMap is missing. Name: latitude, longitude

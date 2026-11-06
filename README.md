@@ -57,6 +57,7 @@ routes:                        # optional: your own routes, as GPX files
 # or, if the trip is just one route, these two lines instead of routes: (see below)
 # route: Coast Trail loop
 # gpx: tracks/point-reyes-coast.gpx
+# route link: https://www.alltrails.com/...  # optional: the route's page, linked next to GPX on the map
 links:                         # optional: planning links shown under the map
   Park page: https://www.nps.gov/pore/
 

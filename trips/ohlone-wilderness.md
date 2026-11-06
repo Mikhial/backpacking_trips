@@ -7,6 +7,7 @@ updated: 2026-10-16
 park: Ohlone Regional Wilderness Preserve
 route: Mission Peak to Del Valle
 gpx: tracks/ohlone-mission-peak-to-del-valle.gpx
+route link: https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak
 map shows: dirt roads, paths, trailheads, camps
 trailheads:
   Mission Peak: 37.50433, -121.90814
@@ -51,7 +52,6 @@ permit:
 
 ## Route
 
-- [Mission Peak to Del Valle on AllTrails](https://www.alltrails.com/trail/us/california/ohlone-wilderness-regional-trail-del-valle-to-mission-peak)
 - Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 

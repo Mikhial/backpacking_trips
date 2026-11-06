@@ -50,6 +50,8 @@ export default function (eleventyConfig) {
   // whether the trip's "map shows:" line names this kind (false when there's no line)
   // `status link:` in a trip header: where to check for updates on the status
   eleventyConfig.addFilter('statusLink', function () { const u = this.ctx['status link']; return typeof u === 'string' && /^https?:\/\//.test(u.trim()) ? u.trim() : ''; });
+  // `route link:` in a one-route trip's header: the route's page (AllTrails etc.), shown next to the GPX link
+  eleventyConfig.addFilter('routeLink', function () { const u = this.ctx['route link']; return typeof u === 'string' && /^https?:\/\//.test(u.trim()) ? u.trim() : ''; });
   eleventyConfig.addFilter('mapListed', function (word) { const list = mapShows(this.ctx['map shows']); return !!list && list.includes(word); });
   eleventyConfig.addFilter('joinAnd', a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);
   // the park's "all map data" page (parks.njk), if it has one
@@ -63,7 +65,7 @@ export default function (eleventyConfig) {
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
       const stats = measure(pts);
       const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
-      return { n, file, p, ...stats };
+      return { n, file, p, ...stats, ...(data.link ? { url: data.link } : {}) };
     });
     return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
   });

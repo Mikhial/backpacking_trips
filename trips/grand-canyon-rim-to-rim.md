@@ -11,6 +11,7 @@ updated: 2026-10-16
 park: Grand Canyon National Park
 route: Rim to Rim
 gpx: tracks/grand-canyon-rim-to-rim.gpx
+route link: https://www.alltrails.com/trail/us/arizona/rim-to-rim-north-kaibab-to-grand-canyon-village
 camps:
   Phantom Ranch: 36.10607, -112.09469
   Bright Angel: 36.10112, -112.09567
