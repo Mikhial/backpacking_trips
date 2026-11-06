@@ -22,15 +22,17 @@ facts:
   Crowds: Busy weekends; moderate weekdays
 
 seasons:
-  - shoulder: Jan 1 – Feb 28
-    why: [rain, cold]
   - shoulder: Mar 1 – May 31
     why: [wind, cold]
+    notes: Most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
   - shoulder: Jun 1 – Aug 31
     why: [fog]
+    notes: Very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
   - peak: Sep 1 – Oct 31
-  - shoulder: Nov 1 – Dec 31
+    notes: Some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October.
+  - shoulder: Nov 1 – Feb 28
     why: [rain, cold]
+    notes: The heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool. The strongest winds come in November and December with southerly gales.
 
 permit:
   note: 90/14 days before
@@ -84,11 +86,6 @@ Amenities: vault toilets, tables, lockers and water at all camps.
 - Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
 
 ## When to go
-
-- **Winter**: the heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool.
-- **Spring**: most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
-- **Summer**: very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
-- **Fall (Peak)**: some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October. The strongest winds come in November and December with southerly gales.
 
 ## Other
 

@@ -96,6 +96,21 @@ export default function (eleventyConfig) {
     return out.join(' · ');
   };
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
+  // The When to go list, built from the header's seasons (their notes), goes right under the notes' "## When to go"
+  // heading, above anything written there. Without that heading, the section is added at the end.
+  let md;
+  eleventyConfig.amendLibrary('md', lib => { md = lib; });
+  eleventyConfig.addFilter('whenToGo', function (content) {
+    const { whenToGo } = normalizeTrip(this.ctx, this.page.inputPath, site.regions);
+    if (!whenToGo.length) return content;
+    const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const items = whenToGo.map(w => `<li><strong>${esc(w.label)}${w.tag ? ` (${w.tag})` : ''}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}</li>`).join('\n');
+    const list = `\n<ul class="when">\n${items}\n</ul>\n`;
+    // your own bullets right under the heading join the same list, after the seasons
+    const withList = /(<h2[^>]*>When to go<\/h2>)\s*<ul>/i, h = /<h2[^>]*>When to go<\/h2>/i;
+    if (withList.test(content)) return content.replace(withList, (m, head) => `${head}\n<ul class="when">\n${items}\n`);
+    return h.test(content) ? content.replace(h, m => m + list) : content + `\n<h2>When to go</h2>${list}`;
+  });
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
     if (!keys.length) return content;

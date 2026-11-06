@@ -20,11 +20,13 @@ facts:
   Crowds: Moderate to busy in summer (quota-limited)
 
 seasons:
-  - shoulder: Mar 1 – May 19
+  - shoulder: Mar 1 – May 20, Sep 11 – Nov 30
     why: [rain, wet]
-  - peak: May 20 – Sep 10
-  - shoulder: Sep 11 – Nov 30
-    why: [rain, wet]
+    notes: Fewer people, better chance of clear views. More storm, rain and swell risk. Good for experienced parties with flexible plans.
+  - peak: May 21 – Sep 10
+    notes: Best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits.
+  - off: Dec 1 – Feb 28
+    notes: Least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 permit:
   note: 90 days before
@@ -67,10 +69,6 @@ permit:
 - Check tides before booking.
 
 ## When to go
-
-- **Late May–early September (Peak)**: best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits.
-- **March–mid May and mid September–November**: fewer people, better chance of clear views. More storm, rain and swell risk. Good for experienced parties with flexible plans.
-- **Winter (December–February)**: least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 ## Other
 

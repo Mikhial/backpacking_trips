@@ -22,13 +22,16 @@ facts:
   Crowds: Solitude midweek; Mission Peak end busy with day hikers
 
 seasons:
-  - shoulder: Jan 1 – Feb 28
-    why: [cold, wet]
   - peak: Mar 1 – May 31
+    notes: Green through April.
+  - off: Jun 1 – Sep 30
+    notes: Hot and shadeless.
   - shoulder: Oct 1 – Oct 31
     why: [dry]
-  - shoulder: Nov 1 – Dec 31
+    notes: Doable, but dry.
+  - shoulder: Nov 1 – Feb 28
     why: [cold, wet]
+    notes: "Doable, but cold, dark and wet. Green from February. In Jan/Feb, lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days."
 
 permit:
   note: Opens twice annually
@@ -82,12 +85,6 @@ permit:
 - Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
 
 ## When to go
-
-- **Winter**: doable, but cold, dark and wet. Green from February.
-  - **Jan/Feb**: lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days.
-- **March–May (Peak)**: Green through April.
-- **June–September**: Hot and shadeless.
-- **Fall**: Doable, but dry.
 
 ## Hazards
 

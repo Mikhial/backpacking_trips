@@ -23,7 +23,16 @@ facts:
   Crowds: Moderate; much quieter than the Valley or Tuolumne
 
 seasons:
-  - peak: Jun 1 – Oct 31
+  - off: May 1 – May 31
+    notes: Probably too early; rivers can be dangerous and it may be cold.
+  - peak: Jun 1 – Jun 30
+    notes: Still wet, some bugs, may be colder at night. Late June/early July may be a good option.
+  - peak: Jul 1 – Aug 31
+    notes: Starts to dry out and gets hot.
+  - peak: Sep 1 – Sep 30
+    notes: Falls dry out; temperatures start getting cooler (though still warm).
+  - peak: Oct 1 – Oct 31
+    notes: Drier, quieter, more manageable weather; may start to get cold at night.
 
 permit:
   note: Lottery 24 weeks · 7 days before
@@ -69,12 +78,6 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 
 ## When to go
 
-- **May**: probably too early; rivers can be dangerous and it may be cold.
-- **June–October (Peak)**: late June/early July may be a good option.
-  - **June**: still wet, some bugs, may be colder at night.
-  - **July/August**: starts to dry out and gets hot.
-  - **September**: falls dry out; temperatures start getting cooler (though still warm).
-  - **October**: drier, quieter, more manageable weather; may start to get cold at night.
 - **Other research**: my detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
 
 ## Other
