@@ -80,6 +80,11 @@ permit:
 - Permits are competitive: hardest in the National Park System. The most popular day hikes and any overnight camping need permits.
 - Permits release at different times, so if you get one you may still need to wait for others. They release 1 to 5 months ahead depending on trail and time.
 
+## Getting there
+
+- **Fly**: to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
+- **Drive**: ~11 hours (depending on route); maybe worth it if also doing Utah.
+
 ## Day hikes
 
 - **[The Narrows (bottom up)](https://www.alltrails.com/explore/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring)**: no permit required. 9.4 miles up the river through the main canyon; walls up to 1k ft high and as narrow as 20 ft. Not possible for much of spring due to water level: March and April are generally a no-go; May is possible depending on snowpack, and the water can be cold. July–September has flash flood risk.
@@ -110,11 +115,6 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
 - **Spring**: May has good weather, but it's crowded and the water may be too high.
 - **Summer**: lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
 - **Mid-September–October (Peak)**: water levels at their lowest, warm temperatures, monsoon risk over.
-
-## Getting there
-
-- ~11-hour drive (depending on route); maybe worth it if also doing Utah.
-- Fly to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
 
 ## Nearby parks
 

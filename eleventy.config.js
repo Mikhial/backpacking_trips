@@ -43,7 +43,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('firstNumber', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); return m ? +m[0] : ''; });
   eleventyConfig.addFilter('peakStart', item => { const ss = chartFor(item).seasons; return ((ss.find(x => x.type === 'peak') || ss[0]) || {}).start || '99'; });
   // Rough sort key for "Getting there": hours, with flights sorted after drives
-  eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
+  // hours for sorting the Trips list by its first time: "3.5 hr", "2:40", "45 min"; trips that start with a flight sort after drives
+  eleventyConfig.addFilter('travelHours', v => { const t = String(v ?? ''); const m = t.match(/(\d+):(\d\d)|(\d+(?:\.\d+)?)\s*(min)?/); const n = !m ? 99 : m[1] ? +m[1] + m[2] / 60 : m[4] ? m[3] / 60 : +m[3]; return /fly|flight/i.test(t.split(/,|\+| or /)[0]) ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   // whether the trip's map draws this kind ("map shows:" in its header; without it, everything)
   eleventyConfig.addFilter('mapShows', function (word) { return showsWord(mapShows(this.ctx['map shows']), word); });

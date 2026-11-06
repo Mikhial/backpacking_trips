@@ -57,7 +57,6 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 - There are many other backpacking trips, but this is the quintessential Grand Canyon trip
 - [Going south to north](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail) is also an option, but recommended for a second time
 - Possible as a long day hike, but can also be done in 2 or 3 days
-- Lots of travel: short flights plus 4–5-hour shuttles or drives
 - Could potentially add other nearby parks
 - [Trail guide](https://hikingguy.com/hikes/rim-to-rim-grand-canyon/)
 

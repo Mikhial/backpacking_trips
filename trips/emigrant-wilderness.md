@@ -15,7 +15,7 @@ routes:
   Route going east: tracks/emigrant-kennedy-lake.gpx
 
 facts:
-  Getting there: 3–4 hr drive via Hwy 108; last miles gravel or rough dirt
+  Getting there: 3.25 hr drive
   Distance: Loops of many sizes, up to 40+ mi
   Elevation: 5,000–11,500 ft (route I did mostly under 8k)
   Nights: 2–5
@@ -35,11 +35,15 @@ permit:
 
 ## Overview
 
-- 3.25-hour drive with no traffic
 - Loops of various sizes, going 40+ miles
 - The route I did was mostly under 8k ft; others have high points at 9k. Further west is higher and likely not worth it.
 - Permits are self-issue with no limits
 - Bear cans not required but recommended
+
+## Getting there
+
+- **Drive**: 3.25 hours with no traffic, via Hwy 108.
+- **Roads**: last miles gravel or rough dirt.
 
 ## Trailheads and routes
 

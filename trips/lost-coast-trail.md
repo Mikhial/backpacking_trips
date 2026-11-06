@@ -10,7 +10,7 @@ gpx: tracks/lost-coast-trail.gpx
 route link: https://www.alltrails.com/trail/us/california/lost-coast-trail-mattole-to-black-sands-beach
 
 facts:
-  Getting there: 5 hr drive, plus 2 hr shuttle (or a key swap)
+  Getting there: 5 hr drive + 2 hr shuttle
   Distance: 25 mi point to point
   Elevation: Sea level the whole way (upland trails to 4,088 ft)
   Nights: 2–3 (sweet spot is 3 days)
@@ -37,13 +37,17 @@ permit:
 
 ## Overview
 
-- 5-hour drive, plus a 2-hour shuttle (or arrange a key swap)
 - 25 miles along the coast
 - Plan around high and low tides; some areas are impassable at high tide
 - Permits are competitive and open 90 days in advance
 - Bear can required
 
 [Trail guide](https://hikingguy.com/hikes/lost-coast-trail/)
+
+## Getting there
+
+- **Drive**: ~4.5–5 hr to Black Sands Beach/Shelter Cove (south), ~6 hr to Mattole (north), both on narrow, winding mountain roads.
+- **Shuttle**: the trail is point to point, 2 hours' drive between ends. Take the shuttle (~$95 per person), use 2 cars, or arrange a [key swap](https://outdoorstatus.com/guides/lost-coast-trail/key-swap/), meeting someone and exchanging cars. Key swap is best with one car.
 
 ## Trip length
 
@@ -54,8 +58,6 @@ permit:
 ## Logistics
 
 - **Tides**: certain parts of the trail can only be passed at low tide (3 zones impassable at high tide). [Interactive tide chart](https://outdoorstatus.com/guides/lost-coast-trail/tide-chart/) · [BLM tide guide](https://www.blm.gov/sites/blm.gov/files/docs/2021-02/TIDE%20GUIDE%20WEB_Active%20Links%20%281%29.pdf)
-- **Shuttle**: the trail is point to point, 2 hours' drive between ends. Take the shuttle (~$95 per person), use 2 cars, or arrange a [key swap](https://outdoorstatus.com/guides/lost-coast-trail/key-swap/), meeting someone and exchanging cars. Key swap is best with one car.
-- Driving: ~4.5–5 hr to Black Sands Beach/Shelter Cove (south), ~6 hr to Mattole (north), both on narrow, winding mountain roads.
 
 ## Permits
 

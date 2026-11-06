@@ -18,7 +18,7 @@ routes:
   Cone Peak via Carrizo Creek: tracks/ventana-cone-peak-carrizo-creek.gpx
 
 facts:
-  Getting there: 2.5–3.5 hr drive to Big Sur Station or Arroyo Seco
+  Getting there: 2:40–3:40 drive
   Distance: Up to 30+ mi
   Elevation: 300–5,862 ft (Junipero Serra Peak)
   Nights: 1–4
@@ -46,13 +46,13 @@ permit:
 
 ## Overview
 
-- 2:40 to 3:40 with no traffic
 - Trails go up to 30+ miles
 - Less-traveled trails may need some bushwhacking and research
 
 ## Getting there
 
-Hwy 1 is open Carmel–Cambria, but slides close it often. Tassajara Road (east entry) is dirt, high clearance.
+- **Drive**: 2:40 to 3:40 with no traffic, to Big Sur Station or Arroyo Seco.
+- **Roads**: Hwy 1 is open Carmel–Cambria, but slides close it often. Tassajara Road (east entry) is dirt, high clearance.
 
 ## Routes
 

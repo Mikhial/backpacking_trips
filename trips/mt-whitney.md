@@ -40,8 +40,12 @@ permit:
 
 ## Overview
 
-- 6.5-hour drive, or a 1.5-hour flight to Bishop (BIH, ~$300 round trip) and an hour's drive to the trailhead
 - [Trail guide](https://hikingguy.com/hikes/mt-whitney/)
+
+## Getting there
+
+- **Drive**: 6.5 hours.
+- **Fly**: 1.5 hours to Bishop (BIH, ~$300 round trip), then an hour's drive to the trailhead.
 
 ## Day hike or overnight
 

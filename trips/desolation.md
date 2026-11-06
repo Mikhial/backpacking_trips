@@ -21,7 +21,7 @@ links:
   Exploring Wild guide: https://exploringwild.com/backpacking-desolation-wilderness
 
 facts:
-  Getting there: 3–4 hr drive to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake
+  Getting there: 3 hr drive
   Distance: Many options; ~48 mi loop covers most of the park
   Elevation: 6,500–9,983 ft (most camps 7,700–8,300 ft)
   Nights: 1–4
@@ -54,13 +54,16 @@ permit:
 
 ## Overview
 
-- 3 hours' drive with no traffic
 - East side is relatively high (more time at 8–9k ft) and more crowded
 - West side is lower (lots in the 7–8k ft range), quieter, and trails can be rougher
 - Decent options for different trails; covering most of the park is a 48-mile loop
 - Bear can required
 
 [Overview article](https://exploringwild.com/backpacking-desolation-wilderness/)
+
+## Getting there
+
+- **Drive**: 3 hours with no traffic, to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake.
 
 ## Areas and routes
 
