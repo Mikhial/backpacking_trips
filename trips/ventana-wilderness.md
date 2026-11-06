@@ -5,6 +5,7 @@ region: California Coast
 order: 1
 summary: Redwood canyons, river pools and coastal ridges
 status: Closed through Jan 31, 2027 (fire order)
+status short: Closed until 1/31/27
 status link: https://www.ventanawild.org/Plan-a-Trip/
 updated: 2026-10-16
 park: Ventana Wilderness

@@ -43,6 +43,7 @@ order: 2                       # optional: position within the region
 summary: One line for the trips list
 status: Closed through Jan 31  # optional: shows a warning on the list and trip page
 status link: https://...       # optional: where to check for updates (makes the warning a link)
+status short: Closed until 1/31/27  # optional: shorter wording for the Trips table
 updated: 2026-10-16            # optional: when you last updated the research
 park: Point Reyes National Seashore  # optional: adds a trail map (see below)
 # within: Stanislaus National Forest  # optional: the forest or park a wilderness is in, shown above the title

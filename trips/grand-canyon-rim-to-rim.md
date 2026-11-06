@@ -5,6 +5,7 @@ region: Southwest
 order: 1
 summary: A mile down to the Colorado River and back out the other side
 status: North Kaibab Trail under repair after the 2025 Dragon Bravo Fire
+status short: Closed until further notice
 status link: https://www.nps.gov/grca/northrimstatus.htm
 updated: 2026-10-16
 park: Grand Canyon National Park

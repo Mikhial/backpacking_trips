@@ -9,6 +9,7 @@ order: 5                  # optional: position within the region
 summary: One line about what makes this trip special
 status: ""                # optional, e.g. "Closed through Jan 31, 2027"
 status link: ""           # optional: where to check for updates on the status
+status short: ""          # optional: shorter wording for the Trips table
 updated: 2026-11-03       # when you last updated your research
 park: Example Wilderness  # optional: park or wilderness name as on openstreetmap.org; adds a trail map
 within: Example National Forest  # optional: the forest or park it's in, shown above the title
