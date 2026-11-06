@@ -104,7 +104,9 @@ export default function (eleventyConfig) {
     const { whenToGo } = normalizeTrip(this.ctx, this.page.inputPath, site.regions);
     if (!whenToGo.length) return content;
     const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
-    const items = whenToGo.map(w => `<li><strong>${esc(w.label)}${w.tag ? ` (${w.tag})` : ''}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}</li>`).join('\n');
+    // a small bar in the chart's season color stands in for the bullet: peak, shoulder, or hollow for off
+    const mark = w => `<span class="wt-mark ${w.tag ? w.tag.toLowerCase() : 'off'}" role="img" aria-label="${w.tag || 'Off season'}" title="${w.tag || 'Off season'}"></span>`;
+    const items = whenToGo.map(w => `<li>${mark(w)}<strong>${esc(w.label)}</strong>${w.notes ? ': ' + md.renderInline(w.notes) : ''}</li>`).join('\n');
     const list = `\n<ul class="when">\n${items}\n</ul>\n`;
     // with a "## When to go (notes)" section, the built section goes beside it, side by side for comparing
     const notesSec = /(<h2[^>]*>When to go \(notes\)<\/h2>)([\s\S]*?)(?=<h2|$)/i;

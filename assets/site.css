@@ -92,6 +92,11 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .when-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 .when-compare > section { min-width: 0; }
 @media (max-width: 700px) { .when-compare { grid-template-columns: 1fr; } }
+.notes ul.when { list-style: none; padding-left: 0; }
+.notes ul.when > li { padding-left: 22px; position: relative; }
+.wt-mark { position: absolute; left: 0; top: .5em; width: 14px; height: 8px; border-radius: 2px; }
+.wt-mark.peak { background: var(--peak); } .wt-mark.shoulder { background: var(--shoulder); }
+.wt-mark.off { border: 1.5px solid var(--divider); box-sizing: border-box; }
 .updated { font-size: 13px; color: var(--faint); }
 @media (max-width: 860px) {
   .cols { grid-template-columns: 1fr; }
