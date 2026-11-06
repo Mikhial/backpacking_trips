@@ -75,6 +75,7 @@ permit:
   - **Sycamore**: not a great option
   - **Hawk's Nest**: less privacy (on the main trail), but close to the outhouse, shady, limited view
 - Amenities: tables, chemical/pit toilets, non-potable water
+- Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
 
 ## When to go
 
@@ -83,7 +84,6 @@ permit:
 - **March–May (Peak)**: Green through April.
 - **June–September**: Hot and shadeless.
 - **Fall**: Doable, but dry.
-- Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
 
 ## Hazards
 

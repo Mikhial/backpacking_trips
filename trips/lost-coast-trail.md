@@ -66,9 +66,9 @@ permit:
 
 ## When to go
 
-- **Late May–early September (Peak)**: best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits (60/day).
+- **Late May–early September (Peak)**: best odds of dry, stable weather. More fog and crowds than storms. Most competitive permits.
 - **March–mid May and mid September–November**: fewer people, better chance of clear views. More storm, rain and swell risk. Good for experienced parties with flexible plans.
-- **Winter (November–February)**: least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
+- **Winter (December–February)**: least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 ## Other
 

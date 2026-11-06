@@ -108,8 +108,8 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
 
 - **Winter**: out of season.
 - **Spring**: May has good weather, but it's crowded and the water may be too high.
-- **Summer**: hot, lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
-- **Fall (Peak)**: the best time, mid-September through October. Water levels at their lowest, warm temperatures, monsoon risk over.
+- **Summer**: lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
+- **Mid-September–October (Peak)**: water levels at their lowest, warm temperatures, monsoon risk over.
 
 ## Getting there
 
