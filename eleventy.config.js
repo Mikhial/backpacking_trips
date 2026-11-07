@@ -118,10 +118,6 @@ export default function (eleventyConfig) {
       ? `<p class="wt-sources">Sources: ${sources.map((t, i) => `<sup>${i + 1}</sup>${srcHtml(t)}`).join(' · ')}</p>`
       : `<p class="wt-sources">Source: ${srcHtml(sources[0])}</p>`;
     const list = `\n<ul class="when">\n${items}\n</ul>\n${srcLine}\n`;
-    // with a "## When to go (notes)" section, the built section goes beside it, side by side for comparing
-    const notesSec = /(<h2[^>]*>When to go \(notes\)<\/h2>)([\s\S]*?)(?=<h2|$)/i;
-    if (notesSec.test(content)) return content.replace(notesSec, (m, head, body) =>
-      `<div class="when-compare"><section><h2>When to go</h2>${list}</section><section>${head}${body}</section></div>\n`);
     // your own bullets right under the heading join the same list, after the seasons
     const withList = /(<h2[^>]*>When to go<\/h2>)\s*<ul>/i, h = /<h2[^>]*>When to go<\/h2>/i;
     if (withList.test(content)) return content.replace(withList, (m, head) => `${head}\n<ul class="when">\n${items}\n`);

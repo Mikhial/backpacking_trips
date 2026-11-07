@@ -100,7 +100,6 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
 - **Sources**: `seasons source:` (a top-level line, after `seasons:`) covers every season, and `source:` on one season covers just that one. Write a name and/or a web address, like `seasons source: Exploring Wild https://exploringwild.com/...`. The name becomes the link (a bare address shows the site's name). One source for everything shows as "Source: …" under the list; with several, each note gets a small number and the sources are listed underneath.
-- If the notes have a `## When to go (notes)` section instead, the built When to go section goes right above it, and both show.
 
 ### Permit channels
 

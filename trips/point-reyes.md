@@ -85,12 +85,7 @@ Amenities: vault toilets, tables, lockers and water at all camps.
 - Spring and fall weekends: plan ahead, but cancellations come up often.
 - Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
 
-## When to go (notes)
-
-- **Winter**: the heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool.
-- **Spring**: most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
-- **Summer**: very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
-- **Fall (Peak)**: some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October. The strongest winds come in November and December with southerly gales.
+## When to go
 
 ## Other
 

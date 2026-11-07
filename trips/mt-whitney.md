@@ -63,8 +63,4 @@ I probably want a day hike, with a day before to acclimate. A typical day hike s
 - Unclaimed permits released Apr 22.
 - May 1 – Nov 1: rolling cancellation availability.
 
-## When to go (notes)
-
-- **June–July**: variable snow (snowpack dependent). Microspikes and trekking poles recommended.
-- **August–mid September (Peak)**: best odds of a clear trail. Thunderstorms are a risk.
-- **Mid-September–October**: colder, early snow risk. The season ends at the first snowstorm.
+## When to go
