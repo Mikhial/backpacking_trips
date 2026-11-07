@@ -26,10 +26,12 @@ facts:
   Crowds: Solitude past the first few miles
 
 seasons:
-  - shoulder: Feb 1 – Feb 20, Apr 11 – May 31
+  - shoulder: Feb 1 – Feb 20
     notes: Green, wildflowers.
   - peak: Feb 21 – Apr 10
     notes: Green. The last week of March and first week of April are typically the wildflower peak.
+  - shoulder: Apr 11 – May 31
+    notes: "Still green, wildflowers. Each spring (around late April), Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in."
   - off: Jun 1 – Sep 30
     notes: Often 90–100°F+.
   - shoulder: Nov 1 – Nov 30
