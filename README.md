@@ -33,6 +33,21 @@ trips/zion.md seasons[2]: Sep doesn't have a day 31
 
 The live site keeps the last good version until it's fixed.
 
+## Sources
+
+Cite sources with footnotes, which github.com and Obsidian show too. Put `[^name]` after the text it supports, and a line saying what the source is anywhere in the notes:
+
+```markdown
+## Mosquitoes[^reddit]
+
+- Exposed granite tends to be safer.[^ranger]
+
+[^reddit]: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/...)
+[^ranger]: Ranger at Pinecrest station, Aug 2026
+```
+
+On a heading it covers the section; after a line, just that line. Each source gets a small number where it's cited (the same number every time it's reused), and they're listed under **Sources** at the end of the trip page. The check fails if a `[^name]` has no matching line.
+
 ## Header fields
 
 ```yaml
@@ -99,7 +114,7 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 - Seasons can't overlap.
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
-- **Sources**: `seasons source:` (a top-level line, after `seasons:`) covers every season, and `source:` on one season covers just that one. Write a name and/or a web address, like `seasons source: Exploring Wild https://exploringwild.com/...`. The name becomes the link (a bare address shows the site's name). One source for everything shows as "Source: …" under the list; with several, each note gets a small number and the sources are listed underneath.
+- **Sources**: cite them with footnotes, like anywhere else in the notes (see **Sources** below). For the whole section, put it on the heading in the notes: `## When to go[^name]`. For one season, put it at the end of its note: `notes: Warm, often mild weather.[^name]`. The `[^name]: ...` line goes in the notes.
 
 ### Permit channels
 

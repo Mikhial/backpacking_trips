@@ -89,12 +89,19 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes li { margin: 3px 0; }
 .notes img { max-width: 100%; height: auto; border-radius: 6px; }
 /* When to go, built from the header's seasons */
-.notes ul.when { list-style: none; padding-left: 0; }
-.notes ul.when > li { padding-left: 22px; position: relative; }
+.notes .when > ul { list-style: none; padding-left: 0; }
+.notes .when > ul > li { padding-left: 22px; position: relative; }
 .wt-mark { position: absolute; left: 0; top: .5em; width: 14px; height: 8px; border-radius: 2px; }
 .wt-mark.peak { background: var(--peak); } .wt-mark.shoulder { background: var(--shoulder); }
 .wt-mark.off { background: var(--off); }
-.wt-cite { color: var(--muted); margin-left: 2px; } .wt-sources { font-size: 13px; color: var(--muted); margin: 4px 0 0; } .wt-sources sup { margin-right: 2px; }
+/* Footnote sources */
+.notes sup.footnote-ref { font-size: 11px; line-height: 0; margin-left: 1px; }
+.notes sup.footnote-ref a { text-decoration: none; color: var(--muted); }
+.notes h2 sup.footnote-ref { font-size: 12px; font-weight: 400; }
+.notes .footnotes { margin-top: 28px; font-size: 13px; color: var(--muted); }
+.notes .footnotes h2 { font-size: 15px; }
+.notes .footnotes-list { padding-left: 1.4em; } .notes .footnotes-list p { margin: 0; display: inline; }
+.notes .footnote-backref { text-decoration: none; }
 .updated { font-size: 13px; color: var(--faint); }
 @media (max-width: 860px) {
   .cols { grid-template-columns: 1fr; }

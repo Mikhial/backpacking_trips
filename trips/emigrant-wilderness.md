@@ -83,12 +83,14 @@ Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Wat
 
 ## When to go
 
-## Mosquitoes
+## Mosquitoes[^reddit]
 
 - Emigrant is very variable. Bad mosquitoes in one spot, fine 30 minutes away; it varies with elevation, standing water and sun.
 - At the lakes there's a cycle: snow, melt, mosquitoes, damselflies. At one lake you'll be swarmed; at the next the damselflies have hatched and eaten them all.
 - Unless you camp somewhere wooded, you'll mostly see them at dawn and dusk. Camping away from water on ridges is always safe.
 - Exposed granite tends to be safer: very dry areas where mosquitoes can't regulate their temperature. Stay flexible so you can stop early at a good spot or keep going if camp isn't what you hoped.
+
+[^reddit]: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/gPAfa4ZsvE)
 
 ## Other
 

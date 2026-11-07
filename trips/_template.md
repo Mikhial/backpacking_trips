@@ -51,8 +51,7 @@ seasons:
     notes: Best weather.
   - off: Nov 1 – May 31
     notes: Road closed with snow.
-    # source: Ranger at Big Sur Station    # optional: where this season's notes came from
-# seasons source: Exploring Wild https://exploringwild.com/...    # optional: source for all the seasons
+# To cite a season's source, end its note with a footnote, like notes: Road closed.[^ranger] (see the README)
 
 permit:
   note: 90 days before      # short note shown on the chart
@@ -82,4 +81,4 @@ permit:
 
 ## Overview
 
-Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics.
+Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
