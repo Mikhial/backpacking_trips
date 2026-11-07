@@ -14,7 +14,7 @@ trailheads:
   Del Valle: 37.57614, -121.69351
 
 facts:
-  Getting there: 45 min–1.5 hr drive, plus 45 min Uber to the other end
+  Getting there: 45 min drive + 45 min Uber
   Nights: 1–2 (max 3)
   Terrain: Strenuous; steep, exposed fire roads
   Water: Seasonal springs at camps (non-potable)
@@ -49,8 +49,12 @@ permit:
 
 - Best close solo option, and the highest-rated close option
 - Call at least 2 days ahead for a camp reservation. Shouldn't be difficult to get one.
-- 45 minutes to 1.5 hours depending on traffic, plus a 45-minute Uber to the other side
 - 28 miles, 7,500 ft of gain, 1–2 nights
+
+## Getting there
+
+- **Drive**: 45 minutes to 1.5 hours depending on traffic.
+- **Uber**: 45 minutes to the other side.
 
 ## Route
 

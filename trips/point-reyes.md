@@ -12,7 +12,7 @@ routes:
   Shorter loop on the south side: tracks/point-reyes-pelican-hill-loop.gpx
 
 facts:
-  Getting there: 1–1.5 hr drive; paved, winding
+  Getting there: 1 hr drive
   Distance: Up to ~30 mi plus side trips
   Elevation: 0–1,407 ft (Mt. Wittenberg)
   Nights: 1–3 (4-day trip limit)
@@ -47,10 +47,14 @@ permit:
 
 ## Overview
 
-- 1-hour drive
 - Permits can be hard: half open 90 days ahead, half 14 days ahead
 - Would be good to do with friends
 - Up to ~30 miles plus side trips. Can go up to 4 days (2-night limit per camp reservation)
+
+## Getting there
+
+- **Drive**: 1 hour.
+- **Roads**: paved, winding.
 
 ## Routes
 

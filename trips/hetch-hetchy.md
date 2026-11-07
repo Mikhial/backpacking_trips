@@ -13,7 +13,7 @@ trailheads:
   O'Shaughnessy Dam: 37.9465, -119.7876
 
 facts:
-  Getting there: 3.5–4 hr drive; Hetch Hetchy Road open sunrise to sunset
+  Getting there: 3.5 hr drive
   Distance: ~28 mi loop (other routes similar)
   Elevation: 3,800–7,000 ft (the loop tops out near 7,600)
   Nights: 1–4
@@ -43,10 +43,14 @@ permit:
 
 ## Overview
 
-- 3.5-hour drive with no traffic
 - Very scenic with a big valley, but not as high elevation; tops out at 8k
 - Will be warm or hot, especially near the lake
 - Bear can required
+
+## Getting there
+
+- **Drive**: 3.5 hours with no traffic.
+- **Roads**: Hetch Hetchy Road is open sunrise to sunset. The road opens at different times in different seasons, so check before going.
 
 ## Routes
 
@@ -55,8 +59,6 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 - [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
 - [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
 - Other options exist, but they're mostly similar.
-
-The road opens at different times in different seasons, so check before going.
 
 ## Permits
 

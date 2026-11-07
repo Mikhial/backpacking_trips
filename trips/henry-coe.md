@@ -16,7 +16,7 @@ routes:
   Hunting Hollow to Pacheco Falls, option 2: tracks/henry-coe-hunting-hollow-pacheco-falls-2.gpx
 
 facts:
-  Getting there: 1.5–2 hr drive; last miles narrow and winding
+  Getting there: 1.5 hr drive
   Distance: ~25 mi (or more)
   Elevation: ~600–3,800 ft (~5,000 ft gain)
   Nights: 1–2+
@@ -42,11 +42,15 @@ permit:
 
 ## Overview
 
-- 1.5 hours with no traffic
 - Permits offered same day
 - ~25 miles, ~5k ft of elevation (or more if you want)
 - Trails may be single track or fire roads; pick carefully
 - 1–2+ nights
+
+## Getting there
+
+- **Drive**: 1.5 hours with no traffic, to Coe HQ or Hunting Hollow (Morgan Hill/Gilroy).
+- **Roads**: last miles narrow and winding. Dowdy Ranch (east side) is a dirt road, open seasonally, and adds an hour.
 
 ## Routes
 
@@ -54,10 +58,6 @@ A large network to build your own; 1 night to a week. Popular loops go to China 
 
 - From HQ to Mississippi Lake: [HQ to Mississippi Lake, option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [HQ to Mississippi Lake, option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
 - From Hunting Hollow to Pacheco Falls: [Hunting Hollow to Pacheco Falls, option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [Hunting Hollow to Pacheco Falls, option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
-
-## Getting there
-
-1.5–2 hours to Coe HQ or Hunting Hollow (Morgan Hill/Gilroy). Dowdy Ranch (east side) is a dirt road, open seasonally, and adds an hour.
 
 ## Permits
 
