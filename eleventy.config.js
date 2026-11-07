@@ -71,6 +71,18 @@ export default function (eleventyConfig) {
     });
     return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
   });
+  // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
+  // one route gives "28 mi point to point", several give the range, "13–48 mi"
+  eleventyConfig.addFilter('tripDistance', data => {
+    if (data.facts && data.facts.Distance) return String(data.facts.Distance);
+    const files = Object.values(data.trackFiles || {});
+    if (!files.length) return '';
+    const mi = pts => measure(pts).len / 1609.344, fmt = v => v < 10 ? v.toFixed(1) : String(Math.round(v));
+    const tracks = files.map(f => parseGpx(fs.readFileSync(String(f).trim(), 'utf8')));
+    if (tracks.length === 1) { const shape = routeShape(tracks[0]); return `${fmt(mi(tracks[0]))} mi${shape ? ' ' + shape.toLowerCase() : ''}`; }
+    const lens = tracks.map(mi), lo = Math.min(...lens), hi = Math.max(...lens);
+    return lo === hi ? `${fmt(lo)} mi` : `${fmt(lo)}–${fmt(hi)} mi`;
+  });
   // A one-route trip's stats under the map title: "28 mi · ↑ 7,221 ft · ↓ 7,572 ft · 384–3,812 ft · Point to point"
   eleventyConfig.addFilter('routeSummary', trackFiles => {
     const file = Object.values(trackFiles || {})[0];
