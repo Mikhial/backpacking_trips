@@ -78,7 +78,7 @@ links:                         # optional: planning links shown under the map
 
 facts:                         # the facts box; labels are free-form
   Getting there: 1–1.5 hr drive   # also shown on the trips list
-  Distance: ~30 mi                # also shown on the trips list
+  Distance: ~30 mi                # also shown on the trips list (leave it out to show the GPX route length there)
   Water: Faucet at camps
 
 seasons:                       # chart bars and the When to go list
