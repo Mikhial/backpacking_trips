@@ -20,9 +20,12 @@ facts:
 seasons:
   - shoulder: Jun 1 – Jul 31
     why: [snow]
+    notes: Variable snow (snowpack dependent). Microspikes and trekking poles recommended.
   - peak: Aug 1 – Sep 15
+    notes: Best odds of a clear trail. Thunderstorms are a risk.
   - shoulder: Sep 16 – Oct 31
     why: [cold, snow]
+    notes: Colder, early snow risk. The season ends at the first snowstorm.
 
 permit:
   note: Lottery Feb · unclaimed Apr 22
@@ -61,7 +64,3 @@ I probably want a day hike, with a day before to acclimate. A typical day hike s
 - May 1 – Nov 1: rolling cancellation availability.
 
 ## When to go
-
-- **June–July**: variable snow (snowpack dependent). Microspikes and trekking poles recommended.
-- **August–mid September (Peak)**: best odds of a clear trail. Thunderstorms are a risk.
-- **Mid-September–October**: colder, early snow risk. The season ends at the first snowstorm.

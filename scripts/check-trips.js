@@ -20,7 +20,9 @@ for (const f of files) {
   try { data = yaml.load(m[1]) || {}; }
   catch (e) {
     const line = e.mark ? ` (line ${e.mark.line + 2})` : '';
-    problems.push(`${file}${line}: the header isn't valid YAML: ${e.reason || e.message}. Check indentation and colons.`);
+    const text = e.mark ? m[1].split(/\r?\n/)[e.mark.line] || '' : '';
+    if (/^\s*notes:/.test(text)) problems.push(`${file}${line}: this note has a colon followed by a space in it. Put the whole note in "double quotes", or use a different punctuation mark.`);
+    else problems.push(`${file}${line}: the header isn't valid YAML: ${e.reason || e.message}. Check indentation and colons.`);
     continue;
   }
   problems.push(...normalizeTrip(data, file, site.regions).errors);

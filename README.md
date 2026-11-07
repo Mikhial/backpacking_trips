@@ -66,10 +66,14 @@ facts:                         # the facts box; labels are free-form
   Distance: ~30 mi                # also shown on the trips list
   Water: Faucet at camps
 
-seasons:                       # chart bars
+seasons:                       # chart bars and the When to go list
   - shoulder: Jan 1 – Feb 28
     why: [rain, cold]          # optional reasons
+    notes: The heaviest rain.  # optional: shown under When to go
   - peak: Sep 1 – Oct 31
+    notes: Some of the clearest days.
+  - off: Jun 1 – Aug 31        # listed under When to go, not drawn on the chart
+    notes: Dense fog all day.
 
 permit:
   note: 90/14 days before      # short note on the chart
@@ -84,6 +88,18 @@ permit:
 **Dates** are written like `Sep 1`. Ranges use a dash: `Sep 1 – Oct 31`.
 
 **Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`. Peak seasons can have them too.
+
+### When to go
+
+A trip page's **When to go** section is built from `seasons:`: one bullet per date range in date order, like **Aug – Mid Sep (Peak)**: *notes*. The label comes from the dates: the 1st or last day of a month is just the month, otherwise days 1–10 are Early, 11–20 Mid and 21 on Late. `off:` seasons are listed without a tag and not drawn on the chart.
+
+- Several date ranges can share one season and note: `shoulder: Mar 1 – May 20, Sep 11 – Nov 30`. Each range is listed in its place in the year, with the same note.
+- A range can run past New Year: `Nov 1 – Feb 28`.
+- Touching peak seasons are drawn as one bar. Touching shoulders join only when their reasons match.
+- Seasons can't overlap.
+- A note with a colon followed by a space in it needs "double quotes" around the whole note.
+- Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
+- **Sources**: `seasons source:` (a top-level line, after `seasons:`) covers every season, and `source:` on one season covers just that one. Write a name and/or a web address, like `seasons source: Exploring Wild https://exploringwild.com/...`. The name becomes the link (a bare address shows the site's name). One source for everything shows as "Source: …" under the list; with several, each note gets a small number and the sources are listed underneath.
 
 ### Permit channels
 

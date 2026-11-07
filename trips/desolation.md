@@ -34,10 +34,20 @@ facts:
 seasons:
   - shoulder: Jun 1 – Jun 30
     why: [wet, bugs, snow, water]
-  - peak: Jul 1 – Sep 10
-    why: [bugs, smoke]
+    notes: Feasible in low-snow years. Keep an eye on snow levels and be prepared to turn back. Expect wet trails, more mosquitoes, harder water crossings and snowfields. The east side is safer since it's more popular and well trodden.
+  - peak: Jul 1 – Jul 31
+    why: [bugs]
+    notes: Usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
+  - peak: Aug 1 – Aug 31
+    why: [smoke]
+    notes: Warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
+  - peak: Sep 1 – Sep 10
+    notes: Weather is often clear and stable.
   - shoulder: Sep 11 – Sep 30
     why: [cold, snow]
+    notes: Nights can be quite chilly. Late September brings a risk of early winter storms.
+
+seasons source: Exploring Wild https://exploringwild.com/backpacking-desolation-wilderness/
 
 permit:
   note: 6 months before, walk-up
@@ -104,13 +114,6 @@ Wrights Lake area construction in 2026 may temporarily close the Rockbound and T
 - Camping is dispersed, but your first night must be in your permitted zone (45 zones).
 
 ## When to go
-
-- **June**: feasible in low-snow years. Keep an eye on snow levels and be prepared to turn back. Expect wet trails, more mosquitoes, harder water crossings and snowfields. The east side is safer since it's more popular and well trodden.
-- **July (Peak)**: usually safe in typical snow years; may still be early for the highest spots in high-snow years. Mosquitoes still bad. Wildflowers going.
-- **August (Peak)**: warm, often mild weather. Snow has usually melted from the highest points; mosquitoes less intense. Increasing risk of wildfire smoke later in summer.
-- **September (Peak early in the month)**: nights can be quite chilly. Weather is often clear and stable early in the month. Late September brings a risk of early winter storms.
-
-Source: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
 ## Other
 

@@ -22,9 +22,15 @@ facts:
   Nights: Day hikes plus an overnight, or a multi-day traverse
 
 seasons:
+  - off: Dec 1 – Feb 28
+    notes: Out of season.
   - shoulder: May 1 – May 31
     why: [crowds, water]
+    notes: Good weather, but it's crowded and the water may be too high.
+  - off: Jun 1 – Sep 14
+    notes: Lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
   - peak: Sep 15 – Oct 31
+    notes: Water levels at their lowest, warm temperatures, monsoon risk over.
 
 permit:
   note: Reservations quarterly · lotteries
@@ -110,11 +116,6 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
 - **Angels Landing**: lottery. Mar–May hikes: lottery in January. Jun–Aug: lottery in April. Sep–Nov: lottery in July.
 
 ## When to go
-
-- **Winter**: out of season.
-- **Spring**: May has good weather, but it's crowded and the water may be too high.
-- **Summer**: lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
-- **Mid-September–October (Peak)**: water levels at their lowest, warm temperatures, monsoon risk over.
 
 ## Nearby parks
 

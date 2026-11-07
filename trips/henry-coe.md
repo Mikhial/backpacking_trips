@@ -26,10 +26,18 @@ facts:
   Crowds: Solitude past the first few miles
 
 seasons:
-  - shoulder: Feb 1 – Feb 19
-  - peak: Feb 20 – Apr 10
+  - shoulder: Feb 1 – Feb 20
+    notes: Green, wildflowers.
+  - peak: Feb 21 – Apr 10
+    notes: Green. The last week of March and first week of April are typically the wildflower peak.
   - shoulder: Apr 11 – May 31
+    notes: "Still green, wildflowers. Each spring (around late April), Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in."
+  - off: Jun 1 – Sep 30
+    notes: Often 90–100°F+.
   - shoulder: Nov 1 – Nov 30
+    notes: Also good.
+  - off: Dec 1 – Jan 31
+    notes: An option, but it's going to be winter.
 
 permit:
   note: ""
@@ -68,13 +76,6 @@ Required, first-come only, same day at the HQ or Dowdy visitor centers; self-reg
 Designated sites in the western area; dispersed camping in the eastern zones (party limits per zone). Some sites have tables or outhouses; many have nothing. Check the park's water-resources page before going.
 
 ## When to go
-
-- **Late February–early April (Peak)**: green. The last week of March and first week of April are typically the wildflower peak.
-- **Late April**: each spring, Coe hosts Backcountry Weekend: rare vehicle access deep into the park through special gates. A good chance to reach far areas like Mississippi Lake or Pacheco Camp without a long hike in.
-- **Through May**: still green, wildflowers.
-- **June–September**: often 90–100°F+.
-- **November**: also good.
-- **Winter**: an option, but it's going to be winter.
 
 ## Other
 

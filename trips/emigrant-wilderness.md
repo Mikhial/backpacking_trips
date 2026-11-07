@@ -26,7 +26,14 @@ facts:
   Crowds: Moderate near Crabtree lakes on summer weekends
 
 seasons:
-  - peak: Jul 1 – Oct 10
+  - peak: Jul 1 – Jul 31
+    notes: Can still have snow depending on snowpack; may be buggy (some areas better than others).
+  - peak: Aug 1 – Sep 20
+    notes: Mosquitoes die off.
+  - peak: Sep 21 – Oct 10
+    notes: Quieter, no mosquitoes, have to carry more water.
+  - off: Nov 1 – May 31
+    notes: Sonora Pass (Hwy 108) usually closed with snow.
 
 permit:
   note: Self-issue, no quota
@@ -75,12 +82,6 @@ Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Self-i
 Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
 
 ## When to go
-
-- **July–mid October (Peak)**: weather should be nice.
-  - **July**: can still have snow depending on snowpack; may be buggy (some areas better than others).
-  - **August/September**: mosquitoes die off.
-  - **Late September/early October**: quieter, no mosquitoes, have to carry more water.
-- **November–May**: Sonora Pass (Hwy 108) usually closed with snow.
 
 ## Mosquitoes
 

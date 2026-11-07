@@ -39,7 +39,7 @@ nav: trips
   {% endif %}
   <div class="cols">
     <article class="notes">
-      {{ content | routeLinks(trackFiles, single) | safe }}
+      {{ content | routeLinks(trackFiles, single) | whenToGo | safe }}
       {% if updated %}<p class="updated">Research last updated {{ updated | readableDate }}</p>{% endif %}
     </article>
     <aside class="facts" aria-label="Quick facts">

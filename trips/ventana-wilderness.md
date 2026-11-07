@@ -30,10 +30,12 @@ facts:
 
 seasons:
   - shoulder: Mar 1 – Mar 31
-  - peak: Apr 1 – May 31
+  - peak: Apr 1 – May 31, Oct 1 – Nov 30
   - shoulder: Jun 1 – Aug 31
     why: [hot]
-  - peak: Oct 1 – Nov 30
+    notes: Hot inland. Early summer is doable.
+  - off: Dec 1 – Feb 28
+    notes: Possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail. Weather at the coast isn't the weather at the peaks; it can snow up high.
 
 permit:
   note: ""
@@ -68,11 +70,6 @@ permit:
 No wilderness permit. $10/night parking at Big Sur Station; free CA campfire permit for stoves. Easy (when open). Camping is mostly at established trail camps; dispersed camping allowed.
 
 ## When to go
-
-- **April–May and October–November (Peak)**: March is good too.
-- **Summer**: hot inland. Early summer is doable.
-- **Winter**: possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail.
-- Weather at the coast isn't the weather at the peaks; it can snow up high.
 
 ## Other
 

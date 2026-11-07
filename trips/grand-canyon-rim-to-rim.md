@@ -28,8 +28,10 @@ facts:
 
 seasons:
   - peak: May 15 – Jun 7
-  - peak: Sep 20 – Oct 15
+    notes: Go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
+  - peak: Sep 21 – Oct 15
     why: [water]
+    notes: Can be more hit or miss with temperatures (weather more variable).
 
 permit:
   note: Lottery 5 months · lodge 15 months before
@@ -81,10 +83,6 @@ The trail is point to point, so book: a shuttle to Kaibab Lodge, lodging at Kaib
 My general Grand Canyon notes say ~80% of backcountry permits go through a monthly early-access lottery about 4 months ahead ($10 + $15/person/night below the rim), with Bright Angel Campground the hardest and Nov–Feb easier. That doesn't match the 5-month figure above; worth confirming.
 
 ## When to go
-
-- **May 15–early June (Peak)**: go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
-- **Late September–October 15 (Peak)**: can be more hit or miss with temperatures (weather more variable).
-- **Park-wide**: Mar–May and Oct–Nov are best; summer is 110°F+ at the bottom.
 
 ## Other
 

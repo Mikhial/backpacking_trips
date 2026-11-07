@@ -2,7 +2,7 @@
 :root {
   --bg: #f4f5f1; --surface: #ffffff; --surface-hi: #f7f8f4; --prior: #f3f5f0; --fg: #1c211a; --muted: #62695e; --faint: #8b9286;
   --line: #dde1d7; --grid: #e9ece4; --divider: #b9bfb1; --btn-hover: #eceee8;
-  --peak: #5a9a2a; --shoulder: #efa22e; --roll: #6fa6e0; --roll-sh: #c4dbf4; --fix: #1f5fa8; --ink-blue: #1f5fa8;
+  --peak: #5a9a2a; --shoulder: #efa22e; --off: #c8402f; --roll: #6fa6e0; --roll-sh: #c4dbf4; --fix: #1f5fa8; --ink-blue: #1f5fa8;
   --today: #c2412d; --link: #2b5c8f; --warn-bg: #fbf0dc; --warn-fg: #7a4a06; --alert-bg: #fbe3df; --alert-fg: #a8261b;
   --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -10,12 +10,12 @@
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #151814; --surface: #1d211b; --surface-hi: #252a22; --prior: #191c17; --fg: #e8ebe4; --muted: #a3aa9e; --faint: #7d8478;
   --line: #333a30; --grid: #2a2f27; --divider: #4c5447; --btn-hover: #2c3128;
-  --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
+  --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --off: #e5664f; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
   --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; --alert-bg: #42201b; --alert-fg: #f4a394; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #151814; --surface: #1d211b; --surface-hi: #252a22; --prior: #191c17; --fg: #e8ebe4; --muted: #a3aa9e; --faint: #7d8478;
   --line: #333a30; --grid: #2a2f27; --divider: #4c5447; --btn-hover: #2c3128;
-  --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
+  --today: #ef7a63; --peak: #6fae3c; --shoulder: #e9a13a; --off: #e5664f; --roll: #5b93cf; --roll-sh: #2f4a68; --fix: #8fb9ee; --ink-blue: #9cc2f0;
   --link: #9cc2f0; --warn-bg: #3a2c12; --warn-fg: #f2c879; --alert-bg: #42201b; --alert-fg: #f4a394; color-scheme: dark }
 
 * { box-sizing: border-box; }
@@ -88,6 +88,13 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes ul { padding-left: 1.2em; margin: 6px 0; }
 .notes li { margin: 3px 0; }
 .notes img { max-width: 100%; height: auto; border-radius: 6px; }
+/* When to go, built from the header's seasons */
+.notes ul.when { list-style: none; padding-left: 0; }
+.notes ul.when > li { padding-left: 22px; position: relative; }
+.wt-mark { position: absolute; left: 0; top: .5em; width: 14px; height: 8px; border-radius: 2px; }
+.wt-mark.peak { background: var(--peak); } .wt-mark.shoulder { background: var(--shoulder); }
+.wt-mark.off { background: var(--off); }
+.wt-cite { color: var(--muted); margin-left: 2px; } .wt-sources { font-size: 13px; color: var(--muted); margin: 4px 0 0; } .wt-sources sup { margin-right: 2px; }
 .updated { font-size: 13px; color: var(--faint); }
 @media (max-width: 860px) {
   .cols { grid-template-columns: 1fr; }
