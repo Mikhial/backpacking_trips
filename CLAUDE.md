@@ -61,7 +61,7 @@ Working on it locally:
 
 ## Open questions in the research
 
-- Hetch Hetchy: chart peak is Jul 11–Sep 30 (Mike's instruction), but his detailed notes say Apr–Jun and Oct–Nov are best and Jul–Sep is hot.
+- Hetch Hetchy: peak is Jun–Oct (his trip notes, Nov 6 2026), but his detailed research says Apr–Jun and Oct–Nov are best and Jul–Sep is hot.
 - Grand Canyon: campground lottery is 5 months ahead in one note, ~4 months in another.
 - Grand Canyon R2R: North Kaibab Trail under repair; Ventana closed through Jan 31, 2027. Both are in `status`.
 - His original detailed research doc covers ~10 more areas (Carson Pass, Sinkyone, Lassen, Trinity Alps, Joshua Tree, Death Valley, Enchantments, Paria, Coyote Gulch, Big Bend) not yet added as trips.

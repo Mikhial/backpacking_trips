@@ -29,6 +29,7 @@ facts:
   Crowds: Pine Ridge/Sykes busy weekends; most other trails quiet
 
 seasons:
+  - shoulder: Mar 1 – Mar 31
   - peak: Apr 1 – May 31
   - shoulder: Jun 1 – Aug 31
     why: [hot]
@@ -48,9 +49,6 @@ permit:
 - 2:40 to 3:40 with no traffic
 - Trails go up to 30+ miles
 - Less-traveled trails may need some bushwhacking and research
-- Peak: April to May, October to November
-  - Winter is possible but comes with hazards (unsafe river crossings, washed-out trail)
-  - Early summer is doable, but will be hot
 
 ## Getting there
 
@@ -71,11 +69,10 @@ No wilderness permit. $10/night parking at Big Sur Station; free CA campfire per
 
 ## When to go
 
-Mar–May and Oct–Nov; summer is hot inland; winter storms wash out trails.
-
+- **April–May and October–November (Peak)**: March is good too.
+- **Summer**: hot inland. Early summer is doable.
+- **Winter**: possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail.
 - Weather at the coast isn't the weather at the peaks; it can snow up high.
-- Winter stream crossings can be serious; the Big Sur River sounds like it can be dangerous.
-- Storms can wash out trail.
 
 ## Other
 

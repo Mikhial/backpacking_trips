@@ -41,8 +41,6 @@ permit:
 ## Overview
 
 - 6.5-hour drive, or a 1.5-hour flight to Bishop (BIH, ~$300 round trip) and an hour's drive to the trailhead
-- Likely a day hike, but can be done with 1–2 nights
-- For a day hike, get there a day or two early to acclimate
 - [Trail guide](https://hikingguy.com/hikes/mt-whitney/)
 
 ## Day hike or overnight
@@ -60,8 +58,6 @@ I probably want a day hike, with a day before to acclimate. A typical day hike s
 
 ## When to go
 
-June to October; peak is August to mid-September.
-
 - **June–July**: variable snow (snowpack dependent). Microspikes and trekking poles recommended.
-- **August–mid September**: best odds of a clear trail. Thunderstorms are a risk.
+- **August–mid September (Peak)**: best odds of a clear trail. Thunderstorms are a risk.
 - **Mid-September–October**: colder, early snow risk. The season ends at the first snowstorm.

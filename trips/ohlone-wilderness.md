@@ -15,8 +15,6 @@ trailheads:
 
 facts:
   Getting there: 45 min–1.5 hr drive, plus 45 min Uber to the other end
-  Distance: 28 mi point to point
-  Elevation: 400–3,817 ft (7,500 ft gain)
   Nights: 1–2 (max 3)
   Terrain: Strenuous; steep, exposed fire roads
   Water: Seasonal springs at camps (non-potable)
@@ -24,9 +22,13 @@ facts:
   Crowds: Solitude midweek; Mission Peak end busy with day hikers
 
 seasons:
+  - shoulder: Jan 1 – Feb 28
+    why: [cold, wet]
   - peak: Mar 1 – May 31
   - shoulder: Oct 1 – Oct 31
     why: [dry]
+  - shoulder: Nov 1 – Dec 31
+    why: [cold, wet]
 
 permit:
   note: Opens twice annually
@@ -73,14 +75,15 @@ permit:
   - **Sycamore**: not a great option
   - **Hawk's Nest**: less privacy (on the main trail), but close to the outhouse, shady, limited view
 - Amenities: tables, chemical/pit toilets, non-potable water
+- Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
 
 ## When to go
 
-- Nov–May overall (green Feb–Apr); Jun–Sep is hot and shadeless.
-- March to May is probably peak.
-- Fall/winter is doable. Fall will be dry; winter will be cold, dark and wet.
-- Jan/Feb: lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days.
-- Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
+- **Winter**: doable, but cold, dark and wet. Green from February.
+  - **Jan/Feb**: lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days.
+- **March–May (Peak)**: Green through April.
+- **June–September**: Hot and shadeless.
+- **Fall**: Doable, but dry.
 
 ## Hazards
 

@@ -28,7 +28,7 @@ facts:
 
 seasons:
   - peak: May 15 – Jun 7
-  - shoulder: Sep 20 – Oct 15
+  - peak: Sep 20 – Oct 15
     why: [water]
 
 permit:
@@ -83,11 +83,9 @@ My general Grand Canyon notes say ~80% of backcountry permits go through a month
 
 ## When to go
 
-Either May 15 to early June, or late September to October 15.
-
-- In spring, go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
-- Fall can be more hit or miss with temperatures (weather more variable).
-- Park-wide: Mar–May and Oct–Nov are best; summer is 110°F+ at the bottom.
+- **May 15–early June (Peak)**: go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
+- **Late September–October 15 (Peak)**: can be more hit or miss with temperatures (weather more variable).
+- **Park-wide**: Mar–May and Oct–Nov are best; summer is 110°F+ at the bottom.
 
 ## Other
 

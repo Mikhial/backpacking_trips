@@ -23,11 +23,7 @@ facts:
   Crowds: Moderate; much quieter than the Valley or Tuolumne
 
 seasons:
-  - shoulder: Jun 1 – Jul 10
-    why: [wet, bugs, cold]
-  - peak: Jul 11 – Sep 30
-  - shoulder: Oct 1 – Oct 31
-    why: [dry]
+  - peak: Jun 1 – Oct 31
 
 permit:
   note: Lottery 24 weeks · 7 days before
@@ -50,7 +46,6 @@ permit:
 - 3.5-hour drive with no traffic
 - Very scenic with a big valley, but not as high elevation; tops out at 8k
 - Will be warm or hot, especially near the lake
-- June to October is peak time to go; late June/early July may be a good option
 - Bear can required
 
 ## Routes
@@ -72,13 +67,13 @@ The road opens at different times in different seasons, so check before going.
 
 ## When to go
 
-My detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
-
 - **May**: probably too early; rivers can be dangerous and it may be cold.
-- **June**: still wet, some bugs, may be colder at night.
-- **July/August**: starts to dry out and gets hot.
-- **September**: falls dry out; temperatures start getting cooler (though still warm).
-- **October**: drier, quieter, more manageable weather; may start to get cold at night.
+- **June–October (Peak)**: late June/early July may be a good option.
+  - **June**: still wet, some bugs, may be colder at night.
+  - **July/August**: starts to dry out and gets hot.
+  - **September**: falls dry out; temperatures start getting cooler (though still warm).
+  - **October**: drier, quieter, more manageable weather; may start to get cold at night.
+- **Other research**: my detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
 
 ## Other
 

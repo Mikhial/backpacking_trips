@@ -48,7 +48,6 @@ permit:
 ## Overview
 
 - 1-hour drive
-- Can go any time of year, but peak is September–October
 - Permits can be hard: half open 90 days ahead, half 14 days ahead
 - Would be good to do with friends
 - Up to ~30 miles plus side trips. Can go up to 4 days (2-night limit per camp reservation)
@@ -82,12 +81,10 @@ Amenities: vault toilets, tables, lockers and water at all camps.
 
 ## When to go
 
-Year-round; Sep–Nov clearest; Jul–Sep foggy; Dec–Feb rain and gales.
-
 - **Winter**: the heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool.
 - **Spring**: most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
 - **Summer**: very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
-- **Fall (peak)**: some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October. The strongest winds come in November and December with southerly gales.
+- **Fall (Peak)**: some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October. The strongest winds come in November and December with southerly gales.
 
 ## Other
 
