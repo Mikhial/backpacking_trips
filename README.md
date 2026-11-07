@@ -91,9 +91,9 @@ permit:
 
 ### When to go
 
-A trip page's **When to go** section is built from `seasons:`: one bullet per season in date order, like **Aug – Mid Sep (Peak)**: *notes*. The label comes from the dates: the 1st or last day of a month is just the month, otherwise days 1–10 are Early, 11–20 Mid and 21 on Late. `off:` seasons are listed without a tag and not drawn on the chart.
+A trip page's **When to go** section is built from `seasons:`: one bullet per date range in date order, like **Aug – Mid Sep (Peak)**: *notes*. The label comes from the dates: the 1st or last day of a month is just the month, otherwise days 1–10 are Early, 11–20 Mid and 21 on Late. `off:` seasons are listed without a tag and not drawn on the chart.
 
-- Several date ranges can share one season and note: `shoulder: Mar 1 – May 20, Sep 11 – Nov 30`.
+- Several date ranges can share one season and note: `shoulder: Mar 1 – May 20, Sep 11 – Nov 30`. Each range is listed in its place in the year, with the same note.
 - A range can run past New Year: `Nov 1 – Feb 28`.
 - Touching peak seasons are drawn as one bar. Touching shoulders join only when their reasons match.
 - Seasons can't overlap.
