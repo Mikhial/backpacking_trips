@@ -35,7 +35,7 @@ seasons:
     why: [hot]
     notes: Hot inland. Early summer is doable.
   - off: Dec 1 – Feb 28
-    notes: Possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail.
+    notes: Possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail. Weather at the coast isn't the weather at the peaks; it can snow up high.
 
 permit:
   note: ""
