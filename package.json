@@ -11,6 +11,7 @@
     "@11ty/eleventy": "3.1.6",
     "js-yaml": "4.1.1",
     "leaflet": "^1.9.4",
+    "markdown-it-footnote": "^4.0.0",
     "pngjs": "^7.0.0"
   }
 }

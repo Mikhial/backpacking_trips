@@ -82,4 +82,4 @@ permit:
 
 ## Overview
 
-Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics.
+Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).

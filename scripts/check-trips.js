@@ -26,6 +26,17 @@ for (const f of files) {
     continue;
   }
   problems.push(...normalizeTrip(data, file, site.regions).errors);
+  // Footnote sources: every [^name] needs a "[^name]: source" line, and so does a season source that's just a name
+  const body = text.slice(m[0].length);
+  const defs = new Set([...body.matchAll(/^\[\^([^\]\s]+)\]:/gm)].map(x => x[1]));
+  const used = new Set([...body.matchAll(/\[\^([^\]\s]+)\](?!:)/g)].map(x => x[1]));
+  for (const n of used) if (!defs.has(n)) problems.push(`${file}: the notes cite [^${n}] but there's no "[^${n}]: ..." line saying what the source is`);
+  const seasonSources = [data['seasons source'], ...[].concat(data.seasons || []).map(x => x && x.source)].filter(x => typeof x === 'string').map(x => x.trim());
+  for (const src of seasonSources) {
+    if (/^[\w-]+$/.test(src) && !defs.has(src)) problems.push(`${file}: season source "${src}" looks like a footnote name, but there's no "[^${src}]: ..." line in the notes. Add one, or write the source out (a name and/or a web address)`);
+    if (defs.has(src)) used.add(src);
+  }
+  for (const n of defs) if (!used.has(n)) notes.push(`${file}: the source [^${n}] isn't cited anywhere, so it won't be listed. (Fine if that's on purpose.)`);
   const linkTexts = [...text.slice(m[0].length).matchAll(/\[((?:[^\[\]]|\[[^\]]*\])+)\]\(/g)].map(x => routeKey(x[1]));
   const field = data.route != null ? 'route' : 'routes';
   for (const [name, gpx] of Object.entries(tripRoutes(data))) {
