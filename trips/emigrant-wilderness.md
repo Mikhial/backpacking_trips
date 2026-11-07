@@ -90,6 +90,8 @@ Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Wat
 - Unless you camp somewhere wooded, you'll mostly see them at dawn and dusk. Camping away from water on ridges is always safe.
 - Exposed granite tends to be safer: very dry areas where mosquitoes can't regulate their temperature. Stay flexible so you can stop early at a good spot or keep going if camp isn't what you hoped.
 
+Source: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/gPAfa4ZsvE)
+
 ## Other
 
 - **Fires**: allowed with a CA campfire permit, except above 9,000 ft and within ½ mile of Emigrant Lake; seasonal restrictions apply.
