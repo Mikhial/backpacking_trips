@@ -47,8 +47,6 @@ seasons:
     why: [cold, snow]
     notes: Nights can be quite chilly. Late September brings a risk of early winter storms.
 
-seasons source: Exploring Wild https://exploringwild.com/backpacking-desolation-wilderness/
-
 permit:
   note: 6 months before, walk-up
   difficulty: 1
@@ -113,7 +111,9 @@ Wrights Lake area construction in 2026 may temporarily close the Rockbound and T
 - Off-season: permit still required, no quota.
 - Camping is dispersed, but your first night must be in your permitted zone (45 zones).
 
-## When to go
+## When to go[^exploringwild]
+
+[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
 ## Other
 

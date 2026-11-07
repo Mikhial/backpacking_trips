@@ -114,7 +114,7 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 - Seasons can't overlap.
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
-- **Sources**: `seasons source:` (a top-level line, after `seasons:`) covers every season and is cited on the When to go heading; `source:` on one season cites just that one. Either can be the name of a footnote in the notes (`source: reddit` for `[^reddit]: ...`), or written out: a name and/or a web address, like `Exploring Wild https://exploringwild.com/...`. See **Sources** below.
+- **Sources**: cite them with footnotes, like anywhere else in the notes (see **Sources** below). For the whole section, put it on the heading in the notes: `## When to go[^name]`. For one season, put it at the end of its note: `notes: Warm, often mild weather.[^name]`. The `[^name]: ...` line goes in the notes.
 
 ### Permit channels
 

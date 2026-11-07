@@ -105,31 +105,18 @@ export default function (eleventyConfig) {
   });
 
   // The When to go list, built from the header's seasons, is written into the notes under "## When to go" before
-  // the Markdown is rendered (or added at the end if there's no such heading), so its sources become footnotes too.
+  // the Markdown is rendered (or added at the end if there's no such heading), so footnotes in season notes work.
   eleventyConfig.addPreprocessor('whenToGo', 'md', (data, content) => {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
-    const { whenToGo, seasonsSource } = normalizeTrip(data, data.page.inputPath, site.regions);
+    const { whenToGo } = normalizeTrip(data, data.page.inputPath, site.regions);
     if (!whenToGo.length) return;
-    const defined = new Set([...content.matchAll(/^\[\^([^\]\s]+)\]:/gm)].map(m => m[1]));
-    const added = [];
-    // a source is a footnote name from the notes ("reddit"), or "Name https://...", a bare address, or plain text
-    const ref = src => {
-      if (defined.has(src)) return `[^${src}]`;
-      const u = (src.match(/https?:\/\/\S+/) || [])[0];
-      const name = (u ? src.replace(u, '') : src).trim() || (u ? new URL(u).hostname.replace(/^www\./, '') : '');
-      let id = added.find(x => x.src === src)?.id;
-      if (!id) { id = `season-source-${added.length + 1}`; added.push({ src, id, text: u ? `[${name}](${u})` : name }); }
-      return `[^${id}]`;
-    };
     // a small bar in the chart's season color stands in for the bullet: peak, shoulder, or red for off
     const mark = w => `<span class="wt-mark ${w.tag ? w.tag.toLowerCase() : 'off'}" role="img" aria-label="${w.tag || 'Off season'}" title="${w.tag || 'Off season'}"></span>`;
-    const items = whenToGo.map(w => `- ${mark(w)}**${w.label}**${w.notes ? ': ' + w.notes : ''}${w.source && w.source !== seasonsSource ? ref(w.source) : ''}`).join('\n');
-    const head = `## When to go${seasonsSource ? ref(seasonsSource) : ''}`;
-    const block = `${head}\n\n<div class="when">\n\n${items}\n\n</div>\n`;
-    const defs = added.map(a => `[^${a.id}]: ${a.text}`).join('\n');
-    const h = /^## When to go[ \t]*$/m;
-    const out = h.test(content) ? content.replace(h, block) : `${content}\n\n${block}`;
-    return defs ? `${out}\n\n${defs}\n` : out;
+    const items = whenToGo.map(w => `- ${mark(w)}**${w.label}**${w.notes ? ': ' + w.notes : ''}`).join('\n');
+    const block = head => `${head}\n\n<div class="when">\n\n${items}\n\n</div>\n`;
+    // the heading can carry footnotes (## When to go[^name]) to cite a source for the whole section
+    const h = /^## When to go((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
+    return h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## When to go')}`;
   });
 
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
