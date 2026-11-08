@@ -1,7 +1,7 @@
 
 const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
-const ROW = 40, LANE0 = 50, LANE = 34, MIN = -12, MAX = 12;
+const ROW = 40, LANE0 = 54, LANE = 34, MIN = -12, MAX = 12;
 let DATA = null, TRIPS = [], OPTS = {};
 
 /* Positions are in months: 0 = Jan 1 of the trip year, -12 = Jan 1 of the previous year */
@@ -157,7 +157,7 @@ function show(ri, x) {
   });
   const se = t.seasons.find(q => x >= q.a && x <= q.b), sw = document.getElementById('sw' + ri);
   const why = se ? se.tags.map(k => ICONS[k]?.short || k).join(', ') : '';
-  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + (why ? ' · ' + esc(why) : '');
+  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + (why ? ' · ' + esc(why) : '') + `<span class="sd">${fmt(se.a)} – ${fmt(se.b - 0.001)}</span>`;
   sw.title = se ? se.tags.map(k => ICONS[k]?.label || k).join(', ') : '';
   if (!active) { cn.innerHTML = ''; dy.innerHTML = ''; return; }
   let s = '', h = `<div class="trip" style="left:${P(x)}%"></div><div class="tl" style="top:28px;left:${P(x)}%;${x > 10 ? 'transform:translateX(-100%);margin-left:-5px' : 'margin-left:5px'}">${fmt(x)} trip</div>`;
