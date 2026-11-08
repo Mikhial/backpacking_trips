@@ -131,6 +131,17 @@ export default function (eleventyConfig) {
     return h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## When to go')}`;
   });
 
+  // The Permits section is written in the notes (README: "Writing the Permits section"). The header's
+  // difficulty dots are added next to its heading.
+  eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
+    if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
+    const n = (data.permit && data.permit.difficulty) || 0;
+    const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
+    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[n]}">${[1, 2, 3].map(i => `<i class="${i > n ? 'o' : ''}"></i>`).join('')}</span>`;
+    const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
+    if (!h.test(content)) return;
+    return content.replace(h, m => `${m.trim()} ${meter}`);
+  });
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));

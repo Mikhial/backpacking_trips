@@ -73,19 +73,15 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 
 The trail is point to point, so book: a shuttle to Kaibab Lodge, lodging at Kaibab Lodge, and a shuttle from your cabin to the trailhead. There's also lodging at the South Rim.
 
-## Overnight options
+## When to go
 
-- **Campgrounds**: lottery opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
-- **Phantom Ranch**: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season.
-- Permits are competitive and may only have a 25% success rate.
-- A day hike needs no permit, but it's very long.
+## Permits
+
+Permits are competitive and may only have a 25% success rate. A day hike needs no permit, but it's very long.
+
+- **Campground lottery**: opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
+- **Phantom Ranch lottery**: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season.
 
 My general Grand Canyon notes say ~80% of backcountry permits go through a monthly early-access lottery about 4 months ahead ($10 + $15/person/night below the rim), with Bright Angel Campground the hardest and Nov–Feb easier. That doesn't match the 5-month figure above; worth confirming.
 
-## When to go
-
-## Other
-
-- **Fires**: none below the rim.
-- **Cell service**: none below the rim.
-- **Hazards**: heat, steep grades, icy upper trails in winter, flash floods in side canyons.
+[NPS backcountry permits](https://www.nps.gov/grca/planyourvisit/backcountry-permit.htm)

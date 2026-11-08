@@ -73,6 +73,21 @@ permit:
 
 - **Drive**: 3 hours with no traffic, to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake.
 
+## When to go[^exploringwild]
+
+[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
+
+## Permits
+
+Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-season, a permit is still required but there's no quota.
+
+- **Reservations** (70%): on Recreation.gov, up to 6 months ahead. Book early; popular zones sell out on summer weekends.
+- **Walk-in** (30%)
+
+**Cost**: $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
+
+**Camping**: dispersed, but your first night must be in your permitted zone (45 zones).
+
 ## Areas and routes
 
 The PCT runs through the east and the Rubicon Trail through the west. They join at Lake Aloha in the south and can be linked in the north with the Velma Trail for a larger loop.
@@ -102,21 +117,3 @@ Wrights Lake / Twin Lakes trailhead. A dirt road, but accessible (when seasonall
 - [Big double loop](https://www.alltrails.com/explore/custom-routes/desolation-wilderness-double-loop-852c296): Glen Alpine is the most direct start. From a different trailhead, consider skipping the southernmost section and taking the PCT from Lake Aloha to Gilmore Lake.
 
 Wrights Lake area construction in 2026 may temporarily close the Rockbound and Twin Lakes trailheads.
-
-## Permits
-
-- Required year-round.
-- Quota from the Friday before Memorial Day to Sep 30: 70% on Recreation.gov up to 6 months ahead, 30% walk-in.
-- $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee. Book early; popular zones sell out on summer weekends.
-- Off-season: permit still required, no quota.
-- Camping is dispersed, but your first night must be in your permitted zone (45 zones).
-
-## When to go[^exploringwild]
-
-[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
-
-## Other
-
-- **Fires**: campfires prohibited; stoves only (the wilderness permit covers stove use).
-- **Cell service**: spotty; often a signal on ridges, none in basins.
-- **Hazards**: thunderstorms, early snow, exposed granite, bold bears at trailheads, mosquitoes in early summer.

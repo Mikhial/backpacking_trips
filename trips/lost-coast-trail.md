@@ -29,12 +29,15 @@ seasons:
     notes: Least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 permit:
-  note: 90 days before
+  note: 90 days before · walk-up lottery
   difficulty: 2
   why: 60/day quota in summer
   channels:
     - label: Reservations
       before: 90 days
+    - label: Walk-up · Lottery
+      lottery: true
+      before: day of
 ---
 
 ## Overview
@@ -51,6 +54,17 @@ permit:
 - **Drive**: ~4.5–5 hr to Black Sands Beach/Shelter Cove (south), ~6 hr to Mattole (north), both on narrow, winding mountain roads.
 - **Shuttle**: the trail is point to point, 2 hours' drive between ends. Take the shuttle (~$95 per person), use 2 cars, or arrange a [key swap](https://outdoorstatus.com/guides/lost-coast-trail/key-swap/), meeting someone and exchanging cars. Key swap is best with one car.
 
+## When to go
+
+## Permits
+
+Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book early for summer, and check tides before booking.
+
+- **Reservations**: on Recreation.gov, released 90 days ahead.
+- **Walk-up lottery**: permits for up to 3 starts (people) at the King Range Visitor Center, by lottery Mon–Sat at 8:00am. Permits still available after the lottery are issued first come, first served.
+
+**Cost**: $6 reservation + per-person fee.
+
 ## Trip length
 
 - **2 days**: doable if tides cooperate. Camp at Mattole Beach the night before and start early on day 1.
@@ -61,20 +75,9 @@ permit:
 
 - **Tides**: certain parts of the trail can only be passed at low tide (3 zones impassable at high tide). [Interactive tide chart](https://outdoorstatus.com/guides/lost-coast-trail/tide-chart/) · [BLM tide guide](https://www.blm.gov/sites/blm.gov/files/docs/2021-02/TIDE%20GUIDE%20WEB_Active%20Links%20%281%29.pdf)
 
-## Permits
-
-- Required year-round on Recreation.gov, released 90 days ahead.
-- Quota of 60/day at Mattole from May 15 to Sep 15. $6 reservation + per-person fee. Book early for summer.
-- Walk-up lottery permits also available.
-- Check tides before booking.
-
-## When to go
-
 ## Other
 
 - **Camping**: dispersed at creek mouths and established beach sites.
 - **Fires**: none Jun 19–Sep 30; otherwise driftwood beach fires with a CA campfire permit.
 - **Dogs**: generally allowed under control (BLM); confirm current rules.
-- **Cell service**: none.
-- **Hazards**: tides and sneaker waves, rattlesnakes, ticks, poison oak, winter storms.
 - Elephant seals near Punta Gorda.

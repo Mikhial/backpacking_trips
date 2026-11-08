@@ -299,3 +299,6 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .pm.pm-side .pm-group { gap: 4px; }
   .pm.pm-side .pm-group > b { flex-basis: 100%; min-width: 0; margin-top: 4px; }
 }
+
+/* difficulty dots next to the Permits heading */
+.notes h2 > .meter { margin-left: 8px; vertical-align: 3px; }

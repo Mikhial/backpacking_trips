@@ -52,6 +52,16 @@ permit:
 - **Drive**: 3.25 hours with no traffic, via Hwy 108.
 - **Roads**: last miles gravel or rough dirt.
 
+## When to go
+
+## Permits
+
+Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
+
+- **Self-issue**: kiosk 24/7 at Summit Ranger Station, Pinecrest.
+
+**Camping**: dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
+
 ## Trailheads and routes
 
 Off-trail travel is also an option.
@@ -75,14 +85,6 @@ Where I solo backpacked and had a good time. 3:10 with no traffic. There's a mai
 
 4.5 hours with no traffic. Close to where Dalton and I backpacked; lots of time above 10k. Probably don't care to do.
 
-## Permits
-
-Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Self-issue kiosk 24/7 at Summit Ranger Station, Pinecrest. Easy.
-
-Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
-
-## When to go
-
 ## Mosquitoes[^reddit]
 
 - Emigrant is very variable. Bad mosquitoes in one spot, fine 30 minutes away; it varies with elevation, standing water and sun.
@@ -91,9 +93,3 @@ Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Wat
 - Exposed granite tends to be safer: very dry areas where mosquitoes can't regulate their temperature. Stay flexible so you can stop early at a good spot or keep going if camp isn't what you hoped.
 
 [^reddit]: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/gPAfa4ZsvE)
-
-## Other
-
-- **Fires**: allowed with a CA campfire permit, except above 9,000 ft and within ½ mile of Emigrant Lake; seasonal restrictions apply.
-- **Cell service**: none in most of the wilderness.
-- **Hazards**: thunderstorms, mosquitoes in early summer, early snow.

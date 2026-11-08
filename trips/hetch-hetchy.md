@@ -61,6 +61,20 @@ permit:
 - **Drive**: 3.5 hours with no traffic.
 - **Roads**: Hetch Hetchy Road is open sunrise to sunset. The road opens at different times in different seasons, so check before going.
 
+## When to go
+
+## Permits
+
+Required year-round. Easier than Tuolumne; book early for spring weekends.
+
+- **Weekly lottery** (60%, May–Oct): 24 weeks ahead, on Recreation.gov.
+- **Reservations** (40%, May–Oct): released 7 days ahead on Recreation.gov.
+- **Off-season** (late October to mid-April): first-come at the Hetch Hetchy entrance.
+
+**Cost**: ~$10 application + $5/person (verify current fee).
+
+**Camping**: dispersed under Yosemite rules; established sites at Rancheria Falls.
+
 ## Routes
 
 A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tiltill Valley, Laurel and Vernon lakes loops (2–4 nights).
@@ -68,18 +82,3 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 - [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
 - [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
 - Other options exist, but they're mostly similar.
-
-## Permits
-
-- Required year-round.
-- May–Oct: 60% by weekly lottery 24 weeks ahead, 40% released 7 days ahead on Recreation.gov. ~$10 application + $5/person (verify current fee). Easier than Tuolumne; book early for spring weekends.
-- Off-season: first-come at the Hetch Hetchy entrance.
-- Camping is dispersed under Yosemite rules; established sites at Rancheria Falls.
-
-## When to go
-
-## Other
-
-- **Fires**: Yosemite fire restrictions below 8,000 ft; stoves OK.
-- **Cell service**: none.
-- **Hazards**: heat, rattlesnakes, ticks, poison oak, high water at creek crossings in spring.

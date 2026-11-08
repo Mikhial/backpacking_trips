@@ -90,7 +90,7 @@ seasons:                       # chart bars and the When to go list
   - off: Jun 1 – Aug 31        # listed under When to go, not drawn on the chart
     notes: Dense fog all day.
 
-permit:
+permit:                        # the chart; the Permits section itself is written in the notes
   note: 90/14 days before      # short note on the chart
   difficulty: 2                # 0 none, 1 book ahead, 2 competitive, 3 very hard
   why: Weekends sell out at release
@@ -115,6 +115,19 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
 - **Sources**: cite them with footnotes, like anywhere else in the notes (see **Sources** below). For the whole section, put it on the heading in the notes: `## When to go[^name]`. For one season, put it at the end of its note: `notes: Warm, often mild weather.[^name]`. The `[^name]: ...` line goes in the notes.
+
+### Writing the Permits section
+
+Write it under `## Permits` in the notes, in your own words, so it reads well for that trip. The difficulty dots from the header are added next to the heading. Keep this order, skipping what doesn't apply:
+
+1. **One or two lines first**: is a permit required, when (the quota season), and how hard it is to get.
+2. **One bullet per way to get a permit**, its name in bold: `- **Reservations** (70%): on Recreation.gov, 90 days ahead.` Use the same names as the chart's channel labels where it makes sense. When the dates depend on the trip dates, list them underneath, trip dates first: `  - Jan–Mar: released Dec 5`.
+3. **`**Cost**:`** fees, on one line.
+4. **`**Camping**:`** where you can camp (zones, designated sites, night limits), if it matters.
+5. **Anything else**: booking tips, open questions.
+6. **The official permit page** as a link at the end.
+
+Write dates like `Sep 1`, `Jan–Mar`, and "ahead" for how long before your trip. If a release date changes, update both this section and the header's `channels` (the chart).
 
 ### Permit channels
 

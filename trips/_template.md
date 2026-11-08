@@ -81,4 +81,23 @@ permit:
 
 ## Overview
 
-Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
+Free-form notes go here, in Markdown. Keep these first, in this order: Overview, Getting there, When to go, Permits. Then any headings you like: routes, camps, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
+
+## Getting there
+
+- **Drive**: 3 hours with no traffic.
+
+## When to go
+
+## Permits
+
+Required year-round. Quota from May 1 to Sep 30. Weekends sell out at release.
+
+- **Reservations** (70%): on Recreation.gov, 90 days ahead.
+- **Walk-up** (30%): day of, at the ranger station.
+
+**Cost**: $5/person/night + $6 reservation fee.
+
+**Camping**: dispersed; first night in your permitted zone.
+
+[Permit page](https://www.recreation.gov/...)
