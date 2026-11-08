@@ -54,16 +54,6 @@ permit:
 - **Drive**: ~4.5–5 hr to Black Sands Beach/Shelter Cove (south), ~6 hr to Mattole (north), both on narrow, winding mountain roads.
 - **Shuttle**: the trail is point to point, 2 hours' drive between ends. Take the shuttle (~$95 per person), use 2 cars, or arrange a [key swap](https://outdoorstatus.com/guides/lost-coast-trail/key-swap/), meeting someone and exchanging cars. Key swap is best with one car.
 
-## Trip length
-
-- **2 days**: doable if tides cooperate. Camp at Mattole Beach the night before and start early on day 1.
-- **3 days**: the sweet spot. Half a day to travel and hike in, a full day in the middle, arrive Shelter Cove on day 3.
-- **4 days**: best if you have the time. Fewer miles per day, more time to soak it in.
-
-## Logistics
-
-- **Tides**: certain parts of the trail can only be passed at low tide (3 zones impassable at high tide). [Interactive tide chart](https://outdoorstatus.com/guides/lost-coast-trail/tide-chart/) · [BLM tide guide](https://www.blm.gov/sites/blm.gov/files/docs/2021-02/TIDE%20GUIDE%20WEB_Active%20Links%20%281%29.pdf)
-
 ## Permits
 
 Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book early for summer, and check tides before booking.
@@ -74,6 +64,16 @@ Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book earl
 **Cost**: $6 reservation + per-person fee.
 
 ## When to go
+
+## Trip length
+
+- **2 days**: doable if tides cooperate. Camp at Mattole Beach the night before and start early on day 1.
+- **3 days**: the sweet spot. Half a day to travel and hike in, a full day in the middle, arrive Shelter Cove on day 3.
+- **4 days**: best if you have the time. Fewer miles per day, more time to soak it in.
+
+## Logistics
+
+- **Tides**: certain parts of the trail can only be passed at low tide (3 zones impassable at high tide). [Interactive tide chart](https://outdoorstatus.com/guides/lost-coast-trail/tide-chart/) · [BLM tide guide](https://www.blm.gov/sites/blm.gov/files/docs/2021-02/TIDE%20GUIDE%20WEB_Active%20Links%20%281%29.pdf)
 
 ## Other
 

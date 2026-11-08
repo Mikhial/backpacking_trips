@@ -56,15 +56,6 @@ permit:
 - **Drive**: 2:40 to 3:40 with no traffic, to Big Sur Station or Arroyo Seco.
 - **Roads**: Hwy 1 is open Carmel–Cambria, but slides close it often. Tassajara Road (east entry) is dirt, high clearance.
 
-## Routes
-
-[Big Sur backpacking suggestions](https://bigsurtrailmap.net/backpack-suggestions.html)
-
-- **Pine Ridge Trail** (23 mi end to end) is the classic. This is what we did, to Sykes. Can make it longer: [Big Sur loop notes](https://bigsurtrailmap.net/ROUTES/NOTES/BigSurLoop-notes.html), [Sykes Hot Springs extended loop](https://www.alltrails.com/explore/custom-routes/big-sur-sykes-hot-springs-extended-loop-e025b62)
-- **[Ventana Double Cone](https://www.alltrails.com/trail/us/california/ventana-double-cone-via-bottcher-s-gap)**: the classic is camping at Pat Spring Camp with a day hike to the summit
-- **[Buckeye Trail](https://www.alltrails.com/trail/us/california/san-carpoforo-campground-lion-peak-and-cruikshank-loop)**: going out to San Carpoforo isn't heavily trafficked; check it before doing it. A more popular option: Buckeye Trail to Cruickshank campground, Cruickshank Trail to the end, Salmon Creek Trail to Spruce Camp, out and back to Dutra Flat, then back to Salmon Creek Falls.
-- **Cone Peak**: [Cone Peak from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [Cone Peak via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
-
 ## Permits
 
 No wilderness permit. Easy (when open).
@@ -74,6 +65,15 @@ No wilderness permit. Easy (when open).
 **Camping**: mostly at established trail camps; dispersed camping allowed.
 
 ## When to go
+
+## Routes
+
+[Big Sur backpacking suggestions](https://bigsurtrailmap.net/backpack-suggestions.html)
+
+- **Pine Ridge Trail** (23 mi end to end) is the classic. This is what we did, to Sykes. Can make it longer: [Big Sur loop notes](https://bigsurtrailmap.net/ROUTES/NOTES/BigSurLoop-notes.html), [Sykes Hot Springs extended loop](https://www.alltrails.com/explore/custom-routes/big-sur-sykes-hot-springs-extended-loop-e025b62)
+- **[Ventana Double Cone](https://www.alltrails.com/trail/us/california/ventana-double-cone-via-bottcher-s-gap)**: the classic is camping at Pat Spring Camp with a day hike to the summit
+- **[Buckeye Trail](https://www.alltrails.com/trail/us/california/san-carpoforo-campground-lion-peak-and-cruikshank-loop)**: going out to San Carpoforo isn't heavily trafficked; check it before doing it. A more popular option: Buckeye Trail to Cruickshank campground, Cruickshank Trail to the end, Salmon Creek Trail to Spruce Camp, out and back to Dutra Flat, then back to Salmon Creek Falls.
+- **Cone Peak**: [Cone Peak from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [Cone Peak via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
 
 ## Other
 

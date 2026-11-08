@@ -52,6 +52,16 @@ permit:
 - **Drive**: 3.25 hours with no traffic, via Hwy 108.
 - **Roads**: last miles gravel or rough dirt.
 
+## Permits
+
+Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
+
+- **Self-issue**: kiosk 24/7 at Summit Ranger Station, Pinecrest.
+
+**Camping**: dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
+
+## When to go
+
 ## Trailheads and routes
 
 Off-trail travel is also an option.
@@ -74,16 +84,6 @@ Where I solo backpacked and had a good time. 3:10 with no traffic. There's a mai
 ### Leavitt Meadows trailhead
 
 4.5 hours with no traffic. Close to where Dalton and I backpacked; lots of time above 10k. Probably don't care to do.
-
-## Permits
-
-Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
-
-- **Self-issue**: kiosk 24/7 at Summit Ranger Station, Pinecrest.
-
-**Camping**: dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
-
-## When to go
 
 ## Mosquitoes[^reddit]
 

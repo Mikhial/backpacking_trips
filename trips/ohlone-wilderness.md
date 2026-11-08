@@ -59,11 +59,6 @@ permit:
 - **Drive**: 45 minutes to 1.5 hours depending on traffic.
 - **Uber**: 45 minutes to the other side.
 
-## Route
-
-- Park at Mission Peak and Uber to Del Valle (east to west)
-- [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
-
 ## Permits
 
 Camps are reserved by phone, at least 2 business days ahead.
@@ -73,6 +68,13 @@ Camps are reserved by phone, at least 2 business days ahead.
 **Cost**: $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
 
 [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
+
+## When to go
+
+## Route
+
+- Park at Mission Peak and Uber to Del Valle (east to west)
+- [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
 ## Camps
 
@@ -87,8 +89,6 @@ Camps are reserved by phone, at least 2 business days ahead.
   - **Hawk's Nest**: less privacy (on the main trail), but close to the outhouse, shady, limited view
 - Amenities: tables, chemical/pit toilets, non-potable water
 - Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
-
-## When to go
 
 ## Hazards
 

@@ -61,13 +61,6 @@ permit:
 - **Drive**: 1.5 hours with no traffic, to Coe HQ or Hunting Hollow (Morgan Hill/Gilroy).
 - **Roads**: last miles narrow and winding. Dowdy Ranch (east side) is a dirt road, open seasonally, and adds an hour.
 
-## Routes
-
-A large network to build your own; 1 night to a week. Popular loops go to China Hole, Mississippi Lake and Coit Lake.
-
-- From HQ to Mississippi Lake: [HQ to Mississippi Lake, option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [HQ to Mississippi Lake, option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
-- From Hunting Hollow to Pacheco Falls: [Hunting Hollow to Pacheco Falls, option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [Hunting Hollow to Pacheco Falls, option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
-
 ## Permits
 
 Required. Easy, but parking fills on spring weekends.
@@ -76,11 +69,18 @@ Required. Easy, but parking fills on spring weekends.
 
 **Cost**: $5/person/night + $8/vehicle/night ($6 at Hunting Hollow; cash or check there).
 
+## When to go
+
+## Routes
+
+A large network to build your own; 1 night to a week. Popular loops go to China Hole, Mississippi Lake and Coit Lake.
+
+- From HQ to Mississippi Lake: [HQ to Mississippi Lake, option 1](https://www.alltrails.com/trail/us/california/mississippi-lake-from-coe-hq), [HQ to Mississippi Lake, option 2](https://www.alltrails.com/trail/us/california/corral-willow-ridge-bear-mountain-and-hobbs-road)
+- From Hunting Hollow to Pacheco Falls: [Hunting Hollow to Pacheco Falls, option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [Hunting Hollow to Pacheco Falls, option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
+
 ## Camping
 
 Designated sites in the western area; dispersed camping in the eastern zones (party limits per zone). Some sites have tables or outhouses; many have nothing. Check the park's water-resources page before going.
-
-## When to go
 
 ## Other
 

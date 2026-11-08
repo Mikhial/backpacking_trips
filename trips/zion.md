@@ -91,22 +91,6 @@ permit:
 - **Fly**: to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
 - **Drive**: ~11 hours (depending on route); maybe worth it if also doing Utah.
 
-## Day hikes
-
-- **[The Narrows (bottom up)](https://www.alltrails.com/explore/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring)**: no permit required. 9.4 miles up the river through the main canyon; walls up to 1k ft high and as narrow as 20 ft. Not possible for much of spring due to water level: March and April are generally a no-go; May is possible depending on snowpack, and the water can be cold. July–September has flash flood risk.
-- **[The Subway](https://www.alltrails.com/trail/us/utah/the-subway-trail)** (permit required): narrow slot canyon. Possible in late April/May, but permits will be hard and the water cold.
-
-## Day or overnight
-
-- **[West Rim Trail](https://www.alltrails.com/explore/trail/us/utah/west-rim-trail-top-down)**: 15 miles, 1.3k ft, point to point
-- **Angels Landing** (permit required): [Angels Landing day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail) (5 miles) or [Angels Landing overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop) (16 miles). No-permit alternative: Scout Lookout gets you most of the experience.
-- **[La Verkin Creek Trail](https://www.alltrails.com/explore/trail/us/utah/la-verkin-creek-trail-via-lee-pass-trailhead)**: 18 miles, 2k ft
-
-## Overnight hikes (permit required)
-
-- **[The Narrows (top down)](https://www.alltrails.com/trail/us/utah/the-narrows-top-down)**: 21 miles. See the day-hike notes above.
-- **[Zion Traverse](https://www.alltrails.com/explore/trail/us/utah/zion-traverse-lee-pass-to-east-rim-trailhead--2)**: 49 miles across the whole park. Open questions: does it hit the same sights? Can it be made shorter?
-
 ## Permits
 
 Day-hike permits release before backpacking permits, so even with a day-hike permit you won't know about a backpacking trip until later.
@@ -126,6 +110,22 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
   - Sep–Nov: lottery in July
 
 ## When to go
+
+## Day hikes
+
+- **[The Narrows (bottom up)](https://www.alltrails.com/explore/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring)**: no permit required. 9.4 miles up the river through the main canyon; walls up to 1k ft high and as narrow as 20 ft. Not possible for much of spring due to water level: March and April are generally a no-go; May is possible depending on snowpack, and the water can be cold. July–September has flash flood risk.
+- **[The Subway](https://www.alltrails.com/trail/us/utah/the-subway-trail)** (permit required): narrow slot canyon. Possible in late April/May, but permits will be hard and the water cold.
+
+## Day or overnight
+
+- **[West Rim Trail](https://www.alltrails.com/explore/trail/us/utah/west-rim-trail-top-down)**: 15 miles, 1.3k ft, point to point
+- **Angels Landing** (permit required): [Angels Landing day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail) (5 miles) or [Angels Landing overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop) (16 miles). No-permit alternative: Scout Lookout gets you most of the experience.
+- **[La Verkin Creek Trail](https://www.alltrails.com/explore/trail/us/utah/la-verkin-creek-trail-via-lee-pass-trailhead)**: 18 miles, 2k ft
+
+## Overnight hikes (permit required)
+
+- **[The Narrows (top down)](https://www.alltrails.com/trail/us/utah/the-narrows-top-down)**: 21 miles. See the day-hike notes above.
+- **[Zion Traverse](https://www.alltrails.com/explore/trail/us/utah/zion-traverse-lee-pass-to-east-rim-trailhead--2)**: 49 miles across the whole park. Open questions: does it hit the same sights? Can it be made shorter?
 
 ## Nearby parks
 

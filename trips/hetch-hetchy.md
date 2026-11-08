@@ -61,14 +61,6 @@ permit:
 - **Drive**: 3.5 hours with no traffic.
 - **Roads**: Hetch Hetchy Road is open sunrise to sunset. The road opens at different times in different seasons, so check before going.
 
-## Routes
-
-A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tiltill Valley, Laurel and Vernon lakes loops (2–4 nights).
-
-- [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
-- [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
-- Other options exist, but they're mostly similar.
-
 ## Permits
 
 Required year-round. Easier than Tuolumne; book early for spring weekends.
@@ -82,6 +74,14 @@ Required year-round. Easier than Tuolumne; book early for spring weekends.
 **Camping**: dispersed under Yosemite rules; established sites at Rancheria Falls.
 
 ## When to go
+
+## Routes
+
+A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tiltill Valley, Laurel and Vernon lakes loops (2–4 nights).
+
+- [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
+- [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
+- Other options exist, but they're mostly similar.
 
 ## Other
 

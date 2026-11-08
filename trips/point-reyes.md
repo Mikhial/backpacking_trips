@@ -58,6 +58,23 @@ permit:
 - **Drive**: 1 hour.
 - **Roads**: paved, winding.
 
+## Permits
+
+Required, via Recreation.gov. No same-day. Trip limit is 4 days.
+
+- **3 months ahead**: half the sites, released 3 months to the day ahead.
+- **14 days ahead**: the rest.
+
+**Cost**: $30/site/night (1–6 people). Can book 2 nights on one reservation. That's likely better than 2 separate reservations (unless it's off season).
+
+**When to book**:
+
+- Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
+- Spring and fall weekends: plan ahead, but cancellations come up often.
+- Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
+
+## When to go
+
 ## Routes
 
 A network linking 4 camps; camps are 1.4–6.3 miles from trailheads.
@@ -75,23 +92,6 @@ Designated sites only; no dispersed camping.
 - **Wildcat Camp**: open meadow on an ocean bluff, short walk to the beach, about a 2-mile round trip to Alamere Falls. Hardest to book.
 
 Amenities: vault toilets, tables, lockers and water at all camps.
-
-## Permits
-
-Required, via Recreation.gov. No same-day. Trip limit is 4 days.
-
-- **3 months ahead**: half the sites, released 3 months to the day ahead.
-- **14 days ahead**: the rest.
-
-**Cost**: $30/site/night (1–6 people). Can book 2 nights on one reservation. That's likely better than 2 separate reservations (unless it's off season).
-
-**When to book**:
-
-- Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
-- Spring and fall weekends: plan ahead, but cancellations come up often.
-- Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
-
-## When to go
 
 ## Other
 

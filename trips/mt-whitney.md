@@ -50,12 +50,6 @@ permit:
 - **Drive**: 6.5 hours.
 - **Fly**: 1.5 hours to Bishop (BIH, ~$300 round trip), then an hour's drive to the trailhead.
 
-## Day hike or overnight
-
-I probably want a day hike, with a day before to acclimate. A typical day hike starts 2–5am; overnight starts are typically 7–10am.
-
-**Acclimating**: arrive early, acclimate, and sleep in town. [Lone Pine Lake](https://www.alltrails.com/trail/us/california/mount-whitney-portal-to-lone-pine-lake) (5.5 miles, up to 10k ft) is a good hike the day before.
-
 ## Permits
 
 Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
@@ -65,3 +59,9 @@ Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight releas
 - **Cancellations**: rolling availability May 1 – Nov 1.
 
 ## When to go
+
+## Day hike or overnight
+
+I probably want a day hike, with a day before to acclimate. A typical day hike starts 2–5am; overnight starts are typically 7–10am.
+
+**Acclimating**: arrive early, acclimate, and sleep in town. [Lone Pine Lake](https://www.alltrails.com/trail/us/california/mount-whitney-portal-to-lone-pine-lake) (5.5 miles, up to 10k ft) is a good hike the day before.

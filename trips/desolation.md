@@ -73,6 +73,21 @@ permit:
 
 - **Drive**: 3 hours with no traffic, to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake.
 
+## Permits
+
+Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-season, a permit is still required but there's no quota.
+
+- **Reservations** (70%): on Recreation.gov, up to 6 months ahead. Book early; popular zones sell out on summer weekends.
+- **Walk-in** (30%)
+
+**Cost**: $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
+
+**Camping**: dispersed, but your first night must be in your permitted zone (45 zones).
+
+## When to go[^exploringwild]
+
+[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
+
 ## Areas and routes
 
 The PCT runs through the east and the Rubicon Trail through the west. They join at Lake Aloha in the south and can be linked in the north with the Velma Trail for a larger loop.
@@ -102,21 +117,6 @@ Wrights Lake / Twin Lakes trailhead. A dirt road, but accessible (when seasonall
 - [Big double loop](https://www.alltrails.com/explore/custom-routes/desolation-wilderness-double-loop-852c296): Glen Alpine is the most direct start. From a different trailhead, consider skipping the southernmost section and taking the PCT from Lake Aloha to Gilmore Lake.
 
 Wrights Lake area construction in 2026 may temporarily close the Rockbound and Twin Lakes trailheads.
-
-## Permits
-
-Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-season, a permit is still required but there's no quota.
-
-- **Reservations** (70%): on Recreation.gov, up to 6 months ahead. Book early; popular zones sell out on summer weekends.
-- **Walk-in** (30%)
-
-**Cost**: $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
-
-**Camping**: dispersed, but your first night must be in your permitted zone (45 zones).
-
-## When to go[^exploringwild]
-
-[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
 ## Other
 
