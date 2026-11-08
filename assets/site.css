@@ -67,7 +67,8 @@ table.trips td { padding: 10px 12px; border-bottom: 1px solid var(--line); verti
 table.trips tr:last-child td { border-bottom: 0; }
 table.trips td.tname a { font-weight: 600; text-decoration: none; color: var(--fg); }
 table.trips td.tname a:hover { text-decoration: underline; text-underline-offset: 2px; }
-table.trips td.tname .chip { display: flex; width: fit-content; margin-block: 3px; }
+table.trips td.tname .chip.alert-dot { margin-left: 8px; vertical-align: 1px; width: 17px; height: 17px; padding: 0; justify-content: center; font-weight: 700; line-height: 1; }
+table.trips td.tname a.alert-dot:hover { text-decoration: none; filter: brightness(0.95); }
 table.trips td.tname a.chip { font-weight: 400; color: var(--alert-fg); }
 table.trips td.tname .sum { display: block; font-size: 13px; color: var(--muted); }
 table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 8px 12px; }
