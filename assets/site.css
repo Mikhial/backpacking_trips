@@ -301,4 +301,4 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 }
 
 /* Permits section built from the header */
-.notes .permits > p:first-child .meter { margin-right: 4px; }
+.notes h2 > .meter { margin-left: 8px; vertical-align: 3px; }

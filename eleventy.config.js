@@ -139,14 +139,17 @@ export default function (eleventyConfig) {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
     const { permits: p } = normalizeTrip(data, data.page.inputPath, site.regions);
     if (!p) return;
-    const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
+    // the difficulty dots go next to the heading; the line under it is the level (none for easy) and why
+    const LEVEL = ['', 'Book ahead', 'Competitive', 'Very hard'];
     const dots = [1, 2, 3].map(i => `<i class="${i > p.difficulty ? 'o' : ''}"></i>`).join('');
-    const lines = [`<span class="meter">${dots}</span> **${LEVEL[p.difficulty]}**${p.why ? ' · ' + p.why : ''}`, ''];
+    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[p.difficulty] || 'Easy'}">${dots}</span>`;
+    const level = [LEVEL[p.difficulty] && `**${LEVEL[p.difficulty]}**`, p.why].filter(Boolean).join(' · ');
+    const lines = level ? [level, ''] : [];
     const items = [...p.notes.map(n => `- ${n}`),
       ...p.channels.map(c => `- **${c.label}** · ${[c.share, c.timing].filter(Boolean).join(' · ')}${c.notes ? ': ' + c.notes : ''}`)];
     if (items.length) lines.push(...items, '');
     if (p.links.length) lines.push(p.links.map(([label, url]) => `[${label}](${url})`).join(' · '), '');
-    const block = head => `${head}\n\n<div class="permits">\n\n${lines.join('\n')}\n</div>\n`;
+    const block = head => `${head} ${meter}\n\n<div class="permits">\n\n${lines.join('\n')}\n</div>\n`;
     const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
     let out = h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## Permits')}`;
     if (process.env.PERMIT_COMPARE) out = comparePermits(out, data.page.inputPath);
@@ -161,7 +164,7 @@ export default function (eleventyConfig) {
     if (!now) return md;
     // stacked: the old section under its old heading, then the new one; "(before)" / "(after)" tell them apart
     const oldHead = was ? old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '') : 'Permits';
-    const grid = `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n## Permits (after)\n\n${now.body.trim()}\n\n`;
+    const grid = `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n${md.slice(now.start, md.indexOf('\n', now.start)).replace(/^## Permits/, '## Permits (after)')}\n\n${now.body.trim()}\n\n`;
     return md.slice(0, now.start) + grid + md.slice(now.end);
   }
 

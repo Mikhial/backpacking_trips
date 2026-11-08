@@ -40,7 +40,6 @@ seasons:
 permit:
   short: ""
   difficulty: 0
-  why: When open
   notes:
     - No wilderness permit.
     - $10/night parking at Big Sur Station; free CA campfire permit for stoves.
