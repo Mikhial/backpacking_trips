@@ -134,7 +134,7 @@ export default function (eleventyConfig) {
 
   // The Permits section, built from the header's permit: (difficulty, notes, one item per channel, links), is written
   // under "## Permits" the same way; anything already under that heading in the notes shows after it.
-  // PERMIT_COMPARE=1 (preview only) shows the section from main beside the new one.
+  // PERMIT_COMPARE=<git ref> (preview only) shows the section as it was at that ref beside the new one.
   eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
     const { permits: p } = normalizeTrip(data, data.page.inputPath, site.regions);
@@ -156,7 +156,7 @@ export default function (eleventyConfig) {
   const sectionOf = (md, re) => { const m = md.match(re); if (!m) return null; const rest = md.slice(m.index + m[0].length); const n = rest.search(/^## /m); return { start: m.index, end: m.index + m[0].length + (n < 0 ? rest.length : n), body: n < 0 ? rest : rest.slice(0, n) }; };
   function comparePermits(md, inputPath) {
     let old = '';
-    try { old = execFileSync('git', ['show', `main:${inputPath.replace(/^\.\//, '')}`], { encoding: 'utf8' }).replace(/^---[\s\S]*?\n---\n/, ''); } catch { return md; }
+    try { old = execFileSync('git', ['show', `${process.env.PERMIT_COMPARE}:${inputPath.replace(/^\.\//, '')}`], { encoding: 'utf8' }).replace(/^---[\s\S]*?\n---\n/, ''); } catch { return md; }
     const was = sectionOf(old, /^## (?:Permits[^\n]*|Overnight options)$/m), now = sectionOf(md, /^## Permits[^\n]*$/m);
     if (!now) return md;
     const col = (cls, title, body) => `<div class="${cls}">\n<p class="cmp-h">${title}</p>\n\n${body.trim()}\n\n</div>`;
