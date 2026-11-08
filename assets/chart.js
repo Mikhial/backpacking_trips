@@ -16,7 +16,8 @@ function pos(md, isEnd) {
 }
 function fmt(x) { const w = ((x % 12) + 12) % 12, i = Math.floor(w); return MN[i] + ' ' + Math.min(DIM[i], Math.floor((w - i) * DIM[i] + 1e-6) + 1); }
 function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
-const laneY = i => LANE0 + i * LANE;
+// a blank line under the season reasons, for trips that have any
+const laneY = (t, i) => LANE0 + (t.seasons.some(s => s.tags.length) ? 14 : 0) + i * LANE;
 
 /* Labels for shoulder-season reasons */
 // label: full wording (bar tooltip). short: the side text, which has little room
@@ -99,13 +100,13 @@ function render(data, opts = {}) {
       g += `<div class="sg ${s.type}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
     });
     const cmp = t.permits.filter((p, i) => i === 0 || p.compact).map(p => bandHTML(t, p, 30, 4)).join('');
-    let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(i), 6)}</div>`).join('');
+    let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(t, i), 6)}</div>`).join('');
     det += `<svg class="cn" id="cn${ri}"></svg><div id="dy${ri}"></div>`;
     let ll = `<div class="c cmp">${esc(t.rule)}</div><div class="c det sw" id="sw${ri}"></div><div class="d det">`;
-    t.permits.forEach((p, i) => ll += `<div class="lane one" style="top:${laneY(i)}px"><span class="lt" id="lt${ri}_${i}">${laneText(p)}</span><span class="lv" id="lv${ri}_${i}"></span></div>`);
+    t.permits.forEach((p, i) => ll += `<div class="lane one" style="top:${laneY(t, i)}px"><span class="lt" id="lt${ri}_${i}">${laneText(p)}</span><span class="lv" id="lv${ri}_${i}"></span></div>`);
     ll += '</div>';
     // no permit lanes: still room for the hover date label under the bars
-    const H = t.permits.length ? laneY(t.permits.length - 1) + 32 : ROW + 8;
+    const H = t.permits.length ? laneY(t, t.permits.length - 1) + 32 : ROW + 8;
     if (OPTS.groups !== false && t.group && (ri === 0 || TRIPS[ri - 1].group !== t.group)) html += `<div class="gh">${esc(t.group)}</div>`;
     html += `<div class="r" tabindex="0" data-r="${ri}" data-h="${H}"><div class="nm">${OPTS.link !== false && t.url ? `<a class="tn" href="${esc(t.url)}">${esc(t.name)}</a>` : `<span class="tn">${esc(t.name)}</span>`}${OPTS.dots === false ? '' : diffHTML(t)}</div><div class="tr">${g}<div class="cmp">${cmp}</div><div class="det">${det}</div></div><div class="ll">${ll}</div></div>`;
   });
@@ -175,7 +176,7 @@ function show(ri, x) {
     if (mark) h += `<div class="bd peak lot sel" style="top:${y - 4}px;height:8px;left:${P(a)}%;width:${P(b) - P(a)}%"></div>`;
   };
   t.permits.forEach((p, i) => {
-    const y = laneY(i), out = document.getElementById(`lv${ri}_${i}`);
+    const y = laneY(t, i), out = document.getElementById(`lv${ri}_${i}`);
     if (p.type === 'fixed') {
       const j = p.rel.findIndex(r => !r.cov || (x >= r.cov[0] && x <= r.cov[1]));
       document.querySelectorAll(`#ln${ri}_${i} .bd`).forEach(b => b.classList.toggle('dim', +b.dataset.j !== j));
