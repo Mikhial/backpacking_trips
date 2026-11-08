@@ -7,13 +7,12 @@ permalink: /
   <div class="pagehead">
     <div>
       <h1>Trips</h1>
-      <p class="lede">{{ collections.trips.length }} trips, grouped by region. Click a column to sort.</p>
     </div>
   </div>
   <div class="filters" role="group" aria-label="Filter trips">
     <button type="button" data-filter="all" aria-pressed="true">All</button>
     {% for r in site.regions %}<button type="button" data-filter="region:{{ r }}" aria-pressed="false">{{ r }}</button>{% endfor %}
-    <button type="button" data-filter="now" aria-pressed="false">In season this month</button>
+    <button type="button" data-filter="now" aria-pressed="false" title="In season this month">In season</button>
   </div>
   <div class="table-wrap">
     <table class="trips" id="trips">
@@ -24,29 +23,27 @@ permalink: /
           <th><button type="button" data-key="distance">Distance</button></th>
           <th><button type="button" data-key="season">Best season</button></th>
           <th><button type="button" data-key="permit">Permit</button></th>
-          <th>Status</th>
         </tr>
       </thead>
       <tbody>
         {% set lastRegion = '' %}
         {% for t in collections.trips %}
           {% if t.data.region != lastRegion %}
-            <tr class="grp" data-region="{{ t.data.region }}"><td colspan="6">{{ t.data.region }}</td></tr>
+            <tr class="grp" data-region="{{ t.data.region }}"><td colspan="5">{{ t.data.region }}</td></tr>
             {% set lastRegion = t.data.region %}
           {% endif %}
           <tr class="row" data-region="{{ t.data.region }}" data-seasons="{{ t | seasonSpans }}"
               data-name="{{ t.data.name }}" data-drive="{{ t.data.facts['Getting there'] | travelHours }}"
               data-distance="{{ t.data | tripDistance | firstNumber }}" data-season="{{ t | peakStart }}"
               data-permit="{{ t.data.permit.difficulty or 0 }}" data-order="{{ loop.index }}">
-            <td class="tname"><a href="{{ t.url }}">{{ t.data.name }}</a><span class="sum">{{ t.data.summary }}</span></td>
+            <td class="tname"><a href="{{ t.url }}">{{ t.data.name }}</a>{% if t.data.status %}{% set su = t.data['status link'] %}{% if su %}<a class="chip warn alert-dot" href="{{ su }}" aria-label="{{ t.data.status }} (check for updates, opens in a new tab)">Closed<span class="tip" aria-hidden="true">{{ t.data.status }}</span></a>{% else %}<span class="chip warn alert-dot" tabindex="0" aria-label="{{ t.data.status }}">Closed<span class="tip" aria-hidden="true">{{ t.data.status }}</span></span>{% endif %}{% endif %}<span class="sum">{{ t.data.summary }}</span></td>
             <td>{{ t.data.facts['Getting there'] }}</td>
             <td>{{ t.data | tripDistance }}</td>
             <td>{{ t | bestSeason }}</td>
-            <td>{% if t.data.permit.difficulty %}<span class="meter" title="{{ t.data.permit.difficulty | levelName }}{% if t.data.permit.why %} · {{ t.data.permit.why }}{% endif %}">{{ t.data.permit.difficulty | dots | safe }}</span> {% endif %}{{ t.data.permit.note }}</td>
-            <td>{% if t.data.status %}{% set st = t.data['status short'] or t.data.status %}{% set su = t.data['status link'] %}{% if su %}<a class="chip warn" href="{{ su }}" title="{{ t.data.status }} · check for updates (opens in a new tab)">{{ st }}<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 1.5h3.5V5M10.5 1.5 5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>{% else %}<span class="chip warn" title="{{ t.data.status }}">{{ st }}</span>{% endif %}{% else %}<span class="hint">Open</span>{% endif %}</td>
+            <td>{% if t.data.permit.difficulty %}<span class="meter" title="{{ t.data.permit.difficulty | levelName }}{% if t.data.permit.why %} · {{ t.data.permit.why }}{% endif %}">{{ t.data.permit.difficulty | dots | safe }}</span>{% endif %}</td>
           </tr>
         {% endfor %}
-        <tr class="none" hidden><td colspan="6" class="empty">No trips match this filter.</td></tr>
+        <tr class="none" hidden><td colspan="5" class="empty">No trips match this filter.</td></tr>
       </tbody>
     </table>
   </div>
