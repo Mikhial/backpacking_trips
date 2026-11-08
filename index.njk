@@ -41,7 +41,7 @@ permalink: /
             <td>{{ t.data.facts['Getting there'] }}</td>
             <td>{{ t.data | tripDistance }}</td>
             <td>{{ t | bestSeason }}</td>
-            <td>{% if t.data.permit.difficulty %}<span class="meter" title="{{ t.data.permit.difficulty | levelName }}{% if t.data.permit.why %} · {{ t.data.permit.why }}{% endif %}">{{ t.data.permit.difficulty | dots | safe }}</span> {% endif %}{{ t.data.permit.note }}</td>
+            <td>{% if t.data.permit.difficulty %}<span class="meter" title="{{ t.data.permit.difficulty | levelName }}{% if t.data.permit.why %} · {{ t.data.permit.why }}{% endif %}">{{ t.data.permit.difficulty | dots | safe }}</span>{% endif %}</td>
           </tr>
         {% endfor %}
         <tr class="none" hidden><td colspan="5" class="empty">No trips match this filter.</td></tr>
