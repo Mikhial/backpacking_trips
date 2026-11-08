@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import footnote from 'markdown-it-footnote';
 import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
@@ -134,7 +133,6 @@ export default function (eleventyConfig) {
 
   // The Permits section is written in the notes (README: "Writing the Permits section"). The header's
   // difficulty dots are added next to its heading.
-  // PERMIT_COMPARE=<git ref> (preview only) also shows the section as it was at that ref, above the new one.
   eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
     const n = (data.permit && data.permit.difficulty) || 0;
@@ -142,23 +140,8 @@ export default function (eleventyConfig) {
     const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[n]}">${[1, 2, 3].map(i => `<i class="${i > n ? 'o' : ''}"></i>`).join('')}</span>`;
     const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
     if (!h.test(content)) return;
-    let out = content.replace(h, m => `${m.trim()} ${meter}`);
-    if (process.env.PERMIT_COMPARE) out = comparePermits(out, data.page.inputPath);
-    return out;
+    return content.replace(h, m => `${m.trim()} ${meter}`);
   });
-  // a section of a Markdown body: its heading to the next ## heading
-  const sectionOf = (md, re) => { const m = md.match(re); if (!m) return null; const rest = md.slice(m.index + m[0].length); const n = rest.search(/^## /m); return { start: m.index, end: m.index + m[0].length + (n < 0 ? rest.length : n), body: n < 0 ? rest : rest.slice(0, n) }; };
-  function comparePermits(md, inputPath) {
-    let old = '';
-    try { old = execFileSync('git', ['show', `${process.env.PERMIT_COMPARE}:${inputPath.replace(/^\.\//, '')}`], { encoding: 'utf8' }).replace(/^---[\s\S]*?\n---\n/, ''); } catch { return md; }
-    const was = sectionOf(old, /^## (?:Permits[^\n]*|Overnight options)$/m), now = sectionOf(md, /^## Permits[^\n]*$/m);
-    if (!now) return md;
-    // stacked: the old section under its old heading, then the new one; "(before)" / "(after)" tell them apart
-    const oldHead = was ? old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '') : 'Permits';
-    const newHead = md.slice(now.start, md.indexOf('\n', now.start)).replace(/^## Permits/, '## Permits (after)');
-    return md.slice(0, now.start) + `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n${newHead}\n\n${now.body.trim()}\n\n` + md.slice(now.end);
-  }
-
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
