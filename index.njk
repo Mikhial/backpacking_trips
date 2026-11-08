@@ -36,7 +36,7 @@ permalink: /
               data-name="{{ t.data.name }}" data-drive="{{ t.data.facts['Getting there'] | travelHours }}"
               data-distance="{{ t.data | tripDistance | firstNumber }}" data-season="{{ t | peakStart }}"
               data-permit="{{ t.data.permit.difficulty or 0 }}" data-order="{{ loop.index }}">
-            <td class="tname"><a href="{{ t.url }}">{{ t.data.name }}</a>{% if t.data.status %}{% set su = t.data['status link'] %}{% if su %}<a class="chip warn alert-dot" href="{{ su }}" aria-label="{{ t.data.status }} (check for updates, opens in a new tab)">!<span class="tip" aria-hidden="true">{{ t.data.status }} · click for updates</span></a>{% else %}<span class="chip warn alert-dot" tabindex="0" aria-label="{{ t.data.status }}">!<span class="tip" aria-hidden="true">{{ t.data.status }}</span></span>{% endif %}{% endif %}<span class="sum">{{ t.data.summary }}</span></td>
+            <td class="tname"><a href="{{ t.url }}">{{ t.data.name }}</a>{% if t.data.status %}{% set su = t.data['status link'] %}{% if su %}<a class="chip warn alert-dot" href="{{ su }}" aria-label="{{ t.data.status }} (check for updates, opens in a new tab)">Closed<span class="tip" aria-hidden="true">{{ t.data.status }} · click for updates</span></a>{% else %}<span class="chip warn alert-dot" tabindex="0" aria-label="{{ t.data.status }}">Closed<span class="tip" aria-hidden="true">{{ t.data.status }}</span></span>{% endif %}{% endif %}<span class="sum">{{ t.data.summary }}</span></td>
             <td>{{ t.data.facts['Getting there'] }}</td>
             <td>{{ t.data | tripDistance }}</td>
             <td>{{ t | bestSeason }}</td>
