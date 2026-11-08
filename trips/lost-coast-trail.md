@@ -80,6 +80,4 @@ Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book earl
 - **Camping**: dispersed at creek mouths and established beach sites.
 - **Fires**: none Jun 19–Sep 30; otherwise driftwood beach fires with a CA campfire permit.
 - **Dogs**: generally allowed under control (BLM); confirm current rules.
-- **Cell service**: none.
-- **Hazards**: tides and sneaker waves, rattlesnakes, ticks, poison oak, winter storms.
 - Elephant seals near Punta Gorda.

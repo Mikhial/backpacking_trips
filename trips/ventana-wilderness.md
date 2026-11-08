@@ -74,9 +74,3 @@ No wilderness permit. Easy (when open).
 - **[Ventana Double Cone](https://www.alltrails.com/trail/us/california/ventana-double-cone-via-bottcher-s-gap)**: the classic is camping at Pat Spring Camp with a day hike to the summit
 - **[Buckeye Trail](https://www.alltrails.com/trail/us/california/san-carpoforo-campground-lion-peak-and-cruikshank-loop)**: going out to San Carpoforo isn't heavily trafficked; check it before doing it. A more popular option: Buckeye Trail to Cruickshank campground, Cruickshank Trail to the end, Salmon Creek Trail to Spruce Camp, out and back to Dutra Flat, then back to Salmon Creek Falls.
 - **Cone Peak**: [Cone Peak from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [Cone Peak via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
-
-## Other
-
-- **Fires**: forest-wide restrictions usually in season; stove use needs a campfire permit.
-- **Cell service**: none.
-- **Hazards**: poison oak (heavy), ticks, river crossings in winter, washouts, burn-scar debris.

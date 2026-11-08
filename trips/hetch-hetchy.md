@@ -82,9 +82,3 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 - [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
 - [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
 - Other options exist, but they're mostly similar.
-
-## Other
-
-- **Fires**: Yosemite fire restrictions below 8,000 ft; stoves OK.
-- **Cell service**: none.
-- **Hazards**: heat, rattlesnakes, ticks, poison oak, high water at creek crossings in spring.

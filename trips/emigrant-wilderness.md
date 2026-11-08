@@ -93,9 +93,3 @@ Where I solo backpacked and had a good time. 3:10 with no traffic. There's a mai
 - Exposed granite tends to be safer: very dry areas where mosquitoes can't regulate their temperature. Stay flexible so you can stop early at a good spot or keep going if camp isn't what you hoped.
 
 [^reddit]: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/gPAfa4ZsvE)
-
-## Other
-
-- **Fires**: allowed with a CA campfire permit, except above 9,000 ft and within ½ mile of Emigrant Lake; seasonal restrictions apply.
-- **Cell service**: none in most of the wilderness.
-- **Hazards**: thunderstorms, mosquitoes in early summer, early snow.

@@ -85,9 +85,3 @@ Permits are competitive and may only have a 25% success rate. A day hike needs n
 My general Grand Canyon notes say ~80% of backcountry permits go through a monthly early-access lottery about 4 months ahead ($10 + $15/person/night below the rim), with Bright Angel Campground the hardest and Nov–Feb easier. That doesn't match the 5-month figure above; worth confirming.
 
 [NPS backcountry permits](https://www.nps.gov/grca/planyourvisit/backcountry-permit.htm)
-
-## Other
-
-- **Fires**: none below the rim.
-- **Cell service**: none below the rim.
-- **Hazards**: heat, steep grades, icy upper trails in winter, flash floods in side canyons.

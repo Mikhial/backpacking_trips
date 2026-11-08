@@ -117,9 +117,3 @@ Wrights Lake / Twin Lakes trailhead. A dirt road, but accessible (when seasonall
 - [Big double loop](https://www.alltrails.com/explore/custom-routes/desolation-wilderness-double-loop-852c296): Glen Alpine is the most direct start. From a different trailhead, consider skipping the southernmost section and taking the PCT from Lake Aloha to Gilmore Lake.
 
 Wrights Lake area construction in 2026 may temporarily close the Rockbound and Twin Lakes trailheads.
-
-## Other
-
-- **Fires**: campfires prohibited; stoves only (the wilderness permit covers stove use).
-- **Cell service**: spotty; often a signal on ridges, none in basins.
-- **Hazards**: thunderstorms, early snow, exposed granite, bold bears at trailheads, mosquitoes in early summer.
