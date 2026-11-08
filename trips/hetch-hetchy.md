@@ -35,19 +35,25 @@ seasons:
     notes: Drier, quieter, more manageable weather; may start to get cold at night.
 
 permit:
-  note: Lottery 24 weeks · 7 days before
+  short: Lottery 24 weeks · 7 days before
   difficulty: 1
   why: Moderate; easier than Tuolumne
+  notes:
+    - Required year-round.
+    - "May–Oct: on Recreation.gov. ~$10 application + $5/person (verify current fee)."
+    - "Off-season (late October to mid-April): first-come at the Hetch Hetchy entrance."
+    - Camping is dispersed under Yosemite rules; established sites at Rancheria Falls.
   channels:
     - label: Lottery
       lottery: true
       before: 24 weeks
       every: week
       share: 60%
-      note: weekly, 24 weeks before
+      short: weekly, 24 weeks before
     - label: Reservations
       before: 7 days
       share: 40%
+      notes: Book early for spring weekends.
 ---
 
 ## Overview
@@ -70,11 +76,6 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 - Other options exist, but they're mostly similar.
 
 ## Permits
-
-- Required year-round.
-- May–Oct: 60% by weekly lottery 24 weeks ahead, 40% released 7 days ahead on Recreation.gov. ~$10 application + $5/person (verify current fee). Easier than Tuolumne; book early for spring weekends.
-- Off-season: first-come at the Hetch Hetchy entrance.
-- Camping is dispersed under Yosemite rules; established sites at Rancheria Falls.
 
 ## When to go
 

@@ -36,8 +36,12 @@ seasons:
     notes: Sonora Pass (Hwy 108) usually closed with snow.
 
 permit:
-  note: Self-issue, no quota
+  short: Self-issue, no quota
   difficulty: 0
+  notes:
+    - Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake).
+    - Self-issue kiosk 24/7 at Summit Ranger Station, Pinecrest.
+    - Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
 ---
 
 ## Overview
@@ -76,10 +80,6 @@ Where I solo backpacked and had a good time. 3:10 with no traffic. There's a mai
 4.5 hours with no traffic. Close to where Dalton and I backpacked; lots of time above 10k. Probably don't care to do.
 
 ## Permits
-
-Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Self-issue kiosk 24/7 at Summit Ranger Station, Pinecrest. Easy.
-
-Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
 
 ## When to go
 

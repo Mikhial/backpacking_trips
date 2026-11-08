@@ -35,13 +35,17 @@ seasons:
     notes: The heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool. The strongest winds come in November and December with southerly gales.
 
 permit:
-  note: 90/14 days before
+  short: 90/14 days before
   difficulty: 2
   why: Weekends sell out at release
+  notes:
+    - Required, via Recreation.gov. No same-day. $30/site/night (1–6 people).
+    - Trip limit is 4 days.
   channels:
     - label: Reservations
       before: 90 days
       share: 50%
+      notes: 3 months to the day ahead.
     - label: Reservations
       before: 14 days
       share: 50%
@@ -76,10 +80,8 @@ Designated sites only; no dispersed camping.
 
 Amenities: vault toilets, tables, lockers and water at all camps.
 
-## Permits and reservations
+## Permits
 
-- Required, via Recreation.gov. Half the sites are released 3 months to the day ahead, the rest 14 days ahead. No same-day. $30/site/night (1–6 people).
-- Trip limit is 4 days.
 - Can book 2 nights on one reservation. That's likely better than 2 separate reservations (unless it's off season).
 - Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
 - Spring and fall weekends: plan ahead, but cancellations come up often.

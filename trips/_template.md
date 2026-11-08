@@ -54,14 +54,17 @@ seasons:
 # To cite a season's source, end its note with a footnote, like notes: Road closed.[^ranger] (see the README)
 
 permit:
-  note: 90 days before      # short note shown on the chart
-  difficulty: 1             # dots: 0 none, 1 book ahead, 2 competitive, 3 very hard
+  short: 90 days before     # short note shown on the chart
+  difficulty: 1             # dots: 0 easy, 1 book ahead, 2 competitive, 3 very hard
   why: Weekends sell out    # shown when hovering the dots
+  notes:                    # general bullets at the top of the Permits section
+    - Required year-round.
   channels:
     # Rolling: opens a set time before your trip. "before" is like 90 days, 24 weeks, 6 months, or day of
     - label: Reservations
       before: 90 days
       share: 70%            # optional
+      notes: On Recreation.gov.   # optional: shown after this channel in the Permits section
     # Lottery that runs per calendar week or month:
     #   - label: Lottery
     #     lottery: true

@@ -40,12 +40,17 @@ seasons:
     notes: An option, but it's going to be winter.
 
 permit:
-  note: ""
+  short: ""
   difficulty: 0
+  why: Parking fills on spring weekends
+  notes:
+    - Required.
+    - $5/person/night + $8/vehicle/night ($6 at Hunting Hollow; cash or check there).
   channels:
     - label: Walk-up
       before: day of
-      note: same day at the visitor center
+      short: same day at the visitor center
+      notes: First-come only, same day at the HQ or Dowdy visitor centers; self-register at Hunting Hollow.
 ---
 
 ## Overview
@@ -68,8 +73,6 @@ A large network to build your own; 1 night to a week. Popular loops go to China 
 - From Hunting Hollow to Pacheco Falls: [Hunting Hollow to Pacheco Falls, option 1](https://www.alltrails.com/trail/us/california/pacheco-falls-via-lyman-wilson-ridge-and-kelly-lake), [Hunting Hollow to Pacheco Falls, option 2](https://www.alltrails.com/trail/us/california/pacheco-falls-loop-via-coyote-creek-hunting-hollow)
 
 ## Permits
-
-Required, first-come only, same day at the HQ or Dowdy visitor centers; self-register at Hunting Hollow. $5/person/night + $8/vehicle/night ($6 at Hunting Hollow; cash or check there). Easy, but parking fills on spring weekends.
 
 ## Camping
 

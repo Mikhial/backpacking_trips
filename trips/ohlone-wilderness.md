@@ -34,18 +34,21 @@ seasons:
     notes: "Doable, but cold, dark and wet. Green from February. In Jan/Feb, lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days."
 
 permit:
-  note: Opens twice annually
+  short: Opens twice annually
   difficulty: 0
+  notes:
+    - $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
   channels:
     - label: Reservations
       idle: Opens twice annually
+      notes: Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
       releases:
         - opens: Dec 1
           for: Jan 1 – Jun 30
-          note: December, until 2 days before
+          short: December, until 2 days before
         - opens: Jun 1
           for: Jul 1 – Dec 31
-          note: June, until 2 days before
+          short: June, until 2 days before
 ---
 
 ## Overview
@@ -64,11 +67,7 @@ permit:
 - Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
-## Permits and reservations
-
-- Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
-- $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
-- Sites are released in two six-month blocks: arrival dates July–December 2026 are open now; January–June 2027 open in December 2026.
+## Permits
 
 ## Camps
 

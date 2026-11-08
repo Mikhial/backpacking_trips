@@ -33,12 +33,15 @@ seasons:
     notes: Water levels at their lowest, warm temperatures, monsoon risk over.
 
 permit:
-  note: Reservations quarterly · lotteries
+  short: Reservations quarterly · lotteries
   difficulty: 3
   why: Hardest permits in the NPS; books within minutes
+  notes:
+    - Day-hike permits release before backpacking permits, so even with a day-hike permit you won't know about a backpacking trip until later.
   channels:
     - label: Backpacking · Reservations
-      note: quarterly, on the 5th
+      short: quarterly, on the 5th
+      notes: Usually booked within minutes of release.
       releases:
         - opens: Dec 5
           for: Jan 1 – Mar 31
@@ -50,7 +53,7 @@ permit:
           for: Oct 1 – Dec 31
     - label: Subway · Lottery
       lottery: true
-      note: Feb/May/Aug
+      short: Feb/May/Aug
       releases:
         - opens: Feb 1 – Feb 28
           for: Apr 1 – Jun 30
@@ -59,7 +62,8 @@ permit:
         - opens: Aug 1 – Aug 31
           for: Oct 1 – Dec 31
     - label: Subway · Unclaimed
-      note: Mar/Jun/Sep
+      short: Mar/Jun/Sep
+      notes: Unclaimed spots are released the month after the lottery.
       releases:
         - opens: Mar 1 – Mar 31
           for: Apr 1 – Jun 30
@@ -69,7 +73,7 @@ permit:
           for: Oct 1 – Dec 31
     - label: Angels Landing · Lottery
       lottery: true
-      note: Jan/Apr/Jul
+      short: Jan/Apr/Jul
       releases:
         - opens: Jan 1 – Jan 31
           for: Mar 1 – May 31
@@ -108,12 +112,6 @@ permit:
 - **[Zion Traverse](https://www.alltrails.com/explore/trail/us/utah/zion-traverse-lee-pass-to-east-rim-trailhead--2)**: 49 miles across the whole park. Open questions: does it hit the same sights? Can it be made shorter?
 
 ## Permits
-
-Day-hike permits release before backpacking permits, so even with a day-hike permit you won't know about a backpacking trip until later.
-
-- **Backpacking**: usually booked within minutes of release. Jan–Mar released Dec 5; Apr–Jun released Mar 5; Jul–Sep released Jun 5; Oct–Dec released Sep 5.
-- **The Subway**: lottery. Unclaimed spots are released the month after the lottery. Apr–Jun hikes: lottery in February. Jul–Sep: lottery in May. Oct–Dec: lottery in August.
-- **Angels Landing**: lottery. Mar–May hikes: lottery in January. Jun–Aug: lottery in April. Sep–Nov: lottery in July.
 
 ## When to go
 

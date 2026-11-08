@@ -299,3 +299,13 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .pm.pm-side .pm-group { gap: 4px; }
   .pm.pm-side .pm-group > b { flex-basis: 100%; min-width: 0; margin-top: 4px; }
 }
+
+/* Permits section built from the header */
+.notes .permits > p:first-child .meter { margin-right: 4px; }
+/* Preview only (PERMIT_COMPARE): the old Permits section beside the new one */
+.permit-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 1.5em; }
+.permit-compare > div { border: 1px solid var(--faint); border-radius: 8px; padding: 4px 14px; min-width: 0; }
+.permit-compare > .old { background: color-mix(in srgb, var(--off) 6%, transparent); }
+.permit-compare > .new { background: color-mix(in srgb, var(--shoulder) 10%, transparent); }
+.permit-compare .cmp-h { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 4px; }
+@media (max-width: 700px) { .permit-compare { grid-template-columns: 1fr; } }

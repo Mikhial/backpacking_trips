@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import footnote from 'markdown-it-footnote';
 import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
@@ -130,6 +131,38 @@ export default function (eleventyConfig) {
     const h = /^## When to go((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
     return h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## When to go')}`;
   });
+
+  // The Permits section, built from the header's permit: (difficulty, notes, one item per channel, links), is written
+  // under "## Permits" the same way; anything already under that heading in the notes shows after it.
+  // PERMIT_COMPARE=1 (preview only) shows the section from main beside the new one.
+  eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
+    if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
+    const { permits: p } = normalizeTrip(data, data.page.inputPath, site.regions);
+    if (!p) return;
+    const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
+    const dots = [1, 2, 3].map(i => `<i class="${i > p.difficulty ? 'o' : ''}"></i>`).join('');
+    const lines = [`<span class="meter">${dots}</span> **${LEVEL[p.difficulty]}**${p.why ? ' · ' + p.why : ''}`, ''];
+    const items = [...p.notes.map(n => `- ${n}`),
+      ...p.channels.map(c => `- **${c.label}** · ${[c.share, c.timing].filter(Boolean).join(' · ')}${c.notes ? ': ' + c.notes : ''}`)];
+    if (items.length) lines.push(...items, '');
+    if (p.links.length) lines.push(p.links.map(([label, url]) => `[${label}](${url})`).join(' · '), '');
+    const block = head => `${head}\n\n<div class="permits">\n\n${lines.join('\n')}\n</div>\n`;
+    const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
+    let out = h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## Permits')}`;
+    if (process.env.PERMIT_COMPARE) out = comparePermits(out, data.page.inputPath);
+    return out;
+  });
+  // the Permits section (heading to the next ## heading) of a Markdown body
+  const sectionOf = (md, re) => { const m = md.match(re); if (!m) return null; const rest = md.slice(m.index + m[0].length); const n = rest.search(/^## /m); return { start: m.index, end: m.index + m[0].length + (n < 0 ? rest.length : n), body: n < 0 ? rest : rest.slice(0, n) }; };
+  function comparePermits(md, inputPath) {
+    let old = '';
+    try { old = execFileSync('git', ['show', `main:${inputPath.replace(/^\.\//, '')}`], { encoding: 'utf8' }).replace(/^---[\s\S]*?\n---\n/, ''); } catch { return md; }
+    const was = sectionOf(old, /^## (?:Permits[^\n]*|Overnight options)$/m), now = sectionOf(md, /^## Permits[^\n]*$/m);
+    if (!now) return md;
+    const col = (cls, title, body) => `<div class="${cls}">\n<p class="cmp-h">${title}</p>\n\n${body.trim()}\n\n</div>`;
+    const grid = `## Permits\n\n<div class="permit-compare">\n${col('old', 'Before' + (was ? ` (${old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '')})` : ''), was ? was.body : '*No section*')}\n${col('new', 'After', now.body)}\n</div>\n\n`;
+    return md.slice(0, now.start) + grid + md.slice(now.end);
+  }
 
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
