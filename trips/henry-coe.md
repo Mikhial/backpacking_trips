@@ -61,6 +61,8 @@ permit:
 - **Drive**: 1.5 hours with no traffic, to Coe HQ or Hunting Hollow (Morgan Hill/Gilroy).
 - **Roads**: last miles narrow and winding. Dowdy Ranch (east side) is a dirt road, open seasonally, and adds an hour.
 
+## When to go
+
 ## Permits
 
 Required. Easy, but parking fills on spring weekends.
@@ -68,8 +70,6 @@ Required. Easy, but parking fills on spring weekends.
 - **Walk-up**: first-come only, same day at the HQ or Dowdy visitor centers; self-register at Hunting Hollow.
 
 **Cost**: $5/person/night + $8/vehicle/night ($6 at Hunting Hollow; cash or check there).
-
-## When to go
 
 ## Routes
 

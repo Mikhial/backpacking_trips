@@ -54,6 +54,8 @@ permit:
 - **Drive**: ~4.5–5 hr to Black Sands Beach/Shelter Cove (south), ~6 hr to Mattole (north), both on narrow, winding mountain roads.
 - **Shuttle**: the trail is point to point, 2 hours' drive between ends. Take the shuttle (~$95 per person), use 2 cars, or arrange a [key swap](https://outdoorstatus.com/guides/lost-coast-trail/key-swap/), meeting someone and exchanging cars. Key swap is best with one car.
 
+## When to go
+
 ## Permits
 
 Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book early for summer, and check tides before booking.
@@ -62,8 +64,6 @@ Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book earl
 - **Walk-up lottery**: permits for up to 3 starts (people) at the King Range Visitor Center, by lottery Mon–Sat at 8:00am. Permits still available after the lottery are issued first come, first served.
 
 **Cost**: $6 reservation + per-person fee.
-
-## When to go
 
 ## Trip length
 

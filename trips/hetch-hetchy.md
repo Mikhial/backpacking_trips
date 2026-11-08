@@ -61,6 +61,8 @@ permit:
 - **Drive**: 3.5 hours with no traffic.
 - **Roads**: Hetch Hetchy Road is open sunrise to sunset. The road opens at different times in different seasons, so check before going.
 
+## When to go
+
 ## Permits
 
 Required year-round. Easier than Tuolumne; book early for spring weekends.
@@ -72,8 +74,6 @@ Required year-round. Easier than Tuolumne; book early for spring weekends.
 **Cost**: ~$10 application + $5/person (verify current fee).
 
 **Camping**: dispersed under Yosemite rules; established sites at Rancheria Falls.
-
-## When to go
 
 ## Routes
 

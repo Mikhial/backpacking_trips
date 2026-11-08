@@ -56,6 +56,8 @@ permit:
 - **Drive**: 2:40 to 3:40 with no traffic, to Big Sur Station or Arroyo Seco.
 - **Roads**: Hwy 1 is open Carmel–Cambria, but slides close it often. Tassajara Road (east entry) is dirt, high clearance.
 
+## When to go
+
 ## Permits
 
 No wilderness permit. Easy (when open).
@@ -63,8 +65,6 @@ No wilderness permit. Easy (when open).
 **Cost**: $10/night parking at Big Sur Station; free CA campfire permit for stoves.
 
 **Camping**: mostly at established trail camps; dispersed camping allowed.
-
-## When to go
 
 ## Routes
 

@@ -81,11 +81,13 @@ permit:
 
 ## Overview
 
-Free-form notes go here, in Markdown. Keep these first, in this order: Overview, Getting there, Permits, When to go. Then any headings you like: routes, camps, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
+Free-form notes go here, in Markdown. Keep these first, in this order: Overview, Getting there, When to go, Permits. Then any headings you like: routes, camps, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
 
 ## Getting there
 
 - **Drive**: 3 hours with no traffic.
+
+## When to go
 
 ## Permits
 
@@ -99,5 +101,3 @@ Required year-round. Quota from May 1 to Sep 30. Weekends sell out at release.
 **Camping**: dispersed; first night in your permitted zone.
 
 [Permit page](https://www.recreation.gov/...)
-
-## When to go

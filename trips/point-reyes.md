@@ -58,6 +58,8 @@ permit:
 - **Drive**: 1 hour.
 - **Roads**: paved, winding.
 
+## When to go
+
 ## Permits
 
 Required, via Recreation.gov. No same-day. Trip limit is 4 days.
@@ -72,8 +74,6 @@ Required, via Recreation.gov. No same-day. Trip limit is 4 days.
 - Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
 - Spring and fall weekends: plan ahead, but cancellations come up often.
 - Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
-
-## When to go
 
 ## Routes
 

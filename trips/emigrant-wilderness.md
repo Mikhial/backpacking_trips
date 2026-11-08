@@ -52,6 +52,8 @@ permit:
 - **Drive**: 3.25 hours with no traffic, via Hwy 108.
 - **Roads**: last miles gravel or rough dirt.
 
+## When to go
+
 ## Permits
 
 Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
@@ -59,8 +61,6 @@ Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
 - **Self-issue**: kiosk 24/7 at Summit Ranger Station, Pinecrest.
 
 **Camping**: dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
-
-## When to go
 
 ## Trailheads and routes
 

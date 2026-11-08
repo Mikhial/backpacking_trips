@@ -91,6 +91,8 @@ permit:
 - **Fly**: to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
 - **Drive**: ~11 hours (depending on route); maybe worth it if also doing Utah.
 
+## When to go
+
 ## Permits
 
 Day-hike permits release before backpacking permits, so even with a day-hike permit you won't know about a backpacking trip until later.
@@ -108,8 +110,6 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
   - Mar–May hikes: lottery in January
   - Jun–Aug: lottery in April
   - Sep–Nov: lottery in July
-
-## When to go
 
 ## Day hikes
 

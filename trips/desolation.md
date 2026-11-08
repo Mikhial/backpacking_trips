@@ -73,6 +73,10 @@ permit:
 
 - **Drive**: 3 hours with no traffic, to Echo Lake, Glen Alpine, Eagle Falls or Wrights Lake.
 
+## When to go[^exploringwild]
+
+[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
+
 ## Permits
 
 Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-season, a permit is still required but there's no quota.
@@ -83,10 +87,6 @@ Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-se
 **Cost**: $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
 
 **Camping**: dispersed, but your first night must be in your permitted zone (45 zones).
-
-## When to go[^exploringwild]
-
-[^exploringwild]: [Exploring Wild](https://exploringwild.com/backpacking-desolation-wilderness/)
 
 ## Areas and routes
 

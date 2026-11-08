@@ -50,6 +50,8 @@ permit:
 - **Drive**: 6.5 hours.
 - **Fly**: 1.5 hours to Bishop (BIH, ~$300 round trip), then an hour's drive to the trailhead.
 
+## When to go
+
 ## Permits
 
 Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
@@ -57,8 +59,6 @@ Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight releas
 - **Lottery**: open all of February; results announced Mar 15.
 - **Unclaimed permits**: released Apr 22.
 - **Cancellations**: rolling availability May 1 – Nov 1.
-
-## When to go
 
 ## Day hike or overnight
 

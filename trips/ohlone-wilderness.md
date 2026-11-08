@@ -59,6 +59,8 @@ permit:
 - **Drive**: 45 minutes to 1.5 hours depending on traffic.
 - **Uber**: 45 minutes to the other side.
 
+## When to go
+
 ## Permits
 
 Camps are reserved by phone, at least 2 business days ahead.
@@ -68,8 +70,6 @@ Camps are reserved by phone, at least 2 business days ahead.
 **Cost**: $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
 
 [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
-
-## When to go
 
 ## Route
 
