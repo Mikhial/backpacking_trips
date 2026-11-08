@@ -92,9 +92,3 @@ Designated sites only; no dispersed camping.
 - **Wildcat Camp**: open meadow on an ocean bluff, short walk to the beach, about a 2-mile round trip to Alamere Falls. Hardest to book.
 
 Amenities: vault toilets, tables, lockers and water at all camps.
-
-## Other
-
-- **Fires**: never in camps; stoves only. Beach fires by free permit when fire danger allows.
-- **Cell service**: spotty.
-- **Hazards**: ticks, poison oak, sneaker waves and tides, cold fog.

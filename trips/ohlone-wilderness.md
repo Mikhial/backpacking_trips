@@ -53,6 +53,7 @@ permit:
 - Best close solo option, and the highest-rated close option
 - Call at least 2 days ahead for a camp reservation. Shouldn't be difficult to get one.
 - 28 miles, 7,500 ft of gain, 1–2 nights
+- [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
 ## Getting there
 
@@ -71,11 +72,6 @@ Camps are reserved by phone, at least 2 business days ahead.
 
 [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
 
-## Route
-
-- Park at Mission Peak and Uber to Del Valle (east to west)
-- [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
-
 ## Camps
 
 - **Maggie's**, 11 miles out: 3 different camps, in trees
@@ -89,11 +85,3 @@ Camps are reserved by phone, at least 2 business days ahead.
   - **Hawk's Nest**: less privacy (on the main trail), but close to the outhouse, shady, limited view
 - Amenities: tables, chemical/pit toilets, non-potable water
 - Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
-
-## Hazards
-
-Heat, ticks, rattlesnakes, cattle, poison oak in canyons.
-
-## Character
-
-Grassy ridges and oak canyons; tule elk and eagles.
