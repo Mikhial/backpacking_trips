@@ -106,7 +106,8 @@ function render(data, opts = {}) {
     t.permits.forEach((p, i) => ll += `<div class="lane one" style="top:${laneY(t, i)}px"><span class="lt" id="lt${ri}_${i}">${laneText(p)}</span><span class="lv" id="lv${ri}_${i}"></span></div>`);
     ll += '</div>';
     // no permit lanes: still room for the hover date label under the bars
-    const H = t.permits.length ? laneY(t, t.permits.length - 1) + 32 : ROW + 8;
+    // (or for the season reasons line, with the same padding below as above)
+    const H = t.permits.length ? laneY(t, t.permits.length - 1) + 32 : t.seasons.some(s => s.tags.length) ? 56 : ROW + 8;
     if (OPTS.groups !== false && t.group && (ri === 0 || TRIPS[ri - 1].group !== t.group)) html += `<div class="gh">${esc(t.group)}</div>`;
     html += `<div class="r" tabindex="0" data-r="${ri}" data-h="${H}"><div class="nm">${OPTS.link !== false && t.url ? `<a class="tn" href="${esc(t.url)}">${esc(t.name)}</a>` : `<span class="tn">${esc(t.name)}</span>`}${OPTS.dots === false ? '' : diffHTML(t)}</div><div class="tr">${g}<div class="cmp">${cmp}</div><div class="det">${det}</div></div><div class="ll">${ll}</div></div>`;
   });
