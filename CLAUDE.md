@@ -20,7 +20,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 ## Chart design decisions (assets/chart.js)
 
 - Rows are compact at rest: season bars, one thin booking band for the trip's **first** permit channel, and the short note (`permit.note`).
-- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded, without the permit dots. A row with no permit channels still grows a little so the hover date fits.
+- A row expands only when a season bar is hovered, and collapses only when the pointer leaves the row. Trip pages show their row always expanded, without the permit dots. A row with no permit channels still grows a little so the hover date fits (more if it has season reasons, so that line has padding below).
 - Expanded: one lane per permit channel. Lane text is "**label** · note (share)"; the hover date goes on its own line below it.
 - Hover dates: "opens Jun 9", "apply Feb 1–28" (lotteries), "day of" (walk-up).
 - Booking bands are colored by the season they serve (dark blue = peak, light blue = shoulder). Lotteries are the same bar with small breaks (dashed). No separate "fixed date" color.
@@ -30,7 +30,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - "Today" lines are subtle dashed lines; the previous-year one only shows when today falls in Oct–Dec.
 - Permit difficulty dots (0–3) are right-aligned after the trip name, with the reason in a tooltip.
 - Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
-- Create PNG renders the compact view for pasting into Google Docs.
+- Hovering a season bar shows "Peak season · Jun 1 – Sep 30" in the side text, with the reasons (short words) on their own line below, then a blank line before the permit lanes (only in rows that have reasons).
 
 ## Trail map data
 

@@ -1,7 +1,7 @@
 
 const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
-const ROW = 40, LANE0 = 50, LANE = 34, MIN = -12, MAX = 12;
+const ROW = 40, LANE0 = 54, LANE = 34, MIN = -12, MAX = 12;
 let DATA = null, TRIPS = [], OPTS = {};
 
 /* Positions are in months: 0 = Jan 1 of the trip year, -12 = Jan 1 of the previous year */
@@ -16,7 +16,8 @@ function pos(md, isEnd) {
 }
 function fmt(x) { const w = ((x % 12) + 12) % 12, i = Math.floor(w); return MN[i] + ' ' + Math.min(DIM[i], Math.floor((w - i) * DIM[i] + 1e-6) + 1); }
 function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
-const laneY = i => LANE0 + i * LANE;
+// a blank line under the season reasons, for trips that have any
+const laneY = (t, i) => LANE0 + (t.seasons.some(s => s.tags.length) ? 14 : 0) + i * LANE;
 
 /* Labels for shoulder-season reasons */
 // label: full wording (bar tooltip). short: the side text, which has little room
@@ -99,13 +100,14 @@ function render(data, opts = {}) {
       g += `<div class="sg ${s.type}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
     });
     const cmp = t.permits.filter((p, i) => i === 0 || p.compact).map(p => bandHTML(t, p, 30, 4)).join('');
-    let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(i), 6)}</div>`).join('');
+    let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(t, i), 6)}</div>`).join('');
     det += `<svg class="cn" id="cn${ri}"></svg><div id="dy${ri}"></div>`;
     let ll = `<div class="c cmp">${esc(t.rule)}</div><div class="c det sw" id="sw${ri}"></div><div class="d det">`;
-    t.permits.forEach((p, i) => ll += `<div class="lane one" style="top:${laneY(i)}px"><span class="lt" id="lt${ri}_${i}">${laneText(p)}</span><span class="lv" id="lv${ri}_${i}"></span></div>`);
+    t.permits.forEach((p, i) => ll += `<div class="lane one" style="top:${laneY(t, i)}px"><span class="lt" id="lt${ri}_${i}">${laneText(p)}</span><span class="lv" id="lv${ri}_${i}"></span></div>`);
     ll += '</div>';
     // no permit lanes: still room for the hover date label under the bars
-    const H = t.permits.length ? laneY(t.permits.length - 1) + 32 : ROW + 8;
+    // (or for the season reasons line, with the same padding below as above)
+    const H = t.permits.length ? laneY(t, t.permits.length - 1) + 32 : t.seasons.some(s => s.tags.length) ? 56 : ROW + 8;
     if (OPTS.groups !== false && t.group && (ri === 0 || TRIPS[ri - 1].group !== t.group)) html += `<div class="gh">${esc(t.group)}</div>`;
     html += `<div class="r" tabindex="0" data-r="${ri}" data-h="${H}"><div class="nm">${OPTS.link !== false && t.url ? `<a class="tn" href="${esc(t.url)}">${esc(t.name)}</a>` : `<span class="tn">${esc(t.name)}</span>`}${OPTS.dots === false ? '' : diffHTML(t)}</div><div class="tr">${g}<div class="cmp">${cmp}</div><div class="det">${det}</div></div><div class="ll">${ll}</div></div>`;
   });
@@ -157,7 +159,7 @@ function show(ri, x) {
   });
   const se = t.seasons.find(q => x >= q.a && x <= q.b), sw = document.getElementById('sw' + ri);
   const why = se ? se.tags.map(k => ICONS[k]?.short || k).join(', ') : '';
-  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + (why ? ' · ' + esc(why) : '');
+  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + ` · ${fmt(se.a)} – ${fmt(se.b - 0.001)}` + (why ? `<span class="sd">${esc(why)}</span>` : '');
   sw.title = se ? se.tags.map(k => ICONS[k]?.label || k).join(', ') : '';
   if (!active) { cn.innerHTML = ''; dy.innerHTML = ''; return; }
   let s = '', h = `<div class="trip" style="left:${P(x)}%"></div><div class="tl" style="top:28px;left:${P(x)}%;${x > 10 ? 'transform:translateX(-100%);margin-left:-5px' : 'margin-left:5px'}">${fmt(x)} trip</div>`;
@@ -175,7 +177,7 @@ function show(ri, x) {
     if (mark) h += `<div class="bd peak lot sel" style="top:${y - 4}px;height:8px;left:${P(a)}%;width:${P(b) - P(a)}%"></div>`;
   };
   t.permits.forEach((p, i) => {
-    const y = laneY(i), out = document.getElementById(`lv${ri}_${i}`);
+    const y = laneY(t, i), out = document.getElementById(`lv${ri}_${i}`);
     if (p.type === 'fixed') {
       const j = p.rel.findIndex(r => !r.cov || (x >= r.cov[0] && x <= r.cov[1]));
       document.querySelectorAll(`#ln${ri}_${i} .bd`).forEach(b => b.classList.toggle('dim', +b.dataset.j !== j));
@@ -232,94 +234,6 @@ function wire() {
   });
 }
 
-/* PNG export: the compact view as a light-theme SVG, rasterized at 2x */
-function exportSVG() {
-  const W = 1400, L = 200, R = 300, top = 84, rowH = 40, cw = W - L - R;
-  const GH = 26, ys = []; let acc = top;
-  TRIPS.forEach((t, r) => { if (OPTS.groups !== false && t.group && (r === 0 || TRIPS[r - 1].group !== t.group)) acc += GH; ys.push(acc); acc += rowH; });
-  const bottom = acc, H = bottom + 84;
-  const x = v => L + P(v) / 100 * cw;
-  const col = { peak: '#5a9a2a', shoulder: '#efa22e', bpeak: '#6fa6e0', bshoulder: '#c4dbf4', fixed: '#1f5fa8',
-    grid: '#e9ece4', line: '#dde1d7', divider: '#b9bfb1', prior: '#f3f5f0', text: '#1c211a', muted: '#62695e', faint: '#8b9286' };
-  const bandCol = k => k === 'fixed' || k === 'window' ? col.fixed : k === 'peak' ? col.bpeak : col.bshoulder;
-  let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">`;
-  s += `<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse"><rect x="4" width="2" height="6" fill="#ffffff"/></pattern></defs>`;
-  s += `<rect width="${W}" height="${H}" fill="#ffffff"/>`;
-  s += `<text x="${W / 2}" y="36" text-anchor="middle" font-size="19" font-weight="600" fill="${col.text}">${esc(DATA.title || '')}</text>`;
-  s += `<text x="${x(MIN) / 2 + x(0) / 2}" y="${top - 10}" text-anchor="middle" font-size="11" fill="${col.faint}">Previous year</text>`;
-  s += `<text x="${x(0) / 2 + x(MAX) / 2}" y="${top - 10}" text-anchor="middle" font-size="11" fill="${col.faint}">Trip year</text>`;
-  s += `<rect x="${x(MIN)}" y="${top}" width="${x(0) - x(MIN)}" height="${bottom - top}" fill="${col.prior}"/>`;
-  s += `<rect x="${x(MIN)}" y="${top}" width="${x(BRK) - x(MIN)}" height="${bottom - top}" fill="${col.grid}"/>`;
-  for (let i = BRK; i <= MAX; i++) s += `<line x1="${x(i)}" x2="${x(i)}" y1="${top}" y2="${bottom}" stroke="${i === 0 ? col.divider : col.grid}"/>`;
-  TRIPS.forEach((t, r) => {
-    const y = ys[r];
-    if (OPTS.groups !== false && t.group && (r === 0 || TRIPS[r - 1].group !== t.group)) {
-      s += `<rect x="0" y="${y - GH}" width="${W}" height="${GH}" fill="#ffffff"/><line x1="0" x2="${W}" y1="${y - GH}" y2="${y - GH}" stroke="${col.line}"/>`;
-      s += `<text x="14" y="${y - 8}" font-size="11" font-weight="600" letter-spacing=".7" fill="${col.faint}">${esc(t.group.toUpperCase())}</text>`;
-    }
-    s += `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="${col.line}"/>`;
-    s += `<text x="${L - 46}" y="${y + 22}" text-anchor="end" font-size="13" fill="${col.text}">${esc(t.name)}</text>`;
-    if (t.difficulty) [0, 1, 2].forEach(i => s += i < t.difficulty
-      ? `<circle cx="${L - 36 + i * 9}" cy="${y + 18}" r="3" fill="${col.muted}"/>`
-      : `<circle cx="${L - 36 + i * 9}" cy="${y + 18}" r="2.5" fill="none" stroke="${col.faint}"/>`);
-    t.seasons.forEach(se => {
-      const sx = x(se.a), sw = x(se.b) - x(se.a);
-      s += `<rect x="${sx}" y="${y + 11}" width="${sw}" height="12" rx="2" fill="${col[se.type] || col.peak}"/>`;
-    });
-    const ps = t.permits.filter((p, i) => i === 0 || p.compact);
-    ps.forEach(p => {
-      const { bands, over } = bandsFor(t, p);
-      bands.forEach(b => {
-        const bw = Math.max(x(b.b) - x(b.a), 2), by = y + 28, bh = 4;
-        s += `<rect x="${x(b.a)}" y="${by}" width="${bw}" height="${bh}" rx="2" fill="${bandCol(b.k)}"${b.k === 'window' ? ' fill-opacity=".3"' : ''}/>`;
-        if (b.lot) s += `<rect x="${x(b.a)}" y="${by}" width="${bw}" height="${bh}" rx="2" fill="url(#hatch)"/>`;
-      });
-      if (over) s += `<text x="${x(MIN) + 3}" y="${y + 38}" font-size="10" fill="${col.fixed}">‹ 1+ yr out</text>`;
-    });
-    s += `<text x="${L + cw + 14}" y="${y + 22}" font-size="12" fill="${col.muted}">${esc(t.rule)}</text>`;
-  });
-  s += `<line x1="0" x2="${W}" y1="${bottom}" y2="${bottom}" stroke="${col.line}"/>`;
-  s += `<text x="${x((MIN + BRK) / 2)}" y="${bottom + 18}" text-anchor="middle" font-size="10" fill="${col.faint}">Jan–Sep</text>`;
-  for (let i = BRK; i < MAX; i++) s += `<text x="${x(i + .5)}" y="${bottom + 18}" text-anchor="middle" font-size="11" fill="${i < 0 ? col.faint : col.muted}">${MN[(i + 12) % 12]}</text>`;
-  const items = [[col.peak, 12, 8, 'Peak'], [col.shoulder, 12, 8, 'Shoulder'], [col.bpeak, 16, 4, 'Book for peak'], [col.bshoulder, 16, 4, 'Book for shoulder'], ['lot', 18, 4, 'Lottery: apply during window']];
-  TODAYS.forEach((v, n) => {
-    s += `<line x1="${x(v)}" x2="${x(v)}" y1="${top}" y2="${bottom}" stroke="#c2412d" stroke-width="1" stroke-dasharray="3 3" stroke-opacity=".55"/>`;
-    s += `<text x="${x(v)}" y="${bottom + 34}" text-anchor="middle" font-size="11" fill="#c2412d">Today</text>`;
-  });
-  let lx = L, ly = bottom + 62;
-  items.forEach(([c, w, h, label]) => {
-    if (c === 'lot') s += `<rect x="${lx}" y="${ly - 4 - h / 2}" width="${w}" height="${h}" rx="2" fill="${col.bpeak}"/><rect x="${lx}" y="${ly - 4 - h / 2}" width="${w}" height="${h}" rx="2" fill="url(#hatch)"/>`;
-    else s += `<rect x="${lx}" y="${ly - 4 - h / 2}" width="${w}" height="${h}" rx="2" fill="${c}"/>`;
-    s += `<text x="${lx + w + 6}" y="${ly}" font-size="12" fill="${col.muted}">${label}</text>`;
-    lx += w + 6 + label.length * 6.6 + 22;
-  });
-  [[3, 'Very hard'], [2, 'Competitive'], [1, 'Book ahead']].forEach(([n, label]) => {
-    [0, 1, 2].forEach(i => s += i < n ? `<circle cx="${lx + 3 + i * 9}" cy="${ly - 4}" r="3" fill="${col.muted}"/>` : `<circle cx="${lx + 3 + i * 9}" cy="${ly - 4}" r="2.5" fill="none" stroke="${col.faint}"/>`);
-    s += `<text x="${lx + 30}" y="${ly}" font-size="12" fill="${col.muted}">${label}</text>`;
-    lx += 30 + label.length * 6.6 + 22;
-  });
-  return { svg: s + '</svg>', W, H };
-}
-
-function makePng() {
-  if (!TRIPS.length) return;
-  const { svg, W, H } = exportSVG(), scale = 2;
-  const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }));
-  const img = new Image();
-  img.onload = () => {
-    const c = document.createElement('canvas');
-    c.width = W * scale; c.height = H * scale;
-    const g = c.getContext('2d'); g.scale(scale, scale); g.drawImage(img, 0, 0);
-    URL.revokeObjectURL(url);
-    document.getElementById('pngImg').src = c.toDataURL('image/png');
-    const out = document.getElementById('pngOut'); out.hidden = false;
-    out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  };
-  img.src = url;
-}
-
-const pngBtn = document.getElementById('png');
-if (pngBtn) pngBtn.addEventListener('click', makePng);
 window.addEventListener('resize', () => document.querySelectorAll('.r.open').forEach(r => setOpen(r, true)));
 const dataEl = document.getElementById('chart-data');
 if (dataEl) render(JSON.parse(dataEl.textContent), JSON.parse(dataEl.dataset.options || '{}'));
