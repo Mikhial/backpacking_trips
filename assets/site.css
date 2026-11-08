@@ -68,6 +68,10 @@ table.trips tr:last-child td { border-bottom: 0; }
 table.trips td.tname a { font-weight: 600; text-decoration: none; color: var(--fg); }
 table.trips td.tname a:hover { text-decoration: underline; text-underline-offset: 2px; }
 table.trips td.tname .chip.alert-dot { margin-left: 8px; vertical-align: 1px; width: 17px; height: 17px; padding: 0; justify-content: center; font-weight: 700; line-height: 1; }
+table.trips td.tname .alert-dot { position: relative; cursor: help; }
+table.trips td.tname a.alert-dot { cursor: pointer; }
+table.trips td.tname .alert-dot .tip { display: none; position: absolute; left: calc(100% + 8px); top: 50%; transform: translateY(-50%); z-index: 5; width: max-content; max-width: 280px; background: var(--fg); color: var(--bg); font-size: 12px; font-weight: 400; line-height: 1.3; padding: 5px 8px; border-radius: 5px; white-space: normal; pointer-events: none; }
+table.trips td.tname .alert-dot:hover .tip, table.trips td.tname .alert-dot:focus .tip { display: block; }
 table.trips td.tname a.alert-dot:hover { text-decoration: none; filter: brightness(0.95); }
 table.trips td.tname a.chip { font-weight: 400; color: var(--alert-fg); }
 table.trips td.tname .sum { display: block; font-size: 13px; color: var(--muted); }
