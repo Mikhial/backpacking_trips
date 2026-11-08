@@ -30,7 +30,7 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - "Today" lines are subtle dashed lines; the previous-year one only shows when today falls in Oct–Dec.
 - Permit difficulty dots (0–3) are right-aligned after the trip name, with the reason in a tooltip.
 - Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
-- Hovering a season bar also shows that season's dates ("Jun 1 – Sep 30") on its own line under Peak/Shoulder in the side text.
+- Hovering a season bar shows "Peak season · Jun 1 – Sep 30" in the side text, with the reasons (short words) on their own line below.
 
 ## Trail map data
 

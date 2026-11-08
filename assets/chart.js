@@ -157,7 +157,7 @@ function show(ri, x) {
   });
   const se = t.seasons.find(q => x >= q.a && x <= q.b), sw = document.getElementById('sw' + ri);
   const why = se ? se.tags.map(k => ICONS[k]?.short || k).join(', ') : '';
-  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + (why ? ' · ' + esc(why) : '') + `<span class="sd">${fmt(se.a)} – ${fmt(se.b - 0.001)}</span>`;
+  sw.innerHTML = !se ? '' : (se.type === 'peak' ? '<b class="pk">Peak season</b>' : '<b class="sh">Shoulder</b>') + ` · ${fmt(se.a)} – ${fmt(se.b - 0.001)}` + (why ? `<span class="sd">${esc(why)}</span>` : '');
   sw.title = se ? se.tags.map(k => ICONS[k]?.label || k).join(', ') : '';
   if (!active) { cn.innerHTML = ''; dy.innerHTML = ''; return; }
   let s = '', h = `<div class="trip" style="left:${P(x)}%"></div><div class="tl" style="top:28px;left:${P(x)}%;${x > 10 ? 'transform:translateX(-100%);margin-left:-5px' : 'margin-left:5px'}">${fmt(x)} trip</div>`;
