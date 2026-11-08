@@ -159,8 +159,9 @@ export default function (eleventyConfig) {
     try { old = execFileSync('git', ['show', `${process.env.PERMIT_COMPARE}:${inputPath.replace(/^\.\//, '')}`], { encoding: 'utf8' }).replace(/^---[\s\S]*?\n---\n/, ''); } catch { return md; }
     const was = sectionOf(old, /^## (?:Permits[^\n]*|Overnight options)$/m), now = sectionOf(md, /^## Permits[^\n]*$/m);
     if (!now) return md;
-    const col = (cls, title, body) => `<div class="${cls}">\n<p class="cmp-h">${title}</p>\n\n${body.trim()}\n\n</div>`;
-    const grid = `## Permits\n\n<div class="permit-compare">\n${col('old', 'Before' + (was ? ` (${old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '')})` : ''), was ? was.body : '*No section*')}\n${col('new', 'After', now.body)}\n</div>\n\n`;
+    // stacked: the old section under its old heading, then the new one; "(before)" / "(after)" tell them apart
+    const oldHead = was ? old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '') : 'Permits';
+    const grid = `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n## Permits (after)\n\n${now.body.trim()}\n\n`;
     return md.slice(0, now.start) + grid + md.slice(now.end);
   }
 
