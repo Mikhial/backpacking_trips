@@ -139,15 +139,18 @@ export default function (eleventyConfig) {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
     const { permits: p } = normalizeTrip(data, data.page.inputPath, site.regions);
     if (!p) return;
-    // the difficulty dots go next to the heading; the line under it is the level (none for easy) and why
-    const LEVEL = ['', 'Book ahead', 'Competitive', 'Very hard'];
+    // the difficulty dots go next to the heading (the level's name is by the trip title); under it, the why
+    const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
     const dots = [1, 2, 3].map(i => `<i class="${i > p.difficulty ? 'o' : ''}"></i>`).join('');
-    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[p.difficulty] || 'Easy'}">${dots}</span>`;
-    const level = [LEVEL[p.difficulty] && `**${LEVEL[p.difficulty]}**`, p.why].filter(Boolean).join(' · ');
-    const lines = level ? [level, ''] : [];
-    const items = [...p.notes.map(n => `- ${n}`),
-      ...p.channels.map(c => `- **${c.label}** · ${[c.share, c.timing].filter(Boolean).join(' · ')}${c.notes ? ': ' + c.notes : ''}`)];
-    if (items.length) lines.push(...items, '');
+    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[p.difficulty]}">${dots}</span>`;
+    const lines = [];
+    if (p.why) lines.push(/[.!?]$/.test(p.why) ? p.why : p.why + '.', '');
+    if (p.notes.length) lines.push(...p.notes.map(n => `- ${n}`), '');
+    // each channel: a bold lead line, then its release dates one per line
+    for (const c of p.channels) {
+      const lead = `**${c.label}**${c.share ? ` (${c.share})` : ''}${c.when ? `, ${c.when}` : ''}${c.notes ? `: ${c.notes}` : ''}`;
+      lines.push('<div class="ch">', '', lead, '', ...c.list.map(x => `- ${x}`), '', '</div>', '');
+    }
     if (p.links.length) lines.push(p.links.map(([label, url]) => `[${label}](${url})`).join(' · '), '');
     const block = head => `${head} ${meter}\n\n<div class="permits">\n\n${lines.join('\n')}\n</div>\n`;
     const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;

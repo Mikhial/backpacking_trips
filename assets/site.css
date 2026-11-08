@@ -302,3 +302,6 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 
 /* Permits section built from the header */
 .notes h2 > .meter { margin-left: 8px; vertical-align: 3px; }
+.notes .permits .ch { margin: 12px 0; }
+.notes .permits .ch > p { margin: 0; }
+.notes .permits .ch > ul { margin: 3px 0 0; }
