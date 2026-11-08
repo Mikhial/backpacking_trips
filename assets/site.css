@@ -300,8 +300,5 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .pm.pm-side .pm-group > b { flex-basis: 100%; min-width: 0; margin-top: 4px; }
 }
 
-/* Permits section built from the header */
+/* difficulty dots next to the Permits heading */
 .notes h2 > .meter { margin-left: 8px; vertical-align: 3px; }
-.notes .permits .ch { margin: 12px 0; }
-.notes .permits .ch > p { margin: 0; }
-.notes .permits .ch > ul { margin: 3px 0 0; }

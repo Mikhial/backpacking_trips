@@ -29,21 +29,15 @@ seasons:
     notes: Least crowded. Highest exposure to Pacific storms, heavy rain, large swell and impassable creeks. Advanced parties only. Oct–Apr is one of the wettest places in the US.
 
 permit:
-  short: 90 days before · walk-up lottery
+  note: 90 days before · walk-up lottery
   difficulty: 2
   why: 60/day quota in summer
-  notes:
-    - Required year-round.
-    - Quota of 60/day at Mattole from May 15 to Sep 15. $6 reservation + per-person fee.
-    - Check tides before booking.
   channels:
     - label: Reservations
       before: 90 days
-      notes: On Recreation.gov. Book early for summer.
     - label: Walk-up · Lottery
       lottery: true
       before: day of
-      notes: Walk-up permits for up to 3 starts (people) are available at the King Range Visitor Center by lottery, conducted Mon–Sat at 8:00am. Walk-up permits still available after the lottery are issued first come, first served.
 ---
 
 ## Overview
@@ -71,6 +65,13 @@ permit:
 - **Tides**: certain parts of the trail can only be passed at low tide (3 zones impassable at high tide). [Interactive tide chart](https://outdoorstatus.com/guides/lost-coast-trail/tide-chart/) · [BLM tide guide](https://www.blm.gov/sites/blm.gov/files/docs/2021-02/TIDE%20GUIDE%20WEB_Active%20Links%20%281%29.pdf)
 
 ## Permits
+
+Required year-round. Quota of 60/day at Mattole from May 15 to Sep 15. Book early for summer, and check tides before booking.
+
+- **Reservations**: on Recreation.gov, released 90 days ahead.
+- **Walk-up lottery**: permits for up to 3 starts (people) at the King Range Visitor Center, by lottery Mon–Sat at 8:00am. Permits still available after the lottery are issued first come, first served.
+
+**Cost**: $6 reservation + per-person fee.
 
 ## When to go
 

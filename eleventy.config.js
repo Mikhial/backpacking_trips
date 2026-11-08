@@ -132,33 +132,21 @@ export default function (eleventyConfig) {
     return h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## When to go')}`;
   });
 
-  // The Permits section, built from the header's permit: (difficulty, notes, one item per channel, links), is written
-  // under "## Permits" the same way; anything already under that heading in the notes shows after it.
-  // PERMIT_COMPARE=<git ref> (preview only) shows the section as it was at that ref beside the new one.
+  // The Permits section is written in the notes (README: "Writing the Permits section"). The header's
+  // difficulty dots are added next to its heading.
+  // PERMIT_COMPARE=<git ref> (preview only) also shows the section as it was at that ref, above the new one.
   eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
     if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
-    const { permits: p } = normalizeTrip(data, data.page.inputPath, site.regions);
-    if (!p) return;
-    // the difficulty dots go next to the heading (the level's name is by the trip title); under it, the why
+    const n = (data.permit && data.permit.difficulty) || 0;
     const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
-    const dots = [1, 2, 3].map(i => `<i class="${i > p.difficulty ? 'o' : ''}"></i>`).join('');
-    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[p.difficulty]}">${dots}</span>`;
-    const lines = [];
-    if (p.why) lines.push(/[.!?]$/.test(p.why) ? p.why : p.why + '.', '');
-    if (p.notes.length) lines.push(...p.notes.map(n => `- ${n}`), '');
-    // each channel: a bold lead line, then its release dates one per line
-    for (const c of p.channels) {
-      const lead = `**${c.label}**${c.share ? ` (${c.share})` : ''}${c.when ? `, ${c.when}` : ''}${c.notes ? `: ${c.notes}` : ''}`;
-      lines.push('<div class="ch">', '', lead, '', ...c.list.map(x => `- ${x}`), '', '</div>', '');
-    }
-    if (p.links.length) lines.push(p.links.map(([label, url]) => `[${label}](${url})`).join(' · '), '');
-    const block = head => `${head} ${meter}\n\n<div class="permits">\n\n${lines.join('\n')}\n</div>\n`;
+    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[n]}">${[1, 2, 3].map(i => `<i class="${i > n ? 'o' : ''}"></i>`).join('')}</span>`;
     const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
-    let out = h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## Permits')}`;
+    if (!h.test(content)) return;
+    let out = content.replace(h, m => `${m.trim()} ${meter}`);
     if (process.env.PERMIT_COMPARE) out = comparePermits(out, data.page.inputPath);
     return out;
   });
-  // the Permits section (heading to the next ## heading) of a Markdown body
+  // a section of a Markdown body: its heading to the next ## heading
   const sectionOf = (md, re) => { const m = md.match(re); if (!m) return null; const rest = md.slice(m.index + m[0].length); const n = rest.search(/^## /m); return { start: m.index, end: m.index + m[0].length + (n < 0 ? rest.length : n), body: n < 0 ? rest : rest.slice(0, n) }; };
   function comparePermits(md, inputPath) {
     let old = '';
@@ -167,8 +155,8 @@ export default function (eleventyConfig) {
     if (!now) return md;
     // stacked: the old section under its old heading, then the new one; "(before)" / "(after)" tell them apart
     const oldHead = was ? old.slice(was.start, old.indexOf('\n', was.start)).replace(/^## /, '') : 'Permits';
-    const grid = `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n${md.slice(now.start, md.indexOf('\n', now.start)).replace(/^## Permits/, '## Permits (after)')}\n\n${now.body.trim()}\n\n`;
-    return md.slice(0, now.start) + grid + md.slice(now.end);
+    const newHead = md.slice(now.start, md.indexOf('\n', now.start)).replace(/^## Permits/, '## Permits (after)');
+    return md.slice(0, now.start) + `## ${oldHead} (before)\n\n${was ? was.body.trim() : '*No section*'}\n\n${newHead}\n\n${now.body.trim()}\n\n` + md.slice(now.end);
   }
 
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.

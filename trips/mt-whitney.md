@@ -28,21 +28,17 @@ seasons:
     notes: Colder, early snow risk. The season ends at the first snowstorm.
 
 permit:
-  short: Lottery Feb · unclaimed Apr 22
+  note: Lottery Feb · unclaimed Apr 22
   difficulty: 3
   why: ~30% lottery odds
-  notes:
-    - Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
-    - "May 1 – Nov 1: rolling cancellation availability."
   channels:
     - label: Lottery
       lottery: true
       opens: Feb 1 – Feb 28
-      short: Feb 1–28
-      notes: Results announced Mar 15.
+      note: Feb 1–28
     - label: Unclaimed
       opens: Apr 22
-      short: Apr 22
+      note: Apr 22
 ---
 
 ## Overview
@@ -61,5 +57,11 @@ I probably want a day hike, with a day before to acclimate. A typical day hike s
 **Acclimating**: arrive early, acclimate, and sleep in town. [Lone Pine Lake](https://www.alltrails.com/trail/us/california/mount-whitney-portal-to-lone-pine-lake) (5.5 miles, up to 10k ft) is a good hike the day before.
 
 ## Permits
+
+Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
+
+- **Lottery**: open all of February; results announced Mar 15.
+- **Unclaimed permits**: released Apr 22.
+- **Cancellations**: rolling availability May 1 – Nov 1.
 
 ## When to go

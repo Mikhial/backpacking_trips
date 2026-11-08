@@ -90,19 +90,14 @@ seasons:                       # chart bars and the When to go list
   - off: Jun 1 – Aug 31        # listed under When to go, not drawn on the chart
     notes: Dense fog all day.
 
-permit:                        # builds the Permits section and the chart's permit lanes
-  short: 90/14 days before     # short note on the chart and in the facts box
-  difficulty: 2                # 0 easy, 1 book ahead, 2 competitive, 3 very hard
+permit:                        # the chart; the Permits section itself is written in the notes
+  note: 90/14 days before      # short note on the chart
+  difficulty: 2                # 0 none, 1 book ahead, 2 competitive, 3 very hard
   why: Weekends sell out at release
-  notes:                       # optional: general bullets, listed first under Permits
-    - Required, via Recreation.gov. $30/site/night.
   channels:                    # how permits are released (see below)
     - label: Reservations
       before: 90 days
       share: 50%
-      notes: 3 months to the day ahead.   # optional: text after this channel's bullet
-  links:                       # optional: links at the end of the Permits section
-    Permit page: https://www.nps.gov/pore/...
 ```
 
 **Dates** are written like `Sep 1`. Ranges use a dash: `Sep 1 – Oct 31`.
@@ -121,16 +116,18 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
 - **Sources**: cite them with footnotes, like anywhere else in the notes (see **Sources** below). For the whole section, put it on the heading in the notes: `## When to go[^name]`. For one season, put it at the end of its note: `notes: Warm, often mild weather.[^name]`. The `[^name]: ...` line goes in the notes.
 
-### Permits
+### Writing the Permits section
 
-A trip page's **Permits** section is built from `permit:`, the same way When to go is built from `seasons:`:
+Write it under `## Permits` in the notes, in your own words, so it reads well for that trip. The difficulty dots from the header are added next to the heading. Keep this order, skipping what doesn't apply:
 
-1. The difficulty dots and `why`.
-2. One bullet per line of `notes` (when it's required, fees, quotas, camping rules).
-3. One bullet per channel, like **Reservations** · 50% · 90 days before: *notes*. The timing comes from the channel's dates (`before`, `opens`, `releases`), so don't repeat them in its notes.
-4. `links`, in one line.
+1. **One or two lines first**: is a permit required, when (the quota season), and how hard it is to get.
+2. **One bullet per way to get a permit**, its name in bold: `- **Reservations** (70%): on Recreation.gov, 90 days ahead.` Use the same names as the chart's channel labels where it makes sense. When the dates depend on the trip dates, list them underneath, trip dates first: `  - Jan–Mar: released Dec 5`.
+3. **`**Cost**:`** fees, on one line.
+4. **`**Camping**:`** where you can camp (zones, designated sites, night limits), if it matters.
+5. **Anything else**: booking tips, open questions.
+6. **The official permit page** as a link at the end.
 
-Anything else (tips, open questions) goes under `## Permits` in the notes and shows after. A note with a colon followed by a space needs "double quotes" around it.
+Write dates like `Sep 1`, `Jan–Mar`, and "ahead" for how long before your trip. If a release date changes, update both this section and the header's `channels` (the chart).
 
 ### Permit channels
 
@@ -141,7 +138,7 @@ Each channel is one way permits are released. It becomes a lane on the chart.
 - **Fixed date or range**: `opens: Apr 22` or `opens: Feb 1 – Feb 28`.
 - **Several fixed releases**: a `releases` list, each with `opens` and `for` (the trip dates it covers). If a release opens after the trip dates it covers (e.g. Dec 5 for Jan–Mar), it's treated as the previous year.
 
-Optional on any channel: `share` (e.g. `60%`), `notes` (Permits section text), `short` (chart lane text instead of the generated one), `lottery: true` (dashed band), `idle` (text shown when you're not hovering a season).
+Optional on any channel: `share` (e.g. `60%`), `note` (lane text), `lottery: true` (dashed band), `idle` (text shown when you're not hovering a season).
 
 `trips/_template.md` has examples of each.
 

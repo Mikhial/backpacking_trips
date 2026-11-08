@@ -45,7 +45,7 @@ nav: trips
     <aside class="facts" aria-label="Quick facts">
       <dl>
         {% for label, value in facts %}<dt>{{ label }}</dt><dd>{{ value }}</dd>{% endfor %}
-        {% if permit.short %}<dt>Permits</dt><dd>{{ permit.short }}</dd>{% endif %}
+        {% if permit.note %}<dt>Permits</dt><dd>{{ permit.note }}</dd>{% endif %}
       </dl>
       {% set edit = page.inputPath | editUrl %}
       {% if edit %}<a class="edit" href="{{ edit }}">Edit this trip on GitHub</a>{% endif %}

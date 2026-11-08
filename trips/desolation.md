@@ -48,24 +48,16 @@ seasons:
     notes: Nights can be quite chilly. Late September brings a risk of early winter storms.
 
 permit:
-  short: 6 months before, walk-up
+  note: 6 months before, walk-up
   difficulty: 1
   why: Popular zones sell out on summer weekends
-  notes:
-    - Required year-round.
-    - Quota from the Friday before Memorial Day to Sep 30.
-    - $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
-    - "Off-season: permit still required, no quota."
-    - Camping is dispersed, but your first night must be in your permitted zone (45 zones).
   channels:
     - label: Reservations
       before: 6 months
       share: 70%
-      notes: On Recreation.gov. Book early.
     - label: Walk-up
       before: day of
       share: 30%
-      notes: Walk-in.
 ---
 
 ## Overview
@@ -112,6 +104,15 @@ Wrights Lake / Twin Lakes trailhead. A dirt road, but accessible (when seasonall
 Wrights Lake area construction in 2026 may temporarily close the Rockbound and Twin Lakes trailheads.
 
 ## Permits
+
+Required year-round. Quota from the Friday before Memorial Day to Sep 30; off-season, a permit is still required but there's no quota.
+
+- **Reservations** (70%): on Recreation.gov, up to 6 months ahead. Book early; popular zones sell out on summer weekends.
+- **Walk-in** (30%)
+
+**Cost**: $5/person (1 night) or $10/person (2–14 nights) + $6 reservation fee.
+
+**Camping**: dispersed, but your first night must be in your permitted zone (45 zones).
 
 ## When to go[^exploringwild]
 

@@ -34,26 +34,20 @@ seasons:
     notes: Can be more hit or miss with temperatures (weather more variable).
 
 permit:
-  short: Lottery 5 months · lodge 15 months before
+  note: Lottery 5 months · lodge 15 months before
   difficulty: 3
   why: ~25% success rate
-  notes:
-    - A day hike needs no permit, but it's very long.
   channels:
     - label: Campground · Lottery
       lottery: true
       before: 5 months
       every: month
-      short: monthly, 5 months before
-      notes: Lottery opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
+      note: monthly, 5 months before
     - label: Lodge · Lottery
       lottery: true
       before: 15 months
       every: month
-      short: monthly, 15 months before
-      notes: "Phantom Ranch: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season."
-  links:
-    NPS backcountry permits: https://www.nps.gov/grca/planyourvisit/backcountry-permit.htm
+      note: monthly, 15 months before
 ---
 
 ## Status
@@ -81,7 +75,14 @@ The trail is point to point, so book: a shuttle to Kaibab Lodge, lodging at Kaib
 
 ## Permits
 
+Permits are competitive and may only have a 25% success rate. A day hike needs no permit, but it's very long.
+
+- **Campground lottery**: opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
+- **Phantom Ranch lottery**: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season.
+
 My general Grand Canyon notes say ~80% of backcountry permits go through a monthly early-access lottery about 4 months ahead ($10 + $15/person/night below the rim), with Bright Angel Campground the hardest and Nov–Feb easier. That doesn't match the 5-month figure above; worth confirming.
+
+[NPS backcountry permits](https://www.nps.gov/grca/planyourvisit/backcountry-permit.htm)
 
 ## When to go
 

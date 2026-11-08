@@ -38,12 +38,8 @@ seasons:
     notes: Possible but comes with hazards. Stream crossings can be serious; the Big Sur River sounds like it can be dangerous. Storms can wash out trail. Weather at the coast isn't the weather at the peaks; it can snow up high.
 
 permit:
-  short: ""
+  note: ""
   difficulty: 0
-  notes:
-    - No wilderness permit.
-    - $10/night parking at Big Sur Station; free CA campfire permit for stoves.
-    - Camping is mostly at established trail camps; dispersed camping allowed.
 ---
 
 ## Status
@@ -70,6 +66,12 @@ permit:
 - **Cone Peak**: [Cone Peak from Highway 1](https://www.alltrails.com/trail/us/california/highway-1-to-cone-peak) (water may be hard on this trail); [Cone Peak via Carrizo Creek](https://www.alltrails.com/explore/trail/us/california/cone-peak-via-carrizo-creek-trail) via Stone Ridge/Carrizo trails (may not be well maintained). More: [Cone Peak hike](https://exploringwild.com/hike-cone-peak-big-sur/), [North Coast Ridge to Cone Peak](https://exploringwild.com/north-coast-ridge-cone-peak-ventana-hike/)
 
 ## Permits
+
+No wilderness permit. Easy (when open).
+
+**Cost**: $10/night parking at Big Sur Station; free CA campfire permit for stoves.
+
+**Camping**: mostly at established trail camps; dispersed camping allowed.
 
 ## When to go
 
