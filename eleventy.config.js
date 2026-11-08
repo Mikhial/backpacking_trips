@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
+import footnote from 'markdown-it-footnote';
 import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure, routeShape } from './lib/geo.js';
 import { parkSlug } from './lib/parkdata.js';
@@ -43,7 +44,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('firstNumber', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); return m ? +m[0] : ''; });
   eleventyConfig.addFilter('peakStart', item => { const ss = chartFor(item).seasons; return ((ss.find(x => x.type === 'peak') || ss[0]) || {}).start || '99'; });
   // Rough sort key for "Getting there": hours, with flights sorted after drives
-  eleventyConfig.addFilter('travelHours', v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); const n = m ? +m[0] : 99; return /fly|flight/i.test(v || '') ? 10 + n : n; });
+  // hours for sorting the Trips list by its first time: "3.5 hr", "2:40", "45 min"; trips that start with a flight sort after drives
+  eleventyConfig.addFilter('travelHours', v => { const t = String(v ?? ''); const m = t.match(/(\d+):(\d\d)|(\d+(?:\.\d+)?)\s*(min)?/); const n = !m ? 99 : m[1] ? +m[1] + m[2] / 60 : m[4] ? m[3] / 60 : +m[3]; return /fly|flight/i.test(t.split(/,|\+| or /)[0]) ? 10 + n : n; });
   eleventyConfig.addFilter('hasTrailData', slug => fs.existsSync(`./assets/trails/${slug}.json`));
   // whether the trip's map draws this kind ("map shows:" in its header; without it, everything)
   eleventyConfig.addFilter('mapShows', function (word) { return showsWord(mapShows(this.ctx['map shows']), word); });
@@ -68,6 +70,18 @@ export default function (eleventyConfig) {
       return { n, file, p, ...stats, ...(data.link ? { url: data.link } : {}) };
     });
     return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
+  });
+  // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
+  // one route gives "28 mi point to point", several give the range, "13–48 mi"
+  eleventyConfig.addFilter('tripDistance', data => {
+    if (data.facts && data.facts.Distance) return String(data.facts.Distance);
+    const files = Object.values(data.trackFiles || {});
+    if (!files.length) return '';
+    const mi = pts => measure(pts).len / 1609.344, fmt = v => v < 10 ? v.toFixed(1) : String(Math.round(v));
+    const tracks = files.map(f => parseGpx(fs.readFileSync(String(f).trim(), 'utf8')));
+    if (tracks.length === 1) { const shape = routeShape(tracks[0]); return `${fmt(mi(tracks[0]))} mi${shape ? ' ' + shape.toLowerCase() : ''}`; }
+    const lens = tracks.map(mi), lo = Math.min(...lens), hi = Math.max(...lens);
+    return lo === hi ? `${fmt(lo)} mi` : `${fmt(lo)}–${fmt(hi)} mi`;
   });
   // A one-route trip's stats under the map title: "28 mi · ↑ 7,221 ft · ↓ 7,572 ft · 384–3,812 ft · Point to point"
   eleventyConfig.addFilter('routeSummary', trackFiles => {
@@ -94,6 +108,40 @@ export default function (eleventyConfig) {
     }
     return out.join(' · ');
   };
+  // Footnotes are the way to cite sources: "text.[^reddit]" in the notes, and "[^reddit]: [r/norcalhiking](https://...)"
+  // anywhere in them. They're numbered in order of use and listed under "Sources" at the end of the notes.
+  eleventyConfig.amendLibrary('md', lib => {
+    lib.use(footnote);
+    lib.renderer.rules.footnote_block_open = () => '<section class="footnotes">\n<h2>Sources</h2>\n<ol class="footnotes-list">\n';
+    lib.renderer.rules.footnote_caption = (tokens, idx) => String(tokens[idx].meta.id + 1);
+  });
+
+  // The When to go list, built from the header's seasons, is written into the notes under "## When to go" before
+  // the Markdown is rendered (or added at the end if there's no such heading), so footnotes in season notes work.
+  eleventyConfig.addPreprocessor('whenToGo', 'md', (data, content) => {
+    if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
+    const { whenToGo } = normalizeTrip(data, data.page.inputPath, site.regions);
+    if (!whenToGo.length) return;
+    // a small bar in the chart's season color stands in for the bullet: peak, shoulder, or red for off
+    const mark = w => `<span class="wt-mark ${w.tag ? w.tag.toLowerCase() : 'off'}" role="img" aria-label="${w.tag || 'Off season'}" title="${w.tag || 'Off season'}"></span>`;
+    const items = whenToGo.map(w => `- ${mark(w)}**${w.label}**${w.notes ? ': ' + w.notes : ''}`).join('\n');
+    const block = head => `${head}\n\n<div class="when">\n\n${items}\n\n</div>\n`;
+    // the heading can carry footnotes (## When to go[^name]) to cite a source for the whole section
+    const h = /^## When to go((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
+    return h.test(content) ? content.replace(h, m => block(m.trim())) : `${content}\n\n${block('## When to go')}`;
+  });
+
+  // The Permits section is written in the notes (README: "Writing the Permits section"). The header's
+  // difficulty dots are added next to its heading.
+  eleventyConfig.addPreprocessor('permits', 'md', (data, content) => {
+    if (!/^\.?\/?trips\/[^_][^/]*\.md$/.test(data.page.inputPath.replace(/^\.\//, ''))) return;
+    const n = (data.permit && data.permit.difficulty) || 0;
+    const LEVEL = ['Easy', 'Book ahead', 'Competitive', 'Very hard'];
+    const meter = `<span class="meter" title="Permit difficulty: ${LEVEL[n]}">${[1, 2, 3].map(i => `<i class="${i > n ? 'o' : ''}"></i>`).join('')}</span>`;
+    const h = /^## Permits((?:\[\^[^\]\s]+\])*)[ \t]*$/m;
+    if (!h.test(content)) return;
+    return content.replace(h, m => `${m.trim()} ${meter}`);
+  });
   // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));

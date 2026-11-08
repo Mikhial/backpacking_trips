@@ -15,7 +15,7 @@ routes:
   Route going east: tracks/emigrant-kennedy-lake.gpx
 
 facts:
-  Getting there: 3–4 hr drive via Hwy 108; last miles gravel or rough dirt
+  Getting there: 3.25 hr drive
   Distance: Loops of many sizes, up to 40+ mi
   Elevation: 5,000–11,500 ft (route I did mostly under 8k)
   Nights: 2–5
@@ -26,7 +26,14 @@ facts:
   Crowds: Moderate near Crabtree lakes on summer weekends
 
 seasons:
-  - peak: Jul 1 – Oct 10
+  - peak: Jul 1 – Jul 31
+    notes: Can still have snow depending on snowpack; may be buggy (some areas better than others).
+  - peak: Aug 1 – Sep 20
+    notes: Mosquitoes die off.
+  - peak: Sep 21 – Oct 10
+    notes: Quieter, no mosquitoes, have to carry more water.
+  - off: Nov 1 – May 31
+    notes: Sonora Pass (Hwy 108) usually closed with snow.
 
 permit:
   note: Self-issue, no quota
@@ -35,11 +42,25 @@ permit:
 
 ## Overview
 
-- 3.25-hour drive with no traffic
 - Loops of various sizes, going 40+ miles
 - The route I did was mostly under 8k ft; others have high points at 9k. Further west is higher and likely not worth it.
 - Permits are self-issue with no limits
 - Bear cans not required but recommended
+
+## Getting there
+
+- **Drive**: 3.25 hours with no traffic, via Hwy 108.
+- **Roads**: last miles gravel or rough dirt.
+
+## When to go
+
+## Permits
+
+Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Easy.
+
+- **Self-issue**: kiosk 24/7 at Summit Ranger Station, Pinecrest.
+
+**Camping**: dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
 
 ## Trailheads and routes
 
@@ -64,29 +85,11 @@ Where I solo backpacked and had a good time. 3:10 with no traffic. There's a mai
 
 4.5 hours with no traffic. Close to where Dalton and I backpacked; lots of time above 10k. Probably don't care to do.
 
-## Permits
-
-Free permit required (roughly Apr–Nov); no quotas (except Kibbie Lake). Self-issue kiosk 24/7 at Summit Ranger Station, Pinecrest. Easy.
-
-Camping is dispersed, with a 1-night limit at Camp, Bear, Grouse, Powell and Waterhouse lakes.
-
-## When to go
-
-- **July–mid October (Peak)**: weather should be nice.
-  - **July**: can still have snow depending on snowpack; may be buggy (some areas better than others).
-  - **August/September**: mosquitoes die off.
-  - **Late September/early October**: quieter, no mosquitoes, have to carry more water.
-- **November–May**: Sonora Pass (Hwy 108) usually closed with snow.
-
-## Mosquitoes
+## Mosquitoes[^reddit]
 
 - Emigrant is very variable. Bad mosquitoes in one spot, fine 30 minutes away; it varies with elevation, standing water and sun.
 - At the lakes there's a cycle: snow, melt, mosquitoes, damselflies. At one lake you'll be swarmed; at the next the damselflies have hatched and eaten them all.
 - Unless you camp somewhere wooded, you'll mostly see them at dawn and dusk. Camping away from water on ridges is always safe.
 - Exposed granite tends to be safer: very dry areas where mosquitoes can't regulate their temperature. Stay flexible so you can stop early at a good spot or keep going if camp isn't what you hoped.
 
-## Other
-
-- **Fires**: allowed with a CA campfire permit, except above 9,000 ft and within ½ mile of Emigrant Lake; seasonal restrictions apply.
-- **Cell service**: none in most of the wilderness.
-- **Hazards**: thunderstorms, mosquitoes in early summer, early snow.
+[^reddit]: [r/norcalhiking](https://www.reddit.com/r/norcalhiking/s/gPAfa4ZsvE)

@@ -13,7 +13,7 @@ trailheads:
   O'Shaughnessy Dam: 37.9465, -119.7876
 
 facts:
-  Getting there: 3.5–4 hr drive; Hetch Hetchy Road open sunrise to sunset
+  Getting there: 3.5 hr drive
   Distance: ~28 mi loop (other routes similar)
   Elevation: 3,800–7,000 ft (the loop tops out near 7,600)
   Nights: 1–4
@@ -23,7 +23,16 @@ facts:
   Crowds: Moderate; much quieter than the Valley or Tuolumne
 
 seasons:
-  - peak: Jun 1 – Oct 31
+  - off: May 1 – May 31
+    notes: Probably too early; rivers can be dangerous and it may be cold.
+  - peak: Jun 1 – Jun 30
+    notes: Still wet, some bugs, may be colder at night. Late June/early July may be a good option.
+  - peak: Jul 1 – Aug 31
+    notes: Starts to dry out and gets hot.
+  - peak: Sep 1 – Sep 30
+    notes: Falls dry out; temperatures start getting cooler (though still warm).
+  - peak: Oct 1 – Oct 31
+    notes: Drier, quieter, more manageable weather; may start to get cold at night.
 
 permit:
   note: Lottery 24 weeks · 7 days before
@@ -43,10 +52,28 @@ permit:
 
 ## Overview
 
-- 3.5-hour drive with no traffic
 - Very scenic with a big valley, but not as high elevation; tops out at 8k
 - Will be warm or hot, especially near the lake
 - Bear can required
+
+## Getting there
+
+- **Drive**: 3.5 hours with no traffic.
+- **Roads**: Hetch Hetchy Road is open sunrise to sunset. The road opens at different times in different seasons, so check before going.
+
+## When to go
+
+## Permits
+
+Required year-round. Easier than Tuolumne; book early for spring weekends.
+
+- **Weekly lottery** (60%, May–Oct): 24 weeks ahead, on Recreation.gov.
+- **Reservations** (40%, May–Oct): released 7 days ahead on Recreation.gov.
+- **Off-season** (late October to mid-April): first-come at the Hetch Hetchy entrance.
+
+**Cost**: ~$10 application + $5/person (verify current fee).
+
+**Camping**: dispersed under Yosemite rules; established sites at Rancheria Falls.
 
 ## Routes
 
@@ -55,28 +82,3 @@ A few set routes from O'Shaughnessy Dam: Wapama/Rancheria Falls (1 night), Tilti
 - [Hetch Hetchy loop](https://www.alltrails.com/trail/us/california/hetch-hetchy-loop--2): 28 mi, 5,800 ft gain
 - [Another option](https://www.alltrails.com/explore/trail/us/california/hetch-hetchy-to-falls-creek). I probably want to go around Hetch Hetchy for a first trip, although it's hotter near the lake.
 - Other options exist, but they're mostly similar.
-
-The road opens at different times in different seasons, so check before going.
-
-## Permits
-
-- Required year-round.
-- May–Oct: 60% by weekly lottery 24 weeks ahead, 40% released 7 days ahead on Recreation.gov. ~$10 application + $5/person (verify current fee). Easier than Tuolumne; book early for spring weekends.
-- Off-season: first-come at the Hetch Hetchy entrance.
-- Camping is dispersed under Yosemite rules; established sites at Rancheria Falls.
-
-## When to go
-
-- **May**: probably too early; rivers can be dangerous and it may be cold.
-- **June–October (Peak)**: late June/early July may be a good option.
-  - **June**: still wet, some bugs, may be colder at night.
-  - **July/August**: starts to dry out and gets hot.
-  - **September**: falls dry out; temperatures start getting cooler (though still warm).
-  - **October**: drier, quieter, more manageable weather; may start to get cold at night.
-- **Other research**: my detailed research lists Apr–Jun and Oct–Nov as the best seasons, with Jul–Sep hot (90°F+) and higher lakes snowbound until late spring.
-
-## Other
-
-- **Fires**: Yosemite fire restrictions below 8,000 ft; stoves OK.
-- **Cell service**: none.
-- **Hazards**: heat, rattlesnakes, ticks, poison oak, high water at creek crossings in spring.

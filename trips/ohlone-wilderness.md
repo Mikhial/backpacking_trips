@@ -14,7 +14,7 @@ trailheads:
   Del Valle: 37.57614, -121.69351
 
 facts:
-  Getting there: 45 min–1.5 hr drive, plus 45 min Uber to the other end
+  Getting there: 45 min drive + 45 min Uber
   Nights: 1–2 (max 3)
   Terrain: Strenuous; steep, exposed fire roads
   Water: Seasonal springs at camps (non-potable)
@@ -22,13 +22,16 @@ facts:
   Crowds: Solitude midweek; Mission Peak end busy with day hikers
 
 seasons:
-  - shoulder: Jan 1 – Feb 28
-    why: [cold, wet]
   - peak: Mar 1 – May 31
+    notes: Green through April.
+  - off: Jun 1 – Sep 30
+    notes: Hot and shadeless.
   - shoulder: Oct 1 – Oct 31
     why: [dry]
-  - shoulder: Nov 1 – Dec 31
+    notes: Doable, but dry.
+  - shoulder: Nov 1 – Feb 28
     why: [cold, wet]
+    notes: "Doable, but cold, dark and wet. Green from February. In Jan/Feb, lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days."
 
 permit:
   note: Opens twice annually
@@ -49,19 +52,25 @@ permit:
 
 - Best close solo option, and the highest-rated close option
 - Call at least 2 days ahead for a camp reservation. Shouldn't be difficult to get one.
-- 45 minutes to 1.5 hours depending on traffic, plus a 45-minute Uber to the other side
 - 28 miles, 7,500 ft of gain, 1–2 nights
-
-## Route
-
-- Park at Mission Peak and Uber to Del Valle (east to west)
 - [Reddit trip report](https://www.reddit.com/r/norcalhiking/comments/1iwpolp/solo_backpacking_the_ohlone_wilderness_trail_28/)
 
-## Permits and reservations
+## Getting there
 
-- Camps are reserved by phone, at least 2 business days ahead. [Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
-- $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
-- Sites are released in two six-month blocks: arrival dates July–December 2026 are open now; January–June 2027 open in December 2026.
+- **Drive**: 45 minutes to 1.5 hours depending on traffic.
+- **Uber**: 45 minutes to the other side.
+
+## When to go
+
+## Permits
+
+Camps are reserved by phone, at least 2 business days ahead.
+
+- **Reservations**: released in two six-month blocks. Arrival dates July–December 2026 are open now; January–June 2027 open in December 2026.
+
+**Cost**: $15/site/night + $8 reservation fee. Maximum 3 nights, 2 reservations per call.
+
+[Reservation site](https://www.reserveamerica.com/explore/sunol/EB/110028/overview)
 
 ## Camps
 
@@ -76,19 +85,3 @@ permit:
   - **Hawk's Nest**: less privacy (on the main trail), but close to the outhouse, shady, limited view
 - Amenities: tables, chemical/pit toilets, non-potable water
 - Seasonal springs at camps were all flowing as of Oct 16, 2026; they can dry up in late summer and fall.
-
-## When to go
-
-- **Winter**: doable, but cold, dark and wet. Green from February.
-  - **Jan/Feb**: lows likely in the 30s, highs in the 50s. Roughly a 25% chance of rain on any given day, but rain comes in bunches with storm systems: mostly rainy for a week or so, then clear for a while. Short days.
-- **March–May (Peak)**: Green through April.
-- **June–September**: Hot and shadeless.
-- **Fall**: Doable, but dry.
-
-## Hazards
-
-Heat, ticks, rattlesnakes, cattle, poison oak in canyons.
-
-## Character
-
-Grassy ridges and oak canyons; tule elk and eagles.

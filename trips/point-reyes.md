@@ -12,7 +12,7 @@ routes:
   Shorter loop on the south side: tracks/point-reyes-pelican-hill-loop.gpx
 
 facts:
-  Getting there: 1–1.5 hr drive; paved, winding
+  Getting there: 1 hr drive
   Distance: Up to ~30 mi plus side trips
   Elevation: 0–1,407 ft (Mt. Wittenberg)
   Nights: 1–3 (4-day trip limit)
@@ -22,15 +22,17 @@ facts:
   Crowds: Busy weekends; moderate weekdays
 
 seasons:
-  - shoulder: Jan 1 – Feb 28
-    why: [rain, cold]
   - shoulder: Mar 1 – May 31
     why: [wind, cold]
+    notes: Most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
   - shoulder: Jun 1 – Aug 31
     why: [fog]
+    notes: Very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
   - peak: Sep 1 – Oct 31
-  - shoulder: Nov 1 – Dec 31
+    notes: Some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October.
+  - shoulder: Nov 1 – Feb 28
     why: [rain, cold]
+    notes: The heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool. The strongest winds come in November and December with southerly gales.
 
 permit:
   note: 90/14 days before
@@ -47,10 +49,31 @@ permit:
 
 ## Overview
 
-- 1-hour drive
 - Permits can be hard: half open 90 days ahead, half 14 days ahead
 - Would be good to do with friends
 - Up to ~30 miles plus side trips. Can go up to 4 days (2-night limit per camp reservation)
+
+## Getting there
+
+- **Drive**: 1 hour.
+- **Roads**: paved, winding.
+
+## When to go
+
+## Permits
+
+Required, via Recreation.gov. No same-day. Trip limit is 4 days.
+
+- **3 months ahead**: half the sites, released 3 months to the day ahead.
+- **14 days ahead**: the rest.
+
+**Cost**: $30/site/night (1–6 people). Can book 2 nights on one reservation. That's likely better than 2 separate reservations (unless it's off season).
+
+**When to book**:
+
+- Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
+- Spring and fall weekends: plan ahead, but cancellations come up often.
+- Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
 
 ## Routes
 
@@ -69,25 +92,3 @@ Designated sites only; no dispersed camping.
 - **Wildcat Camp**: open meadow on an ocean bluff, short walk to the beach, about a 2-mile round trip to Alamere Falls. Hardest to book.
 
 Amenities: vault toilets, tables, lockers and water at all camps.
-
-## Permits and reservations
-
-- Required, via Recreation.gov. Half the sites are released 3 months to the day ahead, the rest 14 days ahead. No same-day. $30/site/night (1–6 people).
-- Trip limit is 4 days.
-- Can book 2 nights on one reservation. That's likely better than 2 separate reservations (unless it's off season).
-- Summer or holiday weekends: book right at release, and the Wildcat night may still fail.
-- Spring and fall weekends: plan ahead, but cancellations come up often.
-- Weekdays from late fall through winter: usually easy, often only a few days or weeks out.
-
-## When to go
-
-- **Winter**: the heaviest rain. Come prepared for rain and drizzle lasting several days. Between storms it's often sunny, calm and cool.
-- **Spring**: most days are windy, with fresh to strong breezes. Cool in March; by late May and early June it can be pleasant, even warm.
-- **Summer**: very little rain, but often dense fog all day in July, August and September, with temperatures often 20 degrees cooler than at Bear Valley.
-- **Fall (Peak)**: some of the clearest days in late September, October and early November. The occasional storm starts rolling through in late October. The strongest winds come in November and December with southerly gales.
-
-## Other
-
-- **Fires**: never in camps; stoves only. Beach fires by free permit when fire danger allows.
-- **Cell service**: spotty.
-- **Hazards**: ticks, poison oak, sneaker waves and tides, cold fog.

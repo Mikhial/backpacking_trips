@@ -20,10 +20,19 @@ for (const f of files) {
   try { data = yaml.load(m[1]) || {}; }
   catch (e) {
     const line = e.mark ? ` (line ${e.mark.line + 2})` : '';
-    problems.push(`${file}${line}: the header isn't valid YAML: ${e.reason || e.message}. Check indentation and colons.`);
+    const text = e.mark ? m[1].split(/\r?\n/)[e.mark.line] || '' : '';
+    if (/^\s*notes:/.test(text)) problems.push(`${file}${line}: this note has a colon followed by a space in it. Put the whole note in "double quotes", or use a different punctuation mark.`);
+    else problems.push(`${file}${line}: the header isn't valid YAML: ${e.reason || e.message}. Check indentation and colons.`);
     continue;
   }
   problems.push(...normalizeTrip(data, file, site.regions).errors);
+  // Footnote sources: every [^name] (in the notes or in a season's notes) needs a "[^name]: source" line in the notes
+  const body = text.slice(m[0].length);
+  const defs = new Set([...body.matchAll(/^\[\^([^\]\s]+)\]:/gm)].map(x => x[1]));
+  const cites = body + '\n' + [].concat(data.seasons || []).map(x => (x && typeof x.notes === 'string') ? x.notes : '').join('\n');
+  const used = new Set([...cites.matchAll(/\[\^([^\]\s]+)\](?!:)/g)].map(x => x[1]));
+  for (const n of used) if (!defs.has(n)) problems.push(`${file}: the notes cite [^${n}] but there's no "[^${n}]: ..." line in the notes saying what the source is`);
+  for (const n of defs) if (!used.has(n)) notes.push(`${file}: the source [^${n}] isn't cited anywhere, so it won't be listed. (Fine if that's on purpose.)`);
   const linkTexts = [...text.slice(m[0].length).matchAll(/\[((?:[^\[\]]|\[[^\]]*\])+)\]\(/g)].map(x => routeKey(x[1]));
   const field = data.route != null ? 'route' : 'routes';
   for (const [name, gpx] of Object.entries(tripRoutes(data))) {

@@ -28,8 +28,10 @@ facts:
 
 seasons:
   - peak: May 15 – Jun 7
-  - peak: Sep 20 – Oct 15
+    notes: Go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
+  - peak: Sep 21 – Oct 15
     why: [water]
+    notes: Can be more hit or miss with temperatures (weather more variable).
 
 permit:
   note: Lottery 5 months · lodge 15 months before
@@ -57,7 +59,6 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 - There are many other backpacking trips, but this is the quintessential Grand Canyon trip
 - [Going south to north](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail) is also an option, but recommended for a second time
 - Possible as a long day hike, but can also be done in 2 or 3 days
-- Lots of travel: short flights plus 4–5-hour shuttles or drives
 - Could potentially add other nearby parks
 - [Trail guide](https://hikingguy.com/hikes/rim-to-rim-grand-canyon/)
 
@@ -72,23 +73,15 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 
 The trail is point to point, so book: a shuttle to Kaibab Lodge, lodging at Kaibab Lodge, and a shuttle from your cabin to the trailhead. There's also lodging at the South Rim.
 
-## Overnight options
+## When to go
 
-- **Campgrounds**: lottery opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
-- **Phantom Ranch**: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season.
-- Permits are competitive and may only have a 25% success rate.
-- A day hike needs no permit, but it's very long.
+## Permits
+
+Permits are competitive and may only have a 25% success rate. A day hike needs no permit, but it's very long.
+
+- **Campground lottery**: opens 5 months in advance, for 2 weeks. You can check for cancellations with a [commercial service](https://outdoorstatus.com/permits/us/arizona/grand-canyon-national-park/backcountry-permit/).
+- **Phantom Ranch lottery**: a primitive lodge at the bottom of the canyon, with dorms and private cabins, bathrooms and showers, and a canteen. Lottery opens 15 months in advance; you can check for cancellations during the season.
 
 My general Grand Canyon notes say ~80% of backcountry permits go through a monthly early-access lottery about 4 months ahead ($10 + $15/person/night below the rim), with Bright Angel Campground the hardest and Nov–Feb easier. That doesn't match the 5-month figure above; worth confirming.
 
-## When to go
-
-- **May 15–early June (Peak)**: go as early as possible. May is already reaching the mid/high 90s in the inner canyon.
-- **Late September–October 15 (Peak)**: can be more hit or miss with temperatures (weather more variable).
-- **Park-wide**: Mar–May and Oct–Nov are best; summer is 110°F+ at the bottom.
-
-## Other
-
-- **Fires**: none below the rim.
-- **Cell service**: none below the rim.
-- **Hazards**: heat, steep grades, icy upper trails in winter, flash floods in side canyons.
+[NPS backcountry permits](https://www.nps.gov/grca/planyourvisit/backcountry-permit.htm)

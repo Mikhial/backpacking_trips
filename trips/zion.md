@@ -22,9 +22,15 @@ facts:
   Nights: Day hikes plus an overnight, or a multi-day traverse
 
 seasons:
+  - off: Dec 1 – Feb 28
+    notes: Out of season.
   - shoulder: May 1 – May 31
     why: [crowds, water]
+    notes: Good weather, but it's crowded and the water may be too high.
+  - off: Jun 1 – Sep 14
+    notes: Lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
   - peak: Sep 15 – Oct 31
+    notes: Water levels at their lowest, warm temperatures, monsoon risk over.
 
 permit:
   note: Reservations quarterly · lotteries
@@ -80,41 +86,60 @@ permit:
 - Permits are competitive: hardest in the National Park System. The most popular day hikes and any overnight camping need permits.
 - Permits release at different times, so if you get one you may still need to wait for others. They release 1 to 5 months ahead depending on trail and time.
 
-## Day hikes
+## Getting there
 
-- **[The Narrows (bottom up)](https://www.alltrails.com/explore/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring)**: no permit required. 9.4 miles up the river through the main canyon; walls up to 1k ft high and as narrow as 20 ft. Not possible for much of spring due to water level: March and April are generally a no-go; May is possible depending on snowpack, and the water can be cold. July–September has flash flood risk.
-- **[The Subway](https://www.alltrails.com/trail/us/utah/the-subway-trail)** (permit required): narrow slot canyon. Possible in late April/May, but permits will be hard and the water cold.
+- **Fly**: to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
+- **Drive**: ~11 hours (depending on route); maybe worth it if also doing Utah.
 
-## Day or overnight
-
-- **[West Rim Trail](https://www.alltrails.com/explore/trail/us/utah/west-rim-trail-top-down)**: 15 miles, 1.3k ft, point to point
-- **Angels Landing** (permit required): [Angels Landing day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail) (5 miles) or [Angels Landing overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop) (16 miles). No-permit alternative: Scout Lookout gets you most of the experience.
-- **[La Verkin Creek Trail](https://www.alltrails.com/explore/trail/us/utah/la-verkin-creek-trail-via-lee-pass-trailhead)**: 18 miles, 2k ft
-
-## Overnight hikes (permit required)
-
-- **[The Narrows (top down)](https://www.alltrails.com/trail/us/utah/the-narrows-top-down)**: 21 miles. See the day-hike notes above.
-- **[Zion Traverse](https://www.alltrails.com/explore/trail/us/utah/zion-traverse-lee-pass-to-east-rim-trailhead--2)**: 49 miles across the whole park. Open questions: does it hit the same sights? Can it be made shorter?
+## When to go
 
 ## Permits
 
 Day-hike permits release before backpacking permits, so even with a day-hike permit you won't know about a backpacking trip until later.
 
-- **Backpacking**: usually booked within minutes of release. Jan–Mar released Dec 5; Apr–Jun released Mar 5; Jul–Sep released Jun 5; Oct–Dec released Sep 5.
-- **The Subway**: lottery. Unclaimed spots are released the month after the lottery. Apr–Jun hikes: lottery in February. Jul–Sep: lottery in May. Oct–Dec: lottery in August.
-- **Angels Landing**: lottery. Mar–May hikes: lottery in January. Jun–Aug: lottery in April. Sep–Nov: lottery in July.
+- **Backpacking**: usually booked within minutes of release.
+  - Jan–Mar: released Dec 5
+  - Apr–Jun: released Mar 5
+  - Jul–Sep: released Jun 5
+  - Oct–Dec: released Sep 5
+- **The Subway**: lottery. Unclaimed spots are released the month after the lottery.
+  - Apr–Jun hikes: lottery in February
+  - Jul–Sep: lottery in May
+  - Oct–Dec: lottery in August
+- **Angels Landing**: lottery.
+  - Mar–May hikes: lottery in January
+  - Jun–Aug: lottery in April
+  - Sep–Nov: lottery in July
 
-## When to go
+## Day hikes
 
-- **Winter**: out of season.
-- **Spring**: May has good weather, but it's crowded and the water may be too high.
-- **Summer**: lots of crowds, some flooding risk. June to early September is hot, though the canyon's water and shade help. July and August rainstorms are common.
-- **Mid-September–October (Peak)**: water levels at their lowest, warm temperatures, monsoon risk over.
+- **[The Narrows (bottom up)](https://www.alltrails.com/explore/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring)**
+  - No permit required. 
+  - 9.4 miles up the river through the main canyon; walls up to 1k ft high and as narrow as 20 ft.
+  - Not possible for much of spring due to water level
+    - March and April are generally a no-go
+    - May is possible depending on snowpack, and the water can be cold. 
+    - July–September has flash flood risk.
+- **[The Subway](https://www.alltrails.com/trail/us/utah/the-subway-trail)**
+  - Permit required
+  - Narrow slot canyon
+  - Possible in late April/May, but permits will be hard and the water cold.
 
-## Getting there
+## Day or overnight
 
-- ~11-hour drive (depending on route); maybe worth it if also doing Utah.
-- Fly to Las Vegas (1.5 hr), then drive 2.5–3 hr. Could also take a private shuttle if it lines up; you probably don't need a car once there.
+- **[West Rim Trail](https://www.alltrails.com/explore/trail/us/utah/west-rim-trail-top-down)**
+- **Angels Landing** (permit required)
+  - [Angels Landing day hike](https://www.alltrails.com/explore/trail/us/utah/angels-landing-trail)
+  - [Angels Landing overnight](https://www.alltrails.com/explore/trail/us/utah/angels-landing-west-rim-telephone-loop)
+  - No-permit alternative: Scout Lookout gets you most of the experience.
+- **[La Verkin Creek Trail](https://www.alltrails.com/explore/trail/us/utah/la-verkin-creek-trail-via-lee-pass-trailhead)**
+
+## Overnight hikes (permit required)
+
+- **[The Narrows (top down)](https://www.alltrails.com/trail/us/utah/the-narrows-top-down)**
+  - See the day-hike notes above.
+- **[Zion Traverse](https://www.alltrails.com/explore/trail/us/utah/zion-traverse-lee-pass-to-east-rim-trailhead--2)**
+  - 49 miles across the whole park. Open questions: does it hit the same sights? Can it be made shorter?
 
 ## Nearby parks
 

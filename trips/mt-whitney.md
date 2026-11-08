@@ -20,9 +20,12 @@ facts:
 seasons:
   - shoulder: Jun 1 – Jul 31
     why: [snow]
+    notes: Variable snow (snowpack dependent). Microspikes and trekking poles recommended.
   - peak: Aug 1 – Sep 15
+    notes: Best odds of a clear trail. Thunderstorms are a risk.
   - shoulder: Sep 16 – Oct 31
     why: [cold, snow]
+    notes: Colder, early snow risk. The season ends at the first snowstorm.
 
 permit:
   note: Lottery Feb · unclaimed Apr 22
@@ -40,24 +43,25 @@ permit:
 
 ## Overview
 
-- 6.5-hour drive, or a 1.5-hour flight to Bishop (BIH, ~$300 round trip) and an hour's drive to the trailhead
 - [Trail guide](https://hikingguy.com/hikes/mt-whitney/)
+
+## Getting there
+
+- **Drive**: 6.5 hours.
+- **Fly**: 1.5 hours to Bishop (BIH, ~$300 round trip), then an hour's drive to the trailhead.
+
+## When to go
+
+## Permits
+
+Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
+
+- **Lottery**: open all of February; results announced Mar 15.
+- **Unclaimed permits**: released Apr 22.
+- **Cancellations**: rolling availability May 1 – Nov 1.
 
 ## Day hike or overnight
 
 I probably want a day hike, with a day before to acclimate. A typical day hike starts 2–5am; overnight starts are typically 7–10am.
 
 **Acclimating**: arrive early, acclimate, and sleep in town. [Lone Pine Lake](https://www.alltrails.com/trail/us/california/mount-whitney-portal-to-lone-pine-lake) (5.5 miles, up to 10k ft) is a good hike the day before.
-
-## Permits
-
-- Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
-- Lottery open all of February; results announced Mar 15.
-- Unclaimed permits released Apr 22.
-- May 1 – Nov 1: rolling cancellation availability.
-
-## When to go
-
-- **June–July**: variable snow (snowpack dependent). Microspikes and trekking poles recommended.
-- **August–mid September (Peak)**: best odds of a clear trail. Thunderstorms are a risk.
-- **Mid-September–October**: colder, early snow risk. The season ends at the first snowstorm.

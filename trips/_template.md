@@ -38,12 +38,20 @@ facts:
   Water: Lakes and streams
   Food storage: Bear canister required
 
-# Seasons on the chart. Each line starts with peak: or shoulder:, then a date range.
-# "why" (optional) explains a season, peak or shoulder: hot, dry, rain, cold, wind, fog, wet, bugs, snow, water, crowds, smoke
+# Seasons: the chart bars and the When to go list on the trip page.
+# Each line starts with peak:, shoulder: or off: (off is listed under When to go but not drawn), then dates.
+# Several ranges are separated by commas; a range can run past New Year (Nov 1 – Feb 28).
+# "why" (optional): hot, dry, rain, cold, wind, fog, wet, bugs, snow, water, crowds, smoke
+# "notes" (optional): what that time of year is like. If a note has a colon followed by a space, put it in "double quotes".
 seasons:
   - shoulder: Jun 1 – Jun 30
     why: [wet, bugs]
+    notes: Still snow up high; mosquitoes bad.
   - peak: Jul 1 – Sep 15
+    notes: Best weather.
+  - off: Nov 1 – May 31
+    notes: Road closed with snow.
+# To cite a season's source, end its note with a footnote, like notes: Road closed.[^ranger] (see the README)
 
 permit:
   note: 90 days before      # short note shown on the chart
@@ -73,4 +81,23 @@ permit:
 
 ## Overview
 
-Free-form notes go here, in Markdown. Use any headings you like: routes, camps, permits, when to go, logistics.
+Free-form notes go here, in Markdown. Keep these first, in this order: Overview, Getting there, When to go, Permits. Then any headings you like: routes, camps, logistics. Cite sources with footnotes: "some fact.[^name]" and a line "[^name]: [Site name](https://...)" (see the README).
+
+## Getting there
+
+- **Drive**: 3 hours with no traffic.
+
+## When to go
+
+## Permits
+
+Required year-round. Quota from May 1 to Sep 30. Weekends sell out at release.
+
+- **Reservations** (70%): on Recreation.gov, 90 days ahead.
+- **Walk-up** (30%): day of, at the ranger station.
+
+**Cost**: $5/person/night + $6 reservation fee.
+
+**Camping**: dispersed; first night in your permitted zone.
+
+[Permit page](https://www.recreation.gov/...)
