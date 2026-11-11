@@ -115,14 +115,6 @@ The trail closes intermittently. The Skyline isn't an official park trail (it's 
 - In winter, ice and snow on the Traverse and Coffman's Crag: "a slip will probably be catastrophic." Without winter mountaineering experience, this isn't the place to learn.
 - Preview by hiking to the picnic benches the day before.
 
-## Gear
-
-- 3L of water from the start to Long Valley (more if it's hot), energy gels with electrolytes, dense energy bars.
-- Layers and a shell (the summit is exposed and cooler), trekking poles, headlamp plus a backup battery.
-- Satellite SOS (the first half has decent cell coverage), offline navigation app.
-- Microspikes if there's any chance of snow past Long Valley.
-- Don't use brand new gear on the day.
-
 ## Training
 
 Get used to climbing for 8–12 hours straight and hiking 12–16 hours. Mt Whitney could be a warmup.
