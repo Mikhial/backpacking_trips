@@ -8,6 +8,7 @@ park: Alpine Lakes Wilderness
 within: Okanogan-Wenatchee National Forest
 route: Enchantments Traverse
 gpx: tracks/enchantments.gpx
+route link: https://www.alltrails.com/trail/us/washington/the-enchantments-trail
 places:
   Colchuck Lake:
     at: 47.49783, -120.83455
