@@ -84,10 +84,22 @@ The trail closes intermittently. The Skyline isn't an official park trail (it's 
 - Last trams typically leave in the evening; confirm the [schedule](https://pstramway.com/about-us/hours/). Allow at least 15 minutes to get through Mountain Station and board.
 - **If the tram isn't running**: take the Deer Springs Trail down to Idyllwild ([GPX](https://caltopo.com/m/B8G45KL)) and arrange your own ride back to Palm Springs.
 
-## Navigation and safety
+## On-trail navigation
 
 - You need electronic navigation, checked more often than normal, especially in the dark. Going off trail can get you cliffed out easily. Carry redundant GPS with the GPX loaded, plus a paper map backup.
-- Local hikers blaze white dots, but they fade. The trail splits and rejoins; wrong-side trails are usually blocked with branches or stones. If the trail fizzles out, backtrack.
+- Local hikers blaze white dots, but they fade, so don't rely on them alone.
+- The trail splits and rejoins; the GPX generally follows the less-steep option. Wrong-side trails are usually blocked with branches or stones.
+- If the trail fizzles out, backtrack: you missed a turn. Look for footprints.
+- **Turns to watch for**:
+  - **Start**: from the back of the Palm Springs Art Museum, cross the road and avoid private property.
+  - **Picnic benches**: hard left, follow the North Lykken Trail signs briefly, then turn right at a large rock cairn.
+  - **After the split**: bear left; two painted rocks point toward Long Valley.
+  - **Coffman's Crag**: hard left.
+  - **Past Grubbs Notch**: bear right, take the utility trail past the sheds, then turn left onto the paved tram-station path.
+  - **Long Valley Ranger Station**: bear right outside the station toward the summit. The Wellman Divide sign is the last landmark before the summit.
+
+## Safety
+
 - Two rescue boxes (Rescue 1 and 2) are stocked with water, snacks and emergency gear. Only take something if you're in real trouble; leave an extra bottle of water if you have one.
 - In winter, ice and snow on the Traverse and Coffman's Crag: "a slip will probably be catastrophic." Without winter mountaineering experience, this isn't the place to learn.
 - Preview by hiking to the picnic benches the day before.
