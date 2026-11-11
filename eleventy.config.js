@@ -62,6 +62,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('mapExtras', data => {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
     const trailheads = places(data.trailheads), camps = places(data.camps);
+    // places: Name, then at: (latitude, longitude) and an optional note: shown in its tooltip
+    const spots = Object.entries(data.places || {}).map(([n, v]) => ({ n, at: parseLatLon(v?.at), note: v?.note ? String(v.note).trim() : '' })).filter(t => t.at);
     const routes = Object.entries(data.trackFiles || {}).map(([n, file]) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
@@ -69,7 +71,7 @@ export default function (eleventyConfig) {
       const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
       return { n, file, p, ...stats, ...(data.link ? { url: data.link } : {}) };
     });
-    return (trailheads.length || camps.length || routes.length) ? JSON.stringify({ trailheads, camps, routes }).replace(/</g, '\\u003c') : '';
+    return (trailheads.length || camps.length || spots.length || routes.length) ? JSON.stringify({ trailheads, camps, places: spots, routes }).replace(/</g, '\\u003c') : '';
   });
   // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
   // one route gives "28 mi point to point", several give the range, "13–48 mi"

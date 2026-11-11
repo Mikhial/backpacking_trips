@@ -10,6 +10,31 @@ gpx: tracks/cactus-to-clouds.gpx
 route link: https://www.alltrails.com/trail/us/california/skyline-trail-cactus-to-clouds
 trailheads:
   Palm Springs Art Museum: 33.82528, -116.55009
+places:
+  Picnic benches:
+    at: 33.82638, -116.55733
+    note: Just under 1 mi. First gut check. In hot conditions, decide here.
+  Rescue 1:
+    at: 33.82086, -116.56903
+    note: ~2.5 mi. The last clean turnaround point. After it, don't turn around and descend through the heat; continue up to Long Valley no matter what.
+  Rescue 2:
+    at: 33.81898, -116.60720
+    note: ~6.5 mi.
+  Flat Rock:
+    at: 33.81537, -116.61814
+    note: About 2.5 more miles to Long Valley.
+  The Traverse:
+    at: 33.81191, -116.63042
+    note: ~8.5 mi, around 7,400 ft. Usually the most challenging section, and where most rescues happen.
+  Grubbs Notch:
+    at: 33.81167, -116.63736
+    note: Coffman's Crag to Grubbs Notch is short and very steep, with falling debris early in the season. Past Grubbs Notch the toughest part is behind you.
+  Long Valley Ranger Station:
+    at: 33.81262, -116.64226
+    note: Water, bathrooms and the permit. Second check-in. If anything says no, this is the smart turnaround point.
+  Mountain Station:
+    at: 33.81317, -116.63864
+    note: The tram down. Buy a one-way ticket at the gift shop (cash or credit). Food, drink and indoor seating.
 links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
   Tram hours: https://pstramway.com/about-us/hours/
@@ -60,12 +85,6 @@ The trail closes intermittently. The Skyline isn't an official park trail; the l
 ## Route
 
 - **Start to Long Valley** (10 mi, 8,000+ ft of climbing): the toughest part of the hike. If you're tired at the end of it, you can end early and take the tram down.
-  - **Picnic benches** (just under 1 mi): first gut check. In hot conditions, decide here.
-  - **Rescue 1** (~2.5 mi): the last clean turnaround point. After it, don't turn around and descend through the heat; continue up to Long Valley no matter what.
-  - **Rescue 2** (~6.5 mi), then Flat Rock, about 2.5 more miles to Long Valley.
-  - **The Traverse** (~8.5 mi, around 7,400 ft): usually the most challenging section, and where most rescues happen.
-  - **Coffman's Crag to Grubbs Notch**: short and very steep, with falling debris early in the season. Past Grubbs Notch the toughest part is behind you.
-- **Long Valley Ranger Station**: water, bathrooms and the permit. Second check-in: if anything says no, this is the smart turnaround point.
 - **Long Valley to summit** (4.5 mi, 2,000+ ft): up in the pines, not as steep. Round Valley Campground's toilets are the last before the summit; scramble the last few hundred feet.
 - **Summit to tram** (5.5 mi): backtrack to the ranger station, return the permit, then take the paved path to Mountain Station. Can seem longer and tougher than an average downhill.
 

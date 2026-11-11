@@ -66,6 +66,10 @@ trailheads:                    # optional: trailheads missing from the map
   Bear Valley: 38.0405, -122.7998
 camps:                         # optional: camps to always show on the map
   Sky Camp: 38.0298, -122.8361
+places:                        # optional: other spots to mark on the map, with a note in the tooltip
+  Rescue 1:
+    at: 33.82086, -116.56903
+    note: The last clean turnaround point.
 routes:                        # optional: your own routes, as GPX files
   Coast Trail loop: tracks/point-reyes-coast.gpx
   Bear Valley to Wildcat: tracks/point-reyes-bear-valley.gpx
@@ -148,6 +152,7 @@ Add `park:` with the park or wilderness name, spelled the way it is on [openstre
 
 - **Missing trailhead**: add it under `trailheads:` as `Name: latitude, longitude`. Right-click the spot in Google Maps to copy the coordinates.
 - **Camps**: add the camps you mention under `camps:`, in the same `Name: latitude, longitude` format. They're always shown on the map, alongside the camps from OpenStreetMap. Only add ones OpenStreetMap doesn't have (check the All map data page), or they show twice.
+- **Places**: anything else worth marking on the map (a checkpoint, a tram station, a tricky turn) goes under `places:`. Give each its name, then `at:` (latitude, longitude) and an optional `note:` on the lines below, indented. Hovering the white dot shows the name and note. A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - **Your own routes**: export each as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are listed above the map; click one to draw it in blue on top of the trails. The elevation profile uses the elevations in the GPX file. In the notes, a link whose text is exactly the route name (e.g. `- [Coast Trail loop](https://www.alltrails.com/…)`) automatically shows the distance, elevation gain and elevation range measured from the GPX, plus a **Map** button. Don't type those numbers yourself; any notes after a `:` go on the next line.
 - **A trip that is one route** (like Rim to Rim inside Grand Canyon, or Ohlone's one point-to-point): instead of `routes:`, write the route's name on `route:` and its GPX file on `gpx:`. The map then shows that route, always on with its elevation profile open, over the other trails, trailheads, camps, water and peaks within about 3 miles of it. The route can't be hidden, and there are no show/hide buttons. The park name also appears next to the region above the title.
 - **Planning links**: the row under the map opens CalTopo and Gaia GPS on whatever area the map is showing. Add your own under `links:` as `Label: https://…` (ranger station, conditions page, FarOut, permits).

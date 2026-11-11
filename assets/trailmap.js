@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], routes: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], routes: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -194,6 +194,13 @@
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
+    // Your places (places: in the trip header), at every zoom, with their note in the tooltip
+    extras.places.forEach(p => {
+      const m = L.marker(p.at, { icon: icon('place'), keyboard: false }).addTo(overview)
+        .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+    });
+
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
     // as one dot with a count; click it (or zoom in) to see them separately
     const campLayer = L.layerGroup().addTo(map);
@@ -232,6 +239,7 @@
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
     extras.camps.forEach(p => grow(p.at));
+    extras.places.forEach(p => grow(p.at));
     if (bounds && !single && data.bounds) {
       const park = L.latLngBounds(data.bounds), m = 0.1;
       const near = L.latLngBounds([bounds.getSouth() - m, bounds.getWest() - m], [bounds.getNorth() + m, bounds.getEast() + m]);
