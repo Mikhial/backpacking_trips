@@ -12,16 +12,14 @@ trailheads:
   Palm Springs Art Museum: 33.82528, -116.55009
 links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
+  Tram hours: https://pstramway.com/about-us/hours/
   Trail report: https://sanjacjon.com
-  Closures (park Facebook): https://www.facebook.com/mountsanjacintostatepark/
+  Closures (park FB): https://www.facebook.com/mountsanjacintostatepark/
 
 facts:
-  Getting there: Palm Springs; downtown hotels are walking distance to the start
-  Distance: 20 mi point to point (tram down)
-  Elevation: 10,800 ft of climbing
+  Getting there: 90 minute flight. Negligable drive
   Nights: Day hike (12–16 hrs)
   Terrain: Very hard; unofficial, steep trail, much of it in the dark
-  Water: None at the start; 3L to Long Valley, refill at the ranger station
 
 seasons:
   - off: Dec 1 – Apr 30
