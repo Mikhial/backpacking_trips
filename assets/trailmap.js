@@ -76,7 +76,7 @@
     // Overview: named trails and trailheads. Zoomed in: everything else.
     const overview = L.layerGroup().addTo(map), detail = L.layerGroup();
     const color = { trail: '#b5462f', road: '#8a6a4b' };
-    let selected = null, hoverDot = null, hoverAt = null;
+    let selected = null, hoverDot = null, hoverAt = null, placeAt = null;
     // Long-distance trails (PCT, Tahoe Rim Trail…) are drawn last, thicker and darker
     const isBig = t => !!t.b && t.k === 'trail' && !t.x;
     trails.slice().sort((a, b) => isBig(a) - isBig(b)).forEach(t => {
@@ -199,6 +199,9 @@
       const m = L.marker(p.at, { icon: icon('place'), keyboard: false }).addTo(overview)
         .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      // and marks where it is on the open elevation profile
+      m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
+      m.on('mouseout', () => placeAt && placeAt(null));
     });
 
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
@@ -293,7 +296,7 @@
       if (selected) { selected.setStyle(selected.base); }
       selected = line;
       if (hoverDot) { hoverDot.remove(); hoverDot = null; }
-      hoverAt = null;
+      hoverAt = null; placeAt = null;
       if (!line) { info.innerHTML = box.dataset.hint; prof.innerHTML = ''; prof.hidden = true; return; }
       line.setStyle({ color: '#1f5fa8', weight: 5, opacity: 1, dashArray: null });
       line.bringToFront();
@@ -340,12 +343,12 @@
         <rect x="${padL}" y="0" width="${W - padL - padR}" height="${H}" fill="transparent"/>
       </svg>`;
       const svg = prof.querySelector('svg'), cur = svg.querySelector('.cur'), cd = svg.querySelector('.cd'), ct = svg.querySelector('.ct');
-      const show = k => {
+      const show = (k, what) => {
         const x = X(d[k]), y = Y(t.p[k][2] * M_TO_FT);
         [cur, cd, ct].forEach(el => el.setAttribute('visibility', 'visible'));
         cur.setAttribute('x1', x); cur.setAttribute('x2', x); cd.setAttribute('cx', x); cd.setAttribute('cy', y);
-        ct.textContent = `${(d[k] * M_TO_MI).toFixed(1)} mi · ${fmt(t.p[k][2] * M_TO_FT)} ft`;
-        const right = x > W - 130;
+        ct.textContent = `${what ? what + ' · ' : ''}${(d[k] * M_TO_MI).toFixed(1)} mi · ${fmt(t.p[k][2] * M_TO_FT)} ft`;
+        const right = x > W - (what ? 220 : 130);
         ct.setAttribute('x', right ? x - 6 : x + 6); ct.setAttribute('text-anchor', right ? 'end' : 'start');
         if (!hoverDot) hoverDot = L.circleMarker(t.p[k], { renderer, radius: 6, color: '#fff', weight: 2, fillColor: css('--fix') || '#1f5fa8', fillOpacity: 1, interactive: false }).addTo(map);
         else hoverDot.setLatLng(t.p[k]);
@@ -360,6 +363,14 @@
         let best = 0, bd = Infinity;
         t.p.forEach((p, k) => { const dd = map.distance(p, latlng); if (dd < bd) { bd = dd; best = k; } });
         show(best);
+      };
+      // a place (places: in the header): where it is along the route. The route may pass it more than once
+      // (out and back), so take the first pass that's about as close as the closest one.
+      placeAt = (latlng, what) => {
+        if (!latlng) return hide();
+        const dist = t.p.map(p => map.distance(p, latlng)), bd = Math.min(...dist);
+        if (bd > 500) return;
+        show(dist.findIndex(x => x <= bd + 40), what);
       };
     }
 
