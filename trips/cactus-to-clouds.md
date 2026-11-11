@@ -34,7 +34,7 @@ places:
     note: Water, bathrooms and permit.
   Mountain Station:
     at: 33.81317, -116.63864
-    note: The tram down. Buy a one-way ticket at the gift shop (cash or credit). Food, drink and indoor seating.
+    note: Tram down. Food, drink and indoor seating.
 links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
   Tram hours: https://pstramway.com/about-us/hours/
