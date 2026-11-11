@@ -96,11 +96,13 @@ First time, wait until August.
 
 Overnight permits are required May 15 – Oct 31, and are some of the hardest to get in the US: 1–12% lottery odds. Day hikes need only a free, self-issued permit.
 
-- **Day hike**: self-issue at the trailhead, no limit. Put one copy in the box and keep the stub on your pack.
+- **Day hike**: free, self-issue at the trailhead, no limit. Put one copy in the box and keep the stub on your pack.
 - **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31.
-- **Unclaimed**: released Apr 1; be at your computer when it opens.
+- **Unclaimed**: released Apr 1 around 7am PT; be at your computer when it opens.
 - **Cancellations**: after May 15. [Outdoor Status](https://outdoorstatus.com/alerts/us/washington/alpine-lakes-wilderness/enchantment-permit/) texts you about them, or check Recreation.gov.
-- **Daily lottery**: the [day before](https://www.recreation.gov/permits/445863), and you must be within one mile of the Leavenworth Ranger Station to apply.
+- **Daily lottery**: apply the [day before](https://www.recreation.gov/permits/445863) on your phone, from inside the geofence (within a mile of the Leavenworth Ranger Station, per the trail guide).
+
+**Cost**: $6 lottery application (non-refundable, even if you don't win) + $5/person/day overnight. Day hikes are free but need a Northwest Forest Pass to park.
 
 **Camping**: zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline), with dispersed sites and usually a toilet nearby. A Core permit lets you camp in any zone; the others only in their own. One permit per season.
 
@@ -120,7 +122,7 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 
 - Park at Snow Lakes Trailhead and take the [shuttle](https://www.leavenworthshuttle.com/mountain) to Stuart Lake Trailhead (about 20 minutes), finishing at your car. Book it after you have a permit and lodging.
 - The lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle to get a spot.
-- Parking is paid, or use an America the Beautiful pass.
+- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes.
 - For driving directions, use "Snow Lakes Trailhead" in Leavenworth, WA. "Snow Lake Trailhead" is about 2 hours away.
 
 ## On the day
