@@ -74,13 +74,14 @@ permit:
 
 ## When to go
 
-- Check closures on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
 
 ## Permits
 
 Free permit, required for the section above Long Valley. Easy.
 
 - **Self-issue**: fill it out at the Long Valley Ranger Station after climbing the Skyline. Leave the top copy in the box, keep the bottom copy, and return it to the mailbox on the way back.
+
+The trail closes intermittently; check the park's [Instagram](https://www.instagram.com/mountsanjacintosp/) before you go.
 
 ## Route
 
