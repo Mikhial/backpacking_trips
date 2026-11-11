@@ -15,7 +15,6 @@ links:
   Tram hours: https://pstramway.com/about-us/hours/
   Trail report: https://sanjacjon.com
   Closures (park Facebook): https://www.facebook.com/mountsanjacintostatepark/
-  Summit weather: https://www.mountain-forecast.com/peaks/Mount-San-Jacinto-Peak/forecasts/3293
 
 facts:
   Getting there: Palm Springs; downtown hotels are walking distance to the start
