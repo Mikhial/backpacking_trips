@@ -14,7 +14,7 @@ links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
   Tram hours: https://pstramway.com/about-us/hours/
   Trail report: https://sanjacjon.com
-  Closures (park FB): https://www.facebook.com/mountsanjacintostatepark/
+  Closures: https://www.instagram.com/p/DdJ5cOWmh5C/
 
 facts:
   Getting there: 90 minute flight. Negligable drive
@@ -37,7 +37,6 @@ permit:
   channels:
     - label: Self-issue
       before: day of
-      note: at Long Valley Ranger Station
 ---
 
 ## Overview
@@ -45,14 +44,8 @@ permit:
 - One of the hardest day hikes in the world: 10,000 feet of climbing.
 - Point to point: hike up the Skyline Trail to the summit, down to the tram station, take the tram down, then ride-share back.
 - Something I would need to train for and be comfortable navigating in the dark.
-- Watch out for deadly heat and underestimating the effort.
+- Would need to train to get ready for this.
 - [Trail guide](https://hikingguy.com/hikes/cactus-to-clouds/)
-
-## Getting there
-
-- **Start**: the back corner of the Palm Springs Art Museum parking lot. Free street parking around the museum (read the signs carefully); the museum lot generally isn't available for hikers. No toilets or water at the start.
-- **Lodging**: many downtown Palm Springs hotels are within walking distance of the trailhead. Two nights lets you walk to the start, hike, ride down, and shuttle back to a shower without moving your car.
-- **Back to the start**: Uber or Lyft from the lower tram station to the museum, or ask the ticket agent to call a taxi.
 
 ## When to go
 
@@ -60,11 +53,9 @@ permit:
 
 ## Permits
 
-No tough permit to score: a free self-issue wilderness permit is required for the section above Long Valley.
-
 - **Self-issue**: fill it out at the Long Valley Ranger Station after climbing the Skyline. Leave the top copy in the box, keep the bottom copy, and return it to the mailbox on the way back.
 
-The trail closes intermittently. The Skyline isn't an official park trail (it's maintained by local hikers); the lower trail crosses the Agua Caliente Indian Reservation and the upper trail enters San Jacinto State Park. Closures are posted on the park's [Facebook](https://www.facebook.com/mountsanjacintostatepark/) and [Instagram](https://www.instagram.com/mountsanjacintosp/).
+The trail closes intermittently. The Skyline isn't an official park trail; the lower trail crosses the Agua Caliente Indian Reservation and the upper trail enters San Jacinto State Park. Closures are posted on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
 
 ## Route
 
@@ -87,33 +78,18 @@ The trail closes intermittently. The Skyline isn't an official park trail (it's 
 - **Gut checks**: at the picnic tables, then again at Rescue 1. If you're tired, having doubts, or the conditions feel off, turn around. In hot conditions, make that call at the picnic tables.
 - **After Rescue 1**: don't turn around and descend through the heat; continue up to Long Valley no matter what. A common thread in C2C deaths is hikers who turned around in heat, got lost on the way down, and ran out of water and time.
 - **Long Valley**: do you have time to summit and still make the last tram with buffer? If not, turn around here.
-- **Tram cutoff**: make sure your projected end time isn't after the last tram of the night. Allow at least 15 minutes to get through Mountain Station and board.
+- **Tram cutoff**: make sure your projected end time isn't after the last tram of the night.
 
 ## Tram
 
 - Buy a one-way ticket down at the Mountain Station gift shop (cash or credit). Mountain Station has food, drink and indoor seating.
-- Last trams typically leave in the evening; confirm the [schedule](https://pstramway.com/about-us/hours/). Allow at least 15 minutes to get through Mountain Station and board.
-- **If the tram isn't running**: take the Deer Springs Trail down to Idyllwild ([GPX](https://caltopo.com/m/B8G45KL)) and arrange your own ride back to Palm Springs.
+- Last trams typically leave in the evening; confirm the [schedule](https://pstramway.com/about-us/hours/).
+- Tram is closed around september.
 
 ## On-trail navigation
 
 - You need electronic navigation, checked more often than normal, especially in the dark. Going off trail can get you cliffed out easily. Carry redundant GPS with the GPX loaded, plus a paper map backup.
 - Local hikers blaze white dots, but they fade, so don't rely on them alone.
-- The trail splits and rejoins; the GPX generally follows the less-steep option. Wrong-side trails are usually blocked with branches or stones.
-- If the trail fizzles out, backtrack: you missed a turn. Look for footprints.
-- **Turns to watch for**:
-  - **Start**: from the back of the Palm Springs Art Museum, cross the road and avoid private property.
-  - **Picnic benches**: hard left, follow the North Lykken Trail signs briefly, then turn right at a large rock cairn.
-  - **After the split**: bear left; two painted rocks point toward Long Valley.
-  - **Coffman's Crag**: hard left.
-  - **Past Grubbs Notch**: bear right, take the utility trail past the sheds, then turn left onto the paved tram-station path.
-  - **Long Valley Ranger Station**: bear right outside the station toward the summit. The Wellman Divide sign is the last landmark before the summit.
-
-## Safety
-
-- Two rescue boxes (Rescue 1 and 2) are stocked with water, snacks and emergency gear. Only take something if you're in real trouble; leave an extra bottle of water if you have one.
-- In winter, ice and snow on the Traverse and Coffman's Crag: "a slip will probably be catastrophic." Without winter mountaineering experience, this isn't the place to learn.
-- Preview by hiking to the picnic benches the day before.
 
 ## Training
 
