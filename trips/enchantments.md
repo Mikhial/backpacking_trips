@@ -218,10 +218,6 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 - *Early season: microspikes (usually not needed by August), and bug spray and a head net for mosquitoes and flies down low.*
 - *Overnight: toilets along the route, so no catholes; pack out TP. Stove and canister (no campfires); canisters at [Der Sportsmann](https://www.dersportsmann.com) in town. A bear canister is optional (rodents are the bigger problem, though a black bear raided a tent site at Nada Lake), or an Ursack. A 20–30°F bag. Good stakes: the Core Zone gets very windy.*
 
-## Training
-
-If you can hike 15 miles with 4,000 ft of climbing, you should be ready. Squats and lunges help the knees on the descents. *[Fitness prep](https://hikingguy.com/hiking-for-beginners/#prep-your-body).*
-
 ## *More links*
 
 - *[CalTopo map](https://caltopo.com/m/T99H6FK): turn up the "Map Sheets" opacity to see the permit zones.*
