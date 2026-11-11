@@ -23,7 +23,7 @@ facts:
 
 seasons:
   - off: Dec 1 – Apr 30
-    notes: Winter conditions; mountaineering. Snow and ice can persist into May above Long Valley.
+    notes: Winter conditions; mountaineering.
   - peak: May 1 – May 31
     notes: Best spring window.
   - off: Jun 1 – Sep 30
