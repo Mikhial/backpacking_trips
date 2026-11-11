@@ -311,6 +311,8 @@ for (const trip of tripMaps()) {
     // the trip's GPX routes, drawn on the All map data page
     for (const l of trip.lines) (p.routeLines ||= []).push({ trip: trip.name, g: simplify(l, 10).map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
     p.trips.push(trip.slug);
+    // the trip's permit zones ("zones:"), drawn on the All map data page too
+    for (const z of trip.zones) (p.zones ||= []).push({ trip: trip.name, ...z });
     p.lists ||= [];
     p.lists.push(trip.shows); // null: the usual kinds
     // a one-route trip's map area, for the page's "Hide what's too far from <route>" switch
@@ -329,7 +331,7 @@ for (const trip of tripMaps()) {
   }
 }
 // Each park's All map data page: assets/parks/<park>/index.json, plus one file per kind of data
-for (const [name, { park, shown, trips, routeAreas = [], followOnly = new Set(), routeLines = [], lists = [] }] of parks) {
+for (const [name, { park, shown, trips, routeAreas = [], followOnly = new Set(), routeLines = [], lists = [], zones = [] }] of parks) {
   if (!fs.existsSync(parkPath(name, 'all.json'))) { failed++; console.error(`${parkSlug(name)}: no all.json; run scripts/pick-features.js`); continue; }
   const { files, ...index } = debugData(name, park, shown, trips, routeAreas, followOnly, routeLines);
   // Switched on at first: the kinds a trip lists on "map shows:"; for a trip without the line, the kinds with
@@ -337,6 +339,7 @@ for (const [name, { park, shown, trips, routeAreas = [], followOnly = new Set(),
   const listedKinds = new Set(lists.filter(Boolean).flat().flatMap(w => WORD_KINDS[w] || []));
   for (const [k, x] of Object.entries(index.kinds)) x.on = listedKinds.has(k) || (lists.some(l => !l) && x.shown > 0);
   index.boundaryOn = lists.some(l => !l || l.includes('boundaries'));
+  if (zones.length) index.zones = zones;
   const dir = path.join(PARK_OUT, parkSlug(name));
   fs.mkdirSync(dir, { recursive: true });
   let total = 0, start = 0;

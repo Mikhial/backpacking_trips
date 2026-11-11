@@ -9,6 +9,8 @@ within: Okanogan-Wenatchee National Forest
 route: Enchantments Traverse
 gpx: tracks/enchantments.gpx
 route link: https://www.alltrails.com/trail/us/washington/the-enchantments-trail
+zones: tracks/enchantments-zones.geojson
+map shows: paths, footways, dirt roads, trailheads, camps, peaks
 places:
   Colchuck Lake:
     at: 47.49783, -120.83455
