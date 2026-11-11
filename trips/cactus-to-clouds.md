@@ -12,7 +12,6 @@ trailheads:
   Palm Springs Art Museum: 33.82528, -116.55009
 links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
-  Tram hours: https://pstramway.com/about-us/hours/
   Trail report: https://sanjacjon.com
   Closures (park Facebook): https://www.facebook.com/mountsanjacintostatepark/
 
