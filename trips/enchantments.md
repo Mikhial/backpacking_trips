@@ -87,14 +87,10 @@ permit:
 - Day hike or overnight. A day hike is incredibly challenging but needs only a free permit; overnights let you go at your own pace but need the lottery.
 - Tougher than Mt Whitney, but without the altitude.
 - *Also west to east: the loose-dirt downhill is worse than going up Aasgard, the shuttle is easier this way, and it works as an all-day hike.*
-- *Day hikers carry little and refill water along the way, but only get a taste. Overnights mean more gear to carry uphill, but are the best way to appreciate it.*
-- *Crowds: hundreds of day hikers some days, weekends the worst. On a mid-September Tuesday the guide's author counted 35 other people on the whole route.*
-- *Worth doing at least once, especially with an overnight permit.*
 - *Overnight itineraries: 2 days, Core; 3 days, Colchuck → Core; 4 days, Colchuck → 2 nights Core; 5 days, Colchuck → 2 nights Core → Snow; 6+, more time in Core.*
 - *Favorite Core Zone camps: around Inspiration and Perfection Lakes.*
 - *Planning: work out how much time you have and apply for the lottery with your ideal dates (the author aims for 2–5 days in late Aug or early Sep). If you don't get one, train for the day hike and try again next year.*
 - [Trail guide](https://hikingguy.com/hikes/the-enchantments/)
-- *[Video](https://www.youtube.com/watch?v=TwTTgOdvmIE)*
 
 ## When to go
 
