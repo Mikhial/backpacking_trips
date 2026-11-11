@@ -1,7 +1,7 @@
 ---
 name: Zion National Park
 short: Zion
-region: Southwest
+region: Desert Southwest
 order: 2
 summary: The Narrows, Angels Landing and the Subway; up to a 50-mile traverse
 updated: 2026-10-16

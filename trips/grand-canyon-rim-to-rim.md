@@ -1,7 +1,7 @@
 ---
 name: Grand Canyon Rim to Rim
 short: Grand Canyon R2R
-region: Southwest
+region: Desert Southwest
 order: 1
 summary: A mile down to the Colorado River and back out the other side
 status: North Kaibab Trail under repair after the 2025 Dragon Bravo Fire

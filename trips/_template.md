@@ -24,6 +24,10 @@ within: Example National Forest  # optional: the forest or park it's in, shown a
 # Optional, for the trail map:
 # trailheads:               # trailheads OpenStreetMap is missing. Name: latitude, longitude
 #   Wrights Lake: 38.8466, -120.2353
+# places:                   # other spots to mark on the map: at: latitude, longitude, and an optional note: for the tooltip
+#   Rescue 1:
+#     at: 33.82086, -116.56903
+#     note: The last clean turnaround point.
 # routes:                   # several routes to compare (instead of route + gpx). Name: a GPX file in the tracks folder
 #   Rockbound Pass loop: tracks/rockbound-pass.gpx
 # links:                    # official pages for planning, shown under the map. Label: web address

@@ -49,6 +49,7 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
    - `map shows:` in a trip header (words in `MAP_WORDS`, lib/normalize.js) limits that trip map to those kinds (the park boundary only if `boundaries` is listed) and sets the All map data page's starting switches. Whatever a trip's GPX runs along (`follows`, found in lib/pick.js: most of a way's points within 30 m of the route) is always on its map, whatever its kind; changing a GPX re-picks the park (`routesKey`).
    - Water (springs, taps) is off unless a trip lists it, and peaks under 5,000 ft are never shown (`DEFAULT_OFF`, `MIN_PEAK_FT` in lib/normalize.js; Mike, Nov 5 2026, "for now"). Peaks with no OSM elevation are measured on the elevation tiles.
    - Dirt roads are all shown, named or not, at every zoom (Mike, Nov 5 2026), unless a trip's `map shows:` leaves them out.
+   - `places:` in a trip header (name, then `at:` and optional `note:`) are white dots at every zoom, with the note in the tooltip (Mike, Nov 10 2026). Used for checkpoints instead of describing the route in the notes.
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
 
 Working on it locally:

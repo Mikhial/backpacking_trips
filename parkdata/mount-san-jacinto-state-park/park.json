@@ -1,0 +1,22 @@
+{
+ "name": "Mount San Jacinto State Park",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/6138836",
+ "fetched": "2026-11-11",
+ "area": {
+  "type": "relation",
+  "id": 6138836
+ },
+ "bounds": {
+  "minlat": 33.7517679,
+  "minlon": -116.7517422,
+  "maxlat": 33.8313516,
+  "maxlon": -116.6154621
+ },
+ "box": {
+  "minlat": 33.7517679,
+  "minlon": -116.7517422,
+  "maxlat": 33.8313516,
+  "maxlon": -116.55009
+ }
+}
