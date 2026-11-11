@@ -63,6 +63,7 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
    - Water (springs, taps) is off unless a trip lists it, and peaks under 5,000 ft are never shown (`DEFAULT_OFF`, `MIN_PEAK_FT` in lib/normalize.js; Mike, Nov 5 2026, "for now"). Peaks with no OSM elevation are measured on the elevation tiles.
    - Dirt roads are all shown, named or not, at every zoom (Mike, Nov 5 2026), unless a trip's `map shows:` leaves them out.
    - `places:` in a trip header (name, then `at:` and optional `note:`) are white dots at every zoom, with the note in the tooltip (Mike, Nov 10 2026). Used for checkpoints instead of describing the route in the notes.
+   - `zones:` in a trip header points to a GeoJSON of permit zones in `tracks/` (name, note, label point; read by `readZones()` in lib/parkdata.js). Drawn as light purple outlines with labels on the trip map and the All map data page (same style in assets/trailmap.js and assets/parkmap.js; keep in sync). The Enchantments zones are traced from the Forest Service zone map (Mike, Nov 11 2026; he asked for them visible but not loud).
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
 
 Working on it locally:
