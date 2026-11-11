@@ -41,10 +41,10 @@ links:
   Trail guide: https://hikingguy.com/hikes/cactus-to-clouds/
   Tram hours: https://pstramway.com/about-us/hours/
   Trail report: https://sanjacjon.com
-  Closures: https://www.instagram.com/p/DdJ5cOWmh5C/
+  Closures: https://www.instagram.com/mountsanjacintosp/
 
 facts:
-  Getting there: 90 minute flight. Negligable drive
+  Getting there: 90 minute flight. Short drive
   Nights: Day hike (12–16 hrs)
   Terrain: Very hard; unofficial, steep trail, much of it in the dark
 
@@ -74,6 +74,7 @@ permit:
 
 ## When to go
 
+- Check closures on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
 - About 3–5°F cooler for every 1,000 ft you climb.
 
 ## Permits
@@ -99,8 +100,7 @@ Self-issue permit at the Long Valley Ranger Station.
 
 - Buy a one-way ticket down at the Mountain Station gift shop (cash or credit). Mountain Station has food, drink and indoor seating.
 - Last trams typically leave in the evening; confirm the [schedule](https://pstramway.com/about-us/hours/).
-- Tram is closed around september for about a month for maintenance.
-- Check closures on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
+- Tram is closed around September for about a month for maintenance.
 
 ## On-trail navigation
 
