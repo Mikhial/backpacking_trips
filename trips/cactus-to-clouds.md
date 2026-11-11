@@ -75,7 +75,6 @@ permit:
 ## When to go
 
 - Check closures on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
-- About 3–5°F cooler for every 1,000 ft you climb.
 
 ## Permits
 
@@ -93,7 +92,7 @@ Free permit, required for the section above Long Valley. Easy.
 
 - **Pace calculator**: the [trail guide's calculator](https://hikingguy.com/hikes/cactus-to-clouds/#pace-calculator) builds a timetable with estimated arrival times and temperatures at every key landmark.
 - **Start time**: start in the dark (often 2–4am). The trail below Grubbs Notch (8.5 miles) gets sun by mid-morning and bakes the rest of the day.
-- **Heat**: don't do the hike if the estimated temperature is 90°F+ anywhere below Grubbs Notch when you will be there.
+- **Heat**: don't do the hike if the estimated temperature is 90°F+ anywhere below Grubbs Notch when you will be there. It's about 3–5°F cooler for every 1,000 ft you climb.
 - **Gut checks**: at the picnic tables, then again at Rescue 1. If you're tired, having doubts, or the conditions feel off, turn around. In hot conditions, make that call at the picnic tables.
 - **After Rescue 1**: don't turn around and descend through the heat; continue up to Long Valley. Hikers have gotten lost going down and run out of water and time.
 - **Tram cutoff**: make sure your projected end time isn't after the last tram of the night.
