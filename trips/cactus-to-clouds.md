@@ -1,6 +1,6 @@
 ---
 name: Cactus to Clouds
-region: Southwest
+region: Desert Southwest
 order: 3
 summary: 10,800 ft of climbing from downtown Palm Springs to the summit of Mt San Jacinto
 updated: 2026-11-10
