@@ -89,7 +89,7 @@ Self-issue permit at the Long Valley Ranger Station.
 ## Pacing
 
 - **Pace calculator**: the [trail guide's calculator](https://hikingguy.com/hikes/cactus-to-clouds/) builds a timetable with estimated arrival times and temperatures at every key landmark.
-- **Start time**: start in the dark (often 2–4am). The trail below Grubbs Notch gets sun by mid-morning and bakes the rest of the day; there's no shade until you reach the notch (8.5 miles).
+- **Start time**: Start in the dark (often 2–4am). The trail below Grubbs Notch (8.5 miles) gets sun by mid-morning and bakes the rest of the day.
 - **Heat**: if the estimated temperature is 90°F+ anywhere below Grubbs Notch, start earlier or pick a different day.
 - **Gut checks**: at the picnic tables, then again at Rescue 1. If you're tired, having doubts, or the conditions feel off, turn around. In hot conditions, make that call at the picnic tables.
 - **After Rescue 1**: don't turn around and descend through the heat; continue up to Long Valley no matter what. A common thread in C2C deaths is hikers who turned around in heat, got lost on the way down, and ran out of water and time.
