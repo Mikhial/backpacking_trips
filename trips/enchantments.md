@@ -205,19 +205,6 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 - *Water: Snow Creek also has spots on the descent.*
 - *The Chelan County Sheriff: if your fitness and preparation don't match the trail conditions, pick another trail.*
 
-## *Gear*
-
-- *Water: a 1 L bottle and a 2 L scoop bag that filters into it. Drink 0.5 L at each stop, then carry 1 L.*
-- *Headlamp with a backup battery; not the phone flashlight.*
-- *Layers: long-sleeve top, convertible pants, rain jacket and pants, gloves, beanie. Long pants for the granite scrambles.*
-- *Navigation: a GPS watch with the track, a phone with a battery backup, and the [National Geographic map](https://www.amazon.com/dp/1566955076) with segment distances.*
-- *Trekking poles (crucial on the loose dirt) and trail runners with good grip.*
-- *Satellite communicator (Garmin inReach); don't rely on cell coverage.*
-- *A gallon Ziploc for trash, gel wrappers and TP.*
-- *The essentials, including light emergency overnight gear. Under 10 lbs if you pack light.*
-- *Early season: microspikes (usually not needed by August), and bug spray and a head net for mosquitoes and flies down low.*
-- *Overnight: toilets along the route, so no catholes; pack out TP. Stove and canister (no campfires); canisters at [Der Sportsmann](https://www.dersportsmann.com) in town. A bear canister is optional (rodents are the bigger problem, though a black bear raided a tent site at Nada Lake), or an Ursack. A 20–30°F bag. Good stakes: the Core Zone gets very windy.*
-
 ## *More links*
 
 - *[CalTopo map](https://caltopo.com/m/T99H6FK): turn up the "Map Sheets" opacity to see the permit zones.*
