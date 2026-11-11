@@ -91,19 +91,20 @@ permit:
 - *Overnight itineraries: 2 days, Core; 3 days, Colchuck → Core; 4 days, Colchuck → 2 nights Core; 5 days, Colchuck → 2 nights Core → Snow; 6+, more time in Core.*
 - *Favorite Core Zone camps: around Inspiration and Perfection Lakes.*
 - *Planning: work out how much time you have and apply for the lottery with your ideal dates (the author aims for 2–5 days in late Aug or early Sep). If you don't get one, train for the day hike and try again next year.*
-- [Trail guide](https://hikingguy.com/hikes/the-enchantments/)
 
 ## When to go
+
+*Sep and Oct can bring big temperature swings and early winter conditions.*
 
 ## Permits
 
 Overnight permits are required May 15 – Oct 31, and are some of the hardest to get in the US: 1–12% lottery odds. Day hikes need only a free, self-issued permit.
 
 - **Day hike**: free, self-issue at the trailhead, no limit. Put one copy in the box and keep the stub on your pack. *Pencils are usually in the box.*
-- **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31. *May open at 7am PT (unconfirmed).*
-- **Unclaimed**: released Apr 1 around 7am PT; be at your computer when it opens.
+- **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31.
+- **Unclaimed**: released Apr 1 around 7am PT.
 - **Cancellations**: after May 15. [Outdoor Status](https://outdoorstatus.com/alerts/us/washington/alpine-lakes-wilderness/enchantment-permit/) texts you about them, or check Recreation.gov.
-- **Daily lottery**: apply the [day before](https://www.recreation.gov/permits/445863) on your phone, from inside the geofence (within a mile of the Leavenworth Ranger Station, per the trail guide).
+- **Daily lottery**: apply the [day before](https://www.recreation.gov/permits/445863) on your phone, from inside the geofence (within a mile of the Leavenworth Ranger Station).
 
 **Cost**: $6 lottery application (non-refundable, even if you don't win) + $5/person/day overnight. Day hikes are free but need a Northwest Forest Pass to park.
 
@@ -117,20 +118,9 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 
 [Permit page](https://www.recreation.gov/permits/233273)
 
-## Route
-
-- **Stuart Lake Trailhead to Colchuck Lake** (5 mi): gradual climb along Mountaineer Creek under trees.
-- **Aasgard Pass** (1 mi): extremely steep 2,000 ft climb on loose dirt. A north-facing gully that can hold snow and ice.
-- **Core Zone** (3.5 mi): fairly flat, through alpine lakes and jagged peaks.
-- **Snow Zone** (4 mi): steep descent on granite slabs following cairns, then a cruise past Snow Lakes and Nada Lake.
-- **The descent** (5.5 mi): long, mostly well-graded trail down Snow Creek.
-
-*Reported distances range from 18 to over 20 miles; side trips push it toward 20.*
-
 ## *Leavenworth*
 
-- *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area. [Town site](https://leavenworth.org).*
-- *No dogs on the traverse (they disturb the native ptarmigan). There's a [pet lodge](https://www.leavenworthpetlodge.com) in town.*
+- *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area.*
 
 ## Shuttle
 
@@ -148,20 +138,9 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 - **Turnaround**: if you're far behind at Colchuck Lake, turn around. Plan B is out and back to Colchuck.
 - **Water**: plenty of lakes, so carry about 1 L and filter everything. Refill at Tranquil Lake, the Lake Viviane outlet and Nada Lake (the last easy one).
 - **Navigation**: many social trails. Follow cairns and the GPX; don't assume people ahead are on route.
-- *Pace: the [trail guide's calculator](https://hikingguy.com/hikes/the-enchantments/#day-hike-pace-calculator) builds a timetable to each landmark. Starting in the dark is fine.*
-- *Fuel: breakfast before the start, then eat at Colchuck, the top of Aasgard and Lake Viviane. Gels help on Aasgard.*
-- *Terrain: rocks, roots and uneven ground; about 15% is extremely steep, sometimes with hands or butt sliding. The Lake Viviane to Snow Lakes descent scares some people afraid of heights, and a misstep there (around mile 10) could sprain an ankle.*
-- *Early season: snow on Aasgard and in the Core Zone can hide weak snow bridges and avalanche zones. Water may mean scooping and melting snow.*
-- *Sep and Oct can bring big temperature swings and early winter conditions.*
-- *Altitude: not high, but Aasgard is near 8,000 ft, and sea-level hikers may feel short of breath.*
-- *Mountain goats: give them space; they can get aggressive if they think you have salt. Pee on flat rocks off trail. If one gets aggressive, yell and stand your ground.*
-- *Swimming: the lakes are cold, and a hiker drowned in Colchuck Lake in 2025. Skip it on a day hike.*
-- *Smoke: also [Firesmoke](https://firesmoke.ca).*
-- *Water: Snow Creek also has spots on the descent.*
-- *The Chelan County Sheriff: if your fitness and preparation don't match the trail conditions, pick another trail.*
 
 ## *More links*
 
-- *[AllTrails](https://www.alltrails.com/trail/us/washington/the-enchantments-trail)*
 - *[Snow Checker](https://hikingguy.com/snow-checker/?trail=the-enchantments)*
 - *[Recent Instagram posts](https://www.instagram.com/explore/locations/254437614/the-enchantments/recent/)*
+- *[Firesmoke](https://firesmoke.ca)*
