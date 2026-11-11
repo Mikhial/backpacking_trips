@@ -48,14 +48,6 @@ Cite sources with footnotes, which github.com and Obsidian show too. Put `[^name
 
 On a heading it covers the section; after a line, just that line. Each source gets a small number where it's cited (the same number every time it's reused), and they're listed under **Sources** at the end of the trip page. The check fails if a `[^name]` has no matching line.
 
-## Warnings
-
-To make a warning stand out in the notes, start the paragraph with `> ` (a blockquote). It shows in an amber box on the trip page and on github.com:
-
-```markdown
-> **The Traverse** is usually the most challenging section.
-```
-
 ## Header fields
 
 ```yaml

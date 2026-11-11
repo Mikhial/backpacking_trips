@@ -13,19 +13,18 @@ trailheads:
 places:
   Picnic benches:
     at: 33.82638, -116.55733
-    note: Just under 1 mi. First gut check. In hot conditions, decide here.
+    note: First gut check to turn around.
   Rescue 1:
     at: 33.82086, -116.56903
-    note: ~2.5 mi. The last clean turnaround point. After it, don't turn around and descend through the heat; continue up to Long Valley no matter what.
+    note: The last clean turnaround point. After this, commit to hiking to Long Valley if the temps are too high.
   Rescue 2:
     at: 33.81898, -116.60720
-    note: ~6.5 mi.
   Flat Rock:
     at: 33.81537, -116.61814
     note: About 2.5 more miles to Long Valley.
   The Traverse:
     at: 33.81191, -116.63042
-    note: ~8.5 mi, around 7,400 ft. Usually the most challenging section, and where most rescues happen.
+    note: The most challenging section, and where most rescues happen.
   Coffman's Crag:
     at: 33.81364, -116.63451
     note: Here to Grubbs Notch is short and very steep, with falling debris early in the season.
@@ -53,11 +52,10 @@ seasons:
   - off: Dec 1 – Apr 30
     notes: Winter conditions; mountaineering.
   - peak: May 1 – May 31
-    notes: Best spring window.
   - off: Jun 1 – Sep 30
     notes: Deadly heat.
   - peak: Oct 1 – Nov 30
-    notes: Best fall window. The tram closes for maintenance, generally mid-September to early October; the safe bet is the last week in October. No guarantee it's clear of snow and ice.
+    notes: Wait until the tram opens after being closed for maintenance. Safest bet is the last week in October. No guarantee it's clear of snow and ice.
 
 permit:
   note: Free, self-issue on the hike
@@ -72,7 +70,6 @@ permit:
 - One of the hardest day hikes in the world: 10,000 feet of climbing.
 - Point to point: hike up the Skyline Trail to the summit, down to the tram station, take the tram down, then ride-share back.
 - Something I would need to train for and be comfortable navigating in the dark.
-- Would need to train to get ready for this.
 - [Trail guide](https://hikingguy.com/hikes/cactus-to-clouds/)
 
 ## When to go
@@ -91,7 +88,7 @@ The trail closes intermittently. The Skyline isn't an official park trail; the l
 - **Long Valley to summit** (4.5 mi, 2,000+ ft): up in the pines, not as steep. Round Valley Campground's toilets are the last before the summit; scramble the last few hundred feet.
 - **Summit to tram** (5.5 mi): backtrack to the ranger station, return the permit, then take the paved path to Mountain Station. Can seem longer and tougher than an average downhill.
 
-> **The Traverse** is usually the most challenging section, and most rescues happen here (per the rangers at Long Valley). It can be hard to follow even in good conditions, so use the GPX. Expect fallen trees and washouts; it's very steep, but passable. It's shaded, so snow and ice linger here longer, which with the steepness can get you into trouble. Check trail reports that it's clear before you go.
+**The Traverse** is usually the most challenging section, and most rescues happen here (per the rangers at Long Valley). It can be hard to follow even in good conditions, so use the GPX. Expect fallen trees and washouts; it's very steep, but passable. It's shaded, so snow and ice linger here longer, which with the steepness can get you into trouble. Check trail reports that it's clear before you go.
 
 ## Pacing
 

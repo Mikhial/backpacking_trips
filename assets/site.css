@@ -95,9 +95,6 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes ul { padding-left: 1.2em; margin: 6px 0; }
 .notes li { margin: 3px 0; }
 .notes img { max-width: 100%; height: auto; border-radius: 6px; }
-.notes blockquote { margin: 10px 0; padding: 8px 12px; background: var(--warn-bg); color: var(--warn-fg); border-radius: 6px; }
-.notes blockquote > :first-child { margin-top: 0; }
-.notes blockquote > :last-child { margin-bottom: 0; }
 /* When to go, built from the header's seasons */
 .notes .when > ul { list-style: none; padding-left: 0; }
 .notes .when > ul > li { padding-left: 22px; position: relative; }
