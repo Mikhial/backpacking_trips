@@ -97,14 +97,18 @@ First time, wait until August.
 Overnight permits are required May 15 – Oct 31, and are some of the hardest to get in the US: 1–12% lottery odds. Day hikes need only a free, self-issued permit.
 
 - **Day hike**: free, self-issue at the trailhead, no limit. Put one copy in the box and keep the stub on your pack.
-- **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31.
+- **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31. *May open at 7am PT (unconfirmed).*
 - **Unclaimed**: released Apr 1 around 7am PT; be at your computer when it opens.
 - **Cancellations**: after May 15. [Outdoor Status](https://outdoorstatus.com/alerts/us/washington/alpine-lakes-wilderness/enchantment-permit/) texts you about them, or check Recreation.gov.
 - **Daily lottery**: apply the [day before](https://www.recreation.gov/permits/445863) on your phone, from inside the geofence (within a mile of the Leavenworth Ranger Station, per the trail guide).
 
 **Cost**: $6 lottery application (non-refundable, even if you don't win) + $5/person/day overnight. Day hikes are free but need a Northwest Forest Pass to park.
 
-**Camping**: zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline), with dispersed sites and usually a toilet nearby. A Core permit lets you camp in any zone; the others only in their own. One permit per season.
+**Camping**: zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline), with dispersed sites and usually a toilet nearby. A Core permit lets you camp in any zone; the others only in their own. One permit per season. *Groups of 8 at most.*
+
+*Quota per day: Core 24 people (16 through the lottery, 8 through the daily lottery); Colchuck 3 groups, Stuart 4, Snow 5, Eightmile/Caroline 3. One permit in each zone is held for the daily lottery.*
+
+*Cancel 22+ days ahead for a refund (not the $6); no refund within 21 days. The daily lottery page says no refunds at all. The zone and entry date can't be changed after booking.*
 
 Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed, Sat, Thu, Fri; months May, Oct, Jun, Sep, Jul, Aug.
 
