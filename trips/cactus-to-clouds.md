@@ -27,7 +27,7 @@ seasons:
   - peak: May 1 – May 31
     notes: Best spring window.
   - off: Jun 1 – Sep 30
-    notes: Often deadly heat (avoid). Palm Springs summer highs are over 110°F.
+    notes: Deadly heat.
   - peak: Oct 1 – Nov 30
     notes: Best fall window. The tram closes for maintenance, generally mid-September to early October; the safe bet is the last week in October. No guarantee it's clear of snow and ice.
 
@@ -42,9 +42,10 @@ permit:
 
 ## Overview
 
-- Backpacker Magazine rated it one of the hardest day hikes in the world: 10,000 feet of climbing from downtown Palm Springs to the summit of Mt San Jacinto.
-- Point to point: hike up the Skyline Trail to the summit, down to the tram station, take the tram down, then ride-share back to the start.
-- For very strong hikers who can navigate in the dark. Watch out for deadly heat and underestimating the effort.
+- One of the hardest day hikes in the world: 10,000 feet of climbing.
+- Point to point: hike up the Skyline Trail to the summit, down to the tram station, take the tram down, then ride-share back.
+- Something I would need to train for and be comfortable navigating in the dark.
+- Watch out for deadly heat and underestimating the effort.
 - [Trail guide](https://hikingguy.com/hikes/cactus-to-clouds/)
 
 ## Getting there
@@ -55,7 +56,7 @@ permit:
 
 ## When to go
 
-- Weather extremes at both ends: Palm Springs over 110°F in summer; snow, ice and high winds at the summit. About 3–5°F cooler for every 1,000 ft you climb.
+- About 3–5°F cooler for every 1,000 ft you climb.
 
 ## Permits
 
