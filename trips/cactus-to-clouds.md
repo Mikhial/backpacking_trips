@@ -31,7 +31,7 @@ places:
     note: Coffman's Crag to Grubbs Notch is short and very steep, with falling debris early in the season. Past Grubbs Notch the toughest part is behind you.
   Long Valley Ranger Station:
     at: 33.81262, -116.64226
-    note: Water, bathrooms and the permit. Second check-in. If anything says no, this is the smart turnaround point.
+    note: Water, bathrooms and permit.
   Mountain Station:
     at: 33.81317, -116.63864
     note: The tram down. Buy a one-way ticket at the gift shop (cash or credit). Food, drink and indoor seating.
