@@ -28,10 +28,10 @@ places:
     note: ~8.5 mi, around 7,400 ft. Usually the most challenging section, and where most rescues happen.
   Coffman's Crag:
     at: 33.81364, -116.63451
-    note: Hard left. Coffman's Crag to Grubbs Notch is short and very steep, with falling debris early in the season.
+    note: Here to Grubbs Notch is short and very steep, with falling debris early in the season.
   Grubbs Notch:
     at: 33.81167, -116.63736
-    note: Past Grubbs Notch the toughest part is behind you.
+    note: The toughest part is behind you.
   Long Valley Ranger Station:
     at: 33.81262, -116.64226
     note: Water, bathrooms and permit.
@@ -90,6 +90,8 @@ The trail closes intermittently. The Skyline isn't an official park trail; the l
 - **Start to Long Valley** (10 mi, 8,000+ ft of climbing): the toughest part of the hike. If you're tired at the end of it, you can end early and take the tram down.
 - **Long Valley to summit** (4.5 mi, 2,000+ ft): up in the pines, not as steep. Round Valley Campground's toilets are the last before the summit; scramble the last few hundred feet.
 - **Summit to tram** (5.5 mi): backtrack to the ranger station, return the permit, then take the paved path to Mountain Station. Can seem longer and tougher than an average downhill.
+
+> **The Traverse** is usually the most challenging section, and most rescues happen here (per the rangers at Long Valley). It can be hard to follow even in good conditions, so use the GPX. Expect fallen trees and washouts; it's very steep, but passable. It's shaded, so snow and ice linger here longer, which with the steepness can get you into trouble. Check trail reports that it's clear before you go.
 
 ## Pacing
 
