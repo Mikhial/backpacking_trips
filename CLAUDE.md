@@ -17,6 +17,19 @@ Mike's backpacking research site. Eleventy, published to GitHub Pages at https:/
 - He prefers clean, uncluttered visuals and iterates by looking. Show a mockup before big visual changes.
 - Run `npm run build` (checks trips, then builds) and look at the pages before pushing.
 
+## Writing a new trip
+
+Learned from Cactus to Clouds (PR #16), where Mike trimmed most of the first draft. Start lean and list what you left out so he can pull it back in.
+
+- Short notes that change a decision on the day (turnarounds, heat, water, cutoffs). Skip full gear, safety and turn-by-turn sections. Terse place and season notes are fine, and so is an empty season note.
+- Overview from his side ("Something I would need to train for"), not citations. Paraphrase sources, don't paste them.
+- Route checkpoints go on the map as `places:`, not prose; the Route section keeps just the legs.
+- Don't repeat what the GPX or map shows: no Distance or Elevation fact, no mileage in place notes, no weather link (the map has NWS forecasts). Planning links under the map can repeat links in the notes.
+- Facts box: what the GPX can't tell (Getting there, Nights, Terrain).
+- When to go is only seasons; temperature on the way goes in Pacing, trail closures in Permits. Permits follows the README's order.
+- Clean links: no tracking codes, stable pages rather than single posts, anchors when there are any.
+- Plain text first; no new styling or code unless he asks.
+
 ## Chart design decisions (assets/chart.js)
 
 - Rows are compact at rest: season bars, one thin booking band for the trip's **first** permit channel, and the short note (`permit.note`).
