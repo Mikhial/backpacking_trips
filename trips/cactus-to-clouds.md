@@ -24,7 +24,7 @@ places:
     note: About 2.5 more miles to Long Valley.
   The Traverse:
     at: 33.81191, -116.63042
-    note: The most challenging section, and where most rescues happen.
+    note: The most challenging section, and where most rescues happen. Check weather to make sure there is no snow/ice.
   Coffman's Crag:
     at: 33.81364, -116.63451
     note: Here to Grubbs Notch is short and very steep, with falling debris early in the season.
@@ -78,9 +78,7 @@ permit:
 
 ## Permits
 
-- **Self-issue**: fill it out at the Long Valley Ranger Station after climbing the Skyline. Leave the top copy in the box, keep the bottom copy, and return it to the mailbox on the way back.
-
-The trail closes intermittently. The Skyline isn't an official park trail; the lower trail crosses the Agua Caliente Indian Reservation and the upper trail enters San Jacinto State Park. Closures are posted on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
+Self-issue permit at the Long Valley Ranger Station.
 
 ## Route
 
@@ -88,28 +86,27 @@ The trail closes intermittently. The Skyline isn't an official park trail; the l
 - **Long Valley to summit** (4.5 mi, 2,000+ ft): up in the pines, not as steep. Round Valley Campground's toilets are the last before the summit; scramble the last few hundred feet.
 - **Summit to tram** (5.5 mi): backtrack to the ranger station, return the permit, then take the paved path to Mountain Station. Can seem longer and tougher than an average downhill.
 
-**The Traverse** is usually the most challenging section, and most rescues happen here (per the rangers at Long Valley). It can be hard to follow even in good conditions, so use the GPX. Expect fallen trees and washouts; it's very steep, but passable. It's shaded, so snow and ice linger here longer, which with the steepness can get you into trouble. Check trail reports that it's clear before you go.
-
 ## Pacing
 
-- **Pace calculator**: the [trail guide's calculator](https://hikingguy.com/hikes/cactus-to-clouds/) builds a timetable with estimated arrival times and temperatures at every key landmark, from your normal pace, your pace on the steep section to Long Valley (almost 1,000 ft of climbing per mile), start time, and the hourly forecast. It's a rough estimate; it assumes temperatures ramp to the Palm Springs daily high by 3pm and hold there.
-- **Start time**: start in the dark (typically 2–4am). The lower Skyline gets sun by mid-morning and bakes the rest of the day, and there's no shade until Grubbs Notch.
-- **Heat**: if the estimated temperature is 90°F+ on any exposed section (everywhere below Grubbs Notch), start earlier or pick a different day.
-- **Water**: carry more than you think you need from the start.
+- **Pace calculator**: the [trail guide's calculator](https://hikingguy.com/hikes/cactus-to-clouds/) builds a timetable with estimated arrival times and temperatures at every key landmark.
+- **Start time**: start in the dark (often 2–4am). The lower Skyline gets sun by mid-morning and bakes the rest of the day, and there's no shade until Grubbs Notch (8.5 miles).
+- **Heat**: if the estimated temperature is 90°F+ anywhere below Grubbs Notch, start earlier or pick a different day.
 - **Gut checks**: at the picnic tables, then again at Rescue 1. If you're tired, having doubts, or the conditions feel off, turn around. In hot conditions, make that call at the picnic tables.
 - **After Rescue 1**: don't turn around and descend through the heat; continue up to Long Valley no matter what. A common thread in C2C deaths is hikers who turned around in heat, got lost on the way down, and ran out of water and time.
-- **Long Valley**: do you have time to summit and still make the last tram with buffer? If not, turn around here.
 - **Tram cutoff**: make sure your projected end time isn't after the last tram of the night.
 
 ## Tram
 
 - Buy a one-way ticket down at the Mountain Station gift shop (cash or credit). Mountain Station has food, drink and indoor seating.
 - Last trams typically leave in the evening; confirm the [schedule](https://pstramway.com/about-us/hours/).
-- Tram is closed around september.
+- Tram is closed around september for about a month for maintenance.
+- Check closures on the park's [Instagram](https://www.instagram.com/mountsanjacintosp/).
 
 ## On-trail navigation
 
-- You need electronic navigation, checked more often than normal, especially in the dark. Going off trail can get you cliffed out easily. Carry redundant GPS with the GPX loaded, plus a paper map backup.
+- Going off trail can get you cliffed out easily.
+- Checking the GPX on your phone frequently is necessary.
+- Carry redundant GPS with the GPX loaded.
 - Local hikers blaze white dots, but they fade, so don't rely on them alone.
 
 ## Training
