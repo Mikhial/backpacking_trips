@@ -94,10 +94,6 @@ permit:
 
 ## When to go
 
-First time, wait until August.
-
-*Snow can last all season. In September 2026 a hiker [died in extreme conditions](https://www.youtube.com/watch?v=yDVTYoNFIto), and there have been several deaths in icy shoulder seasons. Even with winter hiking experience, don't show up without local knowledge.*
-
 ## Permits
 
 Overnight permits are required May 15 – Oct 31, and are some of the hardest to get in the US: 1–12% lottery odds. Day hikes need only a free, self-issued permit.
@@ -129,44 +125,6 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 - **The descent** (5.5 mi): long, mostly well-graded trail down Snow Creek.
 
 *Reported distances range from 18 to over 20 miles; side trips push it toward 20.*
-
-## *Directions*
-
-*Stuart Lake Trailhead to Colchuck Lake:*
-
-- *Stuart Lake Trail #1599 starts at the far end of the lot: rocky, rooty, mostly uphill.*
-- *About 1.4 mi: a scree field on the right. Don't take trails into it; the trail continues left.*
-- *About 1.7 mi: cross Mountaineer Creek.*
-- *About 2.3 mi: junction with Colchuck Lake Trail 1599.1; go left. Shortly after, a bridge into a talus field: make the hard right after the bridge and go around its outside.*
-- *About 4 mi: the Colchuck Lake area. Go around the right shore. A short side trail goes to a lake viewpoint. Colchuck means "cold lake" in Chinook Jargon; the local tribe was the Wenatchi.*
-- *Past Little Colchuck Lake, side trails go to viewpoints and tent sites; a GPS track helps. At the far end, cross the boulders of the moraine under Colchuck Glacier. The far side weaves through vegetation.*
-
-*Aasgard Pass:*
-
-- *The official name is Colchuck Pass. "Aasgard" came from local climbers Bill and Peggy Stark in the 1950s.*
-- *Avoid the stream on the right (if you're crossing a stream, you're too far right), stay left of the larch grove, then go straight up and across to the right at the top. Look for the next cairn and the most trodden path, and check GPS.*
-- *Loose dirt: anchor on solid rocks; poles help. Yell "rock!" if you knock one loose. If heights bother you, stop on a flat rock.*
-- *When the larch grove is level with you on the right, you're about 40% done. Past it, sheer granite on the left, then false summits before the true top.*
-- *At the top, the first flat section, then Isolation Lake comes into view.*
-
-*Core Zone:*
-
-- *Upper Enchantments: Isolation Lake on the right, fed by Snow Creek Glacier (you follow Snow Creek to the end). Tranquil Lake on the left is easier to refill at. Follow cairns downhill past unnamed lakes; snow bridges over the outlets may remain. A toilet with views down to Crystal Lake.*
-- *Middle Enchantments: a steep chute down to Inspiration Lake, around its far shore, then around the far shore of Perfection Lake. Prusik Peak is above, named for Karl Prusik of the prusik knot; overnighters can hike under it to [Prusik Pass](https://www.alltrails.com/trail/us/washington/prusik-pass-trail). Then a short hop to Sprite Lake.*
-- *The lakes have been stocked with golden and cutthroat trout for about 100 years. Fishing needs a license.*
-- *Lower Enchantments: cairns over granite slabs, emerald-green Leprechaun Lake on the right, the ledges, then Lake Viviane below. A narrow ledge around the nose of the cliff, then a rebar section: hold the rebar if it's wet, walk if it's dry; after the turn you may go down on your butt.*
-
-*Snow Zone:*
-
-- *The Forest Service calls the Core Zone to Upper Snow Lake stretch a primitive cairn-marked route, for experienced hikers only.*
-- *Steep granite slabs following cairns, then steep dirt into the trees. Snow Creek stays on your right until Snow Lakes.*
-- *Flat trail along Snow Lakes. At the far end of Upper Snow Lake, cross the masonry dam, then a short gradual climb to above Nada Lake.*
-- *The Bureau of Reclamation dammed Nada and Snow Lakes in the 1930s to supply the Leavenworth fish hatchery. A tunnel just under half a mile long releases water every summer (you can see the plume on the way down). The Bureau also built the trail back.*
-
-*The descent:*
-
-- *About 3,600 ft down along Snow Creek on switchbacks and straight trail, with two small talus fields.*
-- *At Icicle Creek, make the sharp left into the parking lot.*
 
 ## *Leavenworth*
 
@@ -203,10 +161,6 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 
 ## *More links*
 
-- *[CalTopo map](https://caltopo.com/m/T99H6FK): turn up the "Map Sheets" opacity to see the permit zones.*
 - *[AllTrails](https://www.alltrails.com/trail/us/washington/the-enchantments-trail)*
 - *[Snow Checker](https://hikingguy.com/snow-checker/?trail=the-enchantments)*
 - *[Recent Instagram posts](https://www.instagram.com/explore/locations/254437614/the-enchantments/recent/)*
-- *Weather: [trailhead](https://forecast.weather.gov/MapClick.php?lat=47.5982&lon=-120.6575), [Core Zone](https://forecast.weather.gov/MapClick.php?lat=47.4830&lon=-120.8013), [Mountain Forecast](https://www.mountain-forecast.com/peaks/Enchantment-Peak/forecasts/2515)*
-- *Wenatchee River Ranger District: 509-548-2550*
-- *[Chelan County Sheriff](https://www.facebook.com/profile/100068255363204/search/?q=enchantments)*
