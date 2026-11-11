@@ -7,6 +7,7 @@ updated: 2026-11-10
 park: Mount San Jacinto State Park
 route: Skyline Route
 gpx: tracks/cactus-to-clouds.gpx
+route link: https://www.alltrails.com/trail/us/california/skyline-trail-cactus-to-clouds
 trailheads:
   Palm Springs Art Museum: 33.82528, -116.55009
 links:
