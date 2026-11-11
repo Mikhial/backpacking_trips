@@ -26,9 +26,12 @@ places:
   The Traverse:
     at: 33.81191, -116.63042
     note: ~8.5 mi, around 7,400 ft. Usually the most challenging section, and where most rescues happen.
+  Coffman's Crag:
+    at: 33.81364, -116.63451
+    note: Hard left. Coffman's Crag to Grubbs Notch is short and very steep, with falling debris early in the season.
   Grubbs Notch:
     at: 33.81167, -116.63736
-    note: Coffman's Crag to Grubbs Notch is short and very steep, with falling debris early in the season. Past Grubbs Notch the toughest part is behind you.
+    note: Past Grubbs Notch the toughest part is behind you.
   Long Valley Ranger Station:
     at: 33.81262, -116.64226
     note: Water, bathrooms and permit.
