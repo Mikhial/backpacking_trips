@@ -39,6 +39,11 @@ places:
   Nada Lake:
     at: 47.49372, -120.74235
     note: Fill water here; it's the easiest source for the descent.
+camps:
+  Isolation Lake: 47.47892, -120.81807
+  Inspiration Lake: 47.48086, -120.79989
+  Crystal Lake: 47.47536, -120.80268
+  Gnome Tarn: 47.48468, -120.78970
 links:
   Trail guide: https://hikingguy.com/hikes/the-enchantments/
   Permits: https://www.recreation.gov/permits/233273
@@ -145,7 +150,7 @@ All in the Core Zone, so they need a Core permit. Sites aren't marked: look for 
 - **Isolation Lake** (7,735 ft): sunrise on Dragontail Peak, the highest peak in the Enchantments. Lots of goats.
 - **Inspiration Lake** (7,185 ft): the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
 - **Sprite Lake** (7,069 ft), east side: along Snow Creek, with some of the best views of Prusik Peak.
-- **Quieter**: Crystal Lake (7,010 ft), or climb up to Gnome Lake (7,372 ft) for real isolation.
+- **Quieter**: Crystal Lake (7,010 ft), or climb up to Gnome Lake (7,372 ft; Gnome Tarn on the map) for real isolation.
 
 Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isolation, then Inspiration or Sprite, then Snow Lakes (Snow Zone).
 
