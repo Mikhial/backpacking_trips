@@ -122,21 +122,20 @@ Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed,
 
 ## Trips by permit
 
-Day hiking is allowed in every zone, so each permit can still reach the Core by day. Only Core permits are confirmed to exit by either trail; for the others, ask the ranger district (509-548-2550) before planning a one-way trip. Mileages with ~ are estimates.
+Day hiking is allowed in every zone, so each permit can still reach the Core by day, and any permit can start and finish at either trailhead. Mileages with ~ are estimates.
 
-- **Core**: camp anywhere, enter or exit by either trail.
+- **Core**: camp anywhere.
   - 2 days: up Aasgard to a Core camp (~6.5 mi), then across the Core and down (~12.5 mi).
   - 3–5 days: Colchuck, then 1–2 nights in the Core (a free day for Prusik Pass or Little Annapurna), then Snow Lakes.
 - **Snow**: the best one if no Core permit.
-  - West to east, 1 night: Stuart Lake Trailhead over Aasgard and through the Core to a Snow or Nada Lake camp (~13.5 mi), then ~5.5 mi out. Keeps Aasgard uphill and the long descent for fresh legs. Needs the exit check.
+  - West to east, 1 night: Stuart Lake Trailhead over Aasgard and through the Core to a Snow or Nada Lake camp (~13.5 mi), then ~5.5 mi out. Keeps Aasgard uphill and the long descent for fresh legs.
   - Base camp, 2 nights: in from Snow Lakes Trailhead (~6–7 mi, ~3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
 - **Colchuck**:
-  - 1 night: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing. Needs the exit check.
+  - 1 night: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing.
   - Base camp, 2 nights: a day up Aasgard into the Upper Core and back (descends Aasgard), then out the way you came.
 - **Stuart**: the easiest to get.
-  - 1 night: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter. Needs the exit check.
+  - 1 night: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
   - 2 nights: Lake Stuart or Horseshoe Lake, with a day to Colchuck Lake (and Aasgard if strong).
-- **Eightmile/Caroline**: a separate trip from its own trailhead (Eightmile Lake, Lake Caroline, Windy Pass); no trail to the Core. Pair a night here with the traverse as a day hike on another day.
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
 
 ## *Leavenworth*
