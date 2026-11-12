@@ -99,35 +99,56 @@ permit:
 - *Favorite Core Zone camps: around Inspiration and Perfection Lakes.*
 - *Planning: work out how much time you have and apply for the lottery with your ideal dates (the author aims for 2–5 days in late Aug or early Sep). If you don't get one, train for the day hike and try again next year.*
 
-## When to go
+## Getting there
 
-*Sep and Oct can bring big temperature swings and early winter conditions.*
+From SF:
+
+- **Fly to Seattle (SEA)**, rent a car, then 2.5 hrs to Leavenworth. The most flights.
+- **Fly to Wenatchee (EAT)**: no nonstop from SFO; usually one stop in Seattle. Then ~30 min to Leavenworth (estimate). Saves the long drive.
+- **Without a car from Seattle**: Amtrak's Empire Builder to Leavenworth's Icicle Station (arrives around 8:15pm), or the Northwestern Stages bus (once a day, ~3 hrs). [Leavenworth Shuttle](https://www.leavenworthshuttle.com/icicle-station) runs from the station to lodging in town ($11/person).
+- *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area.*
+
+**Do I need to drive to the shuttle?** Probably. The Enchantments shuttle runs between the two trailheads; its site doesn't mention pickups in town. So drive to Snow Lakes Trailhead (up Icicle Road from town), park, and take the shuttle to Stuart Lake. Without a car, call them (509-548-7433) about a pickup in town.
+
+## Shuttle
+
+- Park at Snow Lakes Trailhead and take the [shuttle](https://www.leavenworthshuttle.com/mountain) to Stuart Lake Trailhead (about 20 minutes), finishing at your car. Book it after you have a permit and lodging.
+- The lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle to get a spot.
+- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). $30/person for 2 or more, $60 alone, plus tip. Book online at least 24 hours ahead; no refunds, but you can reschedule. Going the other way (Stuart Lake to Snow Lakes) is booked by phone.
+- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes.
+- For driving directions, use "Snow Lakes Trailhead" in Leavenworth, WA. "Snow Lake Trailhead" is about 2 hours away.
+- *The Snow Lakes lot has a section for overnight permit holders. Overflow parks on the shoulder of Icicle Creek Road, following the signs.*
+- *The shuttle waits at the Snow Lakes lot entrance. Arriving at 5:30am for a 5:45 shuttle has also worked.*
+- *Stuart Lake Trailhead: the last stretch is potholed dirt, fine for low-clearance cars driven slowly. Overflow parks along the road in marked spots.*
+
+## When to go
 
 ## Permits
 
-Overnight permits are required May 15 – Oct 31, and are some of the hardest to get in the US: 1–12% lottery odds. Day hikes need only a free, self-issued permit.
-
-- **Day hike**: free, self-issue at the trailhead, no limit. Put one copy in the box and keep the stub on your pack. *Pencils are usually in the box.*
-- **Lottery**: apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates. Winners are notified Mar 17 and must claim by Mar 31.
+- **Day hike**: free, self-issue at the trailhead, no limit.
+- **Overnight Lottery**:
+  - Permits required May 15 – Oct 31.
+  - Some of the hardest to get in the US: 1–12% lottery odds.
+  - Apply Feb 15 – Mar 1 on [Recreation.gov](https://www.recreation.gov/permits/233273) with your dates.
+  - Winners are notified Mar 17 and must claim by Mar 31.
 - **Unclaimed**: released Apr 1 around 7am PT.
 - **Cancellations**: after May 15. [Outdoor Status](https://outdoorstatus.com/alerts/us/washington/alpine-lakes-wilderness/enchantment-permit/) texts you about them, or check Recreation.gov.
 - **Daily lottery**: apply the [day before](https://www.recreation.gov/permits/445863) on your phone, from inside the geofence (within a mile of the Leavenworth Ranger Station).
 
-**Cost**: $6 lottery application (non-refundable, even if you don't win) + $5/person/day overnight. Day hikes are free but need a Northwest Forest Pass to park.
+**Cost**: $6 lottery application + $5/person/day overnight. Day hikes are free but need a $5 Northwest Forest Pass to park.
 
-**Camping**: zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline), with dispersed sites and usually a toilet nearby. A Core permit lets you camp in any zone; the others only in their own. One permit per season. *Groups of 8 at most.*
+**Zones**: Five zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline). A Core permit lets you camp in any zone; the others only in their own. Core is by far the best and aim to spend the most time there.
 
-*Quota per day: Core 24 people (16 through the lottery, 8 through the daily lottery); Colchuck 3 groups, Stuart 4, Snow 5, Eightmile/Caroline 3. One permit in each zone is held for the daily lottery.*
-
-*Cancel 22+ days ahead for a refund (not the $6); no refund within 21 days. The daily lottery page says no refunds at all. The zone and entry date can't be changed after booking.*
-
-Best odds to worst: zones Stuart, Snow, Colchuck, Core; days Sun, Mon, Tue, Wed, Sat, Thu, Fri; months May, Oct, Jun, Sep, Jul, Aug. *The guide's author has won an overnight permit 3 times in 15 years.*
-
-[Permit page](https://www.recreation.gov/permits/233273)
+**Odds, best to worst**:
+  - **Camps**: Stuart, Snow, Colchuck, Core
+  - **Days**: Sun, Mon, Tue, Wed, Sat, Thu, Fri
+  - **Months**: May, Oct, Jun, Sep, Jul, Aug
 
 ## Trips by permit
 
 Day hiking is allowed in every zone, so each permit can still reach the Core by day, and any permit can start and finish at either trailhead. Mileages with ~ are estimates.
+
+dispersed sites and usually a toilet nearby
 
 - **Core**: camp anywhere.
   - 2 days: up Aasgard to a Core camp (~6.5 mi), then across the Core and down (~12.5 mi).
@@ -155,31 +176,6 @@ All in the Core Zone, so they need a Core permit. Sites aren't marked.
 Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isolation, then Inspiration or Sprite, then Snow Lakes (Snow Zone).
 
 [^nomadic]: [Nomadic Moments guide to the Enchantments](https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping)
-
-## Getting there
-
-From SF:
-
-- **Fly to Seattle (SEA)**, rent a car, then 2.5 hrs to Leavenworth. The most flights.
-- **Fly to Wenatchee (EAT)**: no nonstop from SFO; usually one stop in Seattle. Then ~30 min to Leavenworth (estimate). Saves the long drive.
-- **Without a car from Seattle**: Amtrak's Empire Builder to Leavenworth's Icicle Station (arrives around 8:15pm), or the Northwestern Stages bus (once a day, ~3 hrs). [Leavenworth Shuttle](https://www.leavenworthshuttle.com/icicle-station) runs from the station to lodging in town ($11/person).
-
-**Do I need to drive to the shuttle?** Probably. The Enchantments shuttle runs between the two trailheads; its site doesn't mention pickups in town. So drive to Snow Lakes Trailhead (up Icicle Road from town), park, and take the shuttle to Stuart Lake. Without a car, call them (509-548-7433) about a pickup in town.
-
-## *Leavenworth*
-
-- *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area.*
-
-## Shuttle
-
-- Park at Snow Lakes Trailhead and take the [shuttle](https://www.leavenworthshuttle.com/mountain) to Stuart Lake Trailhead (about 20 minutes), finishing at your car. Book it after you have a permit and lodging.
-- The lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle to get a spot.
-- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). $30/person for 2 or more, $60 alone, plus tip. Book online at least 24 hours ahead; no refunds, but you can reschedule. Going the other way (Stuart Lake to Snow Lakes) is booked by phone.
-- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes.
-- For driving directions, use "Snow Lakes Trailhead" in Leavenworth, WA. "Snow Lake Trailhead" is about 2 hours away.
-- *The Snow Lakes lot has a section for overnight permit holders. Overflow parks on the shoulder of Icicle Creek Road, following the signs.*
-- *The shuttle waits at the Snow Lakes lot entrance. Arriving at 5:30am for a 5:45 shuttle has also worked.*
-- *Stuart Lake Trailhead: the last stretch is potholed dirt, fine for low-clearance cars driven slowly. Overflow parks along the road in marked spots.*
 
 ## On the day
 
