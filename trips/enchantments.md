@@ -138,6 +138,19 @@ Day hiking is allowed in every zone, so each permit can still reach the Core by 
   - 2 nights: Lake Stuart or Horseshoe Lake, with a day to Colchuck Lake (and Aasgard if strong).
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
 
+## Best camps[^nomadic]
+
+All in the Core Zone, so they need a Core permit. Sites aren't marked: look for flattened spots or rock windbreaks, and stay on already-disturbed sites.
+
+- **Isolation Lake** (7,735 ft): sunrise on Dragontail Peak, the highest peak in the Enchantments. Lots of goats.
+- **Inspiration Lake** (7,185 ft): the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
+- **Sprite Lake** (7,069 ft), east side: along Snow Creek, with some of the best views of Prusik Peak.
+- **Quieter**: Crystal Lake (7,010 ft), or climb up to Gnome Lake (7,372 ft) for real isolation.
+
+Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isolation, then Inspiration or Sprite, then Snow Lakes (Snow Zone).
+
+[^nomadic]: [Nomadic Moments guide to the Enchantments](https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping)
+
 ## *Leavenworth*
 
 - *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area.*
