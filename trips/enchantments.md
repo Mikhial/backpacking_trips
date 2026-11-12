@@ -101,19 +101,17 @@ permit:
 
 ## Getting there
 
-- **Fly**: to Seattle (2 hr), then drive 2.5 hr. 
-  - Other options include flying to Wenatchee or taking Amtrak from Seattle, but they don't seem worth the hassle.
-- Stay in Leavenworth. Include what's here and how far it is to the trail.
+- **Fly**: to Seattle (2 hr), then drive 2.5 hr to Leavenworth. Flying to Wenatchee or taking Amtrak from Seattle are other options, but don't seem worth the hassle.
+- **Stay**: in Leavenworth, which has two small sporting goods stores, with dispersed camping nearby. Snow Lakes Trailhead is about 5 mi (15 min) up Icicle Road; Stuart Lake Trailhead about 13 mi (40 min).
 
 ### Shuttle
 
-- [Leavenworth Shuttle](https://www.leavenworthshuttle.com/mountain) transports you between the two trailheads.
-- Shuttle takes 20 minutes. Book it after you have a permit and lodging at least 24 hours ahead.
-- Park at your finishing trailhead and shuttle to the start.
-- Snow Lakes Trailhead lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle for good chances at a spot. Overflow parking on the street is also available.
-- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). If going reverse direction or want different times, call to schedule. No shuttle service past 7pm.
-- $60 if traveling alone, $30/person otherwise, plus tip.
-- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes. See https://www.fs.usda.gov/r06/okanogan-wenatchee/newsroom/stories/digital-payment-now-required-most-recreation-sites
+- [Leavenworth Shuttle](https://www.leavenworthshuttle.com/mountain) runs between the two trailheads in about 20 minutes. Park at your finishing trailhead and shuttle to the start.
+- Book at least 24 hours ahead, once you have a permit and lodging.
+- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). For the reverse direction or other times, call to schedule. No service after 7pm.
+- $60 alone, $30/person otherwise, plus tip.
+- Snow Lakes Trailhead lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle for a good chance at a spot; overflow parking is on the street.
+- **Parking**: a Northwest Forest Pass or an America the Beautiful pass. Overnight permits include two parking passes. [How to pay](https://www.fs.usda.gov/r06/okanogan-wenatchee/newsroom/stories/digital-payment-now-required-most-recreation-sites).
 
 ## When to go
 
