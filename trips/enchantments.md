@@ -101,25 +101,19 @@ permit:
 
 ## Getting there
 
-From SF:
+- **Fly**: to Seattle (2 hr), then drive 2.5 hr. 
+  - Other options include flying to Wenatchee or taking Amtrak from Seattle, but they don't seem worth the hassle.
+- Stay in Leavenworth. Include what's here and how far it is to the trail.
 
-- **Fly to Seattle (SEA)**, rent a car, then 2.5 hrs to Leavenworth. The most flights.
-- **Fly to Wenatchee (EAT)**: no nonstop from SFO; usually one stop in Seattle. Then ~30 min to Leavenworth (estimate). Saves the long drive.
-- **Without a car from Seattle**: Amtrak's Empire Builder to Leavenworth's Icicle Station (arrives around 8:15pm), or the Northwestern Stages bus (once a day, ~3 hrs). [Leavenworth Shuttle](https://www.leavenworthshuttle.com/icicle-station) runs from the station to lodging in town ($11/person).
-- *Stay in Leavenworth (2.5 hrs from Seattle, 3.25 from Spokane). Two small sporting goods stores in town, and dispersed camping in the area.*
+### Shuttle
 
-**Do I need to drive to the shuttle?** Probably. The Enchantments shuttle runs between the two trailheads; its site doesn't mention pickups in town. So drive to Snow Lakes Trailhead (up Icicle Road from town), park, and take the shuttle to Stuart Lake. Without a car, call them (509-548-7433) about a pickup in town.
-
-## Shuttle
-
-- Park at Snow Lakes Trailhead and take the [shuttle](https://www.leavenworthshuttle.com/mountain) to Stuart Lake Trailhead (about 20 minutes), finishing at your car. Book it after you have a permit and lodging.
-- The lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle to get a spot.
-- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). $30/person for 2 or more, $60 alone, plus tip. Book online at least 24 hours ahead; no refunds, but you can reschedule. Going the other way (Stuart Lake to Snow Lakes) is booked by phone.
-- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes.
-- For driving directions, use "Snow Lakes Trailhead" in Leavenworth, WA. "Snow Lake Trailhead" is about 2 hours away.
-- *The Snow Lakes lot has a section for overnight permit holders. Overflow parks on the shoulder of Icicle Creek Road, following the signs.*
-- *The shuttle waits at the Snow Lakes lot entrance. Arriving at 5:30am for a 5:45 shuttle has also worked.*
-- *Stuart Lake Trailhead: the last stretch is potholed dirt, fine for low-clearance cars driven slowly. Overflow parks along the road in marked spots.*
+- [Leavenworth Shuttle](https://www.leavenworthshuttle.com/mountain) transports you between the two trailheads.
+- Shuttle takes 20 minutes. Book it after you have a permit and lodging at least 24 hours ahead.
+- Park at your finishing trailhead and shuttle to the start.
+- Snow Lakes Trailhead lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle for good chances at a spot. Overflow parking on the street is also available.
+- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). If going reverse direction or want different times, call to schedule. No shuttle service past 7pm.
+- $60 if traveling alone, $30/person otherwise, plus tip.
+- Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes. See https://www.fs.usda.gov/r06/okanogan-wenatchee/newsroom/stories/digital-payment-now-required-most-recreation-sites
 
 ## When to go
 
