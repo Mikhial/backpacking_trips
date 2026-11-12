@@ -63,7 +63,7 @@ seasons:
     why: [snow]
     notes: Often still many snow patches; lakes can be frozen.
   - peak: Aug 1 – Sep 30
-    notes: Best chance of little to no snow. Thunderstorms.
+    notes: Best chance of little to no snow. Thunderstorms. Aim for Late August / Early September
   - shoulder: Oct 1 – Oct 31
     why: [cold, snow]
     notes: Colder, more chance of snow. Larches usually the first two weeks.
@@ -145,16 +145,26 @@ Day hiking is allowed in every zone, so each permit can still reach the Core by 
 
 ## Best camps[^nomadic]
 
-All in the Core Zone, so they need a Core permit. Sites aren't marked: look for flattened spots or rock windbreaks, and stay on already-disturbed sites.
+All in the Core Zone, so they need a Core permit. Sites aren't marked.
 
-- **Isolation Lake** (7,735 ft): sunrise on Dragontail Peak, the highest peak in the Enchantments. Lots of goats.
-- **Inspiration Lake** (7,185 ft): the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
-- **Sprite Lake** (7,069 ft), east side: along Snow Creek, with some of the best views of Prusik Peak.
-- **Quieter**: Crystal Lake (7,010 ft), or climb up to Gnome Lake (7,372 ft; Gnome Tarn on the map) for real isolation.
+- **Isolation Lake**: sunrise on Dragontail Peak, the highest peak in the Enchantments. Lots of goats.
+- **Inspiration Lake**: the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
+- **Sprite Lake**, east side: along Snow Creek, with some of the best views of Prusik Peak.
+- **Crystal Lake or Gnome Lake**: Quieter, real isolation.
 
 Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isolation, then Inspiration or Sprite, then Snow Lakes (Snow Zone).
 
 [^nomadic]: [Nomadic Moments guide to the Enchantments](https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping)
+
+## Getting there
+
+From SF:
+
+- **Fly to Seattle (SEA)**, rent a car, then 2.5 hrs to Leavenworth. The most flights.
+- **Fly to Wenatchee (EAT)**: no nonstop from SFO; usually one stop in Seattle. Then ~30 min to Leavenworth (estimate). Saves the long drive.
+- **Without a car from Seattle**: Amtrak's Empire Builder to Leavenworth's Icicle Station (arrives around 8:15pm), or the Northwestern Stages bus (once a day, ~3 hrs). [Leavenworth Shuttle](https://www.leavenworthshuttle.com/icicle-station) runs from the station to lodging in town ($11/person).
+
+**Do I need to drive to the shuttle?** Probably. The Enchantments shuttle runs between the two trailheads; its site doesn't mention pickups in town. So drive to Snow Lakes Trailhead (up Icicle Road from town), park, and take the shuttle to Stuart Lake. Without a car, call them (509-548-7433) about a pickup in town.
 
 ## *Leavenworth*
 
@@ -164,6 +174,7 @@ Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isola
 
 - Park at Snow Lakes Trailhead and take the [shuttle](https://www.leavenworthshuttle.com/mountain) to Stuart Lake Trailhead (about 20 minutes), finishing at your car. Book it after you have a permit and lodging.
 - The lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle to get a spot.
+- Runs at 5:00, 5:45, 7:30 and 8:15am (plus 6:45am on weekends). $30/person for 2 or more, $60 alone, plus tip. Book online at least 24 hours ahead; no refunds, but you can reschedule. Going the other way (Stuart Lake to Snow Lakes) is booked by phone.
 - Parking needs a Northwest Forest Pass, or an America the Beautiful pass. Overnight permits include two parking passes.
 - For driving directions, use "Snow Lakes Trailhead" in Leavenworth, WA. "Snow Lake Trailhead" is about 2 hours away.
 - *The Snow Lakes lot has a section for overnight permit holders. Overflow parks on the shoulder of Icicle Creek Road, following the signs.*
