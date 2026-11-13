@@ -96,13 +96,10 @@ permit:
 
 ## Overview
 
-- Point to point, west to east: Stuart Lake Trailhead, up Aasgard Pass, through the Core Zone, down past Snow Lakes to Snow Lakes Trailhead. This way has about 2,000 ft less climbing.
+- Point to point, west to east: Stuart Lake Trailhead, up Aasgard Pass, through the Core Zone, down past Snow Lakes to Snow Lakes Trailhead.
+- East to west is also possible, but the shuttle is harder to schedule, it adds an extra 2k feet of climbing, and going down Aasgard Pass is difficult.
 - Day hike or overnight. A day hike is incredibly challenging but needs only a free permit; overnights let you go at your own pace but need the lottery.
 - Tougher than Mt Whitney, but without the altitude.
-- *Also west to east: the loose-dirt downhill is worse than going up Aasgard, the shuttle is easier this way, and it works as an all-day hike.*
-- *Overnight itineraries: 2 days, Core; 3 days, Colchuck → Core; 4 days, Colchuck → 2 nights Core; 5 days, Colchuck → 2 nights Core → Snow; 6+, more time in Core.*
-- *Favorite Core Zone camps: around Inspiration and Perfection Lakes.*
-- *Planning: work out how much time you have and apply for the lottery with your ideal dates (the author aims for 2–5 days in late Aug or early Sep). If you don't get one, train for the day hike and try again next year.*
 
 ## Getting there
 
