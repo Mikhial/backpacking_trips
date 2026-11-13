@@ -51,6 +51,9 @@ links:
   Best camps: https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping
   Trip reports: https://www.wta.org/go-hiking/hikes/enchantment-lakes#trip-report-listing
   Ranger district: https://www.fs.usda.gov/r06/okanogan-wenatchee/offices/wenatchee-river-ranger-district
+  Snow Checker: https://hikingguy.com/snow-checker/?trail=the-enchantments
+  Recent Instagram posts: https://www.instagram.com/explore/locations/254437614/the-enchantments/recent/
+  Firesmoke: https://firesmoke.ca
 
 facts:
   Getting there: Fly to Seattle, then 2.5 hr drive to Leavenworth
@@ -164,9 +167,3 @@ Day hiking is allowed in every zone, so each permit can still reach the Core by 
 - **Turnaround**: if you're far behind at Colchuck Lake, turn around. Plan B is out and back to Colchuck.
 - **Water**: plenty of lakes, so carry about 1 L and filter everything. Refill at Tranquil Lake, the Lake Viviane outlet and Nada Lake (the last easy one).
 - **Navigation**: many social trails. Follow cairns and the GPX; don't assume people ahead are on route.
-
-## *More links*
-
-- *[Snow Checker](https://hikingguy.com/snow-checker/?trail=the-enchantments)*
-- *[Recent Instagram posts](https://www.instagram.com/explore/locations/254437614/the-enchantments/recent/)*
-- *[Firesmoke](https://firesmoke.ca)*
