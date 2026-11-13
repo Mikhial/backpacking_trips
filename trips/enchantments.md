@@ -148,7 +148,7 @@ dispersed sites and usually a toilet nearby
   - 2 days: up Aasgard to a Core camp (~6.5 mi), then across the Core and down (~12.5 mi).
   - 3–5 days: Colchuck, then 1–2 nights in the Core (a free day for Prusik Pass or Little Annapurna), then Snow Lakes.
 - **Snow**: the best one if no Core permit.
-  - West to east, 1 night: Stuart Lake Trailhead over Aasgard and through the Core to a Snow or Nada Lake camp (~13.5 mi), then ~5.5 mi out. Keeps Aasgard uphill and the long descent for fresh legs.
+  - 1 night: Stuart Lake Trailhead over Aasgard and through the Core to a Snow or Nada Lake camp (~13.5 mi), then ~5.5 mi out. Keeps Aasgard uphill and the long descent for fresh legs.
   - Base camp, 2 nights: in from Snow Lakes Trailhead (~6–7 mi, ~3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
 - **Colchuck**:
   - 1 night: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing.
