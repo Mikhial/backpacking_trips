@@ -3,7 +3,7 @@ import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 import footnote from 'markdown-it-footnote';
 import { normalizeTrip, bestSeason, REASONS, routeKey, mapShows, showsWord } from './lib/normalize.js';
 import { parseGpx, parseLatLon, simplify, measure, routeShape } from './lib/geo.js';
-import { parkSlug } from './lib/parkdata.js';
+import { parkSlug, readZones } from './lib/parkdata.js';
 
 const site = JSON.parse(fs.readFileSync('./_data/site.json', 'utf8'));
 
@@ -71,7 +71,9 @@ export default function (eleventyConfig) {
       const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
       return { n, file, p, ...stats, ...(data.link ? { url: data.link } : {}) };
     });
-    return (trailheads.length || camps.length || spots.length || routes.length) ? JSON.stringify({ trailheads, camps, places: spots, routes }).replace(/</g, '\\u003c') : '';
+    // zones: a GeoJSON file of permit zones (name, note, label point), drawn as light outlines
+    const zones = readZones(data.zones);
+    return (trailheads.length || camps.length || spots.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, routes, zones }).replace(/</g, '\\u003c') : '';
   });
   // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
   // one route gives "28 mi point to point", several give the range, "13–48 mi"

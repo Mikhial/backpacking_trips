@@ -133,6 +133,13 @@
     // Boundary and long-distance trails, drawn underneath
     const extra = [{ k: '#boundary', label: 'Park boundary', n: d.boundary.length, color: '#3b2f5c', on: d.boundaryOn !== false,
       group: L.layerGroup(d.boundary.map(l => L.polyline(l, { renderer, color: '#3b2f5c', weight: 2, opacity: .7, dashArray: '8 6', interactive: false }))) }];
+    // permit zones from a trip's "zones:" line, drawn like on the trip map (assets/trailmap.js): outlines with the name as a label
+    if ((d.zones || []).length) {
+      const layers = d.zones.flatMap(z => [L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }),
+        ...(z.at ? [L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false })
+          .bindTooltip(`<b>${esc(z.n)}</b>${z.note ? `<div class="tm-note">${esc(z.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: 'tm-tip tm-wrap' })] : [])]);
+      extra.push({ k: '#zones', label: 'Permit zones', n: d.zones.length, color: '#5b3f8c', on: true, group: L.layerGroup(layers) });
+    }
     // drawn like on the trip map: a dark red line on top of everything else, named on hover
     if (d.big.length) {
       const layers = d.big.map(({ g, b }) => Object.assign(L.polyline(g, { renderer, color: '#7e2413', weight: 2, opacity: .95 })

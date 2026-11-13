@@ -1,0 +1,22 @@
+{
+ "name": "Alpine Lakes Wilderness",
+ "region": "us/washington",
+ "source": "OpenStreetMap relation/6112652",
+ "fetched": "2026-11-11",
+ "area": {
+  "type": "relation",
+  "id": 6112652
+ },
+ "bounds": {
+  "minlat": 47.378139,
+  "minlon": -121.6457019,
+  "maxlat": 47.7593828,
+  "maxlon": -120.679931
+ },
+ "box": {
+  "minlat": 47.378139,
+  "minlon": -121.6457019,
+  "maxlat": 47.7593828,
+  "maxlon": -120.679931
+ }
+}

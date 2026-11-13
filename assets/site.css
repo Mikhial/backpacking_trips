@@ -209,6 +209,8 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .ln.road { border-top: 2px dashed #8a6a4b; }
 .tm-legend .ln.closed { border-top: 2px dotted #b5462f; opacity: .6; }
 .tm-legend .ln.bnd { border-top: 2px dashed #3b2f5c; opacity: .7; }
+.tm-legend .zn { display: inline-block; width: 14px; height: 10px; border: 2px solid rgba(91,63,140,.6); background: rgba(91,63,140,.07); border-radius: 2px; }
+.tm-zone span { position: absolute; white-space: nowrap; transform: translate(-50%, -50%); cursor: default; font: 600 10px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: rgba(91,63,140,.8); text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 2px #fff; }
 .tm-legend .tm-more { color: var(--faint); }
 .tm-legend .ln.route { border-top: 3px solid #1f5fa8; box-shadow: 0 0 0 1.5px #fff; }
 .tm-routes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }

@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], places: [], routes: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -59,6 +59,15 @@
     // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area)
     const single = box.hasAttribute('data-single') && extras.routes.length === 1;
     data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
+    // Permit zones ("zones:" in the header): light outlines under the trails, with the name as a label;
+    // hovering the label shows the zone's note
+    extras.zones.forEach(z => {
+      // same style as on the All map data page (assets/parkmap.js)
+      L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }).addTo(map);
+      if (!z.at) return;
+      L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false }).addTo(map)
+        .bindTooltip(`<b>${esc(z.n)}</b>${z.note ? `<div class="tm-note">${esc(z.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: 'tm-tip tm-wrap' });
+    });
 
     // Keep only what belongs to the area: lines that enter the boundary, points inside it,
     // and trailheads near a kept trail. A one-route trip keeps everything near its route, inside the park or not.
@@ -223,6 +232,9 @@
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
             .bindTooltip(`${esc(p.n || 'Camp')}${p.n ? ' <span>Camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
+          // like a place: marks where it is on the open elevation profile, if it's on the route
+          m.on('mouseover', () => placeAt && placeAt(p.at, p.n || 'Camp'));
+          m.on('mouseout', () => placeAt && placeAt(null));
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
