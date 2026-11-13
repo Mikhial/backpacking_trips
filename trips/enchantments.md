@@ -54,6 +54,7 @@ links:
   Snow Checker: https://hikingguy.com/snow-checker/?trail=the-enchantments
   Recent Instagram posts: https://www.instagram.com/explore/locations/254437614/the-enchantments/recent/
   Firesmoke: https://firesmoke.ca
+  WatchDuty: https://app.watchduty.org
 
 facts:
   Getting there: Fly to Seattle, then 2.5 hr drive to Leavenworth
@@ -119,6 +120,8 @@ permit:
 
 ## When to go[^hikingguy]
 
+Skip the day of if rain is solidly forecast; wet granite slabs are unpleasant to descend. Thunderstorms have no real shelter in the Core Zone.
+
 [^hikingguy]: [Hiking Guy: The Enchantments, seasons](https://hikingguy.com/hikes/the-enchantments/#seasons)
 
 ## Permits
@@ -160,10 +163,3 @@ Day hiking is allowed in every zone, so each permit can still reach the Core by 
   - **1 night**: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
   - **1 night, east to west**: 17 miles to Mountaineer Creek. Will be very hard doing almost entire traverse in opposite direction.
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
-
-## On the day
-
-- **No-go**: skip it if rain is solidly forecast; wet granite slabs are unpleasant to descend. Thunderstorms have no real shelter in the Core Zone. Check smoke on [WatchDuty](https://app.watchduty.org).
-- **Turnaround**: if you're far behind at Colchuck Lake, turn around. Plan B is out and back to Colchuck.
-- **Water**: plenty of lakes, so carry about 1 L and filter everything. Refill at Tranquil Lake, the Lake Viviane outlet and Nada Lake (the last easy one).
-- **Navigation**: many social trails. Follow cairns and the GPX; don't assume people ahead are on route.
