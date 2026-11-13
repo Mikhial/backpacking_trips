@@ -48,6 +48,7 @@ links:
   Trail guide: https://hikingguy.com/hikes/the-enchantments/
   Permits: https://www.recreation.gov/permits/233273
   Shuttle: https://www.leavenworthshuttle.com/mountain
+  Best camps: https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping
   Trip reports: https://www.wta.org/go-hiking/hikes/enchantment-lakes#trip-report-listing
   Ranger district: https://www.fs.usda.gov/r06/okanogan-wenatchee/offices/wenatchee-river-ranger-district
 
@@ -156,17 +157,6 @@ Day hiking is allowed in every zone, so each permit can still reach the Core by 
   - **1 night**: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
   - **1 night, east to west**: 17 miles to Mountaineer Creek. Will be very hard doing almost entire traverse in opposite direction.
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
-
-## Best camps[^nomadic]
-
-All in the Core Zone, so they need a Core permit. Sites aren't marked.
-
-- **Isolation Lake**: sunrise on Dragontail Peak, the highest peak in the Enchantments. Lots of goats.
-- **Inspiration Lake**: the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
-- **Sprite Lake**, east side: along Snow Creek, with some of the best views of Prusik Peak.
-- **Crystal Lake or Gnome Lake**: Quieter, real isolation.
-
-[^nomadic]: [Nomadic Moments guide to the Enchantments](https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping)
 
 ## On the day
 
