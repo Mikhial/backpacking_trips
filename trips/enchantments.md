@@ -131,7 +131,7 @@ permit:
 
 **Cost**: $6 lottery application + $5/person/day overnight. Day hikes are free but need a $5 Northwest Forest Pass to park.
 
-**Zones**: Five zones (Core, Colchuck, Snow, Stuart, Eightmile/Caroline). A Core permit lets you camp in any zone; the others only in their own. Core is by far the best and aim to spend the most time there.
+**Zones**: Five zones. A Core permit lets you camp in any zone; the others only in their own. Core is by far the best and aim to spend the most time there.
 
 **Odds, best to worst**:
   - **Camps**: Stuart, Snow, Colchuck, Core
@@ -140,25 +140,21 @@ permit:
 
 ## Trips by permit
 
-Day hiking is allowed in every zone, so each permit can still reach the Core by day, and any permit can start and finish at either trailhead. Mileages with ~ are estimates.
-
-dispersed sites and usually a toilet nearby
+Day hiking is allowed in every zone, so each permit can still reach the Core by day, and any permit can start and finish at either trailhead. Camping is dispersed and there is usually a toilet nearby.
 
 - **Core**: camp anywhere.
-  - 2 days: up Aasgard to a Core camp (~6.5 mi), then across the Core and down (~12.5 mi).
-  - 3–5 days: Colchuck, then 1–2 nights in the Core (a free day for Prusik Pass or Little Annapurna), then Snow Lakes.
+  - **1 night**: up Aasgard to a Core camp (6.5 mi), then across the Core and down (12.5 mi).
+  - **2-4 nights**: Colchuck, then 1–2 nights in the Core (a free day for Prusik Pass or Little Annapurna), then Snow Lakes.
 - **Snow**: the best one if no Core permit.
-  - 1 night: up Aasgard and through the Core to a Snow Lakes (11.5 mi) or Nada Lake camp (12.5 mi), then 6.5-7.5 mi out.
-  - 1 night, east to west: in from Snow Lakes Trailhead to a Snow Lakes camp (6–7 mi, 3,600 ft up), then up through the Core and down Aasgard (~12 mi). Camping at the Core end of Upper Snow Lake, near the bridge, evens the days out (8 mi in, 10.5 mi out).[^dyrt] The shuttle needs a call this way.
-  - 2 nights: in from Snow Lakes Trailhead (6–7 mi, 3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
+  - **1 night**: up Aasgard and through the Core to a Snow Lakes (11.5 mi) or Nada Lake camp (12.5 mi), then 6.5-7.5 mi out.
+  - **1 night, east to west**: Camp at Snow Lakes camp (6.5–8 mi), then up through the Core and down Aasgard (10.5-12 mi). Camping at the Core end of Upper Snow Lake, near the bridge, evens the days out. Need to call shuttle to schedule this direction.
+  - **2 nights**: in from Snow Lakes Trailhead (6–7 mi, 3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
 - **Colchuck**:
-  - 1 night: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing.
-  - Base camp, 2 nights: a day up Aasgard into the Upper Core and back (descends Aasgard), then out the way you came.
+  - **1 night**: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing.
+  - **2 nights**: a day up Aasgard into the Upper Core and back (descends Aasgard), then out the way you came.
 - **Stuart**: the easiest to get.
-  - 1 night: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
-[^dyrt]: [The Dyrt review of the Snow Lake Zone](https://thedyrt.com/camping/washington/snow-lake-zone/reviews/58463): best camp was a little spit at the far end of the lake, closest to the Core
-
-  - 2 nights: Lake Stuart or Horseshoe Lake, with a day to Colchuck Lake (and Aasgard if strong).
+  - **1 night**: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
+  - **1 night, east to west**: 17 miles to Mountaineer Creek. Will be very hard doing almost entire traverse in opposite direction.
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
 
 ## Best camps[^nomadic]
@@ -169,8 +165,6 @@ All in the Core Zone, so they need a Core permit. Sites aren't marked.
 - **Inspiration Lake**: the cliffs on the southeast corner look over Perfection Lake and Prusik Peak, with great sunrises and sunsets. Snow Creek runs through, with a waterfall down into Perfection Lake. Lots of goats.
 - **Sprite Lake**, east side: along Snow Creek, with some of the best views of Prusik Peak.
 - **Crystal Lake or Gnome Lake**: Quieter, real isolation.
-
-Their itineraries: 3 days, Isolation then the east side of Sprite; 4 days, Isolation, then Inspiration or Sprite, then Snow Lakes (Snow Zone).
 
 [^nomadic]: [Nomadic Moments guide to the Enchantments](https://www.nomadicmoments.com/guides/guide-to-the-enchantments/#camping)
 
