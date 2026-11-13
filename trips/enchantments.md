@@ -113,7 +113,9 @@ permit:
 - Snow Lakes Trailhead lot holds about 50 cars. Arrive by 4:30am for the 5am shuttle for a good chance at a spot; overflow parking is on the street.
 - **Parking**: a Northwest Forest Pass or an America the Beautiful pass. Overnight permits include two parking passes. [How to pay](https://www.fs.usda.gov/r06/okanogan-wenatchee/newsroom/stories/digital-payment-now-required-most-recreation-sites).
 
-## When to go
+## When to go[^hikingguy]
+
+[^hikingguy]: [Hiking Guy: The Enchantments, seasons](https://hikingguy.com/hikes/the-enchantments/#seasons)
 
 ## Permits
 
