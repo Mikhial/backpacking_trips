@@ -232,6 +232,9 @@
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
             .bindTooltip(`${esc(p.n || 'Camp')}${p.n ? ' <span>Camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
+          // like a place: marks where it is on the open elevation profile, if it's on the route
+          m.on('mouseover', () => placeAt && placeAt(p.at, p.n || 'Camp'));
+          m.on('mouseout', () => placeAt && placeAt(null));
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
