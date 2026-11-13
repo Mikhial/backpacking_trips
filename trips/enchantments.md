@@ -148,13 +148,16 @@ dispersed sites and usually a toilet nearby
   - 2 days: up Aasgard to a Core camp (~6.5 mi), then across the Core and down (~12.5 mi).
   - 3–5 days: Colchuck, then 1–2 nights in the Core (a free day for Prusik Pass or Little Annapurna), then Snow Lakes.
 - **Snow**: the best one if no Core permit.
-  - 1 night: up Aasgard and through the Core to a Snow or Nada Lake camp (~13.5 mi), then ~5.5 mi out. Keeps Aasgard uphill and the long descent for fresh legs.
-  - Base camp, 2 nights: in from Snow Lakes Trailhead (~6–7 mi, ~3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
+  - 1 night: up Aasgard and through the Core to a Snow Lakes (11.5 mi) or Nada Lake camp (12.5 mi), then 6.5-7.5 mi out.
+  - 1 night, east to west: in from Snow Lakes Trailhead to a Snow Lakes camp (6–7 mi, 3,600 ft up), then up through the Core and down Aasgard (~12 mi). Camping at the Core end of Upper Snow Lake, near the bridge, evens the days out (8 mi in, 10.5 mi out).[^dyrt] The shuttle needs a call this way.
+  - 2 nights: in from Snow Lakes Trailhead (6–7 mi, 3,600 ft up), a day up the slabs to Lake Viviane and the Lower Core and back, then out. No Aasgard and no shuttle.
 - **Colchuck**:
   - 1 night: 5 mi to Colchuck Lake, then the rest of the traverse (14 mi) with Aasgard first thing.
   - Base camp, 2 nights: a day up Aasgard into the Upper Core and back (descends Aasgard), then out the way you came.
 - **Stuart**: the easiest to get.
   - 1 night: camp along Mountaineer Creek (1–2 mi in), then ~17 mi out over the traverse. A night out, but the big day is barely shorter.
+[^dyrt]: [The Dyrt review of the Snow Lake Zone](https://thedyrt.com/camping/washington/snow-lake-zone/reviews/58463): best camp was a little spit at the far end of the lake, closest to the Core
+
   - 2 nights: Lake Stuart or Horseshoe Lake, with a day to Colchuck Lake (and Aasgard if strong).
 - **No overnight permit**: the traverse as a day hike, or try the daily lottery from Leavenworth over a few days.
 
