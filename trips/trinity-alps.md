@@ -15,6 +15,9 @@ places:
   Big Bar Fire Station:
     at: 40.74215, -123.25160
     note: Permit kiosk.
+  Coffee Creek Fire Station:
+    at: 41.08564, -122.70611
+    note: Permit kiosk.
   Supervisor's Office (Redding):
     at: 40.52074, -122.30094
     note: Permit kiosk outside.
