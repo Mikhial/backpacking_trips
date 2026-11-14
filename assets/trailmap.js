@@ -106,7 +106,7 @@
 
     // The legend only lists line kinds this map has
     const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x),
-      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), 'unnamed paths': trails.some(t => !t.n && t.k === 'trail') };
+      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), toilets: data.pois.some(p => p.t === 'toilet'), 'unnamed paths': trails.some(t => !t.n && t.k === 'trail') };
     legendHas.peaks = legendHas.peak;
     box.querySelectorAll('.tm-legend [data-legend]').forEach(el => { if (!legendHas[el.dataset.legend]) el.remove(); });
     // "Zoom in for …" names only what this map has
@@ -185,7 +185,7 @@
 
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
-    const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water' };
+    const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
     data.pois.forEach(p => {
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));

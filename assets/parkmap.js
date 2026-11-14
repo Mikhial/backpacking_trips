@@ -10,7 +10,7 @@
     'highway=path': '#b5462f', 'highway=footway': '#d9822b', 'highway=bridleway': '#8e44ad', 'highway=cycleway': '#2a9d8f',
     'highway=track': '#8a6a4b', 'highway=steps': '#c0399e', 'highway=trailhead': '#1c211a', 'tourism=camp_site': '#5a9a2a',
     'tourism=wilderness_hut': '#2e6b1f', 'tourism=alpine_hut': '#2e6b1f', 'natural=peak': '#8a5a2b', 'natural=spring': '#3db6d6',
-    'amenity=drinking_water': '#1f5fa8'
+    'amenity=drinking_water': '#1f5fa8', 'amenity=toilets': '#7a5aa8'
   };
   const BY_KEY = { highway: '#6b6b6b', waterway: '#3d8fd6', natural: '#7a8a3a', water: '#3d8fd6', tourism: '#4a8a2a', amenity: '#a05a9a',
     building: '#9a7a5a', landuse: '#8a9a6a', leisure: '#5a8a7a', boundary: '#5a4a8a', power: '#9a9a3a', barrier: '#7a5a3a' };

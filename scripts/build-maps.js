@@ -93,10 +93,11 @@ function profile(line, elevation) {
 const WORD_KINDS = {
   paths: ['highway=path'], footways: ['highway=footway'], bridleways: ['highway=bridleway'], cycleways: ['highway=cycleway'],
   steps: ['highway=steps'], 'dirt roads': ['highway=track'], trailheads: ['highway=trailhead'], boundaries: [], peaks: ['natural=peak'],
-  camps: ['tourism=camp_site', 'tourism=wilderness_hut', 'tourism=alpine_hut'], water: ['natural=spring', 'amenity=drinking_water']
+  camps: ['tourism=camp_site', 'tourism=wilderness_hut', 'tourism=alpine_hut'], water: ['natural=spring', 'amenity=drinking_water'],
+  toilets: ['amenity=toilets']
 };
 const poiType = t => t.highway === 'trailhead' ? 'trailhead' : t.tourism ? 'camp' : t.natural === 'peak' ? 'peak'
-  : t.amenity === 'drinking_water' || t.natural === 'spring' ? 'water' : null;
+  : t.amenity === 'drinking_water' || t.natural === 'spring' ? 'water' : t.amenity === 'toilets' ? 'toilet' : null;
 
 export function corridor(trip) {
   const line = simplify(trip.lines[0], 30), heads = trip.trailheads;
@@ -157,6 +158,7 @@ function buildMap(trip, park) {
       pois.push({ t: 'peak', n: t.name, at: center, e }); continue;
     }
     if (t.amenity === 'drinking_water' || t.natural === 'spring') { pois.push({ t: 'water', n: t.name || '', at: center }); continue; }
+    if (t.amenity === 'toilets') { pois.push({ t: 'toilet', n: t.name || '', at: center }); continue; }
     if (el.type !== 'way' || !el.geometry) continue;
     const closed = /^(yes|true)$/.test(t.abandoned || '') || /^(yes|true)$/.test(t.disused || '') || !!t['abandoned:highway'] || t.access === 'no';
     const nm = t.name || t.ref || '';
@@ -239,7 +241,7 @@ const LABELS = {
   'highway=path': 'Path', 'highway=footway': 'Footway', 'highway=bridleway': 'Bridleway', 'highway=cycleway': 'Cycleway',
   'highway=track': 'Dirt road (track)', 'highway=steps': 'Steps', 'highway=trailhead': 'Trailhead', 'tourism=camp_site': 'Camp',
   'tourism=wilderness_hut': 'Wilderness hut', 'tourism=alpine_hut': 'Alpine hut', 'natural=peak': 'Peak', 'natural=spring': 'Spring',
-  'amenity=drinking_water': 'Drinking water',
+  'amenity=drinking_water': 'Drinking water', 'amenity=toilets': 'Toilet',
   'highway=pedestrian': 'Pedestrian way', 'highway=construction': 'Trail under construction', 'highway=climbing': 'Climbing route',
   'highway=climbing_access': 'Climbing approach', 'highway=ladder': 'Ladder', 'highway=trail': 'Trail',
   'highway=service': 'Service road', 'highway=unclassified': 'Forest or minor road', 'highway=tertiary': 'Minor highway',

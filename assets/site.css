@@ -230,6 +230,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-poi.tm-group { display: flex; align-items: center; justify-content: center; color: #fff; font: 600 10px/1 var(--sans); cursor: pointer; }
 .tm-poi.peak { background: #8a5a2b; border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); box-shadow: none; border: 0; }
 .tm-poi.water { background: #3d8fd6; }
+.tm-poi.toilet { background: #7a5aa8; border-radius: 2px; width: 10px; height: 10px; }
 .tm-poi.place { background: #fff; border-color: #1c211a; width: 11px; height: 11px; }
 .tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
 .tm-info b { color: var(--fg); font-weight: 600; }
