@@ -6,6 +6,8 @@ updated: 2026-11-14
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
 links:
+  CleverHiker guide: https://www.cleverhiker.com/backpacking/trinity-alps-wilderness-backpacking-guide/
+  Wildland Trekking guide: https://wildlandtrekking.com/blog/everything-you-need-to-know-about-trinity-alps-backpacking/
   Shasta-Trinity National Forest: https://www.fs.usda.gov/r05/shasta-trinity
   Trinity Alps Wilderness: https://www.fs.usda.gov/r05/shasta-trinity/recreation/trinity-alps-wilderness
   Permits: https://www.fs.usda.gov/r05/shasta-trinity/permits
@@ -13,12 +15,27 @@ links:
   Weaverville Ranger Station: https://www.fs.usda.gov/r05/shasta-trinity/offices/weaverville-ranger-station
   Campfire permit: https://permit.preventwildfiresca.org/
 
-seasons: []
+seasons:
+  - shoulder: Jun 1 – Jun 30
+    why: [snow]
+    notes: Possible in light snow years; heavy years keep trails snowed in into July.
+  - peak: Jul 1 – Aug 15
+    why: [bugs, crowds]
+    notes: Wildflowers, but peak mosquitoes. Busy on summer weekends.
+  - peak: Aug 16 – Sep 30
+    notes: Fewer crowds and bugs.
+  - shoulder: Oct 1 – Oct 31
+    why: [snow]
+    notes: Open into October some years; early storms can close it.
 
 permit:
   note: Kiosk pickup, no quota
   difficulty: 0
 ---
+
+## When to go[^cleverhiker]
+
+[^cleverhiker]: [CleverHiker](https://www.cleverhiker.com/backpacking/trinity-alps-wilderness-backpacking-guide/)
 
 ## Permits
 
