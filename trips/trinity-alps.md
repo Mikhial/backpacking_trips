@@ -5,6 +5,22 @@ region: Northern California
 updated: 2026-11-14
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
+places:
+  Weaverville Ranger Station:
+    at: 40.73477, -122.94270
+    note: Permit kiosk.
+  Junction City Fire Station:
+    at: 40.73079, -123.05488
+    note: Permit kiosk.
+  Big Bar Fire Station:
+    at: 40.74215, -123.25160
+    note: Permit kiosk.
+  Supervisor's Office (Redding):
+    at: 40.52074, -122.30094
+    note: Permit kiosk outside.
+  Shasta Lake Ranger Station:
+    at: 40.70214, -122.33811
+    note: Permit kiosk.
 links:
   CleverHiker guide: https://www.cleverhiker.com/backpacking/trinity-alps-wilderness-backpacking-guide/
   Wildland Trekking guide: https://wildlandtrekking.com/blog/everything-you-need-to-know-about-trinity-alps-backpacking/
