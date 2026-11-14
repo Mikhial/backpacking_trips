@@ -1,0 +1,32 @@
+---
+name: Trinity Alps Wilderness
+short: Trinity Alps
+region: Northern California
+updated: 2026-11-14
+park: Trinity Alps Wilderness
+within: Shasta-Trinity National Forest
+links:
+  Shasta-Trinity National Forest: https://www.fs.usda.gov/r05/shasta-trinity
+  Trinity Alps Wilderness: https://www.fs.usda.gov/r05/shasta-trinity/recreation/trinity-alps-wilderness
+  Permits: https://www.fs.usda.gov/r05/shasta-trinity/permits
+  Restrictions: https://www.fs.usda.gov/r05/shasta-trinity/alerts/trinity-alps-wilderness-area-restrictions
+  Weaverville Ranger Station: https://www.fs.usda.gov/r05/shasta-trinity/offices/weaverville-ranger-station
+  Campfire permit: https://permit.preventwildfiresca.org/
+
+seasons: []
+
+permit:
+  note: Kiosk pickup, no quota
+  difficulty: 0
+---
+
+## Permits
+
+A wilderness permit is needed to camp overnight, any time of year, plus a California campfire permit, which also covers stoves. Neither has a quota or reservations.
+
+- **Wilderness permit**: at outdoor kiosks at the Weaverville Ranger Station (360 Main St), the Supervisor's Office in Redding (3644 Avtech Pkwy), the Shasta Lake Ranger Station, and the Coffee Creek, Mule Creek (Hwy 3), Junction City and Big Bar (Hwy 299) fire stations.
+- **Campfire permit**: free, [online](https://permit.preventwildfiresca.org/) or at any Forest Service, BLM or CAL FIRE office.
+
+**Camping**: up to 14 nights in 30 days; groups of 10 or fewer. Bear canister required in the Canyon Creek and Swift Creek drainages; elsewhere, any bear-proof system. Wood fires are banned in parts of the wilderness, even with a campfire permit (stoves are fine); see the [restrictions](https://www.fs.usda.gov/r05/shasta-trinity/alerts/trinity-alps-wilderness-area-restrictions).
+
+[Permits](https://www.fs.usda.gov/r05/shasta-trinity/permits)
