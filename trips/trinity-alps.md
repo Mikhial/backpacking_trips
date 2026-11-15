@@ -9,21 +9,31 @@ trailheads:
   Big Flat Trailhead: 41.06757, -122.93410
 places:
   Emerald and Sapphire Lakes:
-    at: 41.00472, -122.99810
     note: Two big granite-cirque lakes under the Sawtooth Ridge. Sapphire is the farther one.
+    places:
+      Emerald Lake: 41.00472, -122.99810
+      Sapphire Lake: 40.99862, -123.01309
   Caribou Lakes:
-    at: 41.02032, -122.97618
-    note: Snowslide, Lower Caribou and Caribou lakes.
+    places:
+      Caribou Lake: 41.02032, -122.97618
+      Snowslide Lake: 41.02896, -122.97121
+      Lower Caribou Lake: 41.02774, -122.97669
   Canyon Creek Falls:
-    at: 40.96081, -123.02346
     note: Lower, middle and upper falls along the trail; the upper one is the biggest.
+    places:
+      Lower Canyon Creek Falls: 40.93241, -123.02315
+      Middle Canyon Creek Falls: 40.95443, -123.02204
+      Upper Canyon Creek Falls: 40.96081, -123.02346
   Canyon Creek Lakes:
     at: 40.97143, -123.02259
   Boulder Creek Lakes:
     at: 40.94470, -123.03803
   Four Lakes:
-    at: 40.94393, -122.89333
-    note: Deer, Summit, Luella and Diamond lakes.
+    places:
+      Deer Lake: 40.94393, -122.89333
+      Summit Lake: 40.93906, -122.89682
+      Luella Lake: 40.95232, -122.90199
+      Diamond Lake: 40.94363, -122.90500
   Siligo Peak:
     at: 40.94604, -122.90091
     note: Summit view of the whole range and Mt. Shasta.

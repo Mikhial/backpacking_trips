@@ -248,14 +248,30 @@
 
     // Your places (places: in the trip header), at every zoom, with their note in the tooltip.
     // Your own markers (places, stations, stays) sit above OpenStreetMap's (zIndexOffset), e.g. a place on a peak
-    extras.places.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 }).addTo(into('place', overview))
-        .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
+    const placeMarker = (p, group) => {
+      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 })
+        .bindTooltip(`<b>${esc(p.n)}</b>${group ? ` <span>${esc(group)}</span>` : ''}${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
       linkToNote(m, p.n);
       // and marks where it is on the open elevation profile
       m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
       m.on('mouseout', () => placeAt && placeAt(null));
+      return m;
+    };
+    extras.places.filter(p => !p.members).forEach(p => placeMarker(p).addTo(into('place', overview)));
+    // A group of places (note: + places: in the header): one numbered dot while its places would overlap
+    // (within 40 px of each other at this zoom), its places once zoomed in. Click the dot to zoom to them.
+    const placeGroups = extras.places.filter(p => p.members).map(g => {
+      const b = L.latLngBounds(g.members.map(p => p.at));
+      const dot = L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi place tm-group', iconSize: [18, 18], html: String(g.members.length) }), keyboard: false, zIndexOffset: 1000 })
+        .bindTooltip(`<b>${esc(g.n)}</b> <span>${g.members.map(p => esc(p.n)).join(', ')}</span>${g.note ? `<div class="tm-note">${esc(g.note)}</div>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip tm-wrap' })
+        .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.6), { maxZoom: 15 }); });
+      return { g, b, dot, members: g.members.map(p => placeMarker(p, g.n)), layer: L.layerGroup().addTo(into('place', overview)) };
+    });
+    const drawPlaceGroups = () => placeGroups.forEach(({ b, dot, members, layer }) => {
+      layer.clearLayers();
+      const span = map.latLngToLayerPoint(b.getNorthWest()).distanceTo(map.latLngToLayerPoint(b.getSouthEast()));
+      (span < 40 ? [dot] : members).forEach(m => layer.addLayer(m));
     });
 
     // Where to stay ("campgrounds:" and "lodging:" in the header): a tent or a house, at every zoom
@@ -315,6 +331,7 @@
       });
     };
     map.on('zoomend', drawCamps);
+    map.on('zoomend', drawPlaceGroups);
 
     // The map starts on your own routes, trailheads and camps with ~11 km around them (a one-route trip:
     // just the route), so a trip in a big park like Hetch Hetchy in Yosemite doesn't open on the whole park.
@@ -335,6 +352,7 @@
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();
+    drawPlaceGroups();
     syncCovered();
 
     // Click a legend item (or press Enter on it) to hide or show that kind; your routes stay on top
