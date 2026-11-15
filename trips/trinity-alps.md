@@ -29,18 +29,9 @@ places:
     at: 40.97143, -123.02259
   Boulder Creek Lakes:
     at: 40.94470, -123.03803
-  Deer Lake:
-    at: 40.94393, -122.89333
-    note: One of the Four Lakes.
-  Summit Lake:
-    at: 40.93906, -122.89682
-    note: One of the Four Lakes.
-  Luella Lake:
-    at: 40.95232, -122.90199
-    note: One of the Four Lakes.
-  Diamond Lake:
-    at: 40.94363, -122.90500
-    note: One of the Four Lakes.
+  Four Lakes:
+    at: 40.94474, -122.89929
+    note: Deer, Summit, Luella and Diamond lakes.
   Siligo Peak:
     at: 40.94604, -122.90091
     note: Summit view of the whole range and Mt. Shasta.
