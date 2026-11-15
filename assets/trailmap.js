@@ -231,12 +231,28 @@
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
+    // Clicking one of your markers (campground, lodging, permit station, place) scrolls to its entry in the notes:
+    // the list item whose bold name matches ("Bridge Camp Campground" matches **Bridge Camp**), flashed briefly
+    const flashNote = el => { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('rt-flash'); void el.offsetWidth; el.classList.add('rt-flash'); };
+    const normName = s => s.toLowerCase().replace(/\b(campground|campsite)\b/g, '').replace(/\s+/g, ' ').trim();
+    const noteFor = n => [...document.querySelectorAll('.notes li')].find(li => {
+      const b = li.querySelector(':scope > strong, :scope > p > strong');
+      return b && normName(b.textContent) === normName(n);
+    });
+    const linkToNote = (m, n) => {
+      const li = noteFor(n); if (!li) return;
+      m.on('click', e => { L.DomEvent.stop(e); flashNote(li); });
+      const mark = () => m.getElement() && m.getElement().classList.add('tm-hasnote');
+      mark(); m.on('add', mark);
+    };
+
     // Your places (places: in the trip header), at every zoom, with their note in the tooltip.
     // Your own markers (places, stations, stays) sit above OpenStreetMap's (zIndexOffset), e.g. a place on a peak
     extras.places.forEach(p => {
       const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 }).addTo(into('place', overview))
         .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
       // and marks where it is on the open elevation profile
       m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
       m.on('mouseout', () => placeAt && placeAt(null));
@@ -255,6 +271,7 @@
       const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
     }));
 
     // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
@@ -262,6 +279,7 @@
       const m = L.marker(p.at, { icon: icon('station'), keyboard: false, zIndexOffset: 1000 }).addTo(into('station', overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>Permit station</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
     });
 
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
@@ -367,9 +385,7 @@
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
       e.preventDefault();
-      const li = n.closest('li, p') || n;
-      li.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      li.classList.remove('rt-flash'); void li.offsetWidth; li.classList.add('rt-flash');
+      flashNote(n.closest('li, p') || n);
     });
 
     function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }
