@@ -146,9 +146,9 @@ Distances are as the crow flies.
 
 Camp here and walk to the trail. On the map as a trailhead with a tent.
 
-- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
-- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
-- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: at Big Flat Trailhead, where Caribou Lakes Trail starts; 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above). Food: Coffee Creek general store, 12 mi.
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
+- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
+- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
 
 ### Drive to the trailhead
 
