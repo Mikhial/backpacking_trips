@@ -292,7 +292,7 @@
       const kind = p.kind || type, th = kind === 'thcamp';
       const label = th ? 'Drive-in campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Drive-in campground';
       const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML })
-        : type === 'campground' ? icon('campground') : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
+        : type === 'campground' ? L.divIcon({ className: 'tm-poi campground', iconSize: [16, 16], html: '' }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
       const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
