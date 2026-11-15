@@ -82,7 +82,6 @@ links:
   Trinity Alps Wilderness: https://www.fs.usda.gov/r05/shasta-trinity/recreation/trinity-alps-wilderness
   Permits: https://www.fs.usda.gov/r05/shasta-trinity/permits
   Restrictions: https://www.fs.usda.gov/r05/shasta-trinity/alerts/trinity-alps-wilderness-area-restrictions
-  Weaverville Ranger Station: https://www.fs.usda.gov/r05/shasta-trinity/offices/weaverville-ranger-station
   Campfire permit: https://permit.preventwildfiresca.org/
 
 facts:
