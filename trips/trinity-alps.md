@@ -139,7 +139,7 @@ There are other routes, but these are some of the more popular and maintained on
 
 ## Where to stay[^latimes]
 
-Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies. No campground sells food; Trinity Alps Resort is the only place here with food on site.
+Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies.
 
 - **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
 - **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
