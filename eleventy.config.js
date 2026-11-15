@@ -55,15 +55,20 @@ export default function (eleventyConfig) {
   // `route link:` in a one-route trip's header: the route's page (AllTrails etc.), shown next to the GPX link
   eleventyConfig.addFilter('routeLink', function () { const u = this.ctx['route link']; return typeof u === 'string' && /^https?:\/\//.test(u.trim()) ? u.trim() : ''; });
   eleventyConfig.addFilter('mapListed', function (word) { const list = mapShows(this.ctx['map shows']); return !!list && list.includes(word); });
+  // a header field whose name has a space (like "permit stations"), which templates can't name directly
+  eleventyConfig.addFilter('field', function (key) { return this.ctx[key]; });
   eleventyConfig.addFilter('joinAnd', a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);
   // the park's "all map data" page (parks.njk), if it has one
   eleventyConfig.addFilter('parkPage', name => fs.existsSync(`./assets/parks/${parkSlug(name)}/index.json`) ? `/parks/${parkSlug(name)}/` : '');
   // Your own trailheads, camps and GPX routes from the trip header, ready for the trail map
-  eleventyConfig.addFilter('mapExtras', data => {
+  eleventyConfig.addFilter('mapExtras', function (data) {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
     const trailheads = places(data.trailheads), camps = places(data.camps);
     // places: Name, then at: (latitude, longitude) and an optional note: shown in its tooltip
-    const spots = Object.entries(data.places || {}).map(([n, v]) => ({ n, at: parseLatLon(v?.at), note: v?.note ? String(v.note).trim() : '' })).filter(t => t.at);
+    const spotsOf = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v?.at), note: v?.note ? String(v.note).trim() : '' })).filter(t => t.at);
+    const spots = spotsOf(data.places);
+    // permit stations: where to pick up permits, same format as places, drawn differently
+    const stations = spotsOf(this.ctx['permit stations']);
     const routes = Object.entries(data.trackFiles || {}).map(([n, file]) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
@@ -73,7 +78,7 @@ export default function (eleventyConfig) {
     });
     // zones: a GeoJSON file of permit zones (name, note, label point), drawn as light outlines
     const zones = readZones(data.zones);
-    return (trailheads.length || camps.length || spots.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, routes, zones }).replace(/</g, '\\u003c') : '';
+    return (trailheads.length || camps.length || spots.length || stations.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, stations, routes, zones }).replace(/</g, '\\u003c') : '';
   });
   // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
   // one route gives "28 mi point to point", several give the range, "13–48 mi"

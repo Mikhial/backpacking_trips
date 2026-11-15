@@ -6,27 +6,55 @@ updated: 2026-11-14
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
 places:
+  Emerald Lake:
+    at: 41.00472, -122.99810
+    note: Granite-cirque lake under the Sawtooth Ridge.
+  Sapphire Lake:
+    at: 40.99862, -123.01309
+    note: Granite-cirque lake under the Sawtooth Ridge.
+  Upper Caribou Lake:
+    at: 41.02032, -122.97618
+  Snowslide Lake:
+    at: 41.02896, -122.97121
+  Lower Caribou Lake:
+    at: 41.02774, -122.97669
+  Canyon Creek Falls:
+    at: 40.93241, -123.02315
+  Middle Canyon Creek Falls:
+    at: 40.95443, -123.02204
+  Upper Canyon Creek Falls:
+    at: 40.96081, -123.02346
+  Canyon Creek Lakes:
+    at: 40.97143, -123.02259
+  Boulder Creek Lakes:
+    at: 40.94470, -123.03803
+  Deer Lake:
+    at: 40.94393, -122.89333
+  Summit Lake:
+    at: 40.93906, -122.89682
+  Luella Lake:
+    at: 40.95232, -122.90199
+  Diamond Lake:
+    at: 40.94363, -122.90500
+  Siligo Peak:
+    at: 40.94604, -122.90091
+    note: Summit view of the whole range and Mt. Shasta.
+permit stations:
   Weaverville Ranger Station:
     at: 40.73477, -122.94270
-    note: Permit kiosk.
   Junction City Fire Station:
     at: 40.73079, -123.05488
-    note: Permit kiosk.
   Big Bar Fire Station:
     at: 40.74215, -123.25160
-    note: Permit kiosk.
   Coffee Creek Fire Station:
     at: 41.08564, -122.70611
-    note: Permit kiosk.
   Mule Creek Fire Station:
     at: 40.86181, -122.81666
-    note: Permit kiosk.
   Supervisor's Office (Redding):
     at: 40.52074, -122.30094
-    note: Permit kiosk outside.
+    note: Kiosk outside the office.
   Shasta Lake Ranger Station:
     at: 40.70214, -122.33811
-    note: Permit kiosk.
 routes:
   Stuart Fork to Emerald and Sapphire Lakes: tracks/trinity-stuart-fork-emerald-sapphire.gpx
   Canyon Creek and Boulder Creek Lakes: tracks/trinity-canyon-creek-boulder-creek-lakes.gpx
@@ -43,6 +71,7 @@ links:
   Campfire permit: https://permit.preventwildfiresca.org/
 
 facts:
+  Getting there: 5 hr drive
   Food storage: Bear canister required in Canyon Creek and Swift Creek; any bear-proof system elsewhere
   Campfires: Campfire permit needed, even for stoves; wood fires banned in parts
 
@@ -94,6 +123,8 @@ A wilderness permit is needed to camp overnight, any time of year, plus a Califo
 - **Mining history**: along the Stuart Fork
 
 ## Routes
+
+There are other routes, but these are some of the more popular and maintained ones.
 
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
   - Sights: Emerald and Sapphire Lakes, mining history

@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], places: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], stations: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -211,6 +211,13 @@
       // and marks where it is on the open elevation profile
       m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
       m.on('mouseout', () => placeAt && placeAt(null));
+    });
+
+    // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
+    extras.stations.forEach(p => {
+      const m = L.marker(p.at, { icon: icon('station'), keyboard: false }).addTo(overview)
+        .bindTooltip(`<b>${esc(p.n)}</b> <span>Permit station</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
