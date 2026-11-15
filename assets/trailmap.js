@@ -281,18 +281,16 @@
       (span < 40 ? [dot] : members).forEach(m => layer.addLayer(m));
     });
 
-    // Where to stay ("campgrounds:" and "lodging:" in the header): a tent or a house, at every zoom
-    const STAY_SVG = {
-      campground: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 1.5 13.5h13ZM8 8l-2.6 5.5h5.2Z" fill-rule="evenodd"/></svg>',
-      lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
-    };
+    // Where to stay ("campgrounds:" and "lodging:" in the header), at every zoom: a drive-in campground is a dark
+    // green dot, lodging a brown dot with a white house
+    const HOUSE_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>';
     // a drive-in campground is a dark green dot (a backcountry camp is light green); at a trailhead, that dot on the trailhead square
     const THCAMP_HTML = '<span class="sq"></span><span class="badge"></span>';
     [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([type, list]) => list.forEach(p => {
       const kind = p.kind || type, th = kind === 'thcamp';
       const label = th ? 'Drive-in campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Drive-in campground';
       const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML })
-        : type === 'campground' ? L.divIcon({ className: 'tm-poi campground', iconSize: [16, 16], html: '' }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
+        : type === 'campground' ? L.divIcon({ className: 'tm-poi campground', iconSize: [16, 16], html: '' }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: HOUSE_SVG });
       const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });

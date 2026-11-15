@@ -237,8 +237,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-poi.toilet { background: #7a5aa8; border-radius: 2px; width: 10px; height: 10px; }
 .tm-poi.place { background: #fff; border-color: #1c211a; width: 11px; height: 11px; }
 .tm-poi.place.tm-group { width: 18px; height: 18px; color: #1c211a; cursor: pointer; }
-.tm-stay { width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.4); display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
-.tm-stay svg { width: 12px; height: 12px; fill: #2e6b1f; }
+.tm-stay { width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
 .leaflet-marker-icon.tm-stay { display: flex; } /* Leaflet sets markers to display: block, which un-centers the glyph */
 .leaflet-marker-icon.tm-hasnote { cursor: pointer; }
 /* drive-in campground at a trailhead: the trailhead square with the campground's dark green dot on its corner */
