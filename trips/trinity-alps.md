@@ -160,9 +160,9 @@ There are other routes, but these are some of the more popular and maintained on
 
 ### At a trailhead
 
-- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)** (camping): 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort (general store and restaurant), 2 mi before the campground.
-- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)** (camping): 10 first-come sites, free. Under a mile walk to get to the trailhead.
-- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)** (camping): 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort (general store and restaurant), 2 mi before the campground.
+- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
+- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
 
 ### Drive to the trailhead[^lodging]
 
