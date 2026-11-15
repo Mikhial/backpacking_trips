@@ -59,6 +59,10 @@ permit:
   difficulty: 0
 ---
 
+## Overview
+
+- Lots of trailheads all around the wilderness (35+ on the map), so lots of route options
+
 ## When to go[^cleverhiker]
 
 [^cleverhiker]: [CleverHiker](https://www.cleverhiker.com/backpacking/trinity-alps-wilderness-backpacking-guide/)
