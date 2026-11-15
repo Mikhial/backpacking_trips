@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], places: [], stations: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], stations: [], campgrounds: [], lodging: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -191,7 +191,11 @@
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
       if (!keep) return;
       // camps are drawn at every zoom with your own camps, below
-      if (p.t === 'camp') { camps.push({ n: p.n, at: p.at }); return; }
+      if (p.t === 'camp') {
+        // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead
+        if (extras.campgrounds.some(c => map.distance(c.at, p.at) < 300)) return;
+        camps.push({ n: p.n, at: p.at }); return;
+      }
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
@@ -212,6 +216,17 @@
       m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
       m.on('mouseout', () => placeAt && placeAt(null));
     });
+
+    // Where to stay ("campgrounds:" and "lodging:" in the header): a tent or a house, at every zoom
+    const STAY_SVG = {
+      campground: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 1.5 13.5h13ZM8 8l-2.6 5.5h5.2Z" fill-rule="evenodd"/></svg>',
+      lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
+    };
+    [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([kind, list, label]) => list.forEach(p => {
+      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false }).addTo(overview)
+        .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+    }));
 
     // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
     extras.stations.forEach(p => {

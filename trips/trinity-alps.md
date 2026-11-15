@@ -44,6 +44,28 @@ places:
   Siligo Peak:
     at: 40.94604, -122.90091
     note: Summit view of the whole range and Mt. Shasta.
+campgrounds:
+  Bridge Camp Campground:
+    at: 40.87315, -122.91633
+    note: At the Stuart Fork Trailhead. $20, first-come.
+  Ripstein Campground:
+    at: 40.87633, -123.02812
+    note: Under a mile from the Canyon Creek Trailhead. Free, first-come.
+  Big Flat Campground:
+    at: 41.06774, -122.93508
+    note: At the Caribou Lakes trailhead. Free, first-come.
+  Bushytail Campground:
+    at: 40.85501, -122.81896
+    note: Trinity Lake. Showers.
+  Hayward Flat Campground:
+    at: 40.87465, -122.77111
+    note: Trinity Lake.
+  Jackass Springs Campground:
+    at: 40.96187, -122.66147
+    note: Trinity Lake, far side.
+  Mary Smith Campground:
+    at: 40.73112, -122.80774
+    note: Lewiston Lake. Yurts.
 permit stations:
   Weaverville Ranger Station:
     at: 40.73477, -122.94270
@@ -126,4 +148,19 @@ There are other routes, but these are some of the more popular and maintained on
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail)
+  - Road: Long Canyon Trailhead is on rough gravel (East Stuart Road); may need more than a 2WD Mini Cooper.[^osm]
+- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): starts at Big Flat Campground.
+  - Road: the last ~7 mi of Coffee Creek Road are unpaved; probably needs more than a 2WD Mini Cooper. Check with the ranger station.[^latimes][^osm]
+
+## Where to stay[^latimes]
+
+Campgrounds are on the map (tents). Distances are as the crow flies.
+
+- **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off.
+- **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp.
+- **Big Flat**: at the Caribou Lakes trailhead, 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above).
+- **Trinity Lake**: closest to Four Lakes, about 4–5 mi from Long Canyon Trailhead. Bushytail has showers; Hayward Flat is the other one nearby. Jackass Springs is on the far side of the lake (about 8 mi) down a rough dirt road that may need more than a 2WD Mini Cooper.[^osm]
+- **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
+
+[^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
+[^osm]: Road surface and roughness tags in OpenStreetMap

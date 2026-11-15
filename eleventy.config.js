@@ -69,6 +69,8 @@ export default function (eleventyConfig) {
     const spots = spotsOf(data.places);
     // permit stations: where to pick up permits, same format as places, drawn differently
     const stations = spotsOf(this.ctx['permit stations']);
+    // where to stay: campgrounds (tent icon) and lodging (house icon), same format as places
+    const campgrounds = spotsOf(this.ctx.campgrounds), lodging = spotsOf(this.ctx.lodging);
     const routes = Object.entries(data.trackFiles || {}).map(([n, file]) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
@@ -78,7 +80,7 @@ export default function (eleventyConfig) {
     });
     // zones: a GeoJSON file of permit zones (name, note, label point), drawn as light outlines
     const zones = readZones(data.zones);
-    return (trailheads.length || camps.length || spots.length || stations.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, stations, routes, zones }).replace(/</g, '\\u003c') : '';
+    return (trailheads.length || camps.length || spots.length || stations.length || campgrounds.length || lodging.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, stations, campgrounds, lodging, routes, zones }).replace(/</g, '\\u003c') : '';
   });
   // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
   // one route gives "28 mi point to point", several give the range, "13–48 mi"
