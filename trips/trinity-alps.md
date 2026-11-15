@@ -11,13 +11,9 @@ places:
   Emerald and Sapphire Lakes:
     at: 41.00472, -122.99810
     note: Two big granite-cirque lakes under the Sawtooth Ridge. Sapphire is the farther one.
-  Upper Caribou Lake:
+  Caribou Lakes:
     at: 41.02032, -122.97618
-  Snowslide Lake:
-    at: 41.02896, -122.97121
-    note: One of the Caribou Lakes.
-  Lower Caribou Lake:
-    at: 41.02774, -122.97669
+    note: Snowslide, Lower Caribou and Caribou lakes.
   Canyon Creek Falls:
     at: 40.96081, -123.02346
     note: Lower, middle and upper falls along the trail; the upper one is the biggest.
@@ -146,7 +142,7 @@ Distances are as the crow flies.
 
 Camp here and walk to the trail. On the map as a trailhead with a tent.
 
-- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort 2 mi before the campground with a general store and restaurant.
 - **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
 - **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
 
