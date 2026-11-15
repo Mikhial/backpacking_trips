@@ -166,7 +166,7 @@ Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances a
 - **Trinity Lake**: closest to Four Lakes.
   - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp; paved road, any car.
   - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Paved road, any car.
-  - **Jackass Springs**: on the far side of the lake, about 8 mi away, down a rough dirt road that may need more than a 2WD Mini Cooper.[^osm]
+  - **Jackass Springs**: on the far side of the lake, about 8 mi away, down a rough dirt road.[^osm] Unclear if a car can make it; needs more research.
 - **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
 
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
