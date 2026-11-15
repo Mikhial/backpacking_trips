@@ -76,7 +76,7 @@ links:
   Campfire permit: https://permit.preventwildfiresca.org/
 
 facts:
-  Getting there: 5 hr drive
+  Getting there: 5–6 hr drive
   Food storage: Bear canister required in Canyon Creek and Swift Creek; any bear-proof system elsewhere
   Campfires: Campfire permit needed, even for stoves; wood fires banned in parts
 
