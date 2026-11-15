@@ -6,12 +6,9 @@ updated: 2026-11-14
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
 places:
-  Emerald Lake:
+  Emerald and Sapphire Lakes:
     at: 41.00472, -122.99810
-    note: Granite-cirque lake under the Sawtooth Ridge.
-  Sapphire Lake:
-    at: 40.99862, -123.01309
-    note: Granite-cirque lake under the Sawtooth Ridge.
+    note: Two big granite-cirque lakes under the Sawtooth Ridge. Sapphire is the farther one.
   Upper Caribou Lake:
     at: 41.02032, -122.97618
   Snowslide Lake:
