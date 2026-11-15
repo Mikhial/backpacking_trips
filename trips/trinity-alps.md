@@ -27,6 +27,10 @@ places:
   Shasta Lake Ranger Station:
     at: 40.70214, -122.33811
     note: Permit kiosk.
+routes:
+  Stuart Fork to Emerald and Sapphire Lakes: tracks/trinity-stuart-fork-emerald-sapphire.gpx
+  Canyon Creek and Boulder Creek Lakes: tracks/trinity-canyon-creek-boulder-creek-lakes.gpx
+  Four Lakes and Siligo Peak Loop: tracks/trinity-four-lakes-siligo-peak.gpx
 links:
   CleverHiker guide: https://www.cleverhiker.com/backpacking/trinity-alps-wilderness-backpacking-guide/
   Wildland Trekking guide: https://wildlandtrekking.com/blog/everything-you-need-to-know-about-trinity-alps-backpacking/
@@ -77,3 +81,9 @@ A wilderness permit is needed to camp overnight, any time of year, plus a Califo
 **Camping**: up to 14 nights in 30 days; groups of 10 or fewer. Bear canister required in the Canyon Creek and Swift Creek drainages; elsewhere, any bear-proof system. Wood fires are banned in parts of the wilderness, even with a campfire permit (stoves are fine); see the [restrictions](https://www.fs.usda.gov/r05/shasta-trinity/alerts/trinity-alps-wilderness-area-restrictions).
 
 [Permits](https://www.fs.usda.gov/r05/shasta-trinity/permits)
+
+## Routes
+
+- [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes)
+- [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes)
+- [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop)
