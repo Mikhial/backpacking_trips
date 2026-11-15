@@ -203,9 +203,9 @@
       if (!keep) return;
       // camps are drawn at every zoom with your own camps, below
       if (p.t === 'camp') {
-        // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead
-        if (extras.campgrounds.some(c => map.distance(c.at, p.at) < 300)) return;
-        camps.push({ n: p.n, at: p.at }); return;
+        // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead,
+        // and comes back as a camp dot when campgrounds are hidden (legend)
+        camps.push({ n: p.n, at: p.at, under: extras.campgrounds.some(c => map.distance(c.at, p.at) < 300) }); return;
       }
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
@@ -254,7 +254,7 @@
     const drawCamps = () => {
       campLayer.clearLayers();
       const groups = [];
-      camps.forEach(p => {
+      camps.filter(p => !p.under || hiddenKinds.has('campground')).forEach(p => {
         const xy = map.latLngToLayerPoint(p.at);
         // join every group this camp is close to (close to any camp in it), so a chain of nearby sites stays together
         const hit = groups.filter(g => g.xys.some(q => q.distanceTo(xy) < 18));
@@ -313,6 +313,7 @@
         show ? hiddenKinds.delete(kind) : hiddenKinds.add(kind);
         kindLayers[kind].forEach(e => show ? e.parent.addLayer(e.g) : e.parent.removeLayer(e.g));
         el.classList.toggle('tm-off', !show); el.setAttribute('aria-pressed', String(show));
+        if (kind === 'campground') drawCamps();
         routeLines.forEach(l => { if (isOn(l)) { l.halo.bringToFront(); l.bringToFront(); } });
         if (selected) selected.bringToFront();
       };
