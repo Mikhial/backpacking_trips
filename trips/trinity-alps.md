@@ -148,16 +148,16 @@ There are other routes, but these are some of the more popular and maintained on
 
 ### At a trailhead
 
-- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort (general store and restaurant), 2 mi before the campground.
-- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
-- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)** (camping): 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort (general store and restaurant), 2 mi before the campground.
+- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)** (camping): 10 first-come sites, free. Under a mile walk to get to the trailhead.
+- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)** (camping): 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
 
 ### Drive to the trailhead[^lodging]
 
 - **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)** (camping): closest to Long Canyon Trailhead, where the Four Lakes Loop starts.
   - **Bushytail**: 10 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 5 mi the other way.
   - **Hayward Flat**: 8 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 10 mi the other way.
-- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)** (camping and yurts): on Lewiston Lake, 30 minutes to an hour from the southern trailheads. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
+- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)** (yurts): on Lewiston Lake, 30 minutes to an hour from the southern trailheads. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
 - **Trinity Alps Resort** (cabins): a general store and a restaurant. 2 mi from Stuart Fork, 25 minutes to Long Canyon.
 - **Trinity Center and Coffee Creek** (cabins): Ripple Creek Cabins, Pinewood Cove Resort and Coffee Creek Guest Ranch; general stores (Wi-Fi at Trinity Center; sandwiches and cold beer at Coffee Creek). Closest towns to Big Flat (1 hr to 1 hr 15 min).
 - **Weaverville** (motels and hotels): the main town, with the ranger station, groceries and restaurants. 30–40 minutes to the southern trailheads, 2 hours to Big Flat.
