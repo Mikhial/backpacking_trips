@@ -66,6 +66,10 @@ campgrounds:
   Mary Smith Campground:
     at: 40.73112, -122.80774
     note: Lewiston Lake. Yurts.
+lodging:
+  Trinity Alps Resort:
+    at: 40.85708, -122.88962
+    note: Cabins, general store and restaurant. About 2 mi before the Stuart Fork Trailhead.
 permit stations:
   Weaverville Ranger Station:
     at: 40.73477, -122.94270
@@ -154,7 +158,7 @@ There are other routes, but these are some of the more popular and maintained on
 
 ## Where to stay[^latimes]
 
-Campgrounds are on the map (tents). Distances are as the crow flies.
+Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies.
 
 - **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off.
 - **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp.
