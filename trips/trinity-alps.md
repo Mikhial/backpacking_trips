@@ -109,9 +109,9 @@ permit:
 
 ## Overview
 
-- Big: more than 550 miles of hiking trails
 - Home to dozens of alpine lakes and several miles of crystal blue rivers and creeks
 - Lots of trailheads all around the wilderness (35+ on the map), so lots of route options
+- More than 550 miles of hiking trails
 
 ## When to go[^cleverhiker]
 
@@ -135,7 +135,7 @@ There are other routes, but these are some of the more popular and maintained on
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): starts at Big Flat Trailhead, next to Big Flat Campground.
+- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): From Big Flat Trailhead, across the South Fork of the Salmon River and up a long, steep set of switchbacks to a granite basin with three lakes: Snowslide, Lower Caribou and Caribou, which has the best campsites. Views of the Sawtooth Ridge, and down to Emerald and Sapphire Lakes.
   - Road: a 17 mi dirt road (about an hour). A 2WD Mini Cooper should make it, but sharp rocks are still a hazard.
 
 ## Where to stay[^latimes]
