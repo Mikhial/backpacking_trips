@@ -95,6 +95,8 @@ permit:
 
 ## Overview
 
+- Big: more than 550 miles of hiking trails
+- Home to dozens of alpine lakes and several miles of crystal blue rivers and creeks
 - Lots of trailheads all around the wilderness (35+ on the map), so lots of route options
 
 ## When to go[^cleverhiker]
