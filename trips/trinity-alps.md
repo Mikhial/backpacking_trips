@@ -40,38 +40,33 @@ places:
 campgrounds:
   Bridge Camp Campground:
     at: 40.87315, -122.91633
-    note: At the Stuart Fork Trailhead. $20, first-come.
   Ripstein Campground:
     at: 40.87633, -123.02812
-    note: Under a mile from the Canyon Creek Trailhead. Free, first-come.
   Big Flat Campground:
     at: 41.06774, -122.93508
-    note: At Big Flat Trailhead, where Caribou Lakes Trail starts. Free, first-come.
   Bushytail Campground:
     at: 40.85501, -122.81896
-    note: Trinity Lake. Showers.
   Hayward Flat Campground:
     at: 40.87465, -122.77111
-    note: Trinity Lake.
+lodging:
   Mary Smith Campground:
     at: 40.73112, -122.80774
-    note: Lewiston Lake. Yurts.
-lodging:
+    note: Yurts
   Trinity Alps Resort:
     at: 40.85708, -122.88962
-    note: Cabins, general store and restaurant. About 2 mi before the Stuart Fork Trailhead.
+    note: Cabins
   Pinewood Cove Resort:
     at: 40.84514, -122.84641
-    note: Cabins on Trinity Lake.
+    note: Cabins
   Coffee Creek Ranch:
     at: 41.09912, -122.77474
-    note: Guest ranch with cabins on Coffee Creek Road, on the way to Big Flat.
+    note: Cabins
   Ripple Creek Cabins:
     at: 41.13745, -122.69442
-    note: Cabins on the upper Trinity River, north of Coffee Creek.
+    note: Cabins
   Weaverville:
     at: 40.73100, -122.94200
-    note: The main town. Motels and hotels, groceries and restaurants.
+    note: Main town
 permit stations:
   Weaverville Ranger Station:
     at: 40.73477, -122.94270
