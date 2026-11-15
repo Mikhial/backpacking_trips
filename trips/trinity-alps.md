@@ -139,15 +139,15 @@ There are other routes, but these are some of the more popular and maintained on
 
 ## Where to stay[^latimes]
 
-Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies.
+Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies. No campground sells food; Trinity Alps Resort is the only place here with food on site.
 
-- **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off.
-- **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp.
-- **Big Flat**: at the Caribou Lakes trailhead, 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above).
+- **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
+- **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
+- **Big Flat**: at the Caribou Lakes trailhead, 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above). Food: Coffee Creek general store, 12 mi.
 - **Trinity Lake**: closest to Four Lakes.
-  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp.
-  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead.
-- **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
+  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 4 mi.
+  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 6 mi.
+- **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
 
 ### Towns[^latimes][^lodging]
 
