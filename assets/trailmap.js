@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], places: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], stations: [], campgrounds: [], lodging: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -43,6 +43,7 @@
       el.innerHTML = `<div class="tm-menu-h">${title ? `<b>${title}</b>` : ''}<span class="tm-ll">${lat}, ${lon}</span></div>` +
         `<a href="${nws}" target="_blank" rel="noopener">NWS forecast ↗</a>` +
         `<a href="${nws}&unit=0&lg=english&FcstType=graphical" target="_blank" rel="noopener">Hourly weather graph ↗</a>` +
+        `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" rel="noopener">Directions in Google Maps ↗</a>` +
         `<button type="button">Copy coordinates</button>`;
       const btn = el.querySelector('button');
       btn.addEventListener('click', () => {
@@ -58,14 +59,23 @@
     // A one-route trip ("route:" + "gpx:" in the header): the route is always shown, with its profile open,
     // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area)
     const single = box.hasAttribute('data-single') && extras.routes.length === 1;
-    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
+    // Each kind of thing (trail, dirt road, trailhead, camp, place…) goes in its own layer, so clicking its
+    // legend item can hide or show it. The kinds match data-kind on the legend items in _includes/trip.njk.
+    const kindLayers = {}, hiddenKinds = new Set();
+    const into = (kind, parent) => {
+      const list = kindLayers[kind] ||= [];
+      let e = list.find(x => x.parent === parent);
+      if (!e) { e = { g: L.layerGroup(), parent }; list.push(e); if (!hiddenKinds.has(kind)) parent.addLayer(e.g); }
+      return e.g;
+    };
+    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(into('boundary', map)));
     // Permit zones ("zones:" in the header): light outlines under the trails, with the name as a label;
     // hovering the label shows the zone's note
     extras.zones.forEach(z => {
       // same style as on the All map data page (assets/parkmap.js)
-      L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }).addTo(map);
+      L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }).addTo(into('zone', map));
       if (!z.at) return;
-      L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false }).addTo(map)
+      L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false }).addTo(into('zone', map))
         .bindTooltip(`<b>${esc(z.n)}</b>${z.note ? `<div class="tm-note">${esc(z.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: 'tm-tip tm-wrap' });
     });
 
@@ -95,7 +105,8 @@
         renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
       };
-      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(main ? overview : detail);
+      const kind = t.x ? 'closed' : big ? 'big' : t.k === 'road' ? 'road' : 'trail';
+      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(into(kind, main ? overview : detail));
       line.trail = t; line.base = style;
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2.5, opacity: 1 }); });
@@ -184,42 +195,124 @@
     }
 
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
+    const nearRoute = (pt, km) => extras.routes.some(r => r.p.some(p => map.distance(pt, [p[0], p[1]]) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
-    const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
+    const names = { trailhead: 'Trailhead', camp: 'Backcountry camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
+    // Campgrounds within 300 m of where one of your routes starts are trailhead campgrounds: drawn as a
+    // trailhead square with a tent badge, standing in for a trailhead right next to them (within 300 m)
+    const routeStarts = extras.routes.map(r => [r.p[0][0], r.p[0][1]]);
+    extras.campgrounds.forEach(c => { c.kind = routeStarts.some(s => map.distance(c.at, s) < 300) ? 'thcamp' : 'campground'; });
+    const campUnder = at => (extras.campgrounds.find(c => map.distance(c.at, at) < 300) || {}).kind;
+    const besideThcamp = at => extras.campgrounds.some(c => c.kind === 'thcamp' && map.distance(c.at, at) < 300);
+    // OpenStreetMap camps just outside the park (not drawn otherwise) within 500 m of a trailhead the map shows
+    // are campgrounds at that trailhead too, unless one of your campgrounds is already there (Mike, Nov 15 2026)
+    const inPark = at => single || !rings.length || inside(at);
+    const shownTrailheads = data.pois.filter(p => p.t === 'trailhead' && (inPark(p.at) || near(p.at, 1))).map(p => p.at)
+      .concat(extras.trailheads.map(p => p.at));
+    data.pois.filter(p => p.t === 'camp' && !inPark(p.at) && !campUnder(p.at) && shownTrailheads.some(t => map.distance(t, p.at) < 500))
+      .forEach(p => extras.campgrounds.push({ n: p.n || 'Campground', at: p.at, note: '', kind: 'thcamp' }));
+    // those trailheads come back while trailhead campgrounds are hidden (legend) and trailheads aren't
+    const coveredTrailheads = L.layerGroup();
+    const syncCovered = () => { hiddenKinds.has('thcamp') && !hiddenKinds.has('trailhead') ? overview.addLayer(coveredTrailheads) : overview.removeLayer(coveredTrailheads); };
     data.pois.forEach(p => {
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
-      if (!keep) return;
       // camps are drawn at every zoom with your own camps, below
-      if (p.t === 'camp') { camps.push({ n: p.n, at: p.at }); return; }
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
+      if (p.t === 'camp') {
+        // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead,
+        // and comes back as a camp dot when campgrounds are hidden (legend): inside the park, or outside it
+        // if it's within 2 km of one of your routes (a campground at a route's trailhead, like Bridge Camp)
+        const under = campUnder(p.at); // the kind of your campground it's under, if any
+        if (keep || (under && nearRoute(p.at, 2))) camps.push({ n: p.n, at: p.at, under });
+        return;
+      }
+      if (!keep) return;
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
     });
     extras.trailheads.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(besideThcamp(p.at) ? coveredTrailheads : into('trailhead', overview))
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
-    // Your places (places: in the trip header), at every zoom, with their note in the tooltip
-    extras.places.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('place'), keyboard: false }).addTo(overview)
-        .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
+    // Clicking one of your markers (campground, lodging, permit station, place) scrolls to its entry in the notes:
+    // the list item whose bold name matches ("Bridge Camp Campground" matches **Bridge Camp**), flashed briefly
+    const flashNote = el => { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('rt-flash'); void el.offsetWidth; el.classList.add('rt-flash'); };
+    const normName = s => s.toLowerCase().replace(/\b(campground|campsite)\b/g, '').replace(/\s+/g, ' ').trim();
+    const noteFor = n => [...document.querySelectorAll('.notes li')].find(li => {
+      const b = li.querySelector(':scope > strong, :scope > p > strong');
+      return b && normName(b.textContent) === normName(n);
+    });
+    const linkToNote = (m, n) => {
+      const li = noteFor(n); if (!li) return;
+      m.on('click', e => { L.DomEvent.stop(e); flashNote(li); });
+      const mark = () => m.getElement() && m.getElement().classList.add('tm-hasnote');
+      mark(); m.on('add', mark);
+    };
+
+    // Your places (places: in the trip header), at every zoom, with their note in the tooltip.
+    // Your own markers (places, stations, stays) sit above OpenStreetMap's (zIndexOffset), e.g. a place on a peak
+    const placeMarker = (p, group) => {
+      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 })
+        .bindTooltip(`<b>${esc(p.n)}</b>${group ? ` <span>${esc(group)}</span>` : ''}${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
       // and marks where it is on the open elevation profile
       m.on('mouseover', () => placeAt && placeAt(p.at, p.n));
       m.on('mouseout', () => placeAt && placeAt(null));
+      return m;
+    };
+    extras.places.filter(p => !p.members).forEach(p => placeMarker(p).addTo(into('place', overview)));
+    // A group of places (note: + places: in the header): one numbered dot while its places would overlap
+    // (within 40 px of each other at this zoom), its places once zoomed in. Click the dot to zoom to them.
+    const placeGroups = extras.places.filter(p => p.members).map(g => {
+      const b = L.latLngBounds(g.members.map(p => p.at));
+      const dot = L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi place tm-group', iconSize: [18, 18], html: String(g.members.length) }), keyboard: false, zIndexOffset: 1000 })
+        .bindTooltip(`<b>${esc(g.n)}</b> <span>${g.members.map(p => esc(p.n)).join(', ')}</span>${g.note ? `<div class="tm-note">${esc(g.note)}</div>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip tm-wrap' })
+        .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.6), { maxZoom: 15 }); });
+      return { g, b, dot, members: g.members.map(p => placeMarker(p, g.n)), layer: L.layerGroup().addTo(into('place', overview)) };
+    });
+    const drawPlaceGroups = () => placeGroups.forEach(({ b, dot, members, layer }) => {
+      layer.clearLayers();
+      const span = map.latLngToLayerPoint(b.getNorthWest()).distanceTo(map.latLngToLayerPoint(b.getSouthEast()));
+      (span < 40 ? [dot] : members).forEach(m => layer.addLayer(m));
+    });
+
+    // Where to stay ("campgrounds:" and "lodging:" in the header), at every zoom: a drive-in campground is a dark
+    // green dot, lodging a brown dot with a white house
+    const HOUSE_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>';
+    // a drive-in campground is a dark green dot (a backcountry camp is light green); at a trailhead, that dot on the trailhead square
+    const THCAMP_HTML = '<span class="sq"></span><span class="badge"></span>';
+    [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([type, list]) => list.forEach(p => {
+      const kind = p.kind || type, th = kind === 'thcamp';
+      const label = th ? 'Drive-in campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Drive-in campground';
+      const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML })
+        : type === 'campground' ? L.divIcon({ className: 'tm-poi campground', iconSize: [16, 16], html: '' }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: HOUSE_SVG });
+      const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
+        .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
+    }));
+
+    // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
+    extras.stations.forEach(p => {
+      const m = L.marker(p.at, { icon: icon('station'), keyboard: false, zIndexOffset: 1000 }).addTo(into('station', overview))
+        .bindTooltip(`<b>${esc(p.n)}</b> <span>Permit station</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
+      m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
+      linkToNote(m, p.n);
     });
 
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
     // as one dot with a count; click it (or zoom in) to see them separately
     const campLayer = L.layerGroup().addTo(map);
+    kindLayers.camp = [{ g: campLayer, parent: map }];
     const drawCamps = () => {
       campLayer.clearLayers();
       const groups = [];
-      camps.forEach(p => {
+      camps.filter(p => !p.under || hiddenKinds.has(p.under)).forEach(p => {
         const xy = map.latLngToLayerPoint(p.at);
         // join every group this camp is close to (close to any camp in it), so a chain of nearby sites stays together
         const hit = groups.filter(g => g.xys.some(q => q.distanceTo(xy) < 18));
@@ -230,7 +323,7 @@
         if (list.length === 1) {
           const p = list[0];
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
-            .bindTooltip(`${esc(p.n || 'Camp')}${p.n ? ' <span>Camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+            .bindTooltip(`${esc(p.n || 'Backcountry camp')}${p.n ? ' <span>Backcountry camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
           // like a place: marks where it is on the open elevation profile, if it's on the route
           m.on('mouseover', () => placeAt && placeAt(p.at, p.n || 'Camp'));
@@ -240,21 +333,22 @@
         const b = L.latLngBounds(list.map(p => p.at));
         L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
           .addTo(campLayer)
-          .bindTooltip(`${list.length} camps <span>${list.map(p => esc(p.n || 'unnamed')).join(', ')}</span>`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
+          .bindTooltip(`${list.length} backcountry camps${list.some(p => p.n) ? ` <span>${list.filter(p => p.n).map(p => esc(p.n)).join(', ')}</span>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
           .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
       });
     };
     map.on('zoomend', drawCamps);
+    map.on('zoomend', drawPlaceGroups);
 
     // The map starts on your own routes, trailheads and camps with ~11 km around them (a one-route trip:
     // just the route), so a trip in a big park like Hetch Hetchy in Yosemite doesn't open on the whole park.
-    // A trip with none of those starts on the whole park.
+    // A trip with none of those starts on the whole park. Places don't count (Mike, Nov 15 2026: Trinity Alps'
+    // permit kiosks are in towns around the wilderness, some far outside it).
     let bounds = null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
     extras.camps.forEach(p => grow(p.at));
-    extras.places.forEach(p => grow(p.at));
     if (bounds && !single && data.bounds) {
       const park = L.latLngBounds(data.bounds), m = 0.1;
       const near = L.latLngBounds([bounds.getSouth() - m, bounds.getWest() - m], [bounds.getNorth() + m, bounds.getEast() + m]);
@@ -265,6 +359,29 @@
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();
+    drawPlaceGroups();
+    syncCovered();
+
+    // Click a legend item (or press Enter on it) to hide or show that kind; your routes stay on top
+    box.querySelectorAll('.tm-legend [data-kind]').forEach(el => {
+      const kind = el.dataset.kind;
+      if (!kindLayers[kind]) { if (kind === 'campground' || kind === 'thcamp') el.remove(); return; }
+      el.classList.add('tm-toggle');
+      el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-pressed', 'true');
+      el.title = 'Click to hide or show';
+      const flip = () => {
+        const show = hiddenKinds.has(kind);
+        show ? hiddenKinds.delete(kind) : hiddenKinds.add(kind);
+        kindLayers[kind].forEach(e => show ? e.parent.addLayer(e.g) : e.parent.removeLayer(e.g));
+        el.classList.toggle('tm-off', !show); el.setAttribute('aria-pressed', String(show));
+        if (kind === 'campground' || kind === 'thcamp') drawCamps();
+        syncCovered();
+        routeLines.forEach(l => { if (isOn(l)) { l.halo.bringToFront(); l.bringToFront(); } });
+        if (selected) selected.bringToFront();
+      };
+      el.addEventListener('click', flip);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    });
     const detailZoom = Math.ceil(map.getZoom()) + 1;
     const toggleDetail = () => {
       const on = map.getZoom() >= detailZoom;
@@ -293,9 +410,7 @@
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
       e.preventDefault();
-      const li = n.closest('li, p') || n;
-      li.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      li.classList.remove('rt-flash'); void li.offsetWidth; li.classList.add('rt-flash');
+      flashNote(n.closest('li, p') || n);
     });
 
     function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }

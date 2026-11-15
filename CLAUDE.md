@@ -65,6 +65,13 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
    - `places:` in a trip header (name, then `at:` and optional `note:`) are white dots at every zoom, with the note in the tooltip (Mike, Nov 10 2026). Used for checkpoints instead of describing the route in the notes.
    - `zones:` in a trip header points to a GeoJSON of permit zones in `tracks/` (name, note, label point; read by `readZones()` in lib/parkdata.js). Drawn as light purple outlines with labels on the trip map and the All map data page (same style in assets/trailmap.js and assets/parkmap.js; keep in sync). The Enchantments zones are traced from the Forest Service zone map (Mike, Nov 11 2026; he asked for them visible but not loud).
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
+   - Header lists drawn by `assets/trailmap.js` (all in the README; Trinity Alps, Nov 15 2026, uses them all):
+     - `places:` can hold groups (a name, optional `note:`, own `places:`): one numbered white dot until its places are 40 px apart, then each place. Places never move the starting view.
+     - `permit stations:` small blue squares. `campgrounds:` (drive-in) bigger dark green dots; OpenStreetMap camps are "backcountry camps", smaller light green dots (Mike: easy to tell apart, not near-black). `lodging:` brown dot with a white house.
+     - A campground within 300 m of a route's start is drawn on the trailhead square (dark green dot on its corner) and hides that trailhead. OpenStreetMap camps just outside the park within 500 m of a shown trailhead get the same marker. An OpenStreetMap camp under one of your campgrounds comes back as a dot when campgrounds are hidden.
+     - Your markers sit above OpenStreetMap's (zIndexOffset). Clicking one jumps to the notes list item whose bold name matches (minus "Campground").
+   - The legend toggles each kind (`data-kind` in `_includes/trip.njk`, layers via `into()` in trailmap.js); routes are toggled by their own buttons. Right-click menu has NWS forecast, hourly graph, Google Maps directions, copy coordinates.
+   - Road notes only flag places that may need more than Mike's 2WD Mini Cooper; never "any car can make it".
 
 Working on it locally:
 - osmium is at `/opt/homebrew/bin/osmium`, which isn't on the default shell PATH: `export PATH=/opt/homebrew/bin:$PATH`.

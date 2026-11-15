@@ -1,0 +1,22 @@
+{
+ "name": "Trinity Alps Wilderness",
+ "region": "us/california",
+ "source": "OpenStreetMap relation/5396565",
+ "fetched": "2026-11-14",
+ "area": {
+  "type": "relation",
+  "id": 5396565
+ },
+ "bounds": {
+  "minlat": 40.7438771,
+  "minlon": -123.5523458,
+  "maxlat": 41.2637828,
+  "maxlon": -122.6517742
+ },
+ "box": {
+  "minlat": 40.7438771,
+  "minlon": -123.5523458,
+  "maxlat": 41.2637828,
+  "maxlon": -122.6517742
+ }
+}

@@ -212,6 +212,9 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .zn { display: inline-block; width: 14px; height: 10px; border: 2px solid rgba(91,63,140,.6); background: rgba(91,63,140,.07); border-radius: 2px; }
 .tm-zone span { position: absolute; white-space: nowrap; transform: translate(-50%, -50%); cursor: default; font: 600 10px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: rgba(91,63,140,.8); text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 2px #fff; }
 .tm-legend .tm-more { color: var(--faint); }
+.tm-legend .tm-toggle { cursor: pointer; user-select: none; border-radius: 4px; }
+.tm-legend .tm-toggle:hover { color: var(--fg); }
+.tm-legend .tm-toggle.tm-off { opacity: .4; text-decoration: line-through; }
 .tm-legend .ln.route { border-top: 3px solid #1f5fa8; box-shadow: 0 0 0 1.5px #fff; }
 .tm-routes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .tm-routes .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
@@ -226,12 +229,26 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-map .leaflet-tile-pane { filter: grayscale(.8) contrast(.85) brightness(1.05); opacity: .8; }
 .tm-poi { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); display: inline-block; }
 .tm-poi.trailhead { background: #1c211a; border-radius: 2px; }
-.tm-poi.camp { background: #5a9a2a; }
+.tm-poi.camp { background: #7cb342; }
+.tm-poi.campground { background: #3d7d2a; width: 16px; height: 16px; }
 .tm-poi.tm-group { display: flex; align-items: center; justify-content: center; color: #fff; font: 600 10px/1 var(--sans); cursor: pointer; }
 .tm-poi.peak { background: #8a5a2b; border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); box-shadow: none; border: 0; }
 .tm-poi.water { background: #3d8fd6; }
 .tm-poi.toilet { background: #7a5aa8; border-radius: 2px; width: 10px; height: 10px; }
 .tm-poi.place { background: #fff; border-color: #1c211a; width: 11px; height: 11px; }
+.tm-poi.place.tm-group { width: 18px; height: 18px; color: #1c211a; cursor: pointer; }
+.tm-stay { width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
+.leaflet-marker-icon.tm-stay { display: flex; } /* Leaflet sets markers to display: block, which un-centers the glyph */
+.leaflet-marker-icon.tm-hasnote { cursor: pointer; }
+/* drive-in campground at a trailhead: the trailhead square with the campground's dark green dot on its corner */
+.tm-thcamp { position: relative; display: inline-block; width: 18px; height: 18px; vertical-align: middle; }
+.tm-thcamp .sq { position: absolute; left: 0; bottom: 0; width: 12px; height: 12px; background: #1c211a; border: 2px solid #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.35); box-sizing: border-box; }
+.tm-thcamp .badge { position: absolute; left: 8px; top: 1px; width: 10px; height: 10px; border-radius: 50%; background: #3d7d2a; border: 1.5px solid #fff; display: flex; align-items: center; justify-content: center; }
+.tm-legend .tm-thcamp .badge { left: 8px; top: 1px; width: 9px; height: 9px; }
+/* lodging: a brown dot with a white house */
+.tm-stay.lodging { background: #8a5a2b; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
+.tm-stay.lodging svg { width: 9px; height: 9px; fill: #fff; }
+.tm-poi.station { background: #2b6c8f; border-radius: 2px; width: 10px; height: 10px; }
 .tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
 .tm-info b { color: var(--fg); font-weight: 600; }
 .tm-info span { font-variant-numeric: tabular-nums; }
