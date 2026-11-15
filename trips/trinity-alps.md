@@ -2,7 +2,7 @@
 name: Trinity Alps Wilderness
 short: Trinity Alps
 region: Northern California
-updated: 2026-11-14
+updated: 2026-11-15
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
 trailheads:
@@ -141,36 +141,33 @@ There are other routes, but these are some of the more popular and maintained on
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): A steep, switchbacking climb from Big Flat to a granite basin of three lakes, with views of the Sawtooth Ridge. Starting up here is also further north and hrader to get to / less lodging/food around.
-  - There is a 17 mile dirt road (about an hour) to the trailhead. A low clearance 2WD car should make it, but sharp rocks are still a hazard.
+- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): A steep, switchbacking climb from Big Flat to a granite basin of three lakes, with views of the Sawtooth Ridge. Farther north and harder to get to, with less lodging and food nearby.
+  - Road: 17 mi of dirt (about an hour) to the trailhead. A low-clearance 2WD car should make it, but sharp rocks are a hazard.
 
 ## Where to stay[^latimes]
 
 ### At a trailhead
 
-- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort 2 mi before the campground with a general store and restaurant.
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort (general store and restaurant), 2 mi before the campground.
 - **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
 - **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: 9 first-come sites, free; opens once the snow melts, often later in summer. Long dirt road (see Caribou Lakes above).
 
 ### Drive to the trailhead
 
-- **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: Closest option to Long Canyon Trailhead / start of Four Lakes Loop.
-  - **Bushytail**: 10 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 5 mi opposite direction.
-  - **Hayward Flat**: 8 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 10 mi opposite direction.
-
-
-- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi. Yurts. 30 minutes to an hour to southern trailheads. Some food options nearby
-
-- **Trinity Alps Resort**: cabins, a general store and a restaurant, 2 mi from Stuart Fork. 25 minutes to Long Canyon.
+- **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: closest to Long Canyon Trailhead, where the Four Lakes Loop starts.
+  - **Bushytail**: 10 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 5 mi the other way.
+  - **Hayward Flat**: 8 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 10 mi the other way.
+- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)**: on Lewiston Lake, 30 minutes to an hour from the southern trailheads. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
+- **Trinity Alps Resort**: cabins, a general store and a restaurant. 2 mi from Stuart Fork, 25 minutes to Long Canyon.
 
 ### Towns[^latimes][^lodging]
 
-For beds and food. Distances are to your routes' trailheads, as the crow flies.
+For beds and food.
 
-- **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. 30-40 minutes to southern trailheads. 2 hours to Big Flat Campground.
-- **Trinity Center** (Hwy 3): general store (with Wi-Fi); cabins nearby, like Ripple Creek Cabins and Pinewood Cove Resort on the lake. 1:15 from Big Flat Campground.
-- **Coffee Creek** (Hwy 3): general store with sandwiches and cold beer; Coffee Creek Guest Ranch and cabin rentals. Close to Big Flat Campground
-- **Lewiston**: shops and restaurants; Mary Smith Campground. 13+ mi from every route.
+- **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. 30–40 minutes to the southern trailheads, 2 hours to Big Flat.
+- **Trinity Center** (Hwy 3): general store (with Wi-Fi); cabins nearby, like Ripple Creek Cabins and Pinewood Cove Resort on the lake. 1 hr 15 min to Big Flat.
+- **Coffee Creek** (Hwy 3): general store with sandwiches and cold beer; Coffee Creek Guest Ranch and cabin rentals. Closest town to Big Flat.
+- **Lewiston**: shops and restaurants, next to Mary Smith Campground.
 
 [^lodging]: Cabin listings: [Ripple Creek Cabins](https://thedyrt.com/camping/california/ripple-creek-cabins), [Pinewood Cove Resort](https://thedyrt.com/camping/california/pinewood-cove-resort), [Coffee Creek Guest Ranch](https://www.travelweekly.com/Hotels/Trinity-Center-CA/Coffee-Creek-Guest-Ranch-p51628070)
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
