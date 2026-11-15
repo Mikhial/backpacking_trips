@@ -16,6 +16,7 @@ places:
     at: 41.02032, -122.97618
   Snowslide Lake:
     at: 41.02896, -122.97121
+    note: One of the Caribou Lakes.
   Lower Caribou Lake:
     at: 41.02774, -122.97669
   Canyon Creek Falls:
@@ -30,12 +31,16 @@ places:
     at: 40.94470, -123.03803
   Deer Lake:
     at: 40.94393, -122.89333
+    note: One of the Four Lakes.
   Summit Lake:
     at: 40.93906, -122.89682
+    note: One of the Four Lakes.
   Luella Lake:
     at: 40.95232, -122.90199
+    note: One of the Four Lakes.
   Diamond Lake:
     at: 40.94363, -122.90500
+    note: One of the Four Lakes.
   Siligo Peak:
     at: 40.94604, -122.90091
     note: Summit view of the whole range and Mt. Shasta.
@@ -114,25 +119,11 @@ A wilderness permit is needed to camp overnight, any time of year, plus a Califo
 
 [Permits](https://www.fs.usda.gov/r05/shasta-trinity/permits)
 
-## Sights
-
-- **Emerald and Sapphire Lakes**: two big granite-cirque lakes under the Sawtooth Ridge
-- **Caribou Lakes**: Caribou, Snowslide and Lower Caribou lakes
-- **Canyon Creek Falls**: lower, middle and upper falls
-- **Canyon Creek and Boulder Creek Lakes**
-- **Four Lakes**: Deer, Summit, Luella and Diamond lakes
-- **Siligo Peak**: summit view of the whole range and Mt. Shasta
-- **Mining history**: along the Stuart Fork
-
 ## Routes
 
 There are other routes, but these are some of the more popular and maintained ones.
 
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
-  - Sights: Emerald and Sapphire Lakes, mining history
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
-  - Sights: Canyon Creek Falls, Canyon Creek and Boulder Creek Lakes
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-  - Sights: Four Lakes, Siligo Peak
 - [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail)
-  - Sights: Caribou Lakes
