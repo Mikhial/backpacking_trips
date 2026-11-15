@@ -199,6 +199,15 @@
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
+    // Campgrounds within 1.5 km of where one of your routes starts are trailhead campgrounds: drawn as a
+    // trailhead square with a tent badge, standing in for a trailhead right next to them (within 300 m)
+    const routeStarts = extras.routes.map(r => [r.p[0][0], r.p[0][1]]);
+    extras.campgrounds.forEach(c => { c.kind = routeStarts.some(s => map.distance(c.at, s) < 1500) ? 'thcamp' : 'campground'; });
+    const campUnder = at => (extras.campgrounds.find(c => map.distance(c.at, at) < 300) || {}).kind;
+    const besideThcamp = at => extras.campgrounds.some(c => c.kind === 'thcamp' && map.distance(c.at, at) < 300);
+    // those trailheads come back while trailhead campgrounds are hidden (legend) and trailheads aren't
+    const coveredTrailheads = L.layerGroup();
+    const syncCovered = () => { hiddenKinds.has('thcamp') && !hiddenKinds.has('trailhead') ? overview.addLayer(coveredTrailheads) : overview.removeLayer(coveredTrailheads); };
     data.pois.forEach(p => {
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
       // camps are drawn at every zoom with your own camps, below
@@ -206,18 +215,18 @@
         // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead,
         // and comes back as a camp dot when campgrounds are hidden (legend): inside the park, or outside it
         // if it's within 2 km of one of your routes (a campground at a route's trailhead, like Bridge Camp)
-        const under = extras.campgrounds.some(c => map.distance(c.at, p.at) < 300);
+        const under = campUnder(p.at); // the kind of your campground it's under, if any
         if (keep || (under && nearRoute(p.at, 2))) camps.push({ n: p.n, at: p.at, under });
         return;
       }
       if (!keep) return;
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(into(p.t, p.t === 'trailhead' ? overview : detail));
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
     });
     extras.trailheads.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(into('trailhead', overview))
+      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(besideThcamp(p.at) ? coveredTrailheads : into('trailhead', overview))
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
@@ -238,8 +247,12 @@
       campground: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 1.5 13.5h13ZM8 8l-2.6 5.5h5.2Z" fill-rule="evenodd"/></svg>',
       lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
     };
-    [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([kind, list, label]) => list.forEach(p => {
-      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
+    const THCAMP_HTML = `<span class="sq"></span><span class="badge">${STAY_SVG.campground}</span>`;
+    [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([type, list]) => list.forEach(p => {
+      const kind = p.kind || type, th = kind === 'thcamp';
+      const label = th ? 'Campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Campground';
+      const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
+      const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     }));
@@ -258,7 +271,7 @@
     const drawCamps = () => {
       campLayer.clearLayers();
       const groups = [];
-      camps.filter(p => !p.under || hiddenKinds.has('campground')).forEach(p => {
+      camps.filter(p => !p.under || hiddenKinds.has(p.under)).forEach(p => {
         const xy = map.latLngToLayerPoint(p.at);
         // join every group this camp is close to (close to any camp in it), so a chain of nearby sites stays together
         const hit = groups.filter(g => g.xys.some(q => q.distanceTo(xy) < 18));
@@ -304,11 +317,12 @@
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();
+    syncCovered();
 
     // Click a legend item (or press Enter on it) to hide or show that kind; your routes stay on top
     box.querySelectorAll('.tm-legend [data-kind]').forEach(el => {
       const kind = el.dataset.kind;
-      if (!kindLayers[kind]) return;
+      if (!kindLayers[kind]) { if (kind === 'campground' || kind === 'thcamp') el.remove(); return; }
       el.classList.add('tm-toggle');
       el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-pressed', 'true');
       el.title = 'Click to hide or show';
@@ -317,7 +331,8 @@
         show ? hiddenKinds.delete(kind) : hiddenKinds.add(kind);
         kindLayers[kind].forEach(e => show ? e.parent.addLayer(e.g) : e.parent.removeLayer(e.g));
         el.classList.toggle('tm-off', !show); el.setAttribute('aria-pressed', String(show));
-        if (kind === 'campground') drawCamps();
+        if (kind === 'campground' || kind === 'thcamp') drawCamps();
+        syncCovered();
         routeLines.forEach(l => { if (isOn(l)) { l.halo.bringToFront(); l.bringToFront(); } });
         if (selected) selected.bringToFront();
       };

@@ -136,19 +136,19 @@ There are other routes, but these are some of the more popular and maintained on
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
 - [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): A steep, switchbacking climb from Big Flat to a granite basin of three lakes, with views of the Sawtooth Ridge.
-  - Road: a 17 mi dirt road (about an hour). A 2WD Mini Cooper should make it, but sharp rocks are still a hazard.
+  - There is a 17 mile dirt road (about an hour) to the trailhead. A low clearance 2WD car should make it, but sharp rocks are still a hazard.
 
 ## Where to stay[^latimes]
 
 Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies.
 
-- **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
-- **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
-- **Big Flat**: at Big Flat Trailhead, where Caribou Lakes Trail starts; 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above). Food: Coffee Creek general store, 12 mi.
-- **Trinity Lake**: closest to Four Lakes.
+- **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
+- **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
+- **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: at Big Flat Trailhead, where Caribou Lakes Trail starts; 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above). Food: Coffee Creek general store, 12 mi.
+- **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: closest to Four Lakes.
   - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 4 mi.
   - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 6 mi.
-- **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
+- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
 
 ### Towns[^latimes][^lodging]
 

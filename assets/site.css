@@ -237,7 +237,14 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-poi.place { background: #fff; border-color: #1c211a; width: 11px; height: 11px; }
 .tm-stay { width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.4); display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
 .tm-stay svg { width: 12px; height: 12px; fill: #2e6b1f; }
-.leaflet-marker-icon.tm-stay { display: flex; } /* Leaflet sets markers to display: block, which un-centers the glyph */
+.leaflet-marker-icon.tm-stay { display: flex; }
+/* campground at a trailhead: the trailhead square with a green tent badge */
+.tm-thcamp { position: relative; display: inline-block; width: 18px; height: 18px; vertical-align: middle; }
+.tm-thcamp .sq { position: absolute; left: 0; bottom: 0; width: 12px; height: 12px; background: #1c211a; border: 2px solid #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.35); box-sizing: border-box; }
+.tm-thcamp .badge { position: absolute; left: 7px; top: 0; width: 13px; height: 13px; border-radius: 50%; background: #2e6b1f; border: 1.5px solid #fff; display: flex; align-items: center; justify-content: center; }
+.tm-thcamp .badge svg { width: 8px; height: 8px; fill: #fff; }
+.tm-legend .tm-thcamp .badge { left: 7px; top: 1px; width: 11px; height: 11px; }
+.tm-legend .tm-thcamp .badge svg { width: 6px; height: 6px; } /* Leaflet sets markers to display: block, which un-centers the glyph */
 .tm-stay.lodging svg { fill: #8a5a2b; }
 .tm-poi.station { background: #2b6c8f; border-radius: 2px; width: 10px; height: 10px; }
 .tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
