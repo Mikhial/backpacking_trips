@@ -208,9 +208,10 @@
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
 
-    // Your places (places: in the trip header), at every zoom, with their note in the tooltip
+    // Your places (places: in the trip header), at every zoom, with their note in the tooltip.
+    // Your own markers (places, stations, stays) sit above OpenStreetMap's (zIndexOffset), e.g. a place on a peak
     extras.places.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('place'), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
         .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
       // and marks where it is on the open elevation profile
@@ -224,14 +225,14 @@
       lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
     };
     [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([kind, list, label]) => list.forEach(p => {
-      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     }));
 
     // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
     extras.stations.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('station'), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('station'), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
         .bindTooltip(`<b>${esc(p.n)}</b> <span>Permit station</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });

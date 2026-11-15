@@ -134,7 +134,6 @@ There are other routes, but these are some of the more popular and maintained on
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-  - Road: any car can make it.
 - [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): starts at Big Flat Campground.
   - Road: a 17 mi dirt road (about an hour). A 2WD Mini Cooper should make it, but sharp rocks are still a hazard.
 
@@ -146,8 +145,8 @@ Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances a
 - **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp.
 - **Big Flat**: at the Caribou Lakes trailhead, 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above).
 - **Trinity Lake**: closest to Four Lakes.
-  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp; paved road, any car.
-  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Paved road, any car.
+  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp.
+  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead.
 - **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
 
 ### Towns[^latimes][^lodging]
