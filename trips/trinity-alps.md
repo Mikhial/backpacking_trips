@@ -60,9 +60,6 @@ campgrounds:
   Hayward Flat Campground:
     at: 40.87465, -122.77111
     note: Trinity Lake.
-  Jackass Springs Campground:
-    at: 40.96187, -122.66147
-    note: Trinity Lake, far side.
   Mary Smith Campground:
     at: 40.73112, -122.80774
     note: Lewiston Lake. Yurts.
@@ -166,7 +163,6 @@ Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances a
 - **Trinity Lake**: closest to Four Lakes.
   - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp; paved road, any car.
   - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Paved road, any car.
-  - **Jackass Springs**: on the far side of the lake, about 8 mi away, down a rough dirt road.[^osm] Unclear if a car can make it; needs more research.
 - **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
 
 ### Towns[^latimes][^lodging]
@@ -182,4 +178,3 @@ For beds and food. Distances are to your routes' trailheads, as the crow flies.
 
 [^lodging]: Cabin listings: [Ripple Creek Cabins](https://thedyrt.com/camping/california/ripple-creek-cabins), [Pinewood Cove Resort](https://thedyrt.com/camping/california/pinewood-cove-resort), [Coffee Creek Guest Ranch](https://www.travelweekly.com/Hotels/Trinity-Center-CA/Coffee-Creek-Guest-Ranch-p51628070)
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
-[^osm]: Road surface and roughness tags in OpenStreetMap
