@@ -18,6 +18,9 @@ places:
   Coffee Creek Fire Station:
     at: 41.08564, -122.70611
     note: Permit kiosk.
+  Mule Creek Fire Station:
+    at: 40.86181, -122.81666
+    note: Permit kiosk.
   Supervisor's Office (Redding):
     at: 40.52074, -122.30094
     note: Permit kiosk outside.
