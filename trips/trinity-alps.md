@@ -140,11 +140,20 @@ There are other routes, but these are some of the more popular and maintained on
 
 ## Where to stay[^latimes]
 
-Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances are as the crow flies.
+Distances are as the crow flies.
+
+### At a trailhead
+
+Camp here and walk to the trail. On the map as a trailhead with a tent.
 
 - **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off. Food: the resort's store and restaurant, 2 mi.
 - **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp. Food: Junction City, 10 mi.
 - **[Big Flat](https://www.fs.usda.gov/r05/klamath/recreation/big-flat-campground)**: at Big Flat Trailhead, where Caribou Lakes Trail starts; 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above). Food: Coffee Creek general store, 12 mi.
+
+### Drive to the trailhead
+
+Lake campgrounds; you'll drive to the trail. On the map as tents.
+
 - **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: closest to Four Lakes.
   - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 4 mi.
   - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 6 mi.
