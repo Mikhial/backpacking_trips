@@ -122,7 +122,7 @@ permit:
 
 A wilderness permit is needed to camp overnight, any time of year, plus a California campfire permit, which also covers stoves. Neither has a quota or reservations.
 
-- **Wilderness permit**: at outdoor kiosks at the Weaverville Ranger Station (360 Main St), the Supervisor's Office in Redding (3644 Avtech Pkwy), the Shasta Lake Ranger Station, and the Coffee Creek, Mule Creek (Hwy 3), Junction City and Big Bar (Hwy 299) fire stations.
+- **Wilderness permit**: at outdoor kiosks at the [Weaverville Ranger Station](https://www.fs.usda.gov/r05/shasta-trinity/offices/weaverville-ranger-station), the [Supervisor's Office](https://www.fs.usda.gov/r05/shasta-trinity/offices/shasta-trinity-national-forest-headquarters-supervisors-office) in Redding, the [Shasta Lake Ranger Station](https://www.fs.usda.gov/r05/shasta-trinity/offices/shasta-lake-ranger-station), and the Coffee Creek, Mule Creek, Junction City and Big Bar fire stations.
 - **Campfire permit**: free, [online](https://permit.preventwildfiresca.org/) or at any Forest Service, BLM or CAL FIRE office.
 
 **Camping**: up to 14 nights in 30 days; groups of 10 or fewer. Bear canister required in the Canyon Creek and Swift Creek drainages; elsewhere, any bear-proof system. Wood fires are banned in parts of the wilderness, even with a campfire permit (stoves are fine); see the [restrictions](https://www.fs.usda.gov/r05/shasta-trinity/alerts/trinity-alps-wilderness-area-restrictions).
