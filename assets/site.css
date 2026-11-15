@@ -238,6 +238,9 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-poi.place.tm-group { width: 18px; height: 18px; color: #1c211a; cursor: pointer; }
 .tm-stay { width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.4); display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
 .tm-stay svg { width: 12px; height: 12px; fill: #2e6b1f; }
+/* a campground: a green dot with a white tent, like the badge on a campground at a trailhead */
+.tm-stay.campground { background: #2e6b1f; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
+.tm-stay.campground svg { width: 9px; height: 9px; fill: #fff; }
 .leaflet-marker-icon.tm-stay { display: flex; }
 .leaflet-marker-icon.tm-hasnote { cursor: pointer; }
 /* campground at a trailhead: the trailhead square with a green tent badge */

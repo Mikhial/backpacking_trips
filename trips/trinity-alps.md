@@ -150,7 +150,7 @@ Distances are as the crow flies.
 
 ### At a trailhead
 
-Camp here and walk to the trail. On the map as a trailhead with a tent.
+Camp here and walk to the trail.
 
 - **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort 2 mi before the campground with a general store and restaurant.
 - **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
@@ -158,7 +158,7 @@ Camp here and walk to the trail. On the map as a trailhead with a tent.
 
 ### Drive to the trailhead
 
-Lake campgrounds; you'll drive to the trail. On the map as tents.
+Lake campgrounds; you'll drive to the trail.
 
 - **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: closest to Four Lakes.
   - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 4 mi.

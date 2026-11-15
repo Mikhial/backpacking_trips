@@ -199,10 +199,10 @@
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
-    // Campgrounds within 1.5 km of where one of your routes starts are trailhead campgrounds: drawn as a
+    // Campgrounds within 300 m of where one of your routes starts are trailhead campgrounds: drawn as a
     // trailhead square with a tent badge, standing in for a trailhead right next to them (within 300 m)
     const routeStarts = extras.routes.map(r => [r.p[0][0], r.p[0][1]]);
-    extras.campgrounds.forEach(c => { c.kind = routeStarts.some(s => map.distance(c.at, s) < 1500) ? 'thcamp' : 'campground'; });
+    extras.campgrounds.forEach(c => { c.kind = routeStarts.some(s => map.distance(c.at, s) < 300) ? 'thcamp' : 'campground'; });
     const campUnder = at => (extras.campgrounds.find(c => map.distance(c.at, at) < 300) || {}).kind;
     const besideThcamp = at => extras.campgrounds.some(c => c.kind === 'thcamp' && map.distance(c.at, at) < 300);
     // those trailheads come back while trailhead campgrounds are hidden (legend) and trailheads aren't
