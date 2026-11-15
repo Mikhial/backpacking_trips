@@ -43,6 +43,7 @@
       el.innerHTML = `<div class="tm-menu-h">${title ? `<b>${title}</b>` : ''}<span class="tm-ll">${lat}, ${lon}</span></div>` +
         `<a href="${nws}" target="_blank" rel="noopener">NWS forecast ↗</a>` +
         `<a href="${nws}&unit=0&lg=english&FcstType=graphical" target="_blank" rel="noopener">Hourly weather graph ↗</a>` +
+        `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" rel="noopener">Directions in Google Maps ↗</a>` +
         `<button type="button">Copy coordinates</button>`;
       const btn = el.querySelector('button');
       btn.addEventListener('click', () => {
