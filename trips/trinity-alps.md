@@ -20,11 +20,8 @@ places:
   Lower Caribou Lake:
     at: 41.02774, -122.97669
   Canyon Creek Falls:
-    at: 40.93241, -123.02315
-  Middle Canyon Creek Falls:
-    at: 40.95443, -123.02204
-  Upper Canyon Creek Falls:
     at: 40.96081, -123.02346
+    note: Lower, middle and upper falls along the trail; the upper one is the biggest.
   Canyon Creek Lakes:
     at: 40.97143, -123.02259
   Boulder Creek Lakes:
