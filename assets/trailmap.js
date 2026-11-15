@@ -195,18 +195,22 @@
     }
 
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
+    const nearRoute = (pt, km) => extras.routes.some(r => r.p.some(p => map.distance(pt, [p[0], p[1]]) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
     const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
     data.pois.forEach(p => {
       const keep = single || !rings.length || inside(p.at) || (p.t === 'trailhead' && near(p.at, 1));
-      if (!keep) return;
       // camps are drawn at every zoom with your own camps, below
       if (p.t === 'camp') {
         // an OpenStreetMap camp that's one of your campgrounds (within 300 m) is drawn as your tent instead,
-        // and comes back as a camp dot when campgrounds are hidden (legend)
-        camps.push({ n: p.n, at: p.at, under: extras.campgrounds.some(c => map.distance(c.at, p.at) < 300) }); return;
+        // and comes back as a camp dot when campgrounds are hidden (legend): inside the park, or outside it
+        // if it's within 2 km of one of your routes (a campground at a route's trailhead, like Bridge Camp)
+        const under = extras.campgrounds.some(c => map.distance(c.at, p.at) < 300);
+        if (keep || (under && nearRoute(p.at, 2))) camps.push({ n: p.n, at: p.at, under });
+        return;
       }
+      if (!keep) return;
       const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
