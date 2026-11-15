@@ -60,6 +60,18 @@ lodging:
   Trinity Alps Resort:
     at: 40.85708, -122.88962
     note: Cabins, general store and restaurant. About 2 mi before the Stuart Fork Trailhead.
+  Pinewood Cove Resort:
+    at: 40.84514, -122.84641
+    note: Cabins on Trinity Lake.
+  Coffee Creek Ranch:
+    at: 41.09912, -122.77474
+    note: Guest ranch with cabins on Coffee Creek Road, on the way to Big Flat.
+  Ripple Creek Cabins:
+    at: 41.13745, -122.69442
+    note: Cabins on the upper Trinity River, north of Coffee Creek.
+  Weaverville:
+    at: 40.73100, -122.94200
+    note: The main town. Motels and hotels, groceries and restaurants.
 permit stations:
   Weaverville Ranger Station:
     at: 40.73477, -122.94270
