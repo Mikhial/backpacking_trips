@@ -154,7 +154,7 @@ There are other routes, but these are some of the more popular and maintained on
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
   - Road: any car can make it.
 - [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): starts at Big Flat Campground.
-  - Road: the last ~7 mi of Coffee Creek Road are unpaved; probably needs more than a 2WD Mini Cooper. Check with the ranger station.[^latimes][^osm]
+  - Road: a 17 mi dirt road (about an hour). A 2WD Mini Cooper should make it, but sharp rocks are still a hazard.
 
 ## Where to stay[^latimes]
 
