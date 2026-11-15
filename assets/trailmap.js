@@ -248,13 +248,13 @@
 
     // The map starts on your own routes, trailheads and camps with ~11 km around them (a one-route trip:
     // just the route), so a trip in a big park like Hetch Hetchy in Yosemite doesn't open on the whole park.
-    // A trip with none of those starts on the whole park.
+    // A trip with none of those starts on the whole park. Places don't count (Mike, Nov 15 2026: Trinity Alps'
+    // permit kiosks are in towns around the wilderness, some far outside it).
     let bounds = null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
     extras.camps.forEach(p => grow(p.at));
-    extras.places.forEach(p => grow(p.at));
     if (bounds && !single && data.bounds) {
       const park = L.latLngBounds(data.bounds), m = 0.1;
       const near = L.latLngBounds([bounds.getSouth() - m, bounds.getWest() - m], [bounds.getNorth() + m, bounds.getEast() + m]);
