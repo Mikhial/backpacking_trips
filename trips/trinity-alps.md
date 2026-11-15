@@ -146,11 +146,7 @@ There are other routes, but these are some of the more popular and maintained on
 
 ## Where to stay[^latimes]
 
-Distances are as the crow flies.
-
 ### At a trailhead
-
-Camp here and walk to the trail.
 
 - **[Bridge Camp](https://shastatrinitycamping.com/campgrounds/trinity/)**: 10 first-come sites, $20. The last stretch is a narrow gravel road with a steep drop-off. Food: Trinity Alps Resort 2 mi before the campground with a general store and restaurant.
 - **[Ripstein](https://www.fs.usda.gov/r05/shasta-trinity/recreation/ripstein-campground)**: 10 first-come sites, free. Under a mile walk to get to the trailhead.
