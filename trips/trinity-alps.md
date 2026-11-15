@@ -6,7 +6,7 @@ updated: 2026-11-14
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
 trailheads:
-  Big Flat Trailhead: 41.06721, -122.93440
+  Big Flat Trailhead: 41.06757, -122.93410
 places:
   Emerald and Sapphire Lakes:
     at: 41.00472, -122.99810
