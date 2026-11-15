@@ -37,6 +37,10 @@ links:
   Weaverville Ranger Station: https://www.fs.usda.gov/r05/shasta-trinity/offices/weaverville-ranger-station
   Campfire permit: https://permit.preventwildfiresca.org/
 
+facts:
+  Food storage: Bear canister required in Canyon Creek and Swift Creek; any bear-proof system elsewhere
+  Campfires: Campfire permit needed, even for stoves; wood fires banned in parts
+
 seasons:
   - shoulder: Jun 1 – Jun 30
     why: [snow]
