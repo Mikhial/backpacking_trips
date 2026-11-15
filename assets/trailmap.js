@@ -205,6 +205,13 @@
     extras.campgrounds.forEach(c => { c.kind = routeStarts.some(s => map.distance(c.at, s) < 300) ? 'thcamp' : 'campground'; });
     const campUnder = at => (extras.campgrounds.find(c => map.distance(c.at, at) < 300) || {}).kind;
     const besideThcamp = at => extras.campgrounds.some(c => c.kind === 'thcamp' && map.distance(c.at, at) < 300);
+    // OpenStreetMap camps just outside the park (not drawn otherwise) within 500 m of a trailhead the map shows
+    // are campgrounds at that trailhead too, unless one of your campgrounds is already there (Mike, Nov 15 2026)
+    const inPark = at => single || !rings.length || inside(at);
+    const shownTrailheads = data.pois.filter(p => p.t === 'trailhead' && (inPark(p.at) || near(p.at, 1))).map(p => p.at)
+      .concat(extras.trailheads.map(p => p.at));
+    data.pois.filter(p => p.t === 'camp' && !inPark(p.at) && !campUnder(p.at) && shownTrailheads.some(t => map.distance(t, p.at) < 500))
+      .forEach(p => extras.campgrounds.push({ n: p.n || 'Campground', at: p.at, note: '', kind: 'thcamp' }));
     // those trailheads come back while trailhead campgrounds are hidden (legend) and trailheads aren't
     const coveredTrailheads = L.layerGroup();
     const syncCovered = () => { hiddenKinds.has('thcamp') && !hiddenKinds.has('trailhead') ? overview.addLayer(coveredTrailheads) : overview.removeLayer(coveredTrailheads); };
@@ -326,7 +333,7 @@
         const b = L.latLngBounds(list.map(p => p.at));
         L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
           .addTo(campLayer)
-          .bindTooltip(`${list.length} camps <span>${list.map(p => esc(p.n || 'unnamed')).join(', ')}</span>`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
+          .bindTooltip(`${list.length} camps${list.some(p => p.n) ? ` <span>${list.filter(p => p.n).map(p => esc(p.n)).join(', ')}</span>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
           .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
       });
     };
