@@ -197,7 +197,7 @@
     const near = (pt, km) => trails.some(t => t.n && t.p.some(p => map.distance(pt, p) < km * 1000));
     const nearRoute = (pt, km) => extras.routes.some(r => r.p.some(p => map.distance(pt, [p[0], p[1]]) < km * 1000));
     const icon = cls => L.divIcon({ className: 'tm-poi ' + cls, iconSize: [12, 12], html: '' });
-    const names = { trailhead: 'Trailhead', camp: 'Camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
+    const names = { trailhead: 'Trailhead', camp: 'Backcountry camp', peak: 'Peak', water: 'Water', toilet: 'Toilet' };
     const camps = [...extras.camps]; // yours, then OpenStreetMap's (even at the same place)
     // Campgrounds within 300 m of where one of your routes starts are trailhead campgrounds: drawn as a
     // trailhead square with a tent badge, standing in for a trailhead right next to them (within 300 m)
@@ -286,11 +286,13 @@
       campground: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 1.5 13.5h13ZM8 8l-2.6 5.5h5.2Z" fill-rule="evenodd"/></svg>',
       lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
     };
-    const THCAMP_HTML = `<span class="sq"></span><span class="badge">${STAY_SVG.campground}</span>`;
+    // a drive-in campground is a dark green dot (a backcountry camp is light green); at a trailhead, that dot on the trailhead square
+    const THCAMP_HTML = '<span class="sq"></span><span class="badge"></span>';
     [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([type, list]) => list.forEach(p => {
       const kind = p.kind || type, th = kind === 'thcamp';
-      const label = th ? 'Campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Campground';
-      const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
+      const label = th ? 'Drive-in campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Drive-in campground';
+      const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML })
+        : type === 'campground' ? icon('campground') : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: STAY_SVG[type] });
       const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
@@ -323,7 +325,7 @@
         if (list.length === 1) {
           const p = list[0];
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
-            .bindTooltip(`${esc(p.n || 'Camp')}${p.n ? ' <span>Camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+            .bindTooltip(`${esc(p.n || 'Backcountry camp')}${p.n ? ' <span>Backcountry camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
           // like a place: marks where it is on the open elevation profile, if it's on the route
           m.on('mouseover', () => placeAt && placeAt(p.at, p.n || 'Camp'));
@@ -333,7 +335,7 @@
         const b = L.latLngBounds(list.map(p => p.at));
         L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
           .addTo(campLayer)
-          .bindTooltip(`${list.length} camps${list.some(p => p.n) ? ` <span>${list.filter(p => p.n).map(p => esc(p.n)).join(', ')}</span>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
+          .bindTooltip(`${list.length} backcountry camps${list.some(p => p.n) ? ` <span>${list.filter(p => p.n).map(p => esc(p.n)).join(', ')}</span>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
           .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
       });
     };
