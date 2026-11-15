@@ -141,7 +141,7 @@ There are other routes, but these are some of the more popular and maintained on
 - [Stuart Fork to Emerald and Sapphire Lakes](https://www.alltrails.com/explore/trail/us/california/stuart-fork-trail-to-emerald-and-sapphire-lakes): A long, gentle river valley through forest and mining history, ending at two big granite-cirque lakes under the Sawtooth Ridge. Caribou Lake is also a good option.
 - [Canyon Creek and Boulder Creek Lakes](https://www.alltrails.com/explore/trail/us/california/canyon-creek-and-boulder-creek-lakes): Waterfalls and granite slabs climbing to the lakes, plus a rugged off-trail side trip. The most scenic per mile, and the most crowded.
 - [Four Lakes and Siligo Peak Loop](https://www.alltrails.com/explore/trail/us/california/four-lakes-and-siligo-peak-loop): A steep climb to the high country, then ridge walking between small alpine lakes, with a summit view of the whole range and Mt. Shasta.
-- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): A steep, switchbacking climb from Big Flat to a granite basin of three lakes, with views of the Sawtooth Ridge.
+- [Caribou Lakes Trail](https://www.alltrails.com/trail/us/california/caribou-lakes-trail): A steep, switchbacking climb from Big Flat to a granite basin of three lakes, with views of the Sawtooth Ridge. Starting up here is also further north and hrader to get to / less lodging/food around.
   - There is a 17 mile dirt road (about an hour) to the trailhead. A low clearance 2WD car should make it, but sharp rocks are still a hazard.
 
 ## Where to stay[^latimes]
@@ -154,22 +154,22 @@ There are other routes, but these are some of the more popular and maintained on
 
 ### Drive to the trailhead
 
-Lake campgrounds; you'll drive to the trail.
+- **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: Closest option to Long Canyon Trailhead / start of Four Lakes Loop.
+  - **Bushytail**: 10 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 5 mi opposite direction.
+  - **Hayward Flat**: 8 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 10 mi opposite direction.
 
-- **[Trinity Lake](https://shastatrinitycamping.com/campgrounds/trinity/)**: closest to Four Lakes.
-  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp. Food: Trinity Alps Resort, 4 mi.
-  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Food: Trinity Alps Resort, 6 mi.
-- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi.
+
+- **[Mary Smith](https://www.fs.usda.gov/r05/shasta-trinity/recreation/mary-smith-campground)**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on [Recreation.gov](https://www.recreation.gov/camping/campgrounds/233344) (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31. Food: Lewiston, 2 mi. Yurts. 30 minutes to an hour to southern trailheads. Some food options nearby
+
+- **Trinity Alps Resort**: cabins, a general store and a restaurant, 2 mi from Stuart Fork. 25 minutes to Long Canyon.
 
 ### Towns[^latimes][^lodging]
 
 For beds and food. Distances are to your routes' trailheads, as the crow flies.
 
-- **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. Stuart Fork 10 mi, Canyon Creek 12, Four Lakes 15, Caribou Lakes 23.
-- **Junction City** (Hwy 299): grocery and convenience stores. Canyon Creek 11 mi, Stuart Fork 12.
-- **Trinity Center** (Hwy 3): general store (with Wi-Fi); cabins nearby, like Ripple Creek Cabins and Pinewood Cove Resort on the lake. Four Lakes 7 mi, Caribou Lakes 13, Stuart Fork 13.
-- **Coffee Creek** (Hwy 3): general store with sandwiches and cold beer; Coffee Creek Guest Ranch and cabin rentals. On the way to Caribou Lakes: 12 mi, but 17 mi of dirt road by car (about an hour). Four Lakes 13 mi.
-- **Trinity Alps Resort**: cabins, a general store and a restaurant, 2 mi from Stuart Fork.
+- **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. 30-40 minutes to southern trailheads. 2 hours to Big Flat Campground.
+- **Trinity Center** (Hwy 3): general store (with Wi-Fi); cabins nearby, like Ripple Creek Cabins and Pinewood Cove Resort on the lake. 1:15 from Big Flat Campground.
+- **Coffee Creek** (Hwy 3): general store with sandwiches and cold beer; Coffee Creek Guest Ranch and cabin rentals. Close to Big Flat Campground
 - **Lewiston**: shops and restaurants; Mary Smith Campground. 13+ mi from every route.
 
 [^lodging]: Cabin listings: [Ripple Creek Cabins](https://thedyrt.com/camping/california/ripple-creek-cabins), [Pinewood Cove Resort](https://thedyrt.com/camping/california/pinewood-cove-resort), [Coffee Creek Guest Ranch](https://www.travelweekly.com/Hotels/Trinity-Center-CA/Coffee-Creek-Guest-Ranch-p51628070)
