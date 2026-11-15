@@ -27,7 +27,7 @@ places:
   Boulder Creek Lakes:
     at: 40.94470, -123.03803
   Four Lakes:
-    at: 40.94474, -122.89929
+    at: 40.94393, -122.89333
     note: Deer, Summit, Luella and Diamond lakes.
   Siligo Peak:
     at: 40.94604, -122.90091
