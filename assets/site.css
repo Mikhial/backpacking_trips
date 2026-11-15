@@ -250,7 +250,9 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-thcamp .badge svg { width: 8px; height: 8px; fill: #fff; }
 .tm-legend .tm-thcamp .badge { left: 7px; top: 1px; width: 11px; height: 11px; }
 .tm-legend .tm-thcamp .badge svg { width: 6px; height: 6px; } /* Leaflet sets markers to display: block, which un-centers the glyph */
-.tm-stay.lodging svg { fill: #8a5a2b; }
+/* lodging: the same, brown with a white house */
+.tm-stay.lodging { background: #8a5a2b; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
+.tm-stay.lodging svg { width: 9px; height: 9px; fill: #fff; }
 .tm-poi.station { background: #2b6c8f; border-radius: 2px; width: 10px; height: 10px; }
 .tm-info { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; min-height: 22px; }
 .tm-info b { color: var(--fg); font-weight: 600; }
