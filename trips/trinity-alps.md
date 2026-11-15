@@ -163,7 +163,10 @@ Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances a
 - **Bridge Camp**: at the Stuart Fork Trailhead. 10 first-come sites, $20; drinking water Memorial Day–Oct 31; open all year. You drive through Trinity Alps Resort (cabins, a general store and a restaurant) about 2 mi before it; the last stretch is a narrow gravel road with a steep drop-off.
 - **Ripstein**: under a mile from the Canyon Creek Trailhead, about 6 mi from Stuart Fork. 10 first-come sites, free; creek water only; open all year. Trailhead parking fills on weekends, so you can walk from camp.
 - **Big Flat**: at the Caribou Lakes trailhead, 12–14 mi from the other routes. 9 first-come sites, free; creek water only; about 5,000 ft, opens once the snow melts, often later in summer. Unpaved road (see Caribou Lakes above).
-- **Trinity Lake**: closest to Four Lakes, about 4–5 mi from Long Canyon Trailhead. Bushytail has showers; Hayward Flat is the other one nearby. Jackass Springs is on the far side of the lake (about 8 mi) down a rough dirt road that may need more than a 2WD Mini Cooper.[^osm]
+- **Trinity Lake**: closest to Four Lakes.
+  - **Bushytail**: about 5 mi from Long Canyon Trailhead. Showers and a boat ramp; paved road, any car.
+  - **Hayward Flat**: about 4 mi from Long Canyon Trailhead. Paved road, any car.
+  - **Jackass Springs**: on the far side of the lake, about 8 mi away, down a rough dirt road that may need more than a 2WD Mini Cooper.[^osm]
 - **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
 
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
