@@ -169,5 +169,17 @@ Campgrounds are on the map as tents, Trinity Alps Resort as a house. Distances a
   - **Jackass Springs**: on the far side of the lake, about 8 mi away, down a rough dirt road.[^osm] Unclear if a car can make it; needs more research.
 - **Mary Smith**: on Lewiston Lake, 11+ mi from all four routes. 17 sites, 6 of them yurts with queen beds; reserve on Recreation.gov (required Jun 8–Sep 30); $30–135. Open early Apr–Oct 31.
 
+### Towns[^latimes][^lodging]
+
+For beds and food. Distances are to your routes' trailheads, as the crow flies.
+
+- **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. Stuart Fork 10 mi, Canyon Creek 12, Four Lakes 15, Caribou Lakes 23.
+- **Junction City** (Hwy 299): grocery and convenience stores. Canyon Creek 11 mi, Stuart Fork 12.
+- **Trinity Center** (Hwy 3): general store (with Wi-Fi); cabins nearby, like Ripple Creek Cabins and Pinewood Cove Resort on the lake. Four Lakes 7 mi, Caribou Lakes 13, Stuart Fork 13.
+- **Coffee Creek** (Hwy 3): general store with sandwiches and cold beer; Coffee Creek Guest Ranch and cabin rentals. On the way to Caribou Lakes: 12 mi, but 17 mi of dirt road by car (about an hour). Four Lakes 13 mi.
+- **Trinity Alps Resort**: cabins, a general store and a restaurant, 2 mi from Stuart Fork.
+- **Lewiston**: shops and restaurants; Mary Smith Campground. 13+ mi from every route.
+
+[^lodging]: Cabin listings: [Ripple Creek Cabins](https://thedyrt.com/camping/california/ripple-creek-cabins), [Pinewood Cove Resort](https://thedyrt.com/camping/california/pinewood-cove-resort), [Coffee Creek Guest Ranch](https://www.travelweekly.com/Hotels/Trinity-Center-CA/Coffee-Creek-Guest-Ranch-p51628070)
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
 [^osm]: Road surface and roughness tags in OpenStreetMap
