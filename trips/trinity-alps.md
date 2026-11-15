@@ -165,7 +165,7 @@ There are other routes, but these are some of the more popular and maintained on
 For beds and food.
 
 - **Weaverville**: the main town, with the ranger station, groceries, restaurants and a few motels and hotels. 30–40 minutes to the southern trailheads, 2 hours to Big Flat.
-- **Trinity Center and Coffee Creek**: general stores (Wi-Fi at Trinity Center; sandwiches and cold beer at Coffee Creek); cabins, like Ripple Creek Cabins, Pinewood Cove Resort on the lake and Coffee Creek Guest Ranch. Closest towns to Big Flat (1 hr 15 min from Trinity Center).
+- **Trinity Center and Coffee Creek**: general stores (Wi-Fi at Trinity Center; sandwiches and cold beer at Coffee Creek); cabins, like Ripple Creek Cabins, Pinewood Cove Resort, and Coffee Creek Guest Ranch. Closest towns to Big Flat (1 hr to 1 hr 15 min).
 
 [^lodging]: Cabin listings: [Ripple Creek Cabins](https://thedyrt.com/camping/california/ripple-creek-cabins), [Pinewood Cove Resort](https://thedyrt.com/camping/california/pinewood-cove-resort), [Coffee Creek Guest Ranch](https://www.travelweekly.com/Hotels/Trinity-Center-CA/Coffee-Creek-Guest-Ranch-p51628070)
 [^latimes]: [Los Angeles Times](https://www.latimes.com/lifestyle/story/2025-06-10/trinity-alps-wilderness-camping-hiking-visit-guide)
