@@ -212,6 +212,9 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .zn { display: inline-block; width: 14px; height: 10px; border: 2px solid rgba(91,63,140,.6); background: rgba(91,63,140,.07); border-radius: 2px; }
 .tm-zone span { position: absolute; white-space: nowrap; transform: translate(-50%, -50%); cursor: default; font: 600 10px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: rgba(91,63,140,.8); text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 2px #fff; }
 .tm-legend .tm-more { color: var(--faint); }
+.tm-legend .tm-toggle { cursor: pointer; user-select: none; border-radius: 4px; }
+.tm-legend .tm-toggle:hover { color: var(--fg); }
+.tm-legend .tm-toggle.tm-off { opacity: .4; text-decoration: line-through; }
 .tm-legend .ln.route { border-top: 3px solid #1f5fa8; box-shadow: 0 0 0 1.5px #fff; }
 .tm-routes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .tm-routes .tm-rl { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }

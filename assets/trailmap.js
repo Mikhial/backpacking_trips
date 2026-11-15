@@ -59,14 +59,23 @@
     // A one-route trip ("route:" + "gpx:" in the header): the route is always shown, with its profile open,
     // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area)
     const single = box.hasAttribute('data-single') && extras.routes.length === 1;
-    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(map));
+    // Each kind of thing (trail, dirt road, trailhead, camp, place…) goes in its own layer, so clicking its
+    // legend item can hide or show it. The kinds match data-kind on the legend items in _includes/trip.njk.
+    const kindLayers = {}, hiddenKinds = new Set();
+    const into = (kind, parent) => {
+      const list = kindLayers[kind] ||= [];
+      let e = list.find(x => x.parent === parent);
+      if (!e) { e = { g: L.layerGroup(), parent }; list.push(e); if (!hiddenKinds.has(kind)) parent.addLayer(e.g); }
+      return e.g;
+    };
+    data.boundary.forEach(r => L.polyline(r, { renderer, color: '#3b2f5c', weight: 2, opacity: .6, dashArray: '8 6', interactive: false }).addTo(into('boundary', map)));
     // Permit zones ("zones:" in the header): light outlines under the trails, with the name as a label;
     // hovering the label shows the zone's note
     extras.zones.forEach(z => {
       // same style as on the All map data page (assets/parkmap.js)
-      L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }).addTo(map);
+      L.polygon(z.ring, { renderer, color: '#5b3f8c', weight: 2, opacity: .6, fillColor: '#5b3f8c', fillOpacity: .05, interactive: false }).addTo(into('zone', map));
       if (!z.at) return;
-      L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false }).addTo(map)
+      L.marker(z.at, { icon: L.divIcon({ className: 'tm-zone', html: `<span>${esc(z.n.replace(/ Zone$/, ''))}</span>`, iconSize: [0, 0] }), keyboard: false }).addTo(into('zone', map))
         .bindTooltip(`<b>${esc(z.n)}</b>${z.note ? `<div class="tm-note">${esc(z.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: 'tm-tip tm-wrap' });
     });
 
@@ -96,7 +105,8 @@
         renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
       };
-      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(main ? overview : detail);
+      const kind = t.x ? 'closed' : big ? 'big' : t.k === 'road' ? 'road' : 'trail';
+      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(into(kind, main ? overview : detail));
       line.trail = t; line.base = style;
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2.5, opacity: 1 }); });
@@ -197,13 +207,13 @@
         if (extras.campgrounds.some(c => map.distance(c.at, p.at) < 300)) return;
         camps.push({ n: p.n, at: p.at }); return;
       }
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' ? overview : detail);
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
     });
     extras.trailheads.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('trailhead mine'), keyboard: false }).addTo(into('trailhead', overview))
         .bindTooltip(`${esc(p.n)} <span>Trailhead</span>`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
@@ -211,7 +221,7 @@
     // Your places (places: in the trip header), at every zoom, with their note in the tooltip.
     // Your own markers (places, stations, stays) sit above OpenStreetMap's (zIndexOffset), e.g. a place on a peak
     extras.places.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('place'), keyboard: false, zIndexOffset: 1000 }).addTo(into('place', overview))
         .bindTooltip(`<b>${esc(p.n)}</b>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip tm-wrap' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
       // and marks where it is on the open elevation profile
@@ -225,14 +235,14 @@
       lodging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 1.5 7.6V14h4.6v-4h3.8v4h4.6V7.6Z"/></svg>'
     };
     [['campground', extras.campgrounds, 'Campground'], ['lodging', extras.lodging, 'Lodging']].forEach(([kind, list, label]) => list.forEach(p => {
-      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
+      const m = L.marker(p.at, { icon: L.divIcon({ className: 'tm-stay ' + kind, iconSize: [18, 18], html: STAY_SVG[kind] }), keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     }));
 
     // Permit stations ("permit stations:" in the header), at every zoom, with their note in the tooltip
     extras.stations.forEach(p => {
-      const m = L.marker(p.at, { icon: icon('station'), keyboard: false, zIndexOffset: 1000 }).addTo(overview)
+      const m = L.marker(p.at, { icon: icon('station'), keyboard: false, zIndexOffset: 1000 }).addTo(into('station', overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>Permit station</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
     });
@@ -240,6 +250,7 @@
     // Camps (yours and OpenStreetMap's), at every zoom: ones that would overlap at this zoom are drawn
     // as one dot with a count; click it (or zoom in) to see them separately
     const campLayer = L.layerGroup().addTo(map);
+    kindLayers.camp = [{ g: campLayer, parent: map }];
     const drawCamps = () => {
       campLayer.clearLayers();
       const groups = [];
@@ -289,6 +300,25 @@
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();
+
+    // Click a legend item (or press Enter on it) to hide or show that kind; your routes stay on top
+    box.querySelectorAll('.tm-legend [data-kind]').forEach(el => {
+      const kind = el.dataset.kind;
+      if (!kindLayers[kind]) return;
+      el.classList.add('tm-toggle');
+      el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-pressed', 'true');
+      el.title = 'Click to hide or show';
+      const flip = () => {
+        const show = hiddenKinds.has(kind);
+        show ? hiddenKinds.delete(kind) : hiddenKinds.add(kind);
+        kindLayers[kind].forEach(e => show ? e.parent.addLayer(e.g) : e.parent.removeLayer(e.g));
+        el.classList.toggle('tm-off', !show); el.setAttribute('aria-pressed', String(show));
+        routeLines.forEach(l => { if (isOn(l)) { l.halo.bringToFront(); l.bringToFront(); } });
+        if (selected) selected.bringToFront();
+      };
+      el.addEventListener('click', flip);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    });
     const detailZoom = Math.ceil(map.getZoom()) + 1;
     const toggleDetail = () => {
       const on = map.getZoom() >= detailZoom;
