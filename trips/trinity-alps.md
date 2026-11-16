@@ -100,6 +100,7 @@ links:
 
 facts:
   Getting there: 5–6 hr drive
+  Distance: Up to 50+ mi
   Food storage: Bear canister required in Canyon Creek and Swift Creek; any bear-proof system elsewhere
   Campfires: Campfire permit needed, even for stoves; wood fires banned in parts
 
