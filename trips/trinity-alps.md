@@ -2,6 +2,7 @@
 name: Trinity Alps Wilderness
 short: Trinity Alps
 region: Northern California
+summary: Big granite wilderness with dozens of alpine lakes and trailheads all around
 updated: 2026-11-15
 park: Trinity Alps Wilderness
 within: Shasta-Trinity National Forest
