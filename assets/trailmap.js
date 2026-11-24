@@ -92,7 +92,7 @@
     };
     const trails = rings.length && !single ? data.trails.filter(t => t.k === 'paved' || t.p.some(inside)) : data.trails;
 
-    // EXPERIMENT (Nov 23 2026, Hetch Hetchy): with data.focus (meters), what's farther than that from your routes and
+    // "map focus:" in a trip header (Nov 23 2026, first on Hetch Hetchy): with data.focus (meters), what's farther than that from your routes and
     // trailheads is drawn faded, so the trip's own area stands out and the trails leading away still show
     const FADE = .3;
     const focusPts = !single && data.focus ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))

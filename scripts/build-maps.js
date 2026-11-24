@@ -104,10 +104,11 @@ export function corridor(trip) {
   const bb = pad(grow(null, trip.extra), ROUTE_PAD); // quick first check
   return pt => inside(bb, pt) && (distToLine(pt, line) < ROUTE_M || heads.some(h => dist(pt, h) < ROUTE_M));
 }
-// EXPERIMENT (Nov 23 2026): the main paved roads into Yosemite's areas, from all.json, drawn as k: 'paved'
+// "main road:" (Nov 23 2026): the main paved roads into Yosemite's areas, from all.json, drawn as k: 'paved', the trip's
+// own main roads (h: 1) at full color. The list is Yosemite's; another park would need its own roads here.
 const PAVED = ['Tioga Road', 'Big Oak Flat Road', 'Evergreen Road', 'Hetch Hetchy Road', 'Glacier Point Road', 'Wawona Road',
   'El Portal Road', 'Northside Drive', 'Southside Drive'];
-function pavedRoads(parkName) {
+function pavedRoads(parkName, mine) {
   const all = JSON.parse(fs.readFileSync(parkPath(parkName, 'all.json'), 'utf8')).features;
   const groups = new Map();
   for (const f of all) {
@@ -121,8 +122,10 @@ function pavedRoads(parkName) {
   for (const [n, lines] of groups) for (const line of chain(lines)) {
     let len = 0;
     for (let k = 1; k < line.length; k++) len += dist(line[k - 1], line[k]);
-    if (len > 300) out.push({ n, k: 'paved', ...(n === 'Hetch Hetchy Road' ? { h: 1 } : {}), len: Math.round(len), p: line.map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
+    if (len > 300) out.push({ n, k: 'paved', ...(mine.includes(n) ? { h: 1 } : {}), len: Math.round(len), p: line.map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
   }
+  const missing = mine.filter(n => !out.some(t => t.n === n));
+  if (missing.length) throw new Error(`main road: no paved road called ${missing.map(n => `"${n}"`).join(', ')} (use: ${PAVED.join(', ')})`);
   return out;
 }
 
@@ -205,14 +208,14 @@ function buildMap(trip, park) {
   const allRoads = !trip.shows || trip.shows.includes('dirt roads');
   const kept = trails.filter(t => t.n || t.k === 'trail' || allRoads);
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
-  if (trip.slug === 'hetch-hetchy') kept.push(...pavedRoads(trip.park)); // EXPERIMENT (Nov 23 2026): main park roads
+  if (trip.mainRoads.length) kept.push(...pavedRoads(trip.park, trip.mainRoads));
 
   return {
     shownIds: shownIds(features, ring, single, kept), followOnly,
     map: {
       area: trip.park,
       ...(single ? { single: true } : {}),
-      ...(trip.slug === 'hetch-hetchy' ? { focus: 4828 } : {}), // EXPERIMENT: fade what's over 3 mi from the routes
+      ...(trip.focus ? { focus: trip.focus } : {}), // "map focus:": fade what's farther than this from the routes
       source: park.source,
       fetched: park.fetched,
       bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],

@@ -6,6 +6,8 @@ summary: Granite reservoir canyon and big waterfalls in low-elevation Yosemite
 updated: 2026-10-16
 park: Yosemite National Park
 within: Yosemite National Park
+main road: Hetch Hetchy Road   # Yosemite's main paved roads, this one at full color
+map focus: 3 mi                # fade what's farther than this
 routes:
   Hetch Hetchy loop: tracks/hetch-hetchy-loop.gpx
   Hetch Hetchy to Falls Creek: tracks/hetch-hetchy-falls-creek.gpx
