@@ -207,6 +207,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .tm-legend .ln { display: inline-block; width: 18px; height: 0; border-top: 2px solid #b5462f; }
 .tm-legend .ln.big { border-top: 2px solid #7e2413; }
 .tm-legend .ln.road { border-top: 2px dashed #8a6a4b; }
+.tm-legend .ln.paved { border-top: 3px solid #3d3d3d; }
 .tm-legend .ln.closed { border-top: 2px dotted #b5462f; opacity: .6; }
 .tm-legend .ln.bnd { border-top: 2px dashed #3b2f5c; opacity: .7; }
 .tm-legend .zn { display: inline-block; width: 14px; height: 10px; border: 2px solid rgba(91,63,140,.6); background: rgba(91,63,140,.07); border-radius: 2px; }

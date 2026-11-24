@@ -7,6 +7,13 @@ summary: Coastal bluffs, beaches, fir forest and Alamere Falls
 updated: 2026-10-16
 park: Point Reyes National Seashore
 map shows: paths, footways, cycleways, steps, dirt roads, trailheads, camps, boundaries
+places:
+  Alamere Falls:
+    at: 37.95376, -122.78334
+    note: 40 ft falls onto the beach. Low tide only.
+  Arch Rock:
+    at: 37.98756, -122.81346
+    note: Ocean overlook.
 routes:
   Big loop that goes through a lot: tracks/point-reyes-bear-valley-coast-loop.gpx
   Shorter loop on the south side: tracks/point-reyes-pelican-hill-loop.gpx
