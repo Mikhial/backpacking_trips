@@ -90,23 +90,48 @@
       }
       return c;
     };
-    const trails = rings.length && !single ? data.trails.filter(t => t.p.some(inside)) : data.trails;
+    const trails = rings.length && !single ? data.trails.filter(t => t.k === 'paved' || t.p.some(inside)) : data.trails;
+
+    // EXPERIMENT (Nov 23 2026, Hetch Hetchy): with data.focus (meters), what's farther than that from your routes and
+    // trailheads is drawn faded, so the trip's own area stands out and the trails leading away still show
+    const FADE = .3;
+    const focusPts = !single && data.focus ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))
+      .concat(extras.trailheads.map(p => p.at)) : [];
+    const inFocus = pt => {
+      if (!focusPts.length) return true;
+      const k = Math.cos(pt[0] * Math.PI / 180), f2 = (data.focus / 111200) ** 2;
+      return focusPts.some(q => { const dy = q[0] - pt[0], dx = (q[1] - pt[1]) * k; return dy * dy + dx * dx < f2; });
+    };
+    // anything on the trip's own road (t.h, drawn full) is never faded
+    const roadPts = data.trails.filter(t => t.k === 'paved' && t.h).flatMap(t => t.p);
+    const onRoad = pt => roadPts.some(q => inFocus.d(q, pt) < 400);
+    const mineAt = pt => onRoad(pt) || extras.trailheads.some(p => inFocus.d(p.at, pt) < 300) || extras.routes.some(r => inFocus.d([r.p[0][0], r.p[0][1]], pt) < 300);
+    inFocus.d = (a, b) => { const k = Math.cos(a[0] * Math.PI / 180), dy = (a[0] - b[0]) * 111200, dx = (a[1] - b[1]) * 111200 * k; return Math.hypot(dx, dy); };
 
     // Overview: named trails and trailheads. Zoomed in: everything else.
     const overview = L.layerGroup().addTo(map), detail = L.layerGroup();
-    const color = { trail: '#b5462f', road: '#8a6a4b' };
+    const color = { trail: '#b5462f', road: '#8a6a4b', paved: '#3d3d3d' };
     let selected = null, hoverDot = null, hoverAt = null, placeAt = null;
     // Long-distance trails (PCT, Tahoe Rim Trail…) are drawn last, thicker and darker
     const isBig = t => !!t.b && t.k === 'trail' && !t.x;
     trails.slice().sort((a, b) => isBig(a) - isBig(b)).forEach(t => {
       // dirt roads are drawn at every zoom, not just zoomed in
-      const big = isBig(t), main = big || (!!t.n && t.k === 'trail') || t.k === 'road';
+      // every path is drawn at every zoom; unnamed ones thinner and lighter (Mike, Nov 23 2026: too many hidden zoomed out)
+      const big = isBig(t), main = big || (!!t.n && t.k === 'trail') || t.k === 'road' || t.k === 'paved';
       const style = {
-        renderer, color: big ? '#7e2413' : color[t.k], weight: main ? 2 : 1.3, opacity: t.x ? .45 : big ? .95 : main ? .85 : .55,
+        renderer, color: big ? '#7e2413' : color[t.k], weight: t.k === 'paved' ? (t.h ? 3 : 2.5) : main ? 2 : 1.3, opacity: t.x ? .45 : t.k === 'paved' && !t.h ? .3 : big ? .95 : main ? .85 : .55,
         dashArray: t.x ? '2 5' : t.k === 'road' ? '6 4' : null
       };
-      const kind = t.x ? 'closed' : big ? 'big' : t.k === 'road' ? 'road' : 'trail';
-      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(into(kind, main ? overview : detail));
+      const kind = t.x ? 'closed' : big ? 'big' : t.k === 'road' || t.k === 'paved' ? t.k : 'trail';
+      // Out of focus: a whole trail is bold or faded, never part of one (Mike, Nov 23 2026). Bold when at least half
+      // of it is within data.focus of your routes and trailheads. In focus, unnamed paths are drawn like named trails
+      // (many trails by Hetch Hetchy have no name in OpenStreetMap)
+      if (focusPts.length && t.k !== 'paved') {
+        const near = t.p.filter(p => inFocus(p)).length >= t.p.length / 2;
+        if (near && !main && !t.x) Object.assign(style, { weight: 2, opacity: .85 });
+        else if (!near) style.opacity = FADE + .05; // same for every faded line, so faded unnamed paths don't all but disappear
+      }
+      const line = L.polyline(t.p.map(p => [p[0], p[1]]), style).addTo(into(kind, overview));
       line.trail = t; line.base = style;
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: style.weight + 2.5, opacity: 1 }); });
@@ -116,8 +141,8 @@
     });
 
     // The legend only lists line kinds this map has
-    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), closed: trails.some(t => t.x),
-      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), toilets: data.pois.some(p => p.t === 'toilet'), 'unnamed paths': trails.some(t => !t.n && t.k === 'trail') };
+    const legendHas = { big: trails.some(isBig), road: trails.some(t => t.k === 'road'), paved: trails.some(t => t.k === 'paved'), closed: trails.some(t => t.x),
+      peak: data.pois.some(p => p.t === 'peak'), water: data.pois.some(p => p.t === 'water'), toilets: data.pois.some(p => p.t === 'toilet') };
     legendHas.peaks = legendHas.peak;
     box.querySelectorAll('.tm-legend [data-legend]').forEach(el => { if (!legendHas[el.dataset.legend]) el.remove(); });
     // "Zoom in for …" names only what this map has
@@ -136,9 +161,9 @@
       const style = { renderer, color: '#1f5fa8', weight: 3, opacity: .95, dashArray: null };
       const line = L.polyline(ll, style);
       line.trail = t; line.base = style; line.halo = halo;
-      // light-blue preview while hovering the route's button above the map
-      // same width as the route line, in magenta (light blue looked like water), no white edge
-      line.preview = L.polyline(ll, { renderer, color: '#c0399e', weight: style.weight, opacity: 1, interactive: false });
+      // preview while hovering the route's button above the map: same width as the route line, no white edge, in a
+      // brighter blue than the route (Mike, Nov 23 2026; it was magenta because light blue looked like water)
+      line.preview = L.polyline(ll, { renderer, color: '#3b82f6', weight: style.weight, opacity: 1, interactive: false });
       line.bindTooltip(label(t), { sticky: true, direction: 'top', offset: [0, -6], className: 'tm-tip' });
       line.on('mouseover', () => { if (line !== selected) line.setStyle({ weight: 5 }); });
       line.on('mouseout', () => { if (line !== selected) line.setStyle({ weight: 3 }); else if (hoverAt) hoverAt(null); });
@@ -227,7 +252,8 @@
         return;
       }
       if (!keep) return;
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
+      const faded = focusPts.length && p.t === 'trailhead' && !mineAt(p.at); // only your own trailheads at full color
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false, ...(faded || (focusPts.length && !inFocus(p.at) && !onRoad(p.at)) ? { opacity: FADE } : {}) }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
@@ -291,7 +317,7 @@
       const label = th ? 'Drive-in campground at trailhead' : type === 'lodging' ? 'Lodging' : 'Drive-in campground';
       const ic = th ? L.divIcon({ className: 'tm-thcamp', iconSize: [18, 18], html: THCAMP_HTML })
         : type === 'campground' ? L.divIcon({ className: 'tm-poi campground', iconSize: [16, 16], html: '' }) : L.divIcon({ className: 'tm-stay ' + type, iconSize: [18, 18], html: HOUSE_SVG });
-      const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000 }).addTo(into(kind, overview))
+      const m = L.marker(p.at, { icon: ic, keyboard: false, zIndexOffset: 1000, ...(inFocus(p.at) || onRoad(p.at) ? {} : { opacity: FADE }) }).addTo(into(kind, overview))
         .bindTooltip(`<b>${esc(p.n)}</b> <span>${label}</span>${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -8], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n)); });
       linkToNote(m, p.n);
@@ -322,7 +348,7 @@
       groups.forEach(({ list }) => {
         if (list.length === 1) {
           const p = list[0];
-          const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false }).addTo(campLayer)
+          const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false, ...(inFocus(p.at) || onRoad(p.at) ? {} : { opacity: FADE }) }).addTo(campLayer)
             .bindTooltip(`${esc(p.n || 'Backcountry camp')}${p.n ? ' <span>Backcountry camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
           // like a place: marks where it is on the open elevation profile, if it's on the route
@@ -331,7 +357,7 @@
           return;
         }
         const b = L.latLngBounds(list.map(p => p.at));
-        L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false })
+        L.marker(b.getCenter(), { icon: L.divIcon({ className: 'tm-poi camp mine tm-group', iconSize: [18, 18], html: String(list.length) }), keyboard: false, ...(list.some(p => inFocus(p.at) || onRoad(p.at)) ? {} : { opacity: FADE }) })
           .addTo(campLayer)
           .bindTooltip(`${list.length} backcountry camps${list.some(p => p.n) ? ` <span>${list.filter(p => p.n).map(p => esc(p.n)).join(', ')}</span>` : ''}`, { direction: 'top', offset: [0, -9], className: 'tm-tip' })
           .on('click', e => { L.DomEvent.stop(e); map.fitBounds(b.pad(0.5), { maxZoom: 15 }); });
@@ -415,7 +441,7 @@
 
     function name(t) { return esc(t.n || (t.k === 'road' ? 'Unnamed road' : 'Unnamed path')); }
     function label(t) {
-      return `<b>${name(t)}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}${t.k === 'route' ? ' <span>Your route</span>' : ''}${isBig(t) ? ` <span>${t.b.map(esc).join(' · ')}</span>` : ''}`;
+      return `<b>${name(t)}</b> ${mi(t.len)} mi${t.x ? ' · closed or abandoned' : ''}${t.k === 'route' ? ' <span>Your route</span>' : ''}${isBig(t) && t.b.join() !== t.n ? ` <span>${t.b.map(esc).join(' · ')}</span>` : ''}`;
     }
     function hasEle(t) { return t.p.every(p => Number.isFinite(p[2])); }
 

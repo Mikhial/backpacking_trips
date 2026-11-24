@@ -62,6 +62,9 @@ Plan: https://claude.ai/artifact/HZuFFKyBxap5YeW4Rg1dmz ("Trail Map Data Plan").
    - `map shows:` in a trip header (words in `MAP_WORDS`, lib/normalize.js) limits that trip map to those kinds (the park boundary only if `boundaries` is listed) and sets the All map data page's starting switches. Whatever a trip's GPX runs along (`follows`, found in lib/pick.js: most of a way's points within 30 m of the route) is always on its map, whatever its kind; changing a GPX re-picks the park (`routesKey`).
    - Water (springs, taps) is off unless a trip lists it, and peaks under 5,000 ft are never shown (`DEFAULT_OFF`, `MIN_PEAK_FT` in lib/normalize.js; Mike, Nov 5 2026, "for now"). Peaks with no OSM elevation are measured on the elevation tiles.
    - Dirt roads are all shown, named or not, at every zoom (Mike, Nov 5 2026), unless a trip's `map shows:` leaves them out.
+   - Every path is drawn at every zoom (Mike, Nov 23 2026: too many hidden zoomed out); unnamed ones thinner and lighter. A piece with no name on exactly one named OpenStreetMap route takes the route's name (Grand Canyon of the Tuolumne Trail).
+   - Places need a reason (viewpoint, established site, a warning that changes the day), not just being in a route's name; notes brief (Mike, Nov 23 2026).
+   - Experiment, Hetch Hetchy only (hard-coded on its slug in build-maps.js): main Yosemite paved roads (`pavedRoads()`, only Hetch Hetchy Road at full color) and `focus` (assets/trailmap.js): trails mostly over 3 mi from the routes, and trailheads that aren't the trip's own or on its road, are faded, whole trail at a time. Make it a header option before using it on another trip.
    - `places:` in a trip header (name, then `at:` and optional `note:`) are white dots at every zoom, with the note in the tooltip (Mike, Nov 10 2026). Used for checkpoints instead of describing the route in the notes.
    - `zones:` in a trip header points to a GeoJSON of permit zones in `tracks/` (name, note, label point; read by `readZones()` in lib/parkdata.js). Drawn as light purple outlines with labels on the trip map and the All map data page (same style in assets/trailmap.js and assets/parkmap.js; keep in sync). The Enchantments zones are traced from the Forest Service zone map (Mike, Nov 11 2026; he asked for them visible but not loud).
    - Camps (yours and OpenStreetMap's) show at every zoom, grouped into a count dot where they overlap. Don't list a camp or trailhead in a trip header if OpenStreetMap already has it (it would show twice).
@@ -83,7 +86,6 @@ Working on it locally:
 
 ## Open questions in the research
 
-- Hetch Hetchy: peak is Jun–Oct (his trip notes, Nov 6 2026), but his detailed research says Apr–Jun and Oct–Nov are best and Jul–Sep is hot.
 - Grand Canyon: campground lottery is 5 months ahead in one note, ~4 months in another.
 - Grand Canyon R2R: North Kaibab Trail under repair; Ventana closed through Jan 31, 2027. Both are in `status`.
 - His original detailed research doc covers ~10 more areas (Carson Pass, Sinkyone, Lassen, Trinity Alps, Joshua Tree, Death Valley, Enchantments, Paria, Coyote Gulch, Big Bend) not yet added as trips.

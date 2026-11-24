@@ -104,6 +104,28 @@ export function corridor(trip) {
   const bb = pad(grow(null, trip.extra), ROUTE_PAD); // quick first check
   return pt => inside(bb, pt) && (distToLine(pt, line) < ROUTE_M || heads.some(h => dist(pt, h) < ROUTE_M));
 }
+// EXPERIMENT (Nov 23 2026): the main paved roads into Yosemite's areas, from all.json, drawn as k: 'paved'
+const PAVED = ['Tioga Road', 'Big Oak Flat Road', 'Evergreen Road', 'Hetch Hetchy Road', 'Glacier Point Road', 'Wawona Road',
+  'El Portal Road', 'Northside Drive', 'Southside Drive'];
+function pavedRoads(parkName) {
+  const all = JSON.parse(fs.readFileSync(parkPath(parkName, 'all.json'), 'utf8')).features;
+  const groups = new Map();
+  for (const f of all) {
+    const t = f.tags || {}, nm = t.name || (/^CA (120|140|41)$/.test(t.ref || '') ? t.ref : '');
+    if (!f.g || !/^(trunk|primary|secondary|tertiary)$/.test(t.highway || '') || !(PAVED.includes(nm) || /^CA /.test(nm))) continue;
+    const n = nm === 'CA 120' ? 'Big Oak Flat Road' : nm;
+    if (!groups.has(n)) groups.set(n, []);
+    groups.get(n).push(...f.g);
+  }
+  const out = [];
+  for (const [n, lines] of groups) for (const line of chain(lines)) {
+    let len = 0;
+    for (let k = 1; k < line.length; k++) len += dist(line[k - 1], line[k]);
+    if (len > 300) out.push({ n, k: 'paved', ...(n === 'Hetch Hetchy Road' ? { h: 1 } : {}), len: Math.round(len), p: line.map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
+  }
+  return out;
+}
+
 function buildMap(trip, park) {
   const elevation = elevationFrom(parkPath(trip.park, 'elevation'));
   const single = trip.single;
@@ -161,9 +183,10 @@ function buildMap(trip, park) {
     if (t.amenity === 'toilets') { pois.push({ t: 'toilet', n: t.name || '', at: center }); continue; }
     if (el.type !== 'way' || !el.geometry) continue;
     const closed = /^(yes|true)$/.test(t.abandoned || '') || /^(yes|true)$/.test(t.disused || '') || !!t['abandoned:highway'] || t.access === 'no';
-    const nm = t.name || t.ref || '';
     const kind = t.highway === 'track' ? 'road' : 'trail';
     const big = (bigOf.get(el.id) || []).sort();
+    // a piece with no name of its own that's on one named route (Grand Canyon of the Tuolumne Trail) takes the route's name
+    const nm = t.name || t.ref || (big.length === 1 ? big[0] : '');
     const k = nm ? `${nm}|${kind}|${closed}|${big.join(',')}` : `#${el.id}`;
     if (!groups.has(k)) groups.set(k, { n: nm, k: kind, x: closed, b: big, lines: [] });
     groups.get(k).lines.push(el.geometry);
@@ -182,12 +205,14 @@ function buildMap(trip, park) {
   const allRoads = !trip.shows || trip.shows.includes('dirt roads');
   const kept = trails.filter(t => t.n || t.k === 'trail' || allRoads);
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
+  if (trip.slug === 'hetch-hetchy') kept.push(...pavedRoads(trip.park)); // EXPERIMENT (Nov 23 2026): main park roads
 
   return {
     shownIds: shownIds(features, ring, single, kept), followOnly,
     map: {
       area: trip.park,
       ...(single ? { single: true } : {}),
+      ...(trip.slug === 'hetch-hetchy' ? { focus: 4828 } : {}), // EXPERIMENT: fade what's over 3 mi from the routes
       source: park.source,
       fetched: park.fetched,
       bounds: [[bb.minlat, bb.minlon], [bb.maxlat, bb.maxlon]],
