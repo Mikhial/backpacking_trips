@@ -14,7 +14,7 @@
 
   // Your own routes and trailheads from the trip header
   const extrasEl = box.querySelector('.tm-extras');
-  const extras = { trailheads: [], camps: [], places: [], stations: [], campgrounds: [], lodging: [], routes: [], zones: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
+  const extras = { trailheads: [], camps: [], places: [], stations: [], campgrounds: [], lodging: [], routes: [], zones: [], view: [], ...(extrasEl ? JSON.parse(extrasEl.textContent) : {}) };
   const empty = { boundary: [], trails: [], pois: [], bounds: null, fetched: null };
   if (box.dataset.src) fetch(box.dataset.src).then(r => r.json()).then(draw).catch(() => extrasEl ? draw(empty) : (box.hidden = true));
   else draw(empty);
@@ -95,10 +95,18 @@
     // "map focus:" in a trip header (Nov 23 2026, first on Hetch Hetchy): with data.focus (meters), what's farther than that from your routes and
     // trailheads is drawn faded, so the trip's own area stands out and the trails leading away still show
     const FADE = .3;
-    const focusPts = !single && data.focus ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))
+    // With a "map view:" line, it fades what's farther than that outside the view's box instead (Mike, Nov 23 2026), so
+    // a page fades the same before and after routes are added.
+    const view = extras.view.length ? { s: Math.min(...extras.view.map(p => p[0])), n: Math.max(...extras.view.map(p => p[0])),
+      w: Math.min(...extras.view.map(p => p[1])), e: Math.max(...extras.view.map(p => p[1])) } : null;
+    const focusPts = !single && data.focus && !view ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))
       .concat(extras.trailheads.map(p => p.at)) : [];
+    const focusOn = !single && !!data.focus && (!!view || focusPts.length > 0);
+    // only your own trailheads at full color, once the page has routes or trailheads of its own
+    const ownHeads = focusOn && (extras.routes.length > 0 || extras.trailheads.length > 0);
     const inFocus = pt => {
-      if (!focusPts.length) return true;
+      if (!focusOn) return true;
+      if (view) return inFocus.d(pt, [Math.max(view.s, Math.min(view.n, pt[0])), Math.max(view.w, Math.min(view.e, pt[1]))]) < data.focus;
       const k = Math.cos(pt[0] * Math.PI / 180), f2 = (data.focus / 111200) ** 2;
       return focusPts.some(q => { const dy = q[0] - pt[0], dx = (q[1] - pt[1]) * k; return dy * dy + dx * dx < f2; });
     };
@@ -126,7 +134,7 @@
       // Out of focus: a whole trail is bold or faded, never part of one (Mike, Nov 23 2026). Bold when at least half
       // of it is within data.focus of your routes and trailheads. In focus, unnamed paths are drawn like named trails
       // (many trails by Hetch Hetchy have no name in OpenStreetMap)
-      if (focusPts.length && t.k !== 'paved') {
+      if (focusOn && t.k !== 'paved') {
         const near = t.p.filter(p => inFocus(p)).length >= t.p.length / 2;
         if (near && !main && !t.x) Object.assign(style, { weight: 2, opacity: .85 });
         else if (!near) style.opacity = FADE + .05; // same for every faded line, so faded unnamed paths don't all but disappear
@@ -252,8 +260,8 @@
         return;
       }
       if (!keep) return;
-      const faded = focusPts.length && p.t === 'trailhead' && !mineAt(p.at); // only your own trailheads at full color
-      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false, ...(faded || (focusPts.length && !inFocus(p.at) && !onRoad(p.at)) ? { opacity: FADE } : {}) }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
+      const faded = ownHeads && p.t === 'trailhead' && !mineAt(p.at); // only your own trailheads at full color
+      const m = L.marker(p.at, { icon: icon(p.t), keyboard: false, ...(faded || (focusOn && !inFocus(p.at) && !onRoad(p.at)) ? { opacity: FADE } : {}) }).addTo(p.t === 'trailhead' && besideThcamp(p.at) ? coveredTrailheads : into(p.t, p.t === 'trailhead' ? overview : detail));
       const text = (p.n || names[p.t]) + (p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : '') + (p.n ? ` <span>${names[p.t]}</span>` : '');
       m.bindTooltip(text, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
       m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, `${esc(p.n || names[p.t])}${p.e ? ` · ${fmt(p.e * M_TO_FT)} ft` : ''}`); });
@@ -370,8 +378,10 @@
     // just the route), so a trip in a big park like Hetch Hetchy in Yosemite doesn't open on the whole park.
     // A trip with none of those starts on the whole park. Places don't count (Mike, Nov 15 2026: Trinity Alps'
     // permit kiosks are in towns around the wilderness, some far outside it).
+    // A "map view:" line (named points) sets the starting view instead, whatever routes the page has.
     let bounds = null;
     const grow = ll => { bounds = bounds ? bounds.extend(ll) : L.latLngBounds(ll, ll); };
+    if (view) extras.view.forEach(grow); else {
     extras.routes.forEach(r => r.p.forEach(p => grow([p[0], p[1]])));
     extras.trailheads.forEach(p => grow(p.at));
     extras.camps.forEach(p => grow(p.at));
@@ -382,6 +392,7 @@
         [Math.max(near.getSouth(), park.getSouth()), Math.max(near.getWest(), park.getWest())],
         [Math.min(near.getNorth(), park.getNorth()), Math.min(near.getEast(), park.getEast())]).extend(bounds) : bounds.extend(park);
     } else if (!bounds && data.bounds && !single) bounds = L.latLngBounds(data.bounds);
+    }
     if (!bounds) { box.hidden = true; return; }
     map.fitBounds(bounds, { padding: [12, 12], maxZoom: 14 });
     drawCamps();

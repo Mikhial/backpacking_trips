@@ -8,6 +8,13 @@ park: Yosemite National Park
 within: Yosemite National Park
 main road: Hetch Hetchy Road   # Yosemite's main paved roads, this one at full color
 map focus: 3 mi                # fade what's farther than this
+map view:                      # the map opens fitted to these places
+  O'Shaughnessy Dam: 37.9465, -119.7876
+  Smith Peak Trailhead: 37.9263, -119.7952
+  Laurel Lake: 37.9982, -119.7915
+  Falls Creek: 38.0472, -119.6692
+  Tiltill Valley: 37.9728, -119.6872
+  Rancheria Falls: 37.9552, -119.7099
 routes:
   Hetch Hetchy loop: tracks/hetch-hetchy-loop.gpx
   Hetch Hetchy to Falls Creek: tracks/hetch-hetchy-falls-creek.gpx

@@ -84,7 +84,9 @@ export default function (eleventyConfig) {
     });
     // zones: a GeoJSON file of permit zones (name, note, label point), drawn as light outlines
     const zones = readZones(data.zones);
-    return (trailheads.length || camps.length || spots.length || stations.length || campgrounds.length || lodging.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, stations, campgrounds, lodging, routes, zones }).replace(/</g, '\\u003c') : '';
+    // map view: named points the map starts fitted to (and fades around, with map focus:)
+    const view = places(this.ctx['map view']).map(t => t.at);
+    return (view.length || trailheads.length || camps.length || spots.length || stations.length || campgrounds.length || lodging.length || routes.length || zones.length) ? JSON.stringify({ trailheads, camps, places: spots, stations, campgrounds, lodging, routes, zones, view }).replace(/</g, '\\u003c') : '';
   });
   // The Trips list's Distance: the trip's "Distance:" fact if it has one, otherwise measured from its GPX routes:
   // one route gives "28 mi point to point", several give the range, "13–48 mi"
