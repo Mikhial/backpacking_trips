@@ -84,6 +84,21 @@ Working on it locally:
 - Budget: about 1 GB for `parkdata/` in all; no file over 100 MB (GitHub's limit). Report park sizes when they change. As of Nov 4, 2026: 209 MB for 11 parks; Grand Canyon 84 MB (630 elevation tiles) and John Muir 51 MB (300) are the largest, the rest 2.5–22 MB.
 - Workflow: `download-parks.js --check` decides whether osmium is installed and anything downloaded, so notes edits only rebuild (and commit nothing).
 
+## Yosemite plan
+
+Four trips, split by where you spend the time (Mike, Nov 23 2026):
+
+1. **Hetch Hetchy**: Hetch Hetchy loop, Hetch Hetchy to Falls Creek, Smith Peak.
+2. **Yosemite Valley and Glacier Point**: Half Dome via Little Yosemite Valley (with how the Half Dome permit works), Clouds Rest (Sunrise down to the Valley), Snow Creek, North Rim, Panorama Trail and Illilouette, Merced Lake, Ostrander Lake.
+3. **Tuolumne and Tioga Road high country**: Cathedral Lakes, Lyell Canyon, Vogelsang, Young Lakes, Sunrise Lakes, May Lake, Ten Lakes.
+4. **Grand Canyon of the Tuolumne**: Tuolumne Meadows past Glen Aulin and Waterwheel Falls to Pate Valley, out at White Wolf; the route from Hetch Hetchy over Rancheria Mountain; a line on northern Yosemite (Benson Lake, Matterhorn Canyon).
+
+Routes between areas:
+
+- A route goes on the page where you spend the most time.
+- Point-to-point routes give both directions and which trailhead's permit each needs.
+- A shared GPX can also show on the other page's map, with a one-line pointer.
+
 ## Open questions in the research
 
 - Grand Canyon: campground lottery is 5 months ahead in one note, ~4 months in another.
