@@ -99,21 +99,26 @@
     // a page fades the same before and after routes are added.
     const view = extras.view.length ? { s: Math.min(...extras.view.map(p => p[0])), n: Math.max(...extras.view.map(p => p[0])),
       w: Math.min(...extras.view.map(p => p[1])), e: Math.max(...extras.view.map(p => p[1])) } : null;
-    const focusPts = !single && data.focus && !view ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))
+    // A "main trail:" line (Grand Canyon of the Tuolumne, Nov 24 2026) fades around that trail (t.m) and the "main trailheads:"
+    // (p.h) instead, like a route that follows the whole trail, so the page's routes along it don't change what's faded
+    const mainHeads = data.pois.filter(p => p.h).map(p => p.at);
+    const mainPts = data.trails.filter(t => t.m).flatMap(t => t.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]])).concat(mainHeads);
+    const focusPts = !single && data.focus && mainPts.length ? mainPts : !single && data.focus && !view ? extras.routes.flatMap(r => r.p.filter((_, i) => i % 4 === 0).map(p => [p[0], p[1]]))
       .concat(extras.trailheads.map(p => p.at)) : [];
     const focusOn = !single && !!data.focus && (!!view || focusPts.length > 0);
     // only your own trailheads at full color, once the page has routes or trailheads of its own
-    const ownHeads = focusOn && (extras.routes.length > 0 || extras.trailheads.length > 0);
+    const ownHeads = focusOn && (extras.routes.length > 0 || extras.trailheads.length > 0 || mainHeads.length > 0);
     const inFocus = pt => {
       if (!focusOn) return true;
-      if (view) return inFocus.d(pt, [Math.max(view.s, Math.min(view.n, pt[0])), Math.max(view.w, Math.min(view.e, pt[1]))]) < data.focus;
+      if (view && !mainPts.length) return inFocus.d(pt, [Math.max(view.s, Math.min(view.n, pt[0])), Math.max(view.w, Math.min(view.e, pt[1]))]) < data.focus;
       const k = Math.cos(pt[0] * Math.PI / 180), f2 = (data.focus / 111200) ** 2;
       return focusPts.some(q => { const dy = q[0] - pt[0], dx = (q[1] - pt[1]) * k; return dy * dy + dx * dx < f2; });
     };
     // anything on the trip's own road (t.h, drawn full) is never faded
     const roadPts = data.trails.filter(t => t.k === 'paved' && t.h).flatMap(t => t.p);
     const onRoad = pt => roadPts.some(q => inFocus.d(q, pt) < 400);
-    const mineAt = pt => onRoad(pt) || extras.trailheads.some(p => inFocus.d(p.at, pt) < 300) || extras.routes.some(r => inFocus.d([r.p[0][0], r.p[0][1]], pt) < 300);
+    // with "main trailheads:", those are the trip's trailheads, not every one on its main roads
+    const mineAt = pt => (mainHeads.length ? mainHeads.some(q => inFocus.d(q, pt) < 50) : onRoad(pt)) || extras.trailheads.some(p => inFocus.d(p.at, pt) < 300) || extras.routes.some(r => inFocus.d([r.p[0][0], r.p[0][1]], pt) < 300);
     inFocus.d = (a, b) => { const k = Math.cos(a[0] * Math.PI / 180), dy = (a[0] - b[0]) * 111200, dx = (a[1] - b[1]) * 111200 * k; return Math.hypot(dx, dy); };
 
     // Overview: named trails and trailheads. Zoomed in: everything else.

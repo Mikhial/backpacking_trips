@@ -113,7 +113,10 @@ function pavedRoads(parkName, mine) {
   const groups = new Map();
   for (const f of all) {
     const t = f.tags || {}, nm = t.name || (/^CA (120|140|41)$/.test(t.ref || '') ? t.ref : '');
-    if (!f.g || !/^(trunk|primary|secondary|tertiary)$/.test(t.highway || '') || !(PAVED.includes(nm) || /^CA /.test(nm))) continue;
+    // a road not on the list (a side road to a trailhead, like White Wolf Road) is drawn only when the trip names it
+    const big = /^(trunk|primary|secondary|tertiary)$/.test(t.highway || '') && (PAVED.includes(nm) || /^CA /.test(nm));
+    const side = /^(unclassified|residential|service|tertiary|secondary)$/.test(t.highway || '') && mine.includes(nm) && !PAVED.includes(nm);
+    if (!f.g || !(big || side)) continue;
     const n = nm === 'CA 120' ? 'Big Oak Flat Road' : nm;
     if (!groups.has(n)) groups.set(n, []);
     groups.get(n).push(...f.g);
@@ -125,7 +128,7 @@ function pavedRoads(parkName, mine) {
     if (len > 300) out.push({ n, k: 'paved', ...(mine.includes(n) ? { h: 1 } : {}), len: Math.round(len), p: line.map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]) });
   }
   const missing = mine.filter(n => !out.some(t => t.n === n));
-  if (missing.length) throw new Error(`main road: no paved road called ${missing.map(n => `"${n}"`).join(', ')} (use: ${PAVED.join(', ')})`);
+  if (missing.length) throw new Error(`main road: no road called ${missing.map(n => `"${n}"`).join(', ')} (the main ones: ${PAVED.join(', ')})`);
   return out;
 }
 
@@ -209,6 +212,15 @@ function buildMap(trip, park) {
   const kept = trails.filter(t => t.n || t.k === 'trail' || allRoads);
   for (const p of pois) { p.at = [+p.at[0].toFixed(5), +p.at[1].toFixed(5)]; if (p.e == null && p.t !== 'peak') delete p.e; }
   if (trip.mainRoads.length) kept.push(...pavedRoads(trip.park, trip.mainRoads));
+  // "main trail:" pieces (m: 1) are what the map fades around; "main trailheads:" (h: 1) the only trailheads at full color
+  if (trip.mainTrail) {
+    const own = kept.filter(t => t.n === trip.mainTrail);
+    if (!own.length) throw new Error(`${trip.slug}: main trail: no trail called "${trip.mainTrail}" on the map`);
+    own.forEach(t => { t.m = 1; });
+  }
+  const noHead = trip.mainHeads.filter(n => !pois.some(p => p.t === 'trailhead' && p.n === n));
+  if (noHead.length) throw new Error(`${trip.slug}: main trailheads: no trailhead called ${noHead.map(n => `"${n}"`).join(', ')} on the map`);
+  for (const p of pois) if (p.t === 'trailhead' && trip.mainHeads.includes(p.n)) p.h = 1;
 
   return {
     shownIds: shownIds(features, ring, single, kept), followOnly,
