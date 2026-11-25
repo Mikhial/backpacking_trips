@@ -105,8 +105,8 @@ Point to point, so sort out transport before applying for the permit.
 
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
-  - **[YARTS](https://www.yarts.com/bus_routes/highway-395-120e/)**: $12 · Visitor Center · request pickup/drop off at White Wolf
-  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: ~$20 · Store · listed stop at White Wolf; can be flagged at any trailhead if it has room to pull over (for an unlisted drop-off, book the nearest stop and tell the driver)
+  - **[YARTS](https://www.yarts.com/bus_routes/highway-395-120e/)**: $12 · Tuolumne Meadows Visitor Center · request pickup/drop off at White Wolf
+  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: ~$20 · Tuolumne Meadows Store
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
 **Bus Schedule**[^yarts][^nps-transit]
