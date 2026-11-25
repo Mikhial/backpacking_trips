@@ -56,7 +56,7 @@ places:
     note: Last water before White Wolf.
 
 facts:
-  Getting there: 3 hr 40 min drive to White Wolf; ~4.5 hr to Tuolumne Meadows via Hwy 120
+  Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
   Food storage: Bear canister required
 
 seasons:
@@ -93,7 +93,7 @@ permit:
 
 ## Getting there
 
-- **Drive**: 3 hr 40 min to White Wolf.
+- **Drive**: 3 hr 40 min to White Wolf or 4 hr 15 min to Tuolumne Meadows
 
 ### Getting to the trailhead[^bft-trailhead][^reddit][^alltrails]
 
@@ -101,8 +101,8 @@ Point to point, so sort out transport before applying for the permit.
 
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
-  - **YARTS Hwy 120 East**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
-  - **Yosemite Valley–Tuolumne Meadows Hikers Bus**: daily, early June to mid-September, both directions.
+  - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
+  - **[Yosemite Valley–Tuolumne Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, early June to mid-September, both directions.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
 - **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
