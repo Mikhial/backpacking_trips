@@ -65,9 +65,9 @@ permit:
 - [White Wolf to Piute Creek](https://www.alltrails.com/trail/us/california/white-wolf-to-piute-creek-and-the-grand-canyon-of-the-tuolumne-river)
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
 
-## Camping
+## Camping[^reddit]
 
-- A lot of people camp illegally in this canyon. Legal sites are there, you just need to look; they're often easier to spot from above on the switchbacks coming down. Large flat areas near the river probably have sites. Remember: 100 ft.[^reddit]
+- A lot of people camp illegally in this canyon. Legal sites are there, you just need to look; they're often easier to spot from above on the switchbacks coming down. Large flat areas near the river probably have sites. Remember: 100 ft.
 - Some camps get re-established where camping isn't legal and people assume they're fine, like the ones along the river just down from Glen Aulin (inside the no-camping zone).
 - At the trail camps, use the established sites instead of setting up in unimpacted spots next to them.
 - Fire restrictions below 6,000 ft: no campfires in Pate Valley or below a little west of Return Creek.
