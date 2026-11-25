@@ -105,20 +105,19 @@ Point to point, so sort out transport before applying for the permit.
 
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
-  - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
-    - July 1, through September 30
-    - $12
-    - Need to request pickup/drop odd at White Wolf
-  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, about mid-June to early September[^nps-transit], once each way. ~$20.
-    - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
+  - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**
+    - **Runs**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
+    - **Season**: July 1 – September 30
+    - **Cost**: $12
+    - **Tuolumne Meadows stop**: Visitor Center
+    - **White Wolf stop**: need to request pickup/drop off
+  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**
+    - **Runs**: daily, once each way
+    - **Season**: about mid-June to early September[^nps-transit]
+    - **Cost**: ~$20
+    - **Tuolumne Meadows stop**: Store
+    - **White Wolf stop**: listed stop. Can also be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
-
-| | YARTS | Hikers Bus |
-|---|---|---|
-| Season | July 1 – September 30 | About mid-June to early September |
-| Cost | $12 | ~$20 |
-| Tuolumne Meadows stop | Visitor Center | Store |
-| White Wolf stop | Request pickup/drop off | Listed stop |
 
 **Bus Schedule**
 
