@@ -14,6 +14,9 @@ places:
   Arch Rock:
     at: 37.98756, -122.81346
     note: Ocean overlook.
+  Secret Amphitheater:
+    at: 38.00757, -122.83960
+    note: Collapsed sea cave open to the sky. Tide -1 ft or lower only; an 8 ft drop on the way can't be avoided at any tide.
 routes:
   Big loop that goes through a lot: tracks/point-reyes-bear-valley-coast-loop.gpx
   Shorter loop on the south side: tracks/point-reyes-pelican-hill-loop.gpx
@@ -88,6 +91,7 @@ A network linking 4 camps; camps are 1.4–6.3 miles from trailheads.
 
 - [Big loop that goes through a lot](https://www.alltrails.com/trail/us/california/bear-valley-ridge-lake-ranch-and-coast-trail-loop): add the Alamere Falls and Sculptured Beach detours
 - [Shorter loop on the south side](https://www.alltrails.com/trail/us/california/alamere-falls-and-pelican-hill-via-stewart-glen-and-coast-loop): add the Alamere Falls detour
+- [Secret Amphitheater](https://lilymtang.com/blog/point-reyes-coast-campground-secret-amphitheater/): about a mile down the beach from Coast Camp (or a day hike from Limantour). Daylight tides of -1 ft or lower are rare, so plan the date around them, weeks or months ahead.
 
 ## Camps
 
