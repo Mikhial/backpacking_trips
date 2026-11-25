@@ -54,6 +54,12 @@ places:
   Morrison Creek:
     at: 37.91194, -119.63221
     note: Last water before White Wolf.
+  Tuolumne Meadows Visitor Center:
+    at: 37.87222, -119.37364
+    note: YARTS stop.
+  Tuolumne Meadows Store:
+    at: 37.87436, -119.35683
+    note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
 
 facts:
   Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
@@ -84,11 +90,9 @@ permit:
 
 ## Overview
 
-- The lesser-known cousin of Yosemite Valley: just as spectacular, without the crowds and traffic. Underrated.
+- The lesser-known cousin of Yosemite Valley
 - Follows the Tuolumne River the whole way, from calm emerald pools to whitewater and thundering falls, under towering canyon walls
-- 3–4 days
-- Not high country: it drops from Tuolumne Meadows down to Pate Valley, which is low and hot at the bottom
-- Most say the whole route is worth it, Pate Valley and the climb out included[^reddit]
+- Best done in 3–4 days
 - Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
 
 ## Getting there
@@ -102,6 +106,7 @@ Point to point, so sort out transport before applying for the permit.
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
   - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
+    - July 1, through September 30
   - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, about mid-June to early September[^nps-transit], once each way. ~$20.
     - **Tuolumne Meadows to White Wolf**: 2:15pm from the Tuolumne Meadows Store (2:05pm from the Lodge), at White Wolf 3:00pm.
     - **White Wolf to Tuolumne Meadows**: 9:35am from White Wolf, at the Tuolumne Meadows Store 10:25am (Lodge 10:35am).
@@ -112,14 +117,26 @@ Point to point, so sort out transport before applying for the permit.
 
 ## Routes
 
-- [Waterwheel Falls and the Grand Canyon of the Tuolumne](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail): Tuolumne Meadows past Glen Aulin and Waterwheel Falls to Pate Valley, out at White Wolf
+- [Waterwheel Falls and the Grand Canyon of the Tuolumne](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail)
+  - The full trail, point to point.
 - [White Wolf to Piute Creek](https://www.alltrails.com/trail/us/california/white-wolf-to-piute-creek-and-the-grand-canyon-of-the-tuolumne-river)
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
 
 **Which direction**[^bft-direction][^alltrails][^reddit]
 
-- **Tuolumne Meadows to White Wolf**: mostly a mellow downhill with the best scenery in the first half, then the whole climb out of Pate Valley on the last day, when your pack is lightest. Steep switchbacks, hot and exposed, with no water after Morrison Creek; some found it easier than expected. Harder to get back to your car.
-- **White Wolf to Tuolumne Meadows**: the more popular direction. A steep 3,500 ft drop to Pate Valley on day one with a full pack (hard on the knees; carry 2 L), then uphill most of the way, with water and the falls ahead of you. Scenery and swimming holes get better as you go, but the uphill finish is hard in the heat. Easier to get back to your car.
+- **Tuolumne Meadows to White Wolf**: 
+  - Mostly a mellow downhill with the best scenery in the first half
+  - Whole climb out of Pate Valley on the last day, when your pack is lightest.
+  - Steep switchbacks, hot and exposed, with no water after Morrison Creek.
+  - Harder to get back to your car.
+  - Permit name: Glen Aulin -> Cold Canyon/Waterwheel if you’re camping past Glen Aulin High Sierra Camp the first night or Glen Aulin if you’re camping at Glen Aulin (5.3 miles).
+
+- **White Wolf to Tuolumne Meadows**
+  - The more popular direction
+  - A steep 3,500 ft drop to Pate Valley on day one with a full pack, then uphill most of the way, with water and the falls ahead of you. 
+  - Scenery and swimming holes get better as you go, but the uphill finish is hard in the heat. 
+  - Easier to get back to your car.
+  - Permit name: White Wolf -> Pate Valley if you’re camping past Harden Lake the first night, or White Wolf -> Smith Valley if you’re camping at Harden Lake (2.8 miles).
 
 ## Camping[^reddit]
 
