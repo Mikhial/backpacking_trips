@@ -384,7 +384,7 @@
         if (list.length === 1) {
           const p = list[0];
           const m = L.marker(p.at, { icon: icon('camp mine'), keyboard: false, ...(inFocus(p.at) || onRoad(p.at) ? {} : { opacity: FADE }) }).addTo(campLayer)
-            .bindTooltip(`${esc(p.n || 'Backcountry camp')}${p.n ? ' <span>Backcountry camp</span>' : ''}`, { direction: 'top', offset: [0, -6], className: 'tm-tip' });
+            .bindTooltip(`${esc(p.n || 'Backcountry camp')}${p.n ? ' <span>Backcountry camp</span>' : ''}${p.note ? `<div class="tm-note">${esc(p.note)}</div>` : ''}`, { direction: 'top', offset: [0, -6], className: p.note ? 'tm-tip tm-wrap' : 'tm-tip' });
           m.on('contextmenu', e => { L.DomEvent.stop(e); m.closeTooltip(); spotMenu(p.at, esc(p.n || 'Camp')); });
           // like a place: marks where it is on the open elevation profile, if it's on the route
           m.on('mouseover', () => placeAt && placeAt(p.at, p.n || 'Camp'));
