@@ -61,7 +61,7 @@ facts:
 
 seasons:
   - peak: May 21 – Jul 15
-    notes: Strong waterfalls, more water in the river.
+    notes: Starts when Tioga Road opens. Strong waterfalls, more water in the river.
   - shoulder: Jul 16 – Aug 31
     why: [hot]
     notes: Hot in the canyon, especially Pate Valley.
