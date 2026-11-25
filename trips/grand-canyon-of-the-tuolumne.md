@@ -117,7 +117,16 @@ Point to point, so sort out transport before applying for the permit.
     - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
-**To White Wolf** (start there)
+| | YARTS | Hikers Bus |
+|---|---|---|
+| Season | July 1 – September 30 | About mid-June to early September |
+| Runs each way | 2 a day | 1 a day |
+| Cost | $12 | ~$20 |
+| Tuolumne Meadows stop | Visitor Center | Store |
+| White Wolf stop | Request pickup/drop off | Listed stop |
+| Other trailheads | — | Flag it down at any trailhead (if it can pull over) |
+
+**Tuolumne Meadows to White Wolf**
 
 | Bus | Leave Tuolumne Meadows | Arrive White Wolf |
 |---|---|---|
@@ -125,7 +134,7 @@ Point to point, so sort out transport before applying for the permit.
 | YARTS | 10:21am | 11:01am |
 | Hikers Bus | 2:15pm | 3:00pm |
 
-**From White Wolf** (finish there)
+**White Wolf to Tuolumne Meadows**
 
 | Bus | Leave White Wolf | Arrive Tuolumne Meadows |
 |---|---|---|
