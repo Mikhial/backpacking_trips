@@ -341,3 +341,8 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes tr:last-child td { border-bottom: 0; }
 .notes tr:has(> td:first-child > strong:only-child):has(> td:empty) td { background: var(--prior); font-size: 12px; color: var(--muted); padding-top: 6px; padding-bottom: 6px; border-bottom-color: var(--line); white-space: nowrap; }
 .notes tr:has(> td:first-child > strong:only-child):has(> td:empty) strong { font-weight: 600; }
+/* a short bold line right above a table is its title (e.g. "Bus Schedule"): small grey caps, tight to the table,
+   so it doesn't read as a heading */
+.notes p:has(+ table):has(> strong:first-child) { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px; }
+.notes p:has(+ table):has(> strong:first-child) strong { font-weight: 600; }
+.notes p:has(+ table):has(> strong:first-child) + table { margin-top: 0; }
