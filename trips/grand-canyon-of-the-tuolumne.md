@@ -60,6 +60,10 @@ places:
   Tuolumne Meadows Store:
     at: 37.87436, -119.35683
     note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
+lodging:
+  Tuolumne Meadows Lodge:
+    at: 37.87727, -119.33320
+    note: Hikers Bus stop (10:35am in, 2:05pm out).
 
 facts:
   Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
