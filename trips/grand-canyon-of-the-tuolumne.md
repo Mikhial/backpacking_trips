@@ -33,6 +33,29 @@ places:
   End of No-Camping Zone:
     note: End of Glen Aulin no-camping zone.
     at: 37.91280, -119.42272
+  Falls below Glen Aulin:
+    note: Waterwheel Falls can throw wheels of water close to 20 ft up.
+    places:
+      Tuolumne Falls: 37.90596, -119.41784
+      White Cascade: 37.90851, -119.41959
+      California Falls: 37.91617, -119.44041
+      LeConte Falls: 37.92322, -119.45183
+      Waterwheel Falls: 37.92722, -119.45877
+  Return Creek:
+    at: 37.93212, -119.46599
+    note: Waterfalls up the side canyon.
+  Muir Gorge:
+    at: 37.93144, -119.52039
+    note: One crossing has no footbridge; dicey in high water. Good campsites below.
+  Register Creek:
+    at: 37.94007, -119.53307
+    note: Grotto falls where it joins the river. Campsites, great swimming and fishing.
+  Morrison Creek:
+    at: 37.91194, -119.63221
+    note: Last water before White Wolf.
+  Hetch Hetchy Viewpoint:
+    at: 37.91128, -119.63576
+    note: The steepest mile of the climb is between here and Morrison Creek.
 
 facts:
   Getting there: ~4.5 hr drive to Tuolumne Meadows via Hwy 120
@@ -55,12 +78,26 @@ permit:
 ## Overview
 
 - Not high country: it drops from Tuolumne Meadows down to Pate Valley, which is low and hot at the bottom
+- Most say the whole route is worth it, Pate Valley and the climb out included[^reddit]
+- Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
+
+## Getting there[^reddit][^alltrails]
+
+- Usual plan: leave a car at Tuolumne Meadows and take YARTS or the park's hikers' shuttle to White Wolf.
+- YARTS runs two buses a day, both in the morning. The shuttle may not run until around July 4. Finishing at White Wolf can mean waiting until afternoon for a bus.
+- The Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
 
 ## Routes
 
 - Main route: Tuolumne Meadows past Glen Aulin and Waterwheel Falls to Pate Valley, out at White Wolf
 - [White Wolf to Piute Creek](https://www.alltrails.com/trail/us/california/white-wolf-to-piute-creek-and-the-grand-canyon-of-the-tuolumne-river)
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
+- Shorter options: base at Glen Aulin or California Falls and day hike down past the falls[^reddit]
+
+**Which direction**[^alltrails][^reddit]
+
+- **Tuolumne Meadows to White Wolf**: mostly downhill, then the whole climb out of Pate Valley on the last day, hot and exposed with no water after Morrison Creek. Some found it easier than expected.
+- **White Wolf to Tuolumne Meadows**: steep drop to Pate Valley on day one (hard on the knees; carry 2 L), then a gradual climb with water all the way, facing the falls. Your car is waiting at the end.
 
 ## Camping[^reddit]
 
@@ -73,7 +110,7 @@ permit:
 
 ## Permits
 
-Required year-round. Pick up in person.
+Required year-round. Pick up in person. One Tuolumne Meadows permit required the first night at the Glen Aulin backpackers' camp.[^alltrails]
 
 - **Weekly lottery** (60%): 24 weeks ahead, on Recreation.gov.
 - **Reservations** (40%): released 7 days ahead on Recreation.gov.
@@ -81,3 +118,4 @@ Required year-round. Pick up in person.
 **Cost**: ~$10 application + $5/person.
 
 [^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/comments/1v6chju/grand_canyon_of_tuolumne_backpacking_advice/)
+[^alltrails]: [AllTrails reviews](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail)
