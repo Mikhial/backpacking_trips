@@ -27,7 +27,7 @@ camps:
     at: 37.93041, -119.51678
     note: Good open site with excellent swimming.
   Register Creek:
-    at: 37.94007, -119.53307
+    at: 37.94075, -119.53449
     note: A little downstream of Muir Gorge, by the grotto falls where Register Creek joins the river. Great swimming and fishing.
   Pate Valley:
     at: 37.93156, -119.59534
