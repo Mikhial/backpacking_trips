@@ -119,18 +119,18 @@ Point to point, so sort out transport before applying for the permit.
     - **White Wolf stop**: listed stop. Can also be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
-**Bus Schedule**
+**Bus Schedule**[^yarts][^nps-transit]
 
-| Bus | Leave | Arrive |
-|---|---|---|
-| **Tuolumne Meadows → White Wolf** | | |
-| YARTS | 8:21am | 9:01am |
-| YARTS | 10:21am | 11:01am |
-| Hikers Bus | 2:15pm | 3:00pm |
-| **White Wolf → Tuolumne Meadows** | | |
-| Hikers Bus | 9:35am | 10:25am |
-| YARTS | 12:20pm | 1:05pm |
-| YARTS | 4:20pm | 5:05pm |
+| Bus | Leave | Arrive | Runs |
+|---|---|---|---|
+| **Tuolumne Meadows → White Wolf** | | | |
+| YARTS | 8:21am | 9:01am | Daily, Jul 1 – Sep 30 |
+| YARTS | 10:21am | 11:01am | Daily, Jul 1 – Aug 31 |
+| Hikers Bus | 2:15pm | 3:00pm | Daily, about mid-Jun – early Sep |
+| **White Wolf → Tuolumne Meadows** | | | |
+| Hikers Bus | 9:35am | 10:25am | Daily, about mid-Jun – early Sep |
+| YARTS | 12:20pm | 1:05pm | Daily, Jul 1 – Aug 31 |
+| YARTS | 4:20pm | 5:05pm | Daily, Jul 1 – Sep 30 |
 
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
 - **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
@@ -190,3 +190,4 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 [^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
 [^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
 [^nps-transit]: [NPS: public transportation](https://www.nps.gov/yose/planyourvisit/publictransportation.htm)
+[^yarts]: [YARTS Highway 395/120E](https://www.yarts.com/bus_routes/highway-395-120e/)
