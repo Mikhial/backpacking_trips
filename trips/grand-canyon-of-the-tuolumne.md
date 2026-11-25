@@ -60,10 +60,9 @@ places:
   Tuolumne Meadows Store:
     at: 37.87436, -119.35683
     note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
-lodging:
-  Tuolumne Meadows Lodge:
-    at: 37.87727, -119.33320
-    note: Hikers Bus stop (10:35am in, 2:05pm out).
+  White Wolf Lodge:
+    at: 37.86978, -119.64908
+    note: YARTS stop.
 
 facts:
   Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
@@ -112,8 +111,8 @@ Point to point, so sort out transport before applying for the permit.
   - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
     - July 1, through September 30
   - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, about mid-June to early September[^nps-transit], once each way. ~$20.
-    - **Tuolumne Meadows to White Wolf**: 2:15pm from the Tuolumne Meadows Store (2:05pm from the Lodge), at White Wolf 3:00pm.
-    - **White Wolf to Tuolumne Meadows**: 9:35am from White Wolf, at the Tuolumne Meadows Store 10:25am (Lodge 10:35am).
+    - **Tuolumne Meadows to White Wolf**: 2:15pm from the Tuolumne Meadows Store, at White Wolf 3:00pm.
+    - **White Wolf to Tuolumne Meadows**: 9:35am from White Wolf, at the Tuolumne Meadows Store 10:25am.
     - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
