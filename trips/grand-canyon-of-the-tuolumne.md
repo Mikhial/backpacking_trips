@@ -50,7 +50,7 @@ places:
     at: 37.93128, -119.50129
     note: Side-canyon falls just off the trail, with camps nearby.
   Muir Gorge:
-    at: 37.93421, -119.52698
+    at: 37.93871, -119.53312
     note: One crossing has no footbridge; dicey in high water. Good campsites below.
   Register Creek:
     at: 37.94007, -119.53307
