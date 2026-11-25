@@ -120,6 +120,8 @@ Point to point, so sort out transport before applying for the permit.
 | Tuolumne Meadows stop | Visitor Center | Store |
 | White Wolf stop | Request pickup/drop off | Listed stop |
 
+**Bus Schedule**
+
 | Bus | Leave | Arrive |
 |---|---|---|
 | **Tuolumne Meadows → White Wolf** | | |
