@@ -102,11 +102,10 @@ Point to point, so sort out transport before applying for the permit.
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
   - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
-  - **[Yosemite Valley–Tuolumne Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, early June to mid-September, once each way.
+  - **[Yosemite Valley–Tuolumne Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, about mid-June to early September[^nps-transit], once each way.
     - **Tuolumne Meadows to White Wolf**: 2:15pm from the Tuolumne Meadows Store (2:05pm from the Lodge), at White Wolf 3:00pm.
     - **White Wolf to Tuolumne Meadows**: 9:35am from White Wolf, at the Tuolumne Meadows Store 10:25am (Lodge 10:35am).
     - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
-    - Book online or at the Yosemite Valley Lodge activities desk, and give your pickup stop. 24 hours' notice for a full refund.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
 - **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
@@ -154,3 +153,4 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 [^bft-trailhead]: [Bearfoot Theory: getting to the trailhead](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-getting-to-the-trailhead)
 [^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
 [^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
+[^nps-transit]: [NPS: public transportation](https://www.nps.gov/yose/planyourvisit/publictransportation.htm)
