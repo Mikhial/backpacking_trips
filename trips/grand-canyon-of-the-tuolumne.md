@@ -38,12 +38,17 @@ places:
     places:
       Tuolumne Falls: 37.90596, -119.41784
       White Cascade: 37.90851, -119.41959
-      California Falls: 37.91617, -119.44041
+      California Falls:
+        at: 37.91617, -119.44041
+        note: Camps nearby. One group based here two nights and day hiked down toward Return Creek.
       LeConte Falls: 37.92322, -119.45183
       Waterwheel Falls: 37.92722, -119.45877
   Return Creek:
     at: 37.93212, -119.46599
     note: Waterfalls up the side canyon.
+  Cathedral Creek Falls:
+    at: 37.93128, -119.50129
+    note: Side-canyon falls just off the trail, with camps nearby.
   Muir Gorge:
     at: 37.93144, -119.52039
     note: One crossing has no footbridge; dicey in high water. Good campsites below.
