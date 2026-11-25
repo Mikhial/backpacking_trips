@@ -66,6 +66,15 @@ facts:
   Getting there: ~4.5 hr drive to Tuolumne Meadows via Hwy 120
   Food storage: Bear canister required
 
+seasons:
+  - peak: Jun 1 – Jul 15
+    notes: Strong waterfalls, more water in the river.
+  - shoulder: Jul 16 – Aug 31
+    why: [hot]
+    notes: Hot in the canyon, especially Pate Valley.
+  - peak: Sep 1 – Sep 30
+    notes: Lower water, more manageable temperatures.
+
 permit:
   note: Lottery 24 weeks · 7 days before
   channels:
@@ -117,7 +126,11 @@ Point to point, so sort out transport before applying for the permit.
 - At the trail camps, use the established sites instead of setting up in unimpacted spots next to them.
 - Fire restrictions below 6,000 ft: no campfires in Pate Valley or below a little west of Return Creek.
 
-## When to go
+## When to go[^sierrarec]
+
+## How this connects to Tuolumne Meadows[^sierrarec]
+
+Glen Aulin puts you back within reach of the Tuolumne Meadows trails and high country, like Cathedral Lakes and Lyell Canyon.
 
 ## Permits
 
@@ -136,3 +149,4 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 [^bft-direction]: [Bearfoot Theory: best direction](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne)
 [^bft-trailhead]: [Bearfoot Theory: getting to the trailhead](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-getting-to-the-trailhead)
 [^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
+[^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
