@@ -1,7 +1,7 @@
 ---
 name: Mt Whitney
 region: Sierra Nevada
-order: 4
+order: 5
 summary: 22 miles to the highest summit in the lower 48, at 14,505 ft
 updated: 2026-10-16
 park: John Muir Wilderness
