@@ -183,10 +183,15 @@
         const i = routeLines.indexOf(line);
         if (title) title.textContent = line.trail.n;
         if (sums) sum.textContent = sums[i];
-        list.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.i === i)));
+        pressShown();
       }
       select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] });
     };
+    // a one-route trip with alternates: the buttons above the map and the notes' Map buttons show which route is on
+    const pressShown = () => document.querySelectorAll('.notes .rt-show, .tm-routes button').forEach(b => {
+      const on = routeLines[+(b.dataset.route ?? b.dataset.i)] === current;
+      b.setAttribute('aria-pressed', String(on)); b.title = on ? 'Shown on map' : 'Show on map';
+    });
     // Turn a route on (draw it, zoom to it, open its profile) or off
     const isOn = line => map.hasLayer(line);
     const setOn = (line, on) => {
@@ -565,7 +570,7 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    if (single) { setOn(current, true); select(current); }
+    if (single) { setOn(current, true); select(current); if (routeLines.length > 1) pressShown(); }
     // when the trail data was fetched, kept out of the way in the map's credits corner
     if (data.fetched) {
       const was = base.getAttribution(), when = new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });

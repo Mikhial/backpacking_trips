@@ -21,8 +21,8 @@ camps:
 
 facts:
   Getting there: Fly to Las Vegas (1:45) + 4–5 hr shuttle or drive
-  Distance: 24 mi point to point
-  Elevation: 2,400 ft at the river (~5k ft gain)
+  Distance: 23 mi N2S, 21 mi S2N, point to point
+  Elevation: 2,400 ft at the river (5,500 ft gain N2S, 6,200 ft S2N)
   Nights: Long day hike, or 1–2 nights
   Terrain: Strenuous; ~5,000 ft descent and climb out
   Water: Potable water at corridor campgrounds (pipeline breaks happen)
@@ -59,7 +59,8 @@ The North Rim closes for winter and is still recovering from the 2025 Dragon Bra
 ## Overview
 
 - There are many other backpacking trips, but this is the quintessential Grand Canyon trip
-- [Going south to north](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail) is also an option, but recommended for a second time
+- Going south to north is also an option, but recommended for a second time
+  - [S2N: South Kaibab to North Kaibab Trail](https://www.alltrails.com/trail/us/arizona/south-to-north-kaibab-trail)
 - Possible as a long day hike, but can also be done in 2 or 3 days
 - Could potentially add other nearby parks
 - [Trail guide](https://hikingguy.com/hikes/rim-to-rim-grand-canyon/)

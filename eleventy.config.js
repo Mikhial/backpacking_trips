@@ -161,9 +161,11 @@ export default function (eleventyConfig) {
     if (!h.test(content)) return;
     return content.replace(h, m => `${m.trim()} ${meter}`);
   });
-  // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
+  // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle, unless it
+  // has alternates: then the Map button switches the map to that route.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
+    single = single && entries.length === 1;
     if (!keys.length) return content;
     const done = new Set();
     return content.replace(/<a\s([^>]*)>([\s\S]*?)<\/a>([:.]\s*)?/g, (m, attrs, text) => {
