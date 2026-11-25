@@ -96,7 +96,7 @@
     };
     const areas = (d.routeAreas || []).map(a => {
       const bounds = L.latLngBounds(a.box);
-      return { ...a, on: false, near: q => bounds.contains(q) && (distToLine(q, a.line) < a.meters || a.trailheads.some(h => distToLine(q, [h]) < a.meters)) };
+      return { ...a, on: false, near: q => bounds.contains(q) && ((a.lines || [a.line]).some(l => distToLine(q, l) < a.meters) || a.trailheads.some(h => distToLine(q, [h]) < a.meters)) };
     });
     const pointsOf = f => f.at ? [f.at] : f.g.flat();
     // whether each thing is near each route, worked out once

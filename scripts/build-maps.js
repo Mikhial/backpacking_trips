@@ -99,10 +99,11 @@ const WORD_KINDS = {
 const poiType = t => t.highway === 'trailhead' ? 'trailhead' : t.tourism ? 'camp' : t.natural === 'peak' ? 'peak'
   : t.amenity === 'drinking_water' || t.natural === 'spring' ? 'water' : t.amenity === 'toilets' ? 'toilet' : null;
 
+// (the route and its alternates: near any of them)
 export function corridor(trip) {
-  const line = simplify(trip.lines[0], 30), heads = trip.trailheads;
+  const lines = trip.lines.map(l => simplify(l, 30)), heads = trip.trailheads;
   const bb = pad(grow(null, trip.extra), ROUTE_PAD); // quick first check
-  return pt => inside(bb, pt) && (distToLine(pt, line) < ROUTE_M || heads.some(h => dist(pt, h) < ROUTE_M));
+  return pt => inside(bb, pt) && (lines.some(line => distToLine(pt, line) < ROUTE_M) || heads.some(h => dist(pt, h) < ROUTE_M));
 }
 // EXPERIMENT (Nov 23 2026): the main paved roads into Yosemite's areas, from all.json, drawn as k: 'paved'
 const PAVED = ['Tioga Road', 'Big Oak Flat Road', 'Evergreen Road', 'Hetch Hetchy Road', 'Glacier Point Road', 'Wawona Road',
@@ -346,7 +347,7 @@ for (const trip of tripMaps()) {
     if (trip.single) {
       const a = pad(grow(null, trip.extra), ROUTE_PAD);
       (p.routeAreas ||= []).push({ trip: trip.slug, route: trip.route, meters: ROUTE_M, box: [[a.minlat, a.minlon], [a.maxlat, a.maxlon]],
-        line: simplify(trip.lines[0], 30).map(q => [+q[0].toFixed(5), +q[1].toFixed(5)]), trailheads: trip.trailheads });
+        lines: trip.lines.map(l => simplify(l, 30).map(q => [+q[0].toFixed(5), +q[1].toFixed(5)])), trailheads: trip.trailheads });
     }
     parks.set(trip.park, p);
     const json = JSON.stringify(result);

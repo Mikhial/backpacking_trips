@@ -9,9 +9,11 @@ status short: Closed until further notice
 status link: https://www.nps.gov/grca/northrimstatus.htm
 updated: 2026-10-16
 park: Grand Canyon National Park
-route: Rim to Rim
+route: "N2S: North Kaibab to Bright Angel Trails"
 gpx: tracks/grand-canyon-rim-to-rim.gpx
 route link: https://www.alltrails.com/trail/us/arizona/rim-to-rim-north-kaibab-to-grand-canyon-village
+alternates:
+  "S2N: South Kaibab to North Kaibab Trail": tracks/grand-canyon-south-to-north.gpx
 camps:
   Phantom Ranch: 36.10607, -112.09469
   Bright Angel: 36.10112, -112.09567
