@@ -107,37 +107,26 @@ Point to point, so sort out transport before applying for the permit.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
   - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
     - July 1, through September 30
-    - Tuolumne Meadows Visitor Centr > White Wolf: 8:21am-9:01 or 10:21- 11:01.
-    - White Wolf > Tuolumne Meadows Visitor Center: 12:20pm-1:05pm or 4:20-5:05.
     - $12
     - Need to request pickup/drop odd at White Wolf
   - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: daily, about mid-June to early September[^nps-transit], once each way. ~$20.
-    - **Tuolumne Meadows to White Wolf**: 2:15pm from the Tuolumne Meadows Store, at White Wolf 3:00pm.
-    - **White Wolf to Tuolumne Meadows**: 9:35am from White Wolf, at the Tuolumne Meadows Store 10:25am.
     - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
 | | YARTS | Hikers Bus |
 |---|---|---|
 | Season | July 1 – September 30 | About mid-June to early September |
-| Runs each way | 2 a day | 1 a day |
 | Cost | $12 | ~$20 |
 | Tuolumne Meadows stop | Visitor Center | Store |
 | White Wolf stop | Request pickup/drop off | Listed stop |
-| Other trailheads | — | Flag it down at any trailhead (if it can pull over) |
 
-**Tuolumne Meadows to White Wolf**
-
-| Bus | Leave Tuolumne Meadows | Arrive White Wolf |
+| Bus | Leave | Arrive |
 |---|---|---|
+| **Tuolumne Meadows → White Wolf** | | |
 | YARTS | 8:21am | 9:01am |
 | YARTS | 10:21am | 11:01am |
 | Hikers Bus | 2:15pm | 3:00pm |
-
-**White Wolf to Tuolumne Meadows**
-
-| Bus | Leave White Wolf | Arrive Tuolumne Meadows |
-|---|---|---|
+| **White Wolf → Tuolumne Meadows** | | |
 | Hikers Bus | 9:35am | 10:25am |
 | YARTS | 12:20pm | 1:05pm |
 | YARTS | 4:20pm | 5:05pm |
