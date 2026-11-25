@@ -50,7 +50,7 @@ places:
     at: 37.93128, -119.50129
     note: Side-canyon falls just off the trail, with camps nearby.
   Muir Gorge:
-    at: 37.93144, -119.52039
+    at: 37.93421, -119.52698
     note: One crossing has no footbridge; dicey in high water. Good campsites below.
   Register Creek:
     at: 37.94007, -119.53307
@@ -58,9 +58,6 @@ places:
   Morrison Creek:
     at: 37.91194, -119.63221
     note: Last water before White Wolf.
-  Hetch Hetchy Viewpoint:
-    at: 37.91128, -119.63576
-    note: The steepest mile of the climb is between here and Morrison Creek.
 
 facts:
   Getting there: ~4.5 hr drive to Tuolumne Meadows via Hwy 120
