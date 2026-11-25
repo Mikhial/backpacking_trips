@@ -117,10 +117,21 @@ Point to point, so sort out transport before applying for the permit.
     - Can be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
-| | To White Wolf (start there) | From White Wolf (finish there) |
+**To White Wolf** (start there)
+
+| Bus | Leave Tuolumne Meadows | Arrive White Wolf |
 |---|---|---|
-| **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**<br>Visitor Center · $12 · July 1 – September 30 | 8:21am → 9:01am<br>10:21am → 11:01am | 12:20pm → 1:05pm<br>4:20pm → 5:05pm |
-| **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**<br>Store · ~$20 · about mid-June to early September[^nps-transit] | 2:15pm → 3:00pm | 9:35am → 10:25am |
+| YARTS | 8:21am | 9:01am |
+| YARTS | 10:21am | 11:01am |
+| Hikers Bus | 2:15pm | 3:00pm |
+
+**From White Wolf** (finish there)
+
+| Bus | Leave White Wolf | Arrive Tuolumne Meadows |
+|---|---|---|
+| Hikers Bus | 9:35am | 10:25am |
+| YARTS | 12:20pm | 1:05pm |
+| YARTS | 4:20pm | 5:05pm |
 
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
 - **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
