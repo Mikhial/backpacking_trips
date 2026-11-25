@@ -346,3 +346,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 .notes p:has(+ table):has(> strong:first-child) { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px; }
 .notes p:has(+ table):has(> strong:first-child) strong { font-weight: 600; }
 .notes p:has(+ table):has(> strong:first-child) + table { margin-top: 0; }
+/* a table inside a bullet (e.g. the bus schedule under "Bus") makes Markdown wrap that whole list's items in
+   paragraphs; drop the paragraph spacing so those bullets stay as tight as any other list */
+.notes ul:has(table) > li > p { margin: 0; }
+.notes ul:has(table) > li > p:has(+ table) { margin: 10px 0 6px; }
