@@ -112,10 +112,9 @@ Point to point, so sort out transport before applying for the permit.
 
 ## Routes
 
-- Main route: Tuolumne Meadows past Glen Aulin and Waterwheel Falls to Pate Valley, out at White Wolf
+- [Waterwheel Falls and the Grand Canyon of the Tuolumne](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail): Tuolumne Meadows past Glen Aulin and Waterwheel Falls to Pate Valley, out at White Wolf
 - [White Wolf to Piute Creek](https://www.alltrails.com/trail/us/california/white-wolf-to-piute-creek-and-the-grand-canyon-of-the-tuolumne-river)
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
-- Shorter options: base at Glen Aulin or California Falls and day hike down past the falls[^reddit]
 
 **Which direction**[^bft-direction][^alltrails][^reddit]
 
