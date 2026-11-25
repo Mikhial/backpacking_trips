@@ -19,7 +19,6 @@ camps:
   Waterwheel trail camp: 37.92539, -119.45648
   Grand Canyon trail camp:
     at: 37.93164, -119.47255
-    note: Use the established sites.
   Cathedral Creek:
     at: 37.93217, -119.50084
     note: A few legal sites near the waterfall.
@@ -28,7 +27,7 @@ camps:
     note: Good open site with excellent swimming.
   Register Creek:
     at: 37.94075, -119.53449
-    note: A little downstream of Muir Gorge, by the grotto falls where Register Creek joins the river. Great swimming and fishing.
+    note: Great swimming and fishing.
   Pate Valley:
     at: 37.93156, -119.59534
     note: A very large number of sites.
@@ -61,7 +60,7 @@ facts:
   Food storage: Bear canister required
 
 seasons:
-  - peak: Jun 1 – Jul 15
+  - peak: May 21 – Jul 15
     notes: Strong waterfalls, more water in the river.
   - shoulder: Jul 16 – Aug 31
     why: [hot]
