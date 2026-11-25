@@ -26,6 +26,9 @@ camps:
   Below Cathedral Creek:
     at: 37.93041, -119.51678
     note: Good open site with excellent swimming.
+  Register Creek:
+    at: 37.94007, -119.53307
+    note: A little downstream of Muir Gorge, by the grotto falls where Register Creek joins the river. Great swimming and fishing.
   Pate Valley:
     at: 37.93156, -119.59534
     note: A very large number of sites.
@@ -49,12 +52,6 @@ places:
   Cathedral Creek Falls:
     at: 37.93128, -119.50129
     note: Side-canyon falls just off the trail, with camps nearby.
-  Muir Gorge:
-    at: 37.93871, -119.53312
-    note: One crossing has no footbridge; dicey in high water. Good campsites below.
-  Register Creek:
-    at: 37.94007, -119.53307
-    note: Grotto falls where it joins the river. Campsites, great swimming and fishing.
   Morrison Creek:
     at: 37.91194, -119.63221
     note: Last water before White Wolf.
