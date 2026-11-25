@@ -56,7 +56,7 @@ places:
     note: Last water before White Wolf.
 
 facts:
-  Getting there: ~4.5 hr drive to Tuolumne Meadows via Hwy 120
+  Getting there: 3 hr 40 min drive to White Wolf; ~4.5 hr to Tuolumne Meadows via Hwy 120
   Food storage: Bear canister required
 
 seasons:
@@ -91,7 +91,11 @@ permit:
 - Most say the whole route is worth it, Pate Valley and the climb out included[^reddit]
 - Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
 
-## Getting to the trailhead[^bft-trailhead][^reddit][^alltrails]
+## Getting there
+
+- **Drive**: 3 hr 40 min to White Wolf.
+
+### Getting to the trailhead[^bft-trailhead][^reddit][^alltrails]
 
 Point to point, so sort out transport before applying for the permit.
 
