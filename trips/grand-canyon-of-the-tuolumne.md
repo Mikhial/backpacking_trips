@@ -180,4 +180,4 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 [^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
 [^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
 [^nps-transit]: [NPS: public transportation](https://www.nps.gov/yose/planyourvisit/publictransportation.htm)
-[^yarts]: [YARTS Highway 395/120E](https://www.yarts.com/bus_routes/highway-395-120e/)
+[^yarts]: [YARTS 2026 Highway 395 schedule (PDF)](https://www.yarts.com/wp-content/uploads/2024/11/2026_HWY395-8.5x11-Website.pdf)
