@@ -105,18 +105,8 @@ Point to point, so sort out transport before applying for the permit.
 
 - **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
 - **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
-  - **[YARTS Hwy 120 East](https://www.yarts.com/bus_routes/highway-395-120e/)**
-    - **Runs**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
-    - **Season**: July 1 – September 30
-    - **Cost**: $12
-    - **Tuolumne Meadows stop**: Visitor Center
-    - **White Wolf stop**: need to request pickup/drop off
-  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**
-    - **Runs**: daily, once each way
-    - **Season**: about mid-June to early September[^nps-transit]
-    - **Cost**: ~$20
-    - **Tuolumne Meadows stop**: Store
-    - **White Wolf stop**: listed stop. Can also be flagged for pickup at any trailhead, as long as the bus has enough room to pull over. For a drop-off that isn't listed, book the nearest stop and tell the driver.
+  - **[YARTS](https://www.yarts.com/bus_routes/highway-395-120e/)**: $12 · Visitor Center · request pickup/drop off at White Wolf
+  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours)**: ~$20 · Store · listed stop at White Wolf; can be flagged at any trailhead if it has room to pull over (for an unlisted drop-off, book the nearest stop and tell the driver)
   - Finishing at White Wolf can mean waiting until afternoon for a bus.
 
 **Bus Schedule**[^yarts][^nps-transit]
@@ -124,13 +114,13 @@ Point to point, so sort out transport before applying for the permit.
 | Bus | Leave | Arrive | Runs |
 |---|---|---|---|
 | **Tuolumne Meadows → White Wolf** | | | |
-| YARTS | 8:21am | 9:01am | Weekends in June?<br>Jul 1 – Sep 30 |
-| YARTS | 10:21am | 11:01am | Jul 1 – Aug 31 |
+| YARTS | 8:21am | 9:01am | Jun weekends?<br>Jul – Sep |
+| YARTS | 10:21am | 11:01am | Jun weekends?<br>Jul – Aug |
 | Hikers Bus | 2:15pm | 3:00pm | ~mid-Jun – early Sep |
 | **White Wolf → Tuolumne Meadows** | | | |
 | Hikers Bus | 9:35am | 10:25am | ~mid-Jun – early Sep |
-| YARTS | 12:20pm | 1:05pm | Jul 1 – Aug 31 |
-| YARTS | 4:20pm | 5:05pm | Jul 1 – Sep 30 |
+| YARTS | 12:20pm | 1:05pm | Jun weekends?<br>Jul – Aug |
+| YARTS | 4:20pm | 5:05pm | Jun weekends?<br>Jul – Sep |
 
 - **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
 - **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
