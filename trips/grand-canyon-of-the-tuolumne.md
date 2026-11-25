@@ -84,6 +84,9 @@ permit:
 
 ## Overview
 
+- The lesser-known cousin of Yosemite Valley: just as spectacular, without the crowds and traffic. Underrated.
+- Follows the Tuolumne River the whole way, from calm emerald pools to whitewater and thundering falls, under towering canyon walls
+- 3–4 days
 - Not high country: it drops from Tuolumne Meadows down to Pate Valley, which is low and hot at the bottom
 - Most say the whole route is worth it, Pate Valley and the climb out included[^reddit]
 - Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
