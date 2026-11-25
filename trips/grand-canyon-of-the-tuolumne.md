@@ -28,14 +28,11 @@ camps:
     note: Good open site with excellent swimming.
   Pate Valley:
     at: 37.93156, -119.59534
-    note: A very large number of sites. No campfires.
+    note: A very large number of sites.
 places:
   End of No-Camping Zone:
     note: End of Glen Aulin no-camping zone.
     at: 37.91280, -119.42272
-  Cathedral Creek shoulder:
-    at: 37.93307, -119.49903
-    note: The best way into the Cathedral Creek sites.
 
 facts:
   Getting there: ~4.5 hr drive to Tuolumne Meadows via Hwy 120
@@ -83,4 +80,4 @@ Required year-round. Pick up in person.
 
 **Cost**: ~$10 application + $5/person.
 
-[^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/s/MoeMZszyVe)
+[^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/comments/1v6chju/grand_canyon_of_tuolumne_backpacking_advice/)
