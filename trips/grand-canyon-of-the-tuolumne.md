@@ -81,11 +81,17 @@ permit:
 - Most say the whole route is worth it, Pate Valley and the climb out included[^reddit]
 - Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
 
-## Getting there[^reddit][^alltrails]
+## Getting to the trailhead[^bft-trailhead][^reddit][^alltrails]
 
-- Usual plan: leave a car at Tuolumne Meadows and take YARTS or the park's hikers' shuttle to White Wolf.
-- YARTS runs two buses a day, both in the morning. The shuttle may not run until around July 4. Finishing at White Wolf can mean waiting until afternoon for a bus.
-- The Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
+Point to point, so sort out transport before applying for the permit.
+
+- **Two cars**: White Wolf is 25 miles west of Tuolumne Meadows on Hwy 120.
+- **Bus**: leave a car at Tuolumne Meadows and take a bus to White Wolf.
+  - **YARTS Hwy 120 East**: weekends in June and September, daily in July and August. Two buses a day, both in the morning.
+  - **Yosemite Valley–Tuolumne Meadows Hikers Bus**: daily, early June to mid-September, both directions.
+  - Finishing at White Wolf can mean waiting until afternoon for a bus.
+- **Hitchhiking**: legal in Yosemite. Easier finishing at Tuolumne Meadows (near the store) than at White Wolf, where you walk up to the highway and about half a mile east to find a safe pullout.
+- **Parking**: the Lembert Dome lot is no overnight parking; park on the side road next to it (only 3–4 bear boxes).
 
 ## Routes
 
@@ -94,10 +100,10 @@ permit:
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
 - Shorter options: base at Glen Aulin or California Falls and day hike down past the falls[^reddit]
 
-**Which direction**[^alltrails][^reddit]
+**Which direction**[^bft-direction][^alltrails][^reddit]
 
-- **Tuolumne Meadows to White Wolf**: mostly downhill, then the whole climb out of Pate Valley on the last day, hot and exposed with no water after Morrison Creek. Some found it easier than expected.
-- **White Wolf to Tuolumne Meadows**: steep drop to Pate Valley on day one (hard on the knees; carry 2 L), then a gradual climb with water all the way, facing the falls. Your car is waiting at the end.
+- **Tuolumne Meadows to White Wolf**: mostly a mellow downhill with the best scenery in the first half, then the whole climb out of Pate Valley on the last day, when your pack is lightest. Steep switchbacks, hot and exposed, with no water after Morrison Creek; some found it easier than expected. Harder to get back to your car.
+- **White Wolf to Tuolumne Meadows**: the more popular direction. A steep 3,500 ft drop to Pate Valley on day one with a full pack (hard on the knees; carry 2 L), then uphill most of the way, with water and the falls ahead of you. Scenery and swimming holes get better as you go, but the uphill finish is hard in the heat. Easier to get back to your car.
 
 ## Camping[^reddit]
 
@@ -110,12 +116,18 @@ permit:
 
 ## Permits
 
-Required year-round. Pick up in person. One Tuolumne Meadows permit required the first night at the Glen Aulin backpackers' camp.[^alltrails]
+Required year-round. Pick up in person. Easier to get in September (fewer crowds).[^bft-permits]
 
-- **Weekly lottery** (60%): 24 weeks ahead, on Recreation.gov.
+- **Weekly lottery** (60%): 24 weeks (168 days) ahead, on Recreation.gov.
 - **Reservations** (40%): released 7 days ahead on Recreation.gov.
+- **Applying**: give your starting trailhead and where you'll camp the first night.[^bft-permits]
+  - **From Tuolumne Meadows**: the Glen Aulin backpackers' camp, or pass through and camp beyond it (private riverside sites not far past). One reviewer's permit required Glen Aulin.[^alltrails]
+  - **From White Wolf**: aim for Pate Valley, to spread the climbing over the remaining days.
 
 **Cost**: ~$10 application + $5/person.
 
 [^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/comments/1v6chju/grand_canyon_of_tuolumne_backpacking_advice/)
 [^alltrails]: [AllTrails reviews](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail)
+[^bft-direction]: [Bearfoot Theory: best direction](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne)
+[^bft-trailhead]: [Bearfoot Theory: getting to the trailhead](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-getting-to-the-trailhead)
+[^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
