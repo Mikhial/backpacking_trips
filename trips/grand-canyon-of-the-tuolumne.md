@@ -2,7 +2,7 @@
 name: Grand Canyon of the Tuolumne
 short: Tuolumne Canyon
 region: Sierra Nevada
-order: 5
+order: 4
 summary: Down the Tuolumne River past Glen Aulin and Waterwheel Falls to Pate Valley
 updated: 2026-11-24
 park: Yosemite National Park
