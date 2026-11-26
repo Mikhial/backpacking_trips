@@ -139,7 +139,11 @@ function fromDay(d) {
 }
 function lotteryWindow(p, x) {
   if (p.period === 'month') { const m = Math.floor(x) - p.periodsBefore; return [m, m + 1]; }
-  const wk = Math.floor(toDay(x) / 7), d0 = (wk - p.periodsBefore) * 7;
+  // Weekly lotteries (Yosemite): trips starting Sunday–Saturday share one application week, Sunday–Saturday,
+  // which ends N weeks before the trip week starts ("24 weeks": trips May 9–15, 2027 apply Nov 15–21, 2026).
+  // Real weekdays need a year: the trip year is next year from October on (when the previous-year strip shows today).
+  const Y = NOW.getFullYear() + (NOW.getMonth() >= 9 ? 1 : 0), day = Math.floor(toDay(x));
+  const sun = day - new Date(Date.UTC(Y, 0, 1 + day)).getUTCDay(), d0 = sun - (p.periodsBefore + 1) * 7;
   return [fromDay(d0), fromDay(d0 + 7)];
 }
 
