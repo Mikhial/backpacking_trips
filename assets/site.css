@@ -150,6 +150,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .g.yr { background: var(--divider); }
   .sg { position: absolute; top: 11px; height: 12px; border-radius: 2px; }
   .sg.peak { background: var(--peak); } .sg.shoulder { background: var(--shoulder); }
+  .sg.jl { border-top-left-radius: 0; border-bottom-left-radius: 0; } .sg.jr { border-top-right-radius: 0; border-bottom-right-radius: 0; }
   .sg { display: flex; align-items: center; justify-content: center; gap: 2px; overflow: hidden; color: #5c3800; }
   .sg svg { flex: none; }
   .ilg { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }

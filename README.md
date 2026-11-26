@@ -108,7 +108,7 @@ permit:                        # the chart; the Permits section itself is writte
 
 **Dates** are written like `Sep 1`. Ranges use a dash: `Sep 1 – Oct 31`.
 
-**Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`. Peak seasons can have them too.
+**Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`, `nobus` (no shuttle or bus to the trailhead yet). Peak seasons can have them too.
 
 ### When to go
 
@@ -116,7 +116,7 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 
 - Several date ranges can share one season and note: `shoulder: Mar 1 – May 20, Sep 11 – Nov 30`. Each range is listed in its place in the year, with the same note.
 - A range can run past New Year: `Nov 1 – Feb 28`.
-- Touching peak seasons are drawn as one bar. Touching shoulders join only when their reasons match.
+- Touching seasons of the same kind (peak or shoulder) are drawn as one bar when their reasons match; with different reasons they stay separate, so each shows its own reasons on hover.
 - Seasons can't overlap.
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.

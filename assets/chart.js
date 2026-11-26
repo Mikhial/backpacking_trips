@@ -26,7 +26,7 @@ const ICONS = {
   cold: { label: 'Cold', short: 'cold' }, wind: { label: 'Windy', short: 'windy' }, fog: { label: 'Fog', short: 'fog' },
   wet: { label: 'Wet trails', short: 'wet' }, bugs: { label: 'Bugs', short: 'bugs' }, snow: { label: 'Snow', short: 'snow' },
   water: { label: 'High water, flooding', short: 'high water' }, crowds: { label: 'Crowds', short: 'crowds' },
-  smoke: { label: 'Wildfire smoke', short: 'smoke' }
+  smoke: { label: 'Wildfire smoke', short: 'smoke' }, nobus: { label: 'No bus', short: 'no bus' }
 };
 
 function relOf(r) {
@@ -95,9 +95,13 @@ function render(data, opts = {}) {
   let html = '';
   TRIPS.forEach((t, ri) => {
     let g = gridHTML();
-    t.seasons.forEach(s => {
+    // touching bars of the same kind (split only because their reasons differ) get square corners where they meet,
+    // so they read as one solid bar; each still has its own hover text
+    const touch = (x, y) => x && y && x.type === y.type && Math.abs(x.b - y.a) < 0.01;
+    t.seasons.forEach((s, i) => {
       const why = s.tags.map(k => ICONS[k]?.label).filter(Boolean).join(', ');
-      g += `<div class="sg ${s.type}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
+      const join = (touch(t.seasons[i - 1], s) ? ' jl' : '') + (touch(s, t.seasons[i + 1]) ? ' jr' : '');
+      g += `<div class="sg ${s.type}${join}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
     });
     const cmp = t.permits.filter((p, i) => i === 0 || p.compact).map(p => bandHTML(t, p, 30, 4)).join('');
     let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(t, i), 6)}</div>`).join('');

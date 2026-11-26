@@ -66,8 +66,11 @@ facts:
   Food storage: Bear canister required
 
 seasons:
-  - peak: May 21 – Jul 15
-    notes: Starts when Tioga Road opens. Strong waterfalls, more water in the river.
+  - peak: May 21 – Jun 14
+    why: [nobus]
+    notes: Starts when Tioga Road opens. No bus until mid-June. Strong waterfalls, more water in the river.
+  - peak: Jun 15 – Jul 15
+    notes: Strong waterfalls, more water in the river.
   - shoulder: Jul 16 – Aug 31
     why: [hot]
     notes: Hot in the canyon, especially Pate Valley.
