@@ -61,6 +61,7 @@ places:
     at: 37.87436, -119.35683
     note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
 links:
+  Permits: https://www.recreation.gov/permits/445859
   Lily Tang trip report: https://lilymtang.com/blog/backpacking-grand-canyon-of-the-tuolumne-yosemite/
   Bearfoot Theory guide: https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne
 
@@ -164,8 +165,8 @@ Glen Aulin puts you back within reach of the Tuolumne Meadows trails and high co
 
 Required year-round. Pick up in person. Easier to get in September (fewer crowds).[^bft-permits]
 
-- **Weekly lottery** (60%): 24 weeks (168 days) ahead, on Recreation.gov.
-- **Reservations** (40%): released 7 days ahead on Recreation.gov.
+- **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
+- **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Applying**: give your starting trailhead and where you'll camp the first night.[^bft-permits]
   - **From Tuolumne Meadows**: the Glen Aulin backpackers' camp, or pass through and camp beyond it (private riverside sites not far past). One reviewer's permit required Glen Aulin.[^alltrails]
   - **From White Wolf**: aim for Pate Valley, to spread the climbing over the remaining days.
