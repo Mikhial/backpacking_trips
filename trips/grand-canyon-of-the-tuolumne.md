@@ -139,14 +139,12 @@ permit:
   - Whole climb out of Pate Valley on the last day, when your pack is lightest.
   - Steep switchbacks, hot and exposed, with no water after Morrison Creek.
   - Potentially harder to get back to your car.
-  - Permit name: Glen Aulin -> Cold Canyon/Waterwheel if you’re camping past Glen Aulin High Sierra Camp the first night or Glen Aulin if you’re camping at Glen Aulin (5.3 miles).
 
 - **White Wolf to Tuolumne Meadows**
   - The more popular direction
   - A steep 3,500 ft drop to Pate Valley on day one with a full pack, then uphill most of the way, with water and the falls ahead of you. 
   - Scenery and swimming holes get better as you go, but the uphill finish is hard in the heat. 
   - Easier to get back to your car.
-  - Permit name: White Wolf -> Pate Valley if you’re camping past Harden Lake the first night, or White Wolf -> Smith Valley if you’re camping at Harden Lake (2.8 miles).
 
 ## Camping[^reddit]
 
@@ -157,10 +155,6 @@ permit:
 
 ## When to go[^sierrarec]
 
-## How this connects to Tuolumne Meadows[^sierrarec]
-
-Glen Aulin puts you back within reach of the Tuolumne Meadows trails and high country, like Cathedral Lakes and Lyell Canyon.
-
 ## Permits
 
 Required year-round. Pick up in person. Easier to get in September (fewer crowds).[^bft-permits]
@@ -169,7 +163,9 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Applying**: give your starting trailhead and where you'll camp the first night.[^bft-permits]
   - **From Tuolumne Meadows**: the Glen Aulin backpackers' camp, or pass through and camp beyond it (private riverside sites not far past). One reviewer's permit required Glen Aulin.[^alltrails]
+    - Permit name: Glen Aulin -> Cold Canyon/Waterwheel if you’re camping past Glen Aulin High Sierra Camp the first night or Glen Aulin if you’re camping at Glen Aulin (5.3 miles).
   - **From White Wolf**: aim for Pate Valley, to spread the climbing over the remaining days.
+    - Permit name: White Wolf -> Pate Valley if you’re camping past Harden Lake the first night, or White Wolf -> Smith Valley if you’re camping at Harden Lake (2.8 miles).
 
 **Cost**: ~$10 application + $5/person.
 
