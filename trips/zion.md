@@ -50,33 +50,39 @@ permit:
           for: Oct 1 – Dec 31
     - label: Subway · Lottery
       lottery: true
-      note: Feb/May/Aug
+      note: Nov/Feb/May/Aug 1–25
       releases:
-        - opens: Feb 1 – Feb 28
+        - opens: Nov 1 – Nov 25
+          for: Jan 1 – Mar 31
+        - opens: Feb 1 – Feb 25
           for: Apr 1 – Jun 30
-        - opens: May 1 – May 31
+        - opens: May 1 – May 25
           for: Jul 1 – Sep 30
-        - opens: Aug 1 – Aug 31
+        - opens: Aug 1 – Aug 25
           for: Oct 1 – Dec 31
     - label: Subway · Unclaimed
-      note: Mar/Jun/Sep
+      note: 15th of Dec/Mar/Jun/Sep
       releases:
-        - opens: Mar 1 – Mar 31
+        - opens: Dec 15
+          for: Jan 1 – Mar 31
+        - opens: Mar 15
           for: Apr 1 – Jun 30
-        - opens: Jun 1 – Jun 30
+        - opens: Jun 15
           for: Jul 1 – Sep 30
-        - opens: Sep 1 – Sep 30
+        - opens: Sep 15
           for: Oct 1 – Dec 31
     - label: Angels Landing · Lottery
       lottery: true
-      note: Jan/Apr/Jul
+      note: Jan/Apr/Jul/Oct 1–20
       releases:
-        - opens: Jan 1 – Jan 31
+        - opens: Jan 1 – Jan 20
           for: Mar 1 – May 31
-        - opens: Apr 1 – Apr 30
+        - opens: Apr 1 – Apr 20
           for: Jun 1 – Aug 31
-        - opens: Jul 1 – Jul 31
+        - opens: Jul 1 – Jul 20
           for: Sep 1 – Nov 30
+        - opens: Oct 1 – Oct 20
+          for: Dec 1 – Feb 28
 ---
 
 ## Overview
@@ -103,13 +109,15 @@ Day-hike permits release before backpacking permits, so even with a day-hike per
   - Jul–Sep: released Jun 5
   - Oct–Dec: released Sep 5
 - **The Subway**: lottery. Unclaimed spots are released the month after the lottery.
-  - Apr–Jun hikes: lottery in February
+  - Jan–Mar hikes: lottery in November
+  - Apr–Jun: lottery in February
   - Jul–Sep: lottery in May
   - Oct–Dec: lottery in August
 - **Angels Landing**: lottery.
   - Mar–May hikes: lottery in January
   - Jun–Aug: lottery in April
   - Sep–Nov: lottery in July
+  - Dec–Feb: lottery in October
 
 ## Day hikes
 
