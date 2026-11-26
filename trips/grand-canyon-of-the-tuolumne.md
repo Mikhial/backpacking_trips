@@ -103,7 +103,7 @@ permit:
 
 ## Getting there
 
-- **Drive**: 3 hr 40 min to White Wolf or 4 hr 15 min to Tuolumne Meadows
+- **Drive**: 3 hr 40 min to White Wolf or 4 hr 15 min to Tuolumne Meadows, plus 40 minute shuttle
 
 ### Point to point logistics [^bft-trailhead][^reddit][^alltrails]
 
