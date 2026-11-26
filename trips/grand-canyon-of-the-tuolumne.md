@@ -59,7 +59,7 @@ places:
     note: YARTS stop.
   Tuolumne Meadows Store:
     at: 37.87436, -119.35683
-    note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
+    note: Hikers Bus stop (10:25am in, 2:15pm out). Potentially easier to hitch from here.
 links:
   Permits: https://www.recreation.gov/permits/445859
   Lily Tang trip report: https://lilymtang.com/blog/backpacking-grand-canyon-of-the-tuolumne-yosemite/
@@ -102,7 +102,7 @@ permit:
 - The lesser-known cousin of Yosemite Valley
 - Follows the Tuolumne River the whole way, from calm emerald pools to whitewater and thundering falls, under towering canyon walls
 - Best done in 3–4 days
-- Great swimming holes, but parts of the river are dangerous. Rattlesnakes in Pate Valley.[^reddit]
+- Great swimming holes, but parts of the river are dangerous.
 
 ## Getting there
 
@@ -132,7 +132,7 @@ permit:
 - [White Wolf to Piute Creek](https://www.alltrails.com/trail/us/california/white-wolf-to-piute-creek-and-the-grand-canyon-of-the-tuolumne-river)
 - [Waterwheel Falls](https://www.alltrails.com/trail/us/california/waterwheel-falls-trail)
 
-**Which direction**[^bft-direction][^alltrails][^reddit]
+**Which direction**[^bft-direction]
 
 - **Tuolumne Meadows to White Wolf**: 
   - Mostly a mellow downhill with the best scenery in the first half
@@ -144,12 +144,13 @@ permit:
   - The more popular direction
   - A steep 3,500 ft drop to Pate Valley on day one with a full pack, then uphill most of the way, with water and the falls ahead of you. 
   - Scenery and swimming holes get better as you go, but the uphill finish is hard in the heat. 
-  - Easier to get back to your car.
+  - Potentially easier to get back to your car.
 
 ## Camping[^reddit]
 
-- A lot of people camp illegally in this canyon. Legal sites are there, you just need to look; they're often easier to spot from above on the switchbacks coming down. Large flat areas near the river probably have sites. Remember: 100 ft.
-- Some camps get re-established where camping isn't legal and people assume they're fine, like the ones along the river just down from Glen Aulin (inside the no-camping zone).
+- Legal camping sites are 100 ft from water. Lots of people camp illegally, and lots of campsites are illegal.
+- Specific sites are added from a Reddit comment, there will be others.
+- Spots are often easier to spot from above on the switchbacks coming down. Large flat areas near the river probably have sites.
 - At the trail camps, use the established sites instead of setting up in unimpacted spots next to them.
 - Fire restrictions below 6,000 ft: no campfires in Pate Valley or below a little west of Return Creek.
 
@@ -157,10 +158,15 @@ permit:
 
 ## Permits
 
-Required year-round. Pick up in person. Easier to get in September (fewer crowds).[^bft-permits]
+Required year-round. Pick up in person. Easier to get in September (fewer crowds).
 
 - **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
+- **By season**: share of lottery applications that succeed, all Yosemite trailheads 2022–2025.[^nps-quotas]
+  - **Late May – mid Jun**: no lottery for these trailheads before June 18; permits are first-come, first-served.
+  - **Mid Jun – mid Jul**: harder, about 35–45%.
+  - **Mid Jul – Aug**: hardest, about 30–35%.
+  - **Sep**: easier, about 45% early in the month, rising to about 70% by late September.
 - **Applying**: permits are for a starting trailhead and first-night camp.[^nps-quotas]
 
   | Permit | First night | Odds |
@@ -174,12 +180,7 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 
 **Cost**: ~$10 application + $5/person.
 
-[^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/comments/1v6chju/grand_canyon_of_tuolumne_backpacking_advice/)
-[^alltrails]: [AllTrails reviews](https://www.alltrails.com/trail/us/california/waterwheel-falls-and-the-grand-canyon-of-the-tuolumne-trail)
+[^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/s/YKPdVNMmNy)
 [^bft-direction]: [Bearfoot Theory: best direction](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne)
-[^bft-trailhead]: [Bearfoot Theory: getting to the trailhead](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-getting-to-the-trailhead)
-[^bft-permits]: [Bearfoot Theory: permits](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-grand-canyon-of-the-tuolumne-wilderness-nbsp-permits)
 [^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
-[^nps-transit]: [NPS: public transportation](https://www.nps.gov/yose/planyourvisit/publictransportation.htm)
-[^yarts]: [YARTS 2026 Highway 395 schedule (PDF)](https://www.yarts.com/wp-content/uploads/2024/11/2026_HWY395-8.5x11-Website.pdf)
 [^nps-quotas]: NPS [trailhead quotas](https://www.nps.gov/yose/planyourvisit/trailheads.htm) and [lottery statistics](https://www.nps.gov/yose/planyourvisit/wpstats.htm) (2022–2025 requests: Glen Aulin ~4,000/yr, pass through ~1,500, Pate Valley ~1,000, Smith Meadow ~200)
