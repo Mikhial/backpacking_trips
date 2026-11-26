@@ -75,12 +75,12 @@ export default function (eleventyConfig) {
     const stations = spotsOf(this.ctx['permit stations']);
     // where to stay: campgrounds (tent icon) and lodging (house icon), same format as places
     const campgrounds = spotsOf(this.ctx.campgrounds), lodging = spotsOf(this.ctx.lodging);
-    const routes = Object.entries(data.trackFiles || {}).map(([n, file]) => {
+    const routes = Object.entries(data.trackFiles || {}).map(([n, file], i) => {
       file = String(file).trim();
       const pts = parseGpx(fs.readFileSync(file, 'utf8'));
       const stats = measure(pts);
       const p = simplify(pts, 6).map(q => q.length > 2 ? [+q[0].toFixed(5), +q[1].toFixed(5), Math.round(q[2])] : [+q[0].toFixed(5), +q[1].toFixed(5)]);
-      return { n, file, p, ...stats, ...(data.link ? { url: data.link } : {}) };
+      return { n, file, p, ...stats, ...(data.link && i === 0 ? { url: data.link } : {}) };
     });
     // zones: a GeoJSON file of permit zones (name, note, label point), drawn as light outlines
     const zones = readZones(data.zones);
@@ -90,7 +90,8 @@ export default function (eleventyConfig) {
   // one route gives "28 mi point to point", several give the range, "13–48 mi"
   eleventyConfig.addFilter('tripDistance', data => {
     if (data.facts && data.facts.Distance) return String(data.facts.Distance);
-    const files = Object.values(data.trackFiles || {});
+    // a one-route trip: just the main route, not its alternates
+    const files = Object.values(data.trackFiles || {}).slice(0, data.route != null ? 1 : undefined);
     if (!files.length) return '';
     const mi = pts => measure(pts).len / 1609.344, fmt = v => v < 10 ? v.toFixed(1) : String(Math.round(v));
     const tracks = files.map(f => parseGpx(fs.readFileSync(String(f).trim(), 'utf8')));
@@ -99,8 +100,9 @@ export default function (eleventyConfig) {
     return lo === hi ? `${fmt(lo)} mi` : `${fmt(lo)}–${fmt(hi)} mi`;
   });
   // A one-route trip's stats under the map title: "28 mi · ↑ 7,221 ft · ↓ 7,572 ft · 384–3,812 ft · Point to point"
-  eleventyConfig.addFilter('routeSummary', trackFiles => {
-    const file = Object.values(trackFiles || {})[0];
+  // (i: which route, for a trip with alternates; the map switches the summary when you pick one)
+  const routeSummary = (trackFiles, i = 0) => {
+    const file = Object.values(trackFiles || {})[i];
     if (!file) return '';
     const pts = parseGpx(fs.readFileSync(String(file).trim(), 'utf8')), s = measure(pts), n = v => Math.round(v * 3.28084).toLocaleString('en-US');
     const out = [`${(s.len / 1609.344).toFixed(s.len < 16093 ? 1 : 0)} mi`];
@@ -108,7 +110,9 @@ export default function (eleventyConfig) {
     const shape = routeShape(pts);
     if (shape) out.push(shape);
     return out.join(' · ');
-  });
+  };
+  eleventyConfig.addFilter('routeSummary', routeSummary);
+  eleventyConfig.addFilter('routeSummaries', trackFiles => JSON.stringify(Object.keys(trackFiles || {}).map((_, i) => routeSummary(trackFiles, i))));
   // A link in the notes whose text matches a route name becomes a route line: the link, then
   // distance, gain and elevation range measured from the GPX file, then a "show on map" toggle.
   // Any ":" or "." right after the link is dropped; the rest of the text continues on the next line.
@@ -157,9 +161,11 @@ export default function (eleventyConfig) {
     if (!h.test(content)) return;
     return content.replace(h, m => `${m.trim()} ${meter}`);
   });
-  // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle.
+  // On a one-route trip (single) the route is always on the map, so there's no "show on map" toggle, unless it
+  // has alternates: then the Map button switches the map to that route.
   eleventyConfig.addFilter('routeLinks', (content, routes, single) => {
     const entries = Object.entries(routes || {}), keys = entries.map(([n]) => routeKey(n));
+    single = single && entries.length === 1;
     if (!keys.length) return content;
     const done = new Set();
     return content.replace(/<a\s([^>]*)>([\s\S]*?)<\/a>([:.]\s*)?/g, (m, attrs, text) => {

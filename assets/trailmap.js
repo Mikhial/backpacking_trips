@@ -57,8 +57,10 @@
     map.on('contextmenu', e => spotMenu(e.latlng));
 
     // A one-route trip ("route:" + "gpx:" in the header): the route is always shown, with its profile open,
-    // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area)
-    const single = box.hasAttribute('data-single') && extras.routes.length === 1;
+    // over the other trails, water, peaks and so on within a few miles of it (the map data only covers that area).
+    // Its "alternates:" (other ways to do it, like Rim to Rim south to north) are buttons above the map: one route
+    // is shown at a time, the main one first, and the others stay hidden until picked.
+    const single = box.hasAttribute('data-single') && extras.routes.length >= 1;
     // Each kind of thing (trail, dirt road, trailhead, camp, place…) goes in its own layer, so clicking its
     // legend item can hide or show it. The kinds match data-kind on the legend items in _includes/trip.njk.
     const kindLayers = {}, hiddenKinds = new Set();
@@ -171,6 +173,25 @@
       line.on('click', e => { L.DomEvent.stop(e); select(line); });
       return line;
     });
+    // a one-route trip: the route being shown (the main one, or an alternate picked above the map)
+    let current = routeLines[0];
+    const title = box.querySelector('.tm-head h2'), sum = box.querySelector('.tm-sum');
+    const sums = sum && sum.dataset.sums ? JSON.parse(sum.dataset.sums) : null;
+    const show = line => {
+      if (line !== current) {
+        setOn(current, false); current = line; setOn(line, true);
+        const i = routeLines.indexOf(line);
+        if (title) title.textContent = line.trail.n;
+        if (sums) sum.textContent = sums[i];
+        pressShown();
+      }
+      select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] });
+    };
+    // a one-route trip with alternates: the buttons above the map and the notes' Map buttons show which route is on
+    const pressShown = () => document.querySelectorAll('.notes .rt-show, .tm-routes button').forEach(b => {
+      const on = routeLines[+(b.dataset.route ?? b.dataset.i)] === current;
+      b.setAttribute('aria-pressed', String(on)); b.title = on ? 'Shown on map' : 'Show on map';
+    });
     // Turn a route on (draw it, zoom to it, open its profile) or off
     const isOn = line => map.hasLayer(line);
     const setOn = (line, on) => {
@@ -181,8 +202,8 @@
     // from the buttons above the map: turn one route on or off, keeping the current view
     // from the notes (solo): show only this route and zoom to it
     const toggle = (line, solo) => {
-      // a one-route trip's route can't be hidden: just select it and zoom to it
-      if (single) { select(line); map.fitBounds(line.getBounds(), { padding: [24, 24] }); return true; }
+      // a one-route trip's route can't be hidden: show it (switching from another alternate) and zoom to it
+      if (single) { show(line); return true; }
       const on = !isOn(line);
       if (on && solo) routeLines.forEach(l => { if (l !== line) setOn(l, false); });
       setOn(line, on);
@@ -203,7 +224,21 @@
       b.addEventListener('click', () => { if (toggle(line, true)) box.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     });
     const list = box.querySelector('.tm-routes');
-    if (routeLines.length && !single) {
+    if (single && routeLines.length > 1) {
+      // a one-route trip with alternates: one button per way to do it; the shown one is pressed
+      list.hidden = false;
+      list.innerHTML = routeLines.map((l, i) =>
+        `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
+      list.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        const line = routeLines[+b.dataset.i]; line.preview.remove(); show(line);
+      });
+      list.querySelectorAll('button').forEach(b => {
+        const line = routeLines[+b.dataset.i];
+        b.addEventListener('mouseenter', () => { if (line !== current) line.preview.addTo(map); });
+        b.addEventListener('mouseleave', () => line.preview.remove());
+      });
+    } else if (routeLines.length && !single) {
       list.hidden = false;
       list.innerHTML = '<span class="tm-rl">Your routes</span>' + routeLines.map((l, i) =>
         `<button type="button" data-i="${i}" aria-pressed="false" title="Show on map">${esc(l.trail.n)} <span>${mi(l.trail.len)} mi</span></button>`).join('');
@@ -431,7 +466,7 @@
     let lastW = prof.clientWidth;
     window.addEventListener('resize', () => { if (selected && hasEle(selected.trail) && prof.clientWidth !== lastW) { lastW = prof.clientWidth; const t = selected.trail, e = t.p.map(p => p[2]); profile(t, Math.min(...e), Math.max(...e)); } });
     // clicking the map clears the selection; on a one-route trip it goes back to the route
-    map.on('click', () => select(single ? routeLines[0] : null));
+    map.on('click', () => select(single ? current : null));
     info.addEventListener('click', e => {
       const a = e.target.closest('.tm-tonote'); if (!a) return;
       const n = document.getElementById(a.getAttribute('href').slice(1)); if (!n) return;
@@ -535,7 +570,7 @@
     }
 
     info.innerHTML = box.dataset.hint;
-    if (single) { setOn(routeLines[0], true); select(routeLines[0]); }
+    if (single) { setOn(current, true); select(current); if (routeLines.length > 1) pressShown(); }
     // when the trail data was fetched, kept out of the way in the map's credits corner
     if (data.fetched) {
       const was = base.getAttribution(), when = new Date(data.fetched).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
