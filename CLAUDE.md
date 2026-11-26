@@ -38,7 +38,7 @@ Learned from Cactus to Clouds (PR #16), where Mike trimmed most of the first dra
 - Hover dates: "opens Jun 9", "apply Feb 1–28" (lotteries), "day of" (walk-up).
 - Booking bands are colored by the season they serve (dark blue = peak, light blue = shoulder). Lotteries are the same bar with small breaks (dashed). No separate "fixed date" color.
 - Fixed releases are drawn only when they cover a season month.
-- Connectors appear only while hovering a season bar. Lottery connectors are a funnel covering the whole application window. Weekly/monthly lotteries snap to calendar weeks/months.
+- Connectors appear only while hovering a season bar. Lottery connectors are a funnel covering the whole application window. Weekly/monthly lotteries snap to calendar weeks/months. Weekly ones use real Sunday–Saturday weeks: the application week ends N weeks before the trip's week starts (Yosemite's rule; the trip year is next year from October on).
 - The previous year is shown left of the trip year: Oct–Dec at full scale, Jan–Sep squeezed into a narrow hatched strip.
 - "Today" lines are subtle dashed lines; the previous-year one only shows when today falls in Oct–Dec.
 - Permit difficulty dots (0–3) are right-aligned after the trip name, with the reason in a tooltip.
