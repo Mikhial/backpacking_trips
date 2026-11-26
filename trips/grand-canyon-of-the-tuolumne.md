@@ -161,13 +161,13 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 
 - **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
-- **Applying**: permits are for a starting trailhead and first-night camp.
+- **Applying**: permits are for a starting trailhead and first-night camp. Daily quota and how hard each is to get (lottery requests per spot):[^nps-quotas]
   - **From Tuolumne Meadows**
-    - *Glen Aulin*: camp at Glen Aulin (5 mi)
-    - *Glen Aulin → Cold Canyon/Waterwheel (pass through)*: camp past the High Sierra Camp, e.g. Waterwheel Falls (8 mi)
+    - *Glen Aulin* (25/day · hardest): camp at Glen Aulin (5 mi)
+    - *Glen Aulin → Cold Canyon/Waterwheel (pass through)* (20/day · moderate): camp past the High Sierra Camp, e.g. Waterwheel Falls (8 mi)
   - **From White Wolf**
-    - *White Wolf → Smith Valley*: camp at Harden Lake (3 mi)
-    - *White Wolf → Pate Valley*: camp past Harden Lake, e.g. Pate Valley (10 mi)
+    - *White Wolf → Smith Meadow* (25/day · easiest): camp at Harden Lake (3 mi)
+    - *White Wolf → Pate Valley* (30/day · easier): camp past Harden Lake, e.g. Pate Valley (10 mi)
 
 **Cost**: ~$10 application + $5/person.
 
@@ -179,3 +179,4 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 [^sierrarec]: [Sierra Rec Magazine](https://sierrarecmagazine.com/grand-canyon-of-the-tuolumne-backpacking-guide/)
 [^nps-transit]: [NPS: public transportation](https://www.nps.gov/yose/planyourvisit/publictransportation.htm)
 [^yarts]: [YARTS 2026 Highway 395 schedule (PDF)](https://www.yarts.com/wp-content/uploads/2024/11/2026_HWY395-8.5x11-Website.pdf)
+[^nps-quotas]: NPS [trailhead quotas](https://www.nps.gov/yose/planyourvisit/trailheads.htm) and [lottery statistics](https://www.nps.gov/yose/planyourvisit/wpstats.htm) (2022–2025 requests: Glen Aulin ~4,000/yr, pass through ~1,500, Pate Valley ~1,000, Smith Meadow ~200)
