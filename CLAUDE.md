@@ -42,6 +42,7 @@ Learned from Cactus to Clouds (PR #16), where Mike trimmed most of the first dra
 - The previous year is shown left of the trip year: Oct–Dec at full scale, Jan–Sep squeezed into a narrow hatched strip.
 - "Today" lines are subtle dashed lines; the previous-year one only shows when today falls in Oct–Dec.
 - Permit difficulty dots (0–3) are right-aligned after the trip name, with the reason in a tooltip.
+- Touching seasons of the same kind stay separate bars when their reasons differ, so each hovers its own reasons, but are drawn solid (square corners where they meet). The Trips list's Best season still joins touching peaks (Mike, Nov 25 2026).
 - Season reasons (`why`, peak or shoulder) appear only as text on hover, never as icons on the bars. The side text uses short words (`short` in ICONS) so it fits; the full wording is in the bar tooltip.
 - Hovering a season bar shows "Peak season · Jun 1 – Sep 30" in the side text, with the reasons (short words) on their own line below, then a blank line before the permit lanes (only in rows that have reasons).
 
