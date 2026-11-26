@@ -138,7 +138,13 @@ function fromDay(d) {
   return m + (d - CUM[m]) / DIM[m];
 }
 function lotteryWindow(p, x) {
-  if (p.period === 'month') { const m = Math.floor(x) - p.periodsBefore; return [m, m + 1]; }
+  if (p.period === 'month') {
+    const m = Math.floor(x) - p.periodsBefore;
+    if (!p.days) return [m, m + 1];
+    // "days: 16th – 1st": from that day of month m to the second day, in the next month when it's smaller
+    const dim = k => DIM[((k % 12) + 12) % 12], [d1, d2] = p.days, m2 = d2 < d1 ? m + 1 : m;
+    return [m + (Math.min(d1, dim(m)) - 1) / dim(m), m2 + Math.min(d2, dim(m2)) / dim(m2)];
+  }
   // Weekly lotteries (Yosemite): trips starting Sunday–Saturday share one application week, Sunday–Saturday,
   // which ends N weeks before the trip week starts ("24 weeks": trips May 9–15, 2027 apply Nov 15–21, 2026).
   // Real weekdays need a year: the trip year is next year from October on (when the previous-year strip shows today).

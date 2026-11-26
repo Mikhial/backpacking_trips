@@ -71,6 +71,7 @@ permit:
     #     lottery: true
     #     before: 24 weeks
     #     every: week
+    #     days: 16th – 1st   # optional, with every: month: the days the window runs
     # Fixed calendar date (or range), optionally saying which trip dates it covers:
     #   - label: Lottery
     #     lottery: true

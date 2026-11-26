@@ -140,7 +140,7 @@ Write dates like `Sep 1`, `Jan–Mar`, and "ahead" for how long before your trip
 Each channel is one way permits are released. It becomes a lane on the chart.
 
 - **Rolling** (opens a set time before your trip): `before: 90 days`, `24 weeks`, `6 months` or `day of`.
-- **Lottery per week or month**: add `lottery: true` and `every: week` (or `month`), with `before` in the same unit.
+- **Lottery per week or month**: add `lottery: true` and `every: week` (or `month`), with `before` in the same unit. Weeks are Sunday–Saturday, and the application week ends that many weeks before your trip's week starts (Yosemite's rule). A monthly lottery that doesn't run the whole month gets `days:`, e.g. `days: 16th – 1st` (Grand Canyon: opens the 16th, closes the 1st of the next month) or `days: 1st – 25th`.
 - **Fixed date or range**: `opens: Apr 22` or `opens: Feb 1 – Feb 28`.
 - **Several fixed releases**: a `releases` list, each with `opens` and `for` (the trip dates it covers). If a release opens after the trip dates it covers (e.g. Dec 5 for Jan–Mar), it's treated as the previous year.
 
