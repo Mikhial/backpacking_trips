@@ -66,7 +66,7 @@ links:
   Bearfoot Theory guide: https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne
 
 facts:
-  Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
+  Getting there: 3:40–4:15 drive
   Food storage: Bear canister required
 
 seasons:
@@ -158,7 +158,7 @@ permit:
 
 ## Permits
 
-Required year-round. Pick up in person. Easier to get in September (fewer crowds).
+Required year-round. Pick up in person.
 
 - **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
@@ -167,6 +167,7 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
   - **Late June – August**: hardest, about 30–40%, lowest in July.
   - **Early – mid September**: about 45–55%.
   - **Late September – mid October**: easiest, about 65–90%.
+- **Cost**: ~$10 application + $5/person.
 - **Applying**: permits are for a starting trailhead and first-night camp.
 
   | Permit | First night | Odds[^nps-quotas] |
@@ -177,8 +178,6 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
   | **From White Wolf** | | |
   | White Wolf → Smith Meadow | Harden Lake (3 mi) | Easiest |
   | White Wolf → Pate Valley | Past Harden Lake, e.g. Pate Valley (10 mi) | Easier |
-
-**Cost**: ~$10 application + $5/person.
 
 [^reddit]: [r/Yosemite](https://www.reddit.com/r/Yosemite/s/YKPdVNMmNy)
 [^bft-direction]: [Bearfoot Theory: best direction](https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne)
