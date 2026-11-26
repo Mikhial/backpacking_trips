@@ -163,13 +163,13 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 - **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **By season**: share of lottery applications that succeed, all Yosemite trailheads 2022–2025.[^nps-quotas]
-  - **Late May – mid Jun**: no lottery for these trailheads before June 18; permits are first-come, first-served.
-  - **Mid Jun – mid Jul**: harder, about 35–45%.
-  - **Mid Jul – Aug**: hardest, about 30–35%.
-  - **Sep**: easier, about 45% early in the month, rising to about 70% by late September.
-- **Applying**: permits are for a starting trailhead and first-night camp.[^nps-quotas]
+  - **Before June 18**: no lottery for these trailheads; permits are first-come, first-served.
+  - **Late June – August**: hardest, about 30–40%, lowest in July.
+  - **Early – mid September**: about 45–55%.
+  - **Late September – mid October**: easiest, about 65–90%.
+- **Applying**: permits are for a starting trailhead and first-night camp.
 
-  | Permit | First night | Odds |
+  | Permit | First night | Odds[^nps-quotas] |
   |---|---|---|
   | **From Tuolumne Meadows** | | |
   | Glen Aulin | Glen Aulin (5 mi) | Hardest |
