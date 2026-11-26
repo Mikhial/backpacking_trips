@@ -82,6 +82,8 @@ seasons:
 
 permit:
   note: Lottery 24 weeks · 7 days before
+  difficulty: 2
+  why: Popular trailheads; harder than Hetch Hetchy
   channels:
     - label: Lottery
       lottery: true
@@ -103,27 +105,24 @@ permit:
 
 ## Getting there
 
-- **Drive**: 3 hr 40 min to White Wolf or 4 hr 15 min to Tuolumne Meadows, plus 40 minute shuttle
+- **Drive**: 3 hr 40 min to White Wolf or 4 hr 15 min to Tuolumne Meadows
+- **Shuttle**: To do point to point, shuttling 25 mile/40 minute between trailheads is necessary
+  - **Two Car Shuttle**: If bringing two cars
+  - **Hitchhiking**: Common and legal in Yosemite
+  - **Bus**:
+    - **[YARTS](https://www.yarts.com/bus_routes/highway-395-120e/)**: $12 · Tuolumne Meadows Visitor Center · request pickup/drop off at White Wolf
+    - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours#meadows-hikers-bus)**: ~$20 · Tuolumne Meadows Store
 
-### Point to point logistics
-
-- **Two Car Shuttle**: 25 mile/40 minute drive between the two trailheads.
-- **Bus**:
-  - **[YARTS](https://www.yarts.com/bus_routes/highway-395-120e/)**: $12 · Tuolumne Meadows Visitor Center · request pickup/drop off at White Wolf
-  - **[Meadows Hikers Bus](https://www.travelyosemite.com/activities/year-round/guided-bus-tours#meadows-hikers-bus)**: ~$20 · Tuolumne Meadows Store
-
-  | Bus | Leave | Arrive | Runs |
-  |---|---|---|---|
-  | **Tuolumne Meadows → White Wolf** | | | |
-  | YARTS | 8:21am | 9:01am | Jun weekends?<br>Jul – Sep |
-  | YARTS | 10:21am | 11:01am | Jun weekends?<br>Jul – Aug |
-  | Hikers Bus | 2:15pm | 3:00pm | ~mid-Jun – early Sep |
-  | **White Wolf → Tuolumne Meadows** | | | |
-  | Hikers Bus | 9:35am | 10:25am | ~mid-Jun – early Sep |
-  | YARTS | 12:20pm | 1:05pm | Jun weekends?<br>Jul – Aug |
-  | YARTS | 4:20pm | 5:05pm | Jun weekends?<br>Jul – Sep |
-
-- **Hitchhiking**: Legal in Yosemite.
+    | Bus | Leave | Arrive | Runs |
+    |---|---|---|---|
+    | **Tuolumne Meadows → White Wolf** | | | |
+    | YARTS | 8:21am | 9:01am | Jun weekends?<br>Jul – Sep |
+    | YARTS | 10:21am | 11:01am | Jun weekends?<br>Jul – Aug |
+    | Hikers Bus | 2:15pm | 3:00pm | ~mid-Jun – early Sep |
+    | **White Wolf → Tuolumne Meadows** | | | |
+    | Hikers Bus | 9:35am | 10:25am | ~mid-Jun – early Sep |
+    | YARTS | 12:20pm | 1:05pm | Jun weekends?<br>Jul – Aug |
+    | YARTS | 4:20pm | 5:05pm | Jun weekends?<br>Jul – Sep |
 
 ## Routes
 
@@ -138,7 +137,7 @@ permit:
   - Mostly a mellow downhill with the best scenery in the first half
   - Whole climb out of Pate Valley on the last day, when your pack is lightest.
   - Steep switchbacks, hot and exposed, with no water after Morrison Creek.
-  - Harder to get back to your car.
+  - Potentially harder to get back to your car.
   - Permit name: Glen Aulin -> Cold Canyon/Waterwheel if you’re camping past Glen Aulin High Sierra Camp the first night or Glen Aulin if you’re camping at Glen Aulin (5.3 miles).
 
 - **White Wolf to Tuolumne Meadows**
