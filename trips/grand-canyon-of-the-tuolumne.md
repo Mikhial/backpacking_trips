@@ -162,8 +162,12 @@ Required year-round. Pick up in person. Easier to get in September (fewer crowds
 - **Weekly lottery** (60%): 24 weeks ahead, on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Reservations** (40%): released 7 days ahead on [Recreation.gov](https://www.recreation.gov/permits/445859).
 - **Applying**: permits are for a starting trailhead and first-night camp.
-  - **From Tuolumne Meadows**: *Glen Aulin* to camp at Glen Aulin (5 mi), or *Glen Aulin → Cold Canyon/Waterwheel (pass through)* to camp past the High Sierra Camp, e.g. Waterwheel Falls (8 mi)
-  - **From White Wolf**: *White Wolf → Smith Valley* to camp at Harden Lake (3 mi), or *White Wolf → Pate Valley* to camp past Harden Lake, e.g. Pate Valley (10 mi)
+  - **From Tuolumne Meadows**
+    - *Glen Aulin*: camp at Glen Aulin (5 mi)
+    - *Glen Aulin → Cold Canyon/Waterwheel (pass through)*: camp past the High Sierra Camp, e.g. Waterwheel Falls (8 mi)
+  - **From White Wolf**
+    - *White Wolf → Smith Valley*: camp at Harden Lake (3 mi)
+    - *White Wolf → Pate Valley*: camp past Harden Lake, e.g. Pate Valley (10 mi)
 
 **Cost**: ~$10 application + $5/person.
 
