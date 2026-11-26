@@ -60,6 +60,9 @@ places:
   Tuolumne Meadows Store:
     at: 37.87436, -119.35683
     note: Hikers Bus stop (10:25am in, 2:15pm out). Easier to hitch from here.
+links:
+  Lily Tang trip report: https://lilymtang.com/blog/backpacking-grand-canyon-of-the-tuolumne-yosemite/
+  Bearfoot Theory guide: https://bearfoottheory.com/trail-guide-backpacking-yosemite-grand-canyon-of-the-tuolumne/#h-best-direction-to-hike-the-grand-canyon-of-the-tuolumne
 
 facts:
   Getting there: 3 hr 40 min drive to White Wolf; 4 hr 15 min to Tuolumne Meadows.
