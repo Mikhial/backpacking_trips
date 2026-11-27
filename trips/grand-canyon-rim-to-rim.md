@@ -44,12 +44,14 @@ permit:
       lottery: true
       before: 5 months
       every: month
-      note: monthly, 5 months before
+      days: 16th – 1st
+      note: 16th–1st, ~5 months before
     - label: Lodge · Lottery
       lottery: true
       before: 15 months
       every: month
-      note: monthly, 15 months before
+      days: 1st – 25th
+      note: 1st–25th, 15 months before
 ---
 
 ## Status

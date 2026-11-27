@@ -26,7 +26,7 @@ const ICONS = {
   cold: { label: 'Cold', short: 'cold' }, wind: { label: 'Windy', short: 'windy' }, fog: { label: 'Fog', short: 'fog' },
   wet: { label: 'Wet trails', short: 'wet' }, bugs: { label: 'Bugs', short: 'bugs' }, snow: { label: 'Snow', short: 'snow' },
   water: { label: 'High water, flooding', short: 'high water' }, crowds: { label: 'Crowds', short: 'crowds' },
-  smoke: { label: 'Wildfire smoke', short: 'smoke' }
+  smoke: { label: 'Wildfire smoke', short: 'smoke' }, nobus: { label: 'No bus', short: 'no bus' }
 };
 
 function relOf(r) {
@@ -95,9 +95,13 @@ function render(data, opts = {}) {
   let html = '';
   TRIPS.forEach((t, ri) => {
     let g = gridHTML();
-    t.seasons.forEach(s => {
+    // touching bars of the same kind (split only because their reasons differ) get square corners where they meet,
+    // so they read as one solid bar; each still has its own hover text
+    const touch = (x, y) => x && y && x.type === y.type && Math.abs(x.b - y.a) < 0.01;
+    t.seasons.forEach((s, i) => {
       const why = s.tags.map(k => ICONS[k]?.label).filter(Boolean).join(', ');
-      g += `<div class="sg ${s.type}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
+      const join = (touch(t.seasons[i - 1], s) ? ' jl' : '') + (touch(s, t.seasons[i + 1]) ? ' jr' : '');
+      g += `<div class="sg ${s.type}${join}" style="left:${P(s.a)}%;width:${P(s.b) - P(s.a)}%" title="${esc(t.name)}: ${s.type} ${fmt(s.a)} – ${fmt(s.b - 0.001)}${why ? ' · ' + why : ''}"></div>`;
     });
     const cmp = t.permits.filter((p, i) => i === 0 || p.compact).map(p => bandHTML(t, p, 30, 4)).join('');
     let det = t.permits.map((p, i) => `<div id="ln${ri}_${i}">${bandHTML(t, p, laneY(t, i), 6)}</div>`).join('');
@@ -134,8 +138,18 @@ function fromDay(d) {
   return m + (d - CUM[m]) / DIM[m];
 }
 function lotteryWindow(p, x) {
-  if (p.period === 'month') { const m = Math.floor(x) - p.periodsBefore; return [m, m + 1]; }
-  const wk = Math.floor(toDay(x) / 7), d0 = (wk - p.periodsBefore) * 7;
+  if (p.period === 'month') {
+    const m = Math.floor(x) - p.periodsBefore;
+    if (!p.days) return [m, m + 1];
+    // "days: 16th – 1st": from that day of month m to the second day, in the next month when it's smaller
+    const dim = k => DIM[((k % 12) + 12) % 12], [d1, d2] = p.days, m2 = d2 < d1 ? m + 1 : m;
+    return [m + (Math.min(d1, dim(m)) - 1) / dim(m), m2 + Math.min(d2, dim(m2)) / dim(m2)];
+  }
+  // Weekly lotteries (Yosemite): trips starting Sunday–Saturday share one application week, Sunday–Saturday,
+  // which ends N weeks before the trip week starts ("24 weeks": trips May 9–15, 2027 apply Nov 15–21, 2026).
+  // Real weekdays need a year: the trip year is next year from October on (when the previous-year strip shows today).
+  const Y = NOW.getFullYear() + (NOW.getMonth() >= 9 ? 1 : 0), day = Math.floor(toDay(x));
+  const sun = day - new Date(Date.UTC(Y, 0, 1 + day)).getUTCDay(), d0 = sun - (p.periodsBefore + 1) * 7;
   return [fromDay(d0), fromDay(d0 + 7)];
 }
 

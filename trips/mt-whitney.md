@@ -1,7 +1,7 @@
 ---
 name: Mt Whitney
 region: Sierra Nevada
-order: 4
+order: 5
 summary: 22 miles to the highest summit in the lower 48, at 14,505 ft
 updated: 2026-10-16
 park: John Muir Wilderness
@@ -34,8 +34,8 @@ permit:
   channels:
     - label: Lottery
       lottery: true
-      opens: Feb 1 – Feb 28
-      note: Feb 1–28
+      opens: Feb 1 – Mar 1
+      note: Feb 1–Mar 1
     - label: Unclaimed
       opens: Apr 22
       note: Apr 22
@@ -56,7 +56,7 @@ permit:
 
 Required year-round; quotas May 1 – Nov 1 (100 day-use and 60 overnight released per day). [About a 30% chance of getting one](https://www.latimes.com/travel/story/2023-01-31/mount-whitney-hike-lottery-permit-reservations).
 
-- **Lottery**: open all of February; results announced Mar 15.
+- **Lottery**: open Feb 1 – Mar 1; results announced Mar 15.
 - **Unclaimed permits**: released Apr 22.
 - **Cancellations**: rolling availability May 1 – Nov 1.
 

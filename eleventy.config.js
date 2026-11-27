@@ -63,11 +63,13 @@ export default function (eleventyConfig) {
   // Your own trailheads, camps and GPX routes from the trip header, ready for the trail map
   eleventyConfig.addFilter('mapExtras', function (data) {
     const places = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v) })).filter(t => t.at);
-    const trailheads = places(data.trailheads), camps = places(data.camps);
+    const trailheads = places(data.trailheads);
     // places: Name, then at: (latitude, longitude) and an optional note: shown in its tooltip
     const spotsOf = list => Object.entries(list || {}).map(([n, v]) => ({ n, at: parseLatLon(v?.at), note: v?.note ? String(v.note).trim() : '' })).filter(t => t.at);
     // places: a place, or a group (note: and places:) with its members, shown as one numbered dot until zoomed in
     const member = ([n, v]) => typeof v === 'string' ? { n, at: parseLatLon(v), note: '' } : { n, at: parseLatLon(v?.at), note: v?.note ? String(v.note).trim() : '' };
+    // camps: "Name: latitude, longitude", or at: and note: like a place (the note goes in its tooltip)
+    const camps = Object.entries(data.camps || {}).map(member).filter(t => t.at);
     const spots = Object.entries(data.places || {}).map(([n, v]) => v && typeof v === 'object' && v.places
       ? { n, note: v.note ? String(v.note).trim() : '', members: Object.entries(v.places).map(member).filter(t => t.at) }
       : member([n, v])).filter(t => t.at || (t.members && t.members.length));
