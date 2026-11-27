@@ -150,6 +150,7 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
   .g.yr { background: var(--divider); }
   .sg { position: absolute; top: 11px; height: 12px; border-radius: 2px; }
   .sg.peak { background: var(--peak); } .sg.shoulder { background: var(--shoulder); }
+  .sg.jl { border-top-left-radius: 0; border-bottom-left-radius: 0; } .sg.jr { border-top-right-radius: 0; border-bottom-right-radius: 0; }
   .sg { display: flex; align-items: center; justify-content: center; gap: 2px; overflow: hidden; color: #5c3800; }
   .sg svg { flex: none; }
   .ilg { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }
@@ -332,3 +333,16 @@ table.trips tr.grp td { background: var(--surface-hi); font-size: 11px; font-wei
 
 /* difficulty dots next to the Permits heading */
 .notes h2 > .meter { margin-left: 8px; vertical-align: 3px; }
+/* tables in trip notes (e.g. the bus comparison and schedule): a light card like the trips list, tinted header,
+   soft row lines. A row whose first cell is only bold text and whose other cells are empty is a divider (a direction
+   in the bus schedule), shaded across the whole row. */
+.notes table { border-collapse: separate; border-spacing: 0; font-size: 14px; margin: 12px 0 18px; display: block; width: max-content; max-width: 100%; overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.notes th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--surface-hi); padding: 9px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.notes td { padding: 8px 14px; border-bottom: 1px solid var(--grid); vertical-align: top; font-variant-numeric: tabular-nums; }
+.notes tr:last-child td { border-bottom: 0; }
+.notes tr:has(> td:first-child > strong:only-child):has(> td:empty) td { background: var(--prior); font-size: 12px; color: var(--muted); padding-top: 6px; padding-bottom: 6px; border-bottom-color: var(--line); white-space: nowrap; }
+.notes tr:has(> td:first-child > strong:only-child):has(> td:empty) strong { font-weight: 600; }
+/* a table inside a bullet (e.g. the bus schedule under "Bus") makes Markdown wrap that whole list's items in
+   paragraphs; drop the paragraph spacing so those bullets stay as tight as any other list */
+.notes ul:has(table) > li > p { margin: 0; }
+.notes ul:has(table) > li > p:has(+ table) { margin: 0 0 6px; }

@@ -77,6 +77,8 @@ routes:                        # optional: your own routes, as GPX files
 # route: Coast Trail loop
 # gpx: tracks/point-reyes-coast.gpx
 # route link: https://www.alltrails.com/...  # optional: the route's page, linked next to GPX on the map
+# alternates:                  # optional, with route: other ways to do it (shown one at a time)
+#   South to North: tracks/rim-to-rim-south-to-north.gpx
 links:                         # optional: planning links shown under the map
   Park page: https://www.nps.gov/pore/
 
@@ -106,7 +108,7 @@ permit:                        # the chart; the Permits section itself is writte
 
 **Dates** are written like `Sep 1`. Ranges use a dash: `Sep 1 – Oct 31`.
 
-**Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`. Peak seasons can have them too.
+**Season reasons** (`why`): `hot`, `dry`, `rain`, `cold`, `wind`, `fog`, `wet`, `bugs`, `snow`, `water`, `crowds`, `smoke`, `nobus` (no shuttle or bus to the trailhead yet). Peak seasons can have them too.
 
 ### When to go
 
@@ -114,7 +116,7 @@ A trip page's **When to go** section is built from `seasons:`: one bullet per da
 
 - Several date ranges can share one season and note: `shoulder: Mar 1 – May 20, Sep 11 – Nov 30`. Each range is listed in its place in the year, with the same note.
 - A range can run past New Year: `Nov 1 – Feb 28`.
-- Touching peak seasons are drawn as one bar. Touching shoulders join only when their reasons match.
+- Touching seasons of the same kind (peak or shoulder) are drawn as one bar when their reasons match; with different reasons they stay separate, so each shows its own reasons on hover.
 - Seasons can't overlap.
 - A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - Anything else (sources, events, other research) goes under `## When to go` in the notes, and shows after the season bullets.
@@ -138,7 +140,7 @@ Write dates like `Sep 1`, `Jan–Mar`, and "ahead" for how long before your trip
 Each channel is one way permits are released. It becomes a lane on the chart.
 
 - **Rolling** (opens a set time before your trip): `before: 90 days`, `24 weeks`, `6 months` or `day of`.
-- **Lottery per week or month**: add `lottery: true` and `every: week` (or `month`), with `before` in the same unit.
+- **Lottery per week or month**: add `lottery: true` and `every: week` (or `month`), with `before` in the same unit. Weeks are Sunday–Saturday, and the application week ends that many weeks before your trip's week starts (Yosemite's rule). A monthly lottery that doesn't run the whole month gets `days:`, e.g. `days: 16th – 1st` (Grand Canyon: opens the 16th, closes the 1st of the next month) or `days: 1st – 25th`.
 - **Fixed date or range**: `opens: Apr 22` or `opens: Feb 1 – Feb 28`.
 - **Several fixed releases**: a `releases` list, each with `opens` and `for` (the trip dates it covers). If a release opens after the trip dates it covers (e.g. Dec 5 for Jan–Mar), it's treated as the previous year.
 
@@ -151,12 +153,12 @@ Optional on any channel: `share` (e.g. `60%`), `note` (lane text), `lottery: tru
 Add `park:` with the park or wilderness name, spelled the way it is on [openstreetmap.org](https://www.openstreetmap.org) (search for it there to check). After you commit, the **Fetch trail maps** action downloads the area's trails, trailheads, camps, peaks, water and elevation once (from its state's OpenStreetMap file on [Geofabrik](https://download.geofabrik.de)) and saves it in `parkdata/`, builds the trip's map from it, and republishes the site in a few minutes. Later edits to the trip only rebuild the map; nothing is downloaded again. If the name isn't found, the action fails and says so.
 
 - **Missing trailhead**: add it under `trailheads:` as `Name: latitude, longitude`. Right-click the spot in Google Maps to copy the coordinates.
-- **Camps**: add the camps you mention under `camps:`, in the same `Name: latitude, longitude` format. They're always shown on the map, alongside the camps from OpenStreetMap. Only add ones OpenStreetMap doesn't have (check the All map data page), or they show twice.
+- **Camps**: add the camps you mention under `camps:`, in the same `Name: latitude, longitude` format, or like a place (`at:` and an optional `note:` on the lines below, indented) to give it a note in its tooltip. They're always shown on the map, alongside the camps from OpenStreetMap. Only add ones OpenStreetMap doesn't have (check the All map data page), or they show twice.
 - **Permit stations**: where to pick up permits go under `permit stations:`, in the same format as places (name, then `at:` and an optional `note:`). They're drawn as small blue squares.
 - **Where to stay**: drive-in campgrounds go under `campgrounds:` (a dark green dot on the map; light green dots are OpenStreetMap's backcountry camps; one at a route's trailhead is drawn on the trailhead square) and cabins, resorts and motels under `lodging:` (a house), in the same format as places. An OpenStreetMap camp at the same spot is replaced by your tent.
 - **Places**: anything else worth marking on the map (a checkpoint, a tram station, a tricky turn) goes under `places:`. Give each its name, then `at:` (latitude, longitude) and an optional `note:` on the lines below, indented. Hovering the white dot shows the name and note. Places that belong together (a lake basin, a string of falls) can be a group: give the group a name, an optional `note:`, and its own `places:` list (`Name: latitude, longitude` lines). Zoomed out it's one numbered dot; zoomed in you see each place. A note with a colon followed by a space in it needs "double quotes" around the whole note.
 - **Your own routes**: export each as GPX (AllTrails, CalTopo, Gaia), upload it to the `tracks` folder on github.com (**Add file → Upload files**), and add it under `routes:`. Routes are listed above the map; click one to draw it in blue on top of the trails. The elevation profile uses the elevations in the GPX file. In the notes, a link whose text is exactly the route name (e.g. `- [Coast Trail loop](https://www.alltrails.com/…)`) automatically shows the distance, elevation gain and elevation range measured from the GPX, plus a **Map** button. Don't type those numbers yourself; any notes after a `:` go on the next line.
-- **A trip that is one route** (like Rim to Rim inside Grand Canyon, or Ohlone's one point-to-point): instead of `routes:`, write the route's name on `route:` and its GPX file on `gpx:`. The map then shows that route, always on with its elevation profile open, over the other trails, trailheads, camps, water and peaks within about 3 miles of it. The route can't be hidden, and there are no show/hide buttons. The park name also appears next to the region above the title.
+- **A trip that is one route** (like Rim to Rim inside Grand Canyon, or Ohlone's one point-to-point): instead of `routes:`, write the route's name on `route:` and its GPX file on `gpx:`. The map then shows that route, always on with its elevation profile open, over the other trails, trailheads, camps, water and peaks within about 3 miles of it. The route can't be hidden, and there are no show/hide buttons. The park name also appears next to the region above the title. Other ways to do the same trip (the other direction, a different trail out) go under `alternates:` as `Name: tracks/file.gpx` lines: they become buttons above the map, and picking one shows that route instead, with its own stats and profile. A name with a colon and a space in it needs "double quotes".
 - **Permit zones**: for a park with camping zones (like the Enchantments), add `zones:` with a GeoJSON file of the zone outlines in the `tracks` folder, e.g. `zones: tracks/enchantments-zones.geojson`. Each zone has a `name`, a `note` (shown when you hover its name) and a `label` point (where its name goes). They're drawn as light outlines on the trip map and the All map data page.
 - **Planning links**: the row under the map opens CalTopo and Gaia GPS on whatever area the map is showing. Add your own under `links:` as `Label: https://…` (ranger station, conditions page, FarOut, permits).
 - **What the map shows**: add `map shows:` with the kinds you want, e.g. `map shows: dirt roads, paths, trailheads, camps`. You can use paths, footways, bridleways, cycleways, steps, dirt roads, trailheads, camps, peaks, water, toilets and boundaries (the park boundary). Without the line the map shows all of them except water and toilets. Peaks under 5,000 ft are never shown. Whatever your GPX route runs along (a road, a bike path, a street) is always shown, and the All map data page starts with the same kinds switched on.
